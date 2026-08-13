@@ -1,0 +1,106 @@
+"""
+verify_neo4j_matching.py
+────────────────────────
+Runs the exact Cypher queries that graph_rag_retriever uses
+(exact + CONTAINS + aliases) and prints a clear pass/fail for
+every test case.
+
+Usage:
+    python verify_neo4j_matching.py
+    python verify_neo4j_matching.py --uri bolt://localhost:7687
+"""
+import argparse
+from neo4j import GraphDatabase
+
+TEST_CASES = [
+    # (description,  query_term,  expect_canonical_contains)
+    ("deodar - direct",                    "deodar",                      "deodar"),
+    ("deodar - noisy stored form",         "dbh_1_deodar",                "deodar"),
+    ("deodar - botanical name",            "cedrus deodara",              "deodar"),
+    ("deodar - local name",                "diyar",                       "deodar"),
+    ("chir pine - canonical",              "chir pine",                   "chir"),
+    ("chir pine - short name",             "chir",                        "chir"),
+    ("chir pine - scientific",             "pinus roxburghii",            "chir"),
+    ("blue pine - canonical",              "blue pine",                   "blue pine"),
+    ("blue pine - local",                  "biar",                        "blue pine"),
+    ("KPK - abbreviation",                 "kpk",                         "kpk"),
+    ("KPK - full name",                    "khyber pakhtunkhwa",          "kpk"),
+    ("KPK - noisy stored form",            "the_province_of_khyber_pakhtunkhwa", "kpk"),
+    ("Punjab - direct",                    "punjab",                      "punjab"),
+    ("Punjab - noisy stored form",         "the_province_of_punjab",      "punjab"),
+    ("reserved forest - canonical",        "reserved forest",             "reserved"),
+    ("reserved forest - abbreviated",      "rf",                          "reserved"),
+    ("forest officer - canonical",         "forest officer",              "forest officer"),
+    ("Section 26 - direct",               "section 26",                  "section"),
+    ("carbon credit - canonical",          "carbon credit",               "carbon credit"),
+    ("writ petition - canonical",          "writ petition",               "writ"),
+    ("NOC - abbreviation",                 "noc",                         "noc"),
+]
+
+
+def run_query(session, term: str) -> dict | None:
+    """Run the same 3-pass query the retriever uses."""
+    result = session.run("""
+        MATCH (e:Entity)
+        WHERE toLower(e.canonical_name) = toLower($term)
+           OR any(alias IN e.aliases WHERE toLower(alias) = toLower($term))
+           OR toLower(e.canonical_name) CONTAINS toLower($term)
+           OR any(alias IN e.aliases WHERE toLower(alias) CONTAINS toLower($term))
+        RETURN e.canonical_name   AS canonical,
+               size(e.aliases)    AS alias_count,
+               e.aliases[0..4]    AS sample_aliases
+        LIMIT 1
+    """, term=term).single()
+    return dict(result) if result else None
+
+
+def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--uri",      default="bolt://localhost:7687")
+    parser.add_argument("--user",     default="neo4j")
+    parser.add_argument("--password", default="password")
+    args = parser.parse_args()
+
+    driver = GraphDatabase.driver(args.uri, auth=(args.user, args.password))
+
+    passed = failed = missing = 0
+
+    print(f"\n{'─'*70}")
+    print(f"  {'DESCRIPTION':<42} {'QUERY TERM':<35} RESULT")
+    print(f"{'─'*70}")
+
+    with driver.session() as session:
+        for desc, term, expect_substr in TEST_CASES:
+            row = run_query(session, term)
+            if row is None:
+                status = "○ MISSING"
+                missing += 1
+                detail = "(entity node does not exist in this graph)"
+            elif expect_substr.lower() in row["canonical"].lower():
+                status = "✓ PASS"
+                passed += 1
+                detail = f"→ '{row['canonical']}'  ({row['alias_count']} aliases)"
+            else:
+                status = "✗ FAIL"
+                failed += 1
+                detail = f"→ got '{row['canonical']}', expected '{expect_substr}'"
+
+            print(f"  {status:<8} {desc:<42} {term:<35} {detail}")
+
+    print(f"{'─'*70}")
+    print(f"\n  PASSED: {passed}   FAILED: {failed}   "
+          f"MISSING (node not in graph): {missing}\n")
+
+    if failed > 0:
+        print("  ACTION: Re-run neo4j_entity_migration.py then retry.\n")
+    elif missing > 0:
+        print("  NOTE: Missing nodes just mean those entities aren't in your corpus yet.")
+        print("        Once ingested via EntityWriter they will pass automatically.\n")
+    else:
+        print("  All present entities match correctly.\n")
+
+    driver.close()
+
+
+if __name__ == "__main__":
+    main()

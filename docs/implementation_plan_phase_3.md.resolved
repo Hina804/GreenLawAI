@@ -1,0 +1,1420 @@
+# 🌟 PHASE 3: Advanced Intelligence & External Integration - MASTER PLAN
+
+---
+
+## 🏗️ PHASE 3 ARCHITECTURE
+
+```
+                    ┌── ADAPTIVE LEARNING LAYER ──┐
+                    │  Feedback Loop              │
+                    │  Learning Store DB           │
+                    │  Knowledge Evolution         │
+                    └──────────────┬───────────────┘
+                                   ↓
+User → Phase 2 Agents → ┌─────────────────────┐
+                        │   INTELLIGENCE       │
+                   ↓    │     FUSION LAYER     │
+← Feedback ←───────┘    └──────────┬──────────┘
+                                   ↓
+┌─────────────────────────────────────────────────────────────┐
+│                 EXTERNAL INTEGRATION LAYER                   │
+├──────────────┬──────────────┬──────────────┬───────────────┤
+│  GIS Engine  │ Climate APIs │ Forest DB    │ Satellite     │
+│  (Map viz)   │ (Real data)  │ (FAO/Local)  │ (Imagery)     │
+└──────────────┴──────────────┴──────────────┴───────────────┘
+                                   ↓
+┌─────────────────────────────────────────────────────────────┐
+│                   PREDICTION ENGINE                          │
+├──────────────┬──────────────┬──────────────┬───────────────┤
+│Deforestation │ Fire Risk    │ Illegal      │ Species       │
+│Model         │ Prediction   │ Activity     │ Decline       │
+└──────────────┴──────────────┴──────────────┴───────────────┘
+                                   ↓
+┌─────────────────────────────────────────────────────────────┐
+│                DECISION SUPPORT SYSTEM                       │
+│  (Policy Suggestions, Conservation Priorities, Alerts)       │
+└─────────────────────────────────────────────────────────────┘
+                                   ↓
+                    ┌── OPERATIONAL HARDENING ──┐
+                    │  Logging | Rate Limiting  │
+                    │  Memory | Metrics         │
+                    └───────────────────────────┘
+```
+
+---
+
+## 🗓️ 12-WEEK IMPLEMENTATION ROADMAP (Merged Timeline)
+
+| Week | Focus | Primary Source |
+|------|-------|---------------|
+| **MONTH 1: Adaptive Learning & Knowledge Evolution** |
+| Week 1 | Feedback System + Learning DB | ChatGPT + Original |
+| Week 2 | Knowledge Evolution + Versioning | ChatGPT + AntiGravity |
+| Week 3 | Advanced Knowledge Tools (FAO/Climate) | AntiGravity + Original |
+| Week 4 | Graph Reasoning & Legal Precedents | AntiGravity |
+| **MONTH 2: External Integration & GIS** |
+| Week 5 | GIS Integration + Map Visualization | AntiGravity + ChatGPT |
+| Week 6 | Climate APIs + Forest Datasets | Original + ChatGPT |
+| Week 7 | Satellite Imagery + Real-time Data | Original + AntiGravity |
+| Week 8 | Memory Persistence + Stateful Agents | AntiGravity + Original |
+| **MONTH 3: Prediction & Decision Systems** |
+| Week 9 | Deforestation + Fire Prediction Models | Original + ChatGPT |
+| Week 10 | Illegal Activity + Risk Engine | ChatGPT + Original |
+| Week 11 | Decision Support System + Alerts | ChatGPT + AntiGravity |
+| Week 12 | Operational Hardening + Final Testing | AntiGravity + All |
+
+---
+
+## 📅 MONTH 1: ADAPTIVE LEARNING & KNOWLEDGE EVOLUTION
+
+### **WEEK 1: Feedback System + Learning Database**
+
+#### *From ChatGPT: Strategic Learning Architecture*
+#### *From Original: Implementation Details*
+
+```python
+# src/learning/feedback_system.py
+class FeedbackSystem:
+    """
+    ChatGPT's learning store + Original's feedback collection
+    """
+    def __init__(self):
+        # ChatGPT's structured tables
+        self.db = PostgreSQLDatabase()
+        self._init_tables()
+        
+    def _init_tables(self):
+        """Create learning store tables"""
+        tables = """
+        CREATE TABLE IF NOT EXISTS user_queries (
+            id SERIAL PRIMARY KEY,
+            user_id VARCHAR(100),
+            query TEXT,
+            intent VARCHAR(50),
+            timestamp TIMESTAMP
+        );
+        
+        CREATE TABLE IF NOT EXISTS agent_responses (
+            id SERIAL PRIMARY KEY,
+            query_id INTEGER REFERENCES user_queries(id),
+            agent_name VARCHAR(50),
+            response TEXT,
+            confidence FLOAT,
+            latency_ms INTEGER
+        );
+        
+        CREATE TABLE IF NOT EXISTS feedback_scores (
+            id SERIAL PRIMARY KEY,
+            response_id INTEGER REFERENCES agent_responses(id),
+            rating INTEGER CHECK (rating >= 1 AND rating <= 5),
+            helpful BOOLEAN,
+            corrections TEXT,
+            timestamp TIMESTAMP
+        );
+        
+        CREATE TABLE IF NOT EXISTS confidence_tracking (
+            id SERIAL PRIMARY KEY,
+            query_pattern TEXT,
+            agent_name VARCHAR(50),
+            avg_confidence FLOAT,
+            sample_count INTEGER
+        );
+        """
+        self.db.execute(tables)
+    
+    async def collect_feedback(self, interaction_data: Dict):
+        """Original's comprehensive feedback collection"""
+        
+        # Store query
+        query_id = await self.db.insert('user_queries', {
+            'user_id': interaction_data['user_id'],
+            'query': interaction_data['query'],
+            'intent': interaction_data['intent'],
+            'timestamp': datetime.now()
+        })
+        
+        # Store responses
+        for agent_response in interaction_data['responses']:
+            response_id = await self.db.insert('agent_responses', {
+                'query_id': query_id,
+                'agent_name': agent_response['agent'],
+                'response': agent_response['text'],
+                'confidence': agent_response['confidence'],
+                'latency_ms': agent_response['latency']
+            })
+            
+            # Store feedback if provided
+            if 'feedback' in interaction_data:
+                await self.db.insert('feedback_scores', {
+                    'response_id': response_id,
+                    'rating': interaction_data['feedback']['rating'],
+                    'helpful': interaction_data['feedback']['helpful'],
+                    'corrections': interaction_data['feedback'].get('corrections'),
+                    'timestamp': datetime.now()
+                })
+        
+        # Update confidence tracking
+        await self._update_confidence_metrics(
+            interaction_data['query'],
+            interaction_data['intent'],
+            interaction_data['responses']
+        )
+    
+    async def get_learning_insights(self):
+        """Extract patterns from feedback"""
+        
+        # ChatGPT's learning metrics
+        insights = {
+            'low_confidence_patterns': await self._find_low_confidence_patterns(),
+            'common_corrections': await self._analyze_corrections(),
+            'improvement_areas': await self._identify_gaps(),
+            'popular_queries': await self._get_popular_queries(),
+            'agent_performance': await self._agent_performance_breakdown()
+        }
+        
+        return insights
+```
+
+### **WEEK 2: Knowledge Evolution System**
+
+#### *From ChatGPT: Knowledge Evolution Architecture*
+#### *From AntiGravity: Versioning Approach*
+
+```python
+# src/knowledge/knowledge_evolution.py
+class KnowledgeEvolutionSystem:
+    """
+    ChatGPT's knowledge evolution + AntiGravity's versioning
+    """
+    def __init__(self):
+        self.version_control = KnowledgeVersionControl()
+        self.validation_engine = ValidationEngine()
+        
+    async def evolve_knowledge(self):
+        """Continuous knowledge improvement cycle"""
+        
+        # ChatGPT's evolution cycle
+        cycle_results = {
+            'validation': await self._validate_current_knowledge(),
+            'updates': await self._check_for_updates(),
+            'versioning': None,
+            'archived': []
+        }
+        
+        # Check for new legal documents
+        new_docs = await self._fetch_new_documents()
+        
+        for doc in new_docs:
+            # Validate
+            is_valid = await self.validation_engine.validate(doc)
+            
+            if is_valid:
+                # AntiGravity's versioning
+                new_version = await self.version_control.create_version(
+                    document=doc,
+                    source=doc['source'],
+                    timestamp=datetime.now()
+                )
+                
+                # Add to knowledge base
+                await self._add_to_knowledge_base(new_version)
+                
+                cycle_results['updates'].append({
+                    'document': doc['title'],
+                    'version': new_version,
+                    'status': 'added'
+                })
+            else:
+                cycle_results['validation'].append({
+                    'document': doc['title'],
+                    'status': 'failed_validation',
+                    'reason': doc.get('validation_error')
+                })
+        
+        # Archive old versions (AntiGravity)
+        archived = await self.version_control.archive_outdated(
+            older_than_days=365
+        )
+        cycle_results['archived'] = archived
+        
+        return cycle_results
+    
+    async def _validate_current_knowledge(self):
+        """Stale knowledge detection"""
+        
+        # ChatGPT's validation
+        validation_results = []
+        
+        for doc in self.knowledge_base.get_all():
+            age_days = (datetime.now() - doc['last_verified']).days
+            
+            if age_days > 180:  # 6 months
+                validation_results.append({
+                    'document': doc['title'],
+                    'status': 'needs_review',
+                    'age_days': age_days
+                })
+            
+            if age_days > 365:  # 1 year
+                validation_results.append({
+                    'document': doc['title'],
+                    'status': 'stale',
+                    'action': 'archive_or_update'
+                })
+        
+        return validation_results
+
+class KnowledgeVersionControl:
+    """AntiGravity's versioning system"""
+    
+    def __init__(self):
+        self.versions = {}
+        self.version_history = []
+        
+    async def create_version(self, document: Dict, source: str, timestamp: datetime):
+        """Create new version with tracking"""
+        
+        version_id = f"{document['id']}_v{timestamp.strftime('%Y%m%d_%H%M%S')}"
+        
+        version = {
+            'version_id': version_id,
+            'document': document,
+            'source': source,
+            'created_at': timestamp,
+            'previous_version': self._get_latest_version(document['id']),
+            'changes': self._compute_changes(document)
+        }
+        
+        self.versions[version_id] = version
+        self.version_history.append(version_id)
+        
+        return version_id
+    
+    async def archive_outdated(self, older_than_days: int):
+        """Archive old versions"""
+        cutoff = datetime.now() - timedelta(days=older_than_days)
+        
+        to_archive = []
+        for version_id, version in self.versions.items():
+            if version['created_at'] < cutoff:
+                to_archive.append(version_id)
+                # Move to cold storage
+                await self._move_to_archive(version_id)
+        
+        return to_archive
+```
+
+### **WEEK 3: Advanced Knowledge Tools**
+
+#### *From AntiGravity: FAO/Local Datasets Integration*
+#### *From Original: Detailed Implementations*
+
+```python
+# src/tools/advanced_climate_tools.py
+class AdvancedClimateKnowledgeTool:
+    """
+    AntiGravity's FAO integration + Original's formulas
+    """
+    def __init__(self):
+        # AntiGravity's dataset connections
+        self.datasets = {
+            'fao': FAOClimateDataset(),
+            'local_forest_dept': LocalForestryData(),
+            'global_temperature': TemperatureRecords(),
+            'precipitation': PrecipitationData()
+        }
+        
+        # Original's growth models
+        self.growth_curves = self._load_growth_curves()
+        self.carbon_sequestration_models = self._load_carbon_models()
+        
+    async def get_species_data(self, species_name: str, region: str, age_years: int = None):
+        """
+        Enhanced lookup with age-based calculations
+        """
+        results = {}
+        
+        # Get FAO data
+        fao_data = await self.datasets['fao'].query(
+            species=species_name,
+            region=region
+        )
+        results['fao_reference'] = fao_data
+        
+        # Get local forestry data
+        local_data = await self.datasets['local_forest_dept'].query(
+            species=species_name,
+            region=region
+        )
+        results['local_data'] = local_data
+        
+        # Calculate age-based metrics (Original)
+        if age_years and species_name in self.growth_curves:
+            growth_curve = self.growth_curves[species_name]
+            
+            # Height at age
+            height = growth_curve['height_formula'](age_years)
+            
+            # DBH (Diameter at Breast Height)
+            dbh = growth_curve['dbh_formula'](age_years)
+            
+            # Biomass
+            biomass = growth_curve['biomass_formula'](height, dbh)
+            
+            # Carbon content (typically 50% of biomass)
+            carbon_content = biomass * 0.5
+            
+            # CO2 equivalent
+            co2_equivalent = carbon_content * 3.67  # C to CO2 conversion
+            
+            results['age_based_metrics'] = {
+                'age_years': age_years,
+                'height_m': height,
+                'dbh_cm': dbh,
+                'biomass_kg': biomass,
+                'carbon_kg': carbon_content,
+                'co2_sequestered_kg': co2_equivalent
+            }
+        
+        # Validate against FAO standards
+        results['validation'] = self._validate_against_fao(
+            results.get('age_based_metrics', {}),
+            fao_data
+        )
+        
+        return results
+    
+    def _load_growth_curves(self):
+        """Original's growth formulas"""
+        return {
+            'Deodar': {
+                'height_formula': lambda age: 0.5 * age ** 0.8,  # Simplified
+                'dbh_formula': lambda age: 1.2 * age ** 0.7,
+                'biomass_formula': lambda h, dbh: 0.05 * (dbh**2) * h,
+                'max_age': 500
+            },
+            'Chir Pine': {
+                'height_formula': lambda age: 0.6 * age ** 0.75,
+                'dbh_formula': lambda age: 1.5 * age ** 0.65,
+                'biomass_formula': lambda h, dbh: 0.04 * (dbh**2) * h,
+                'max_age': 350
+            }
+        }
+
+# src/tools/monitoring_tools.py (AntiGravity's CSV-based monitoring)
+class IncidentTrendAnalyzer:
+    """
+    AntiGravity's incident log analyzer with CSV backend
+    """
+    def __init__(self, csv_path: str = 'data/incidents.csv'):
+        self.csv_path = csv_path
+        self._ensure_csv_exists()
+        
+    def _ensure_csv_exists(self):
+        """Create CSV if not exists with AntiGravity's fields"""
+        if not os.path.exists(self.csv_path):
+            import pandas as pd
+            df = pd.DataFrame(columns=[
+                'date', 'district', 'location', 'details', 
+                'status', 'latitude', 'longitude', 'incident_type',
+                'severity', 'reported_by'
+            ])
+            df.to_csv(self.csv_path, index=False)
+    
+    async def analyze_trends(self, days_back: int = 30):
+        """Analyze incident patterns from CSV"""
+        
+        import pandas as pd
+        df = pd.read_csv(self.csv_path)
+        df['date'] = pd.to_datetime(df['date'])
+        
+        # Filter recent
+        cutoff = datetime.now() - timedelta(days=days_back)
+        recent = df[df['date'] > cutoff]
+        
+        trends = {
+            'total_incidents': len(recent),
+            'by_district': recent['district'].value_counts().to_dict(),
+            'by_type': recent['incident_type'].value_counts().to_dict(),
+            'by_status': recent['status'].value_counts().to_dict(),
+            'daily_trend': recent.groupby(recent['date'].dt.date).size().to_dict(),
+            'hotspots': self._identify_hotspots(recent),
+            'severity_distribution': recent['severity'].value_counts().to_dict()
+        }
+        
+        # Detect increases (AntiGravity's alert logic)
+        if len(recent) > 0:
+            previous = df[df['date'] <= cutoff]
+            if len(previous) > 0:
+                increase = (len(recent) - len(previous)) / len(previous) * 100
+                trends['percent_change'] = increase
+                trends['alert'] = increase > 20  # Alert if >20% increase
+        
+        return trends
+    
+    async def add_incident(self, incident_data: Dict):
+        """Add new incident to CSV"""
+        import pandas as pd
+        df = pd.read_csv(self.csv_path)
+        
+        new_row = pd.DataFrame([{
+            'date': datetime.now().strftime('%Y-%m-%d'),
+            'district': incident_data.get('district'),
+            'location': incident_data.get('location'),
+            'details': incident_data.get('details'),
+            'status': 'open',
+            'latitude': incident_data.get('latitude'),
+            'longitude': incident_data.get('longitude'),
+            'incident_type': incident_data.get('type'),
+            'severity': incident_data.get('severity', 'medium'),
+            'reported_by': incident_data.get('reporter', 'system')
+        }])
+        
+        df = pd.concat([df, new_row], ignore_index=True)
+        df.to_csv(self.csv_path, index=False)
+        
+        return {"status": "added", "id": len(df)}
+    
+    async def resolve_incident(self, incident_id: int):
+        """AntiGravity's resolve button functionality"""
+        import pandas as pd
+        df = pd.read_csv(self.csv_path)
+        
+        if incident_id < len(df):
+            df.loc[incident_id, 'status'] = 'resolved'
+            df.to_csv(self.csv_path, index=False)
+            return {"status": "resolved"}
+        
+        return {"status": "not_found"}
+    
+    def _identify_hotspots(self, df):
+        """Find geographic clusters of incidents"""
+        if 'latitude' in df.columns and 'longitude' in df.columns:
+            # Simple grid-based clustering
+            coords = df[['latitude', 'longitude']].dropna()
+            if len(coords) > 5:
+                # Return center points of clusters
+                return self._simple_cluster(coords.values)
+        return []
+```
+
+### **WEEK 4: Graph Reasoning & Legal Precedents**
+
+#### *From AntiGravity: Neo4j Query Optimization*
+
+```python
+# src/agents/law_agent_graph.py
+class GraphLawAgent:
+    """
+    AntiGravity's enhanced LawAgent with graph reasoning
+    """
+    def __init__(self, neo4j_driver):
+        self.neo4j = neo4j_driver
+        
+    async def find_legal_precedents(self, query: str, context: Dict):
+        """
+        Find non-obvious legal connections using graph traversal
+        """
+        with self.neo4j.session() as session:
+            # Extract entities
+            entities = context.get('entities', {})
+            
+            # Optimized Cypher query (AntiGravity's tuning)
+            result = session.run("""
+                // Match the primary legal node
+                MATCH (law:LegalDocument {type: $law_type})
+                
+                // Find related cases and penalties
+                OPTIONAL MATCH (law)-[:MENTIONED_IN]->(case:LegalCase)
+                OPTIONAL MATCH (law)-[:HAS_PENALTY]->(penalty:Penalty)
+                
+                // Find connections through common themes
+                OPTIONAL MATCH (law)-[:RELATES_TO]->(theme:Theme)<-[:RELATES_TO]-(similar:LegalDocument)
+                
+                // Find precedents (older cases that influenced this)
+                OPTIONAL MATCH (precedent:LegalCase)-[:INFLUENCED]->(law)
+                
+                // Calculate relevance based on graph distance
+                RETURN 
+                    law.title as primary_law,
+                    collect(DISTINCT case.case_name) as related_cases,
+                    collect(DISTINCT penalty.description) as applicable_penalties,
+                    collect(DISTINCT similar.title) as similar_laws,
+                    collect(DISTINCT precedent.case_name) as precedents,
+                    // Custom scoring
+                    size(collect(DISTINCT case)) + 
+                    size(collect(DISTINCT penalty)) * 2 as relevance_score
+                
+                ORDER BY relevance_score DESC
+                LIMIT 10
+            """, {
+                'law_type': entities.get('law_type', 'forestry'),
+                'region': entities.get('region', '')
+            })
+            
+            return await result.data()
+    
+    async def traverse_legal_network(self, start_node: str, max_depth: int = 3):
+        """
+        Graph traversal to find indirect connections
+        """
+        with self.neo4j.session() as session:
+            # Variable-length path traversal
+            result = session.run("""
+                MATCH path = (start:LegalEntity {name: $start})-[*1..$depth]-(connected)
+                RETURN 
+                    nodes(path) as path_nodes,
+                    relationships(path) as connections,
+                    length(path) as depth,
+                    // Weight by connection strength
+                    reduce(weight = 1, r IN relationships(path) | weight * r.weight) as path_weight
+                ORDER BY path_weight DESC
+                LIMIT 50
+            """, {
+                'start': start_node,
+                'depth': max_depth
+            })
+            
+            return await self._build_network_graph(result)
+```
+
+---
+
+## 📅 MONTH 2: EXTERNAL INTEGRATION & GIS
+
+### **WEEK 5: GIS Integration + Map Visualization**
+
+#### *From AntiGravity: Map Visualization*
+#### *From ChatGPT: Spatial Intelligence*
+#### *From Original: Comprehensive GIS*
+
+```python
+# src/gis/spatial_intelligence.py
+class SpatialIntelligenceEngine:
+    """
+    ChatGPT's spatial intelligence + AntiGravity's maps + Original's layers
+    """
+    def __init__(self):
+        self.gis_layers = {
+            'forest_cover': ForestCoverLayer(),
+            'protected_areas': ProtectedAreasLayer(),
+            'deforestation_hotspots': DeforestationLayer(),
+            'fire_risk_zones': FireRiskLayer(),
+            'incident_locations': IncidentLayer()
+        }
+        
+    async def get_region_data(self, region_name: str):
+        """ChatGPT's region intelligence"""
+        
+        # Get all spatial data for region
+        region_data = {
+            'name': region_name,
+            'coordinates': await self._get_region_coordinates(region_name),
+            'forest_cover': await self._get_forest_cover(region_name),
+            'protected_status': await self._get_protected_status(region_name),
+            'climate_risk': await self._assess_climate_risk(region_name),
+            'deforestation_rate': await self._get_deforestation_rate(region_name),
+            'recent_incidents': await self._get_incidents_in_region(region_name)
+        }
+        
+        # Calculate zone risk (ChatGPT's risk scoring)
+        region_data['risk_score'] = self._calculate_risk_score(region_data)
+        
+        return region_data
+    
+    async def create_incident_map(self, incidents_df, center_lat=None, center_lon=None):
+        """
+        AntiGravity's st.map() visualization
+        """
+        import streamlit as st
+        import pandas as pd
+        
+        if 'latitude' in incidents_df.columns and 'longitude' in incidents_df.columns:
+            # Filter out null coordinates
+            map_data = incidents_df[['latitude', 'longitude']].dropna()
+            
+            if len(map_data) > 0:
+                # Create Streamlit map
+                st.map(map_data)
+                
+                # Add incident details in sidebar
+                st.sidebar.subheader("📍 Incident Details")
+                for idx, row in incidents_df.iterrows():
+                    if pd.notna(row.get('latitude')):
+                        with st.sidebar.expander(f"{row.get('date')} - {row.get('incident_type')}"):
+                            st.write(f"**Location:** {row.get('location')}")
+                            st.write(f"**District:** {row.get('district')}")
+                            st.write(f"**Status:** {row.get('status')}")
+                            st.write(f"**Details:** {row.get('details')}")
+                            
+                            # AntiGravity's resolve button
+                            if row.get('status') == 'open':
+                                if st.button(f"Resolve #{idx}", key=f"resolve_{idx}"):
+                                    await self.resolve_incident(idx)
+                                    st.success("Incident resolved!")
+                                    st.rerun()
+                
+                return map_data
+        return None
+    
+    async def find_deforestation_hotspots(self, country: str, year: int):
+        """Original's hotspot detection"""
+        
+        # Get satellite data
+        satellite_data = await self._get_satellite_imagery(country, year)
+        
+        # Run change detection
+        changes = await self._detect_changes(satellite_data)
+        
+        # Cluster into hotspots
+        from sklearn.cluster import DBSCAN
+        hotspots = DBSCAN(eps=0.1, min_samples=5).fit(changes['coordinates'])
+        
+        return {
+            'total_hotspots': len(set(hotspots.labels_)) - (1 if -1 in hotspots.labels_ else 0),
+            'hotspot_centers': self._get_cluster_centers(changes, hotspots),
+            'total_area_affected': changes['total_area'],
+            'severity_map': await self._create_severity_map(changes)
+        }
+```
+
+### **WEEK 6: Climate APIs + Forest Datasets**
+
+#### *From Original: Detailed API Integration*
+#### *From ChatGPT: Data Connector Pattern*
+
+```python
+# src/integration/data_connector.py
+class DataConnectorHub:
+    """
+    ChatGPT's data connector pattern + Original's API implementations
+    """
+    def __init__(self):
+        self.connectors = {
+            'climate': ClimateAPIConnector(),
+            'forest': ForestDatasetConnector(),
+            'satellite': SatelliteConnector(),
+            'legal': LegalUpdateConnector()
+        }
+        
+    async def fetch_all(self, sources: List[str], params: Dict):
+        """Fetch from multiple sources in parallel"""
+        
+        tasks = []
+        for source in sources:
+            if source in self.connectors:
+                tasks.append(self.connectors[source].fetch(params))
+        
+        results = await asyncio.gather(*tasks, return_exceptions=True)
+        
+        # Standardize format
+        standardized = []
+        for result in results:
+            if not isinstance(result, Exception):
+                standardized.append(self._standardize_format(result))
+        
+        return standardized
+
+class ClimateAPIConnector:
+    """Original's comprehensive climate API integration"""
+    
+    def __init__(self):
+        self.apis = {
+            'openweather': OpenWeatherMap(api_key=os.getenv('OPENWEATHER_KEY')),
+            'copernicus': CopernicusAPI(api_key=os.getenv('COPERNICUS_KEY')),
+            'global_forest_watch': GFWAPI(api_key=os.getenv('GFW_KEY'))
+        }
+        
+    async def fetch(self, params: Dict):
+        region = params.get('region')
+        
+        # Parallel API calls
+        tasks = [
+            self.apis['openweather'].get_forecast(region),
+            self.apis['copernicus'].get_climate_data(region),
+            self.apis['global_forest_watch'].get_forest_data(region)
+        ]
+        
+        results = await asyncio.gather(*tasks)
+        
+        return {
+            'source': 'climate_apis',
+            'timestamp': datetime.now(),
+            'weather': results[0],
+            'climate_projections': results[1],
+            'forest_health': results[2],
+            'combined_risk': self._calculate_combined_risk(results)
+        }
+```
+
+### **WEEK 7: Satellite Imagery + Real-time Data**
+
+#### *From Original: Satellite Processing*
+#### *From AntiGravity: Real-time Updates*
+
+```python
+# src/integration/satellite_processor.py
+class SatelliteProcessor:
+    """
+    Original's satellite processing + AntiGravity's real-time
+    """
+    def __init__(self):
+        self.sentinel_api = SentinelAPI()
+        self.landsat_api = LandsatAPI()
+        self.processor = ImageProcessor()
+        
+    async def monitor_deforestation_realtime(self, region: str):
+        """
+        Real-time deforestation monitoring
+        """
+        # Get latest imagery
+        latest = await self.sentinel_api.get_latest(region)
+        
+        # Get previous for comparison
+        previous = await self._get_previous_image(region)
+        
+        if previous:
+            # Run change detection
+            changes = await self.processor.detect_changes(previous, latest)
+            
+            if changes['deforestation_detected']:
+                alert = {
+                    'type': 'DEFORESTATION_ALERT',
+                    'region': region,
+                    'area_affected_ha': changes['area_ha'],
+                    'confidence': changes['confidence'],
+                    'coordinates': changes['affected_areas'],
+                    'timestamp': datetime.now(),
+                    'image_url': latest['url'],
+                    'previous_image': previous['url']
+                }
+                
+                # AntiGravity's alert system
+                await self._send_realtime_alert(alert)
+                
+                return alert
+        
+        return {'status': 'no_changes_detected'}
+```
+
+### **WEEK 8: Memory Persistence + Stateful Agents**
+
+#### *From AntiGravity: LangGraph Memory*
+#### *From Original: Database-backed Memory*
+
+```python
+# src/memory/agent_memory.py
+class AgentMemorySystem:
+    """
+    AntiGravity's thread memory + Original's persistence
+    """
+    def __init__(self):
+        self.memory_store = RedisMemoryStore()
+        self.long_term_db = PostgreSQLDatabase()
+        
+    async def remember_context(self, user_id: str, session_id: str, context: Dict):
+        """
+        Remember context across sessions
+        """
+        # Short-term memory (Redis - expires after 24h)
+        await self.memory_store.setex(
+            f"session:{user_id}:{session_id}",
+            86400,  # 24 hours
+            json.dumps(context)
+        )
+        
+        # Long-term memory (PostgreSQL - permanent)
+        await self.long_term_db.insert('user_memory', {
+            'user_id': user_id,
+            'session_id': session_id,
+            'context': context,
+            'timestamp': datetime.now(),
+            'importance': self._calculate_importance(context)
+        })
+        
+        # Extract important facts for quick recall
+        important_facts = self._extract_important_facts(context)
+        for fact in important_facts:
+            await self.memory_store.sadd(
+                f"facts:{user_id}",
+                json.dumps(fact)
+            )
+    
+    async def recall(self, user_id: str, query: str) -> Dict:
+        """
+        Recall relevant context based on query
+        """
+        # Get recent session context
+        recent = await self._get_recent_sessions(user_id)
+        
+        # Get important facts
+        facts = await self.memory_store.smembers(f"facts:{user_id}")
+        
+        # Get long-term patterns
+        patterns = await self._get_user_patterns(user_id)
+        
+        # Find relevant memories
+        relevant = self._find_relevant_memories(query, recent, facts, patterns)
+        
+        return {
+            'session_context': relevant.get('session'),
+            'facts': relevant.get('facts', []),
+            'patterns': patterns,
+            'user_preferences': await self._get_preferences(user_id)
+        }
+```
+
+---
+
+## 📅 MONTH 3: PREDICTION & DECISION SYSTEMS
+
+### **WEEK 9: Deforestation + Fire Prediction Models**
+
+#### *From Original: ML Models*
+#### *From ChatGPT: Risk Scoring*
+
+```python
+# src/prediction/deforestation_model.py
+class DeforestationPredictor:
+    """
+    Original's ML model + ChatGPT's risk scoring
+    """
+    def __init__(self):
+        self.model = self._load_model('deforestation_xgboost.pkl')
+        self.feature_store = FeatureStore()
+        
+    async def predict_risk(self, region: str, months_ahead: int = 12):
+        """
+        Predict deforestation risk with confidence intervals
+        """
+        # Get features
+        features = await self.feature_store.get_features(region, [
+            'historical_deforestation',
+            'population_density',
+            'protected_status',
+            'accessibility',
+            'enforcement_level',
+            'commodity_prices',
+            'rainfall',
+            'temperature'
+        ])
+        
+        # Make predictions with uncertainty
+        predictions = []
+        confidences = []
+        
+        for month in range(months_ahead):
+            # Shift features for future months
+            future_features = self._project_features(features, month)
+            
+            # Predict
+            pred = self.model.predict(future_features)[0]
+            
+            # Get prediction interval
+            lower, upper = self.model.predict_interval(future_features)
+            
+            predictions.append({
+                'month': month + 1,
+                'risk_score': float(pred),
+                'lower_bound': float(lower),
+                'upper_bound': float(upper),
+                'risk_category': self._categorize_risk(pred)
+            })
+            
+            confidences.append(1 - (upper - lower) / 2)  # Normalized confidence
+        
+        # ChatGPT's risk scoring
+        risk_summary = {
+            'region': region,
+            'overall_risk': np.mean([p['risk_score'] for p in predictions]),
+            'max_risk_month': max(predictions, key=lambda x: x['risk_score']),
+            'high_risk_periods': [
+                p for p in predictions if p['risk_score'] > 0.7
+            ],
+            'total_expected_loss_ha': sum(p['risk_score'] * 100 for p in predictions),
+            'confidence': np.mean(confidences),
+            'recommendations': self._generate_recommendations(predictions)
+        }
+        
+        return risk_summary
+    
+    def _categorize_risk(self, score: float):
+        """ChatGPT's risk categories"""
+        if score < 0.3:
+            return 'LOW'
+        elif score < 0.6:
+            return 'MEDIUM'
+        elif score < 0.8:
+            return 'HIGH'
+        else:
+            return 'CRITICAL'
+```
+
+### **WEEK 10: Illegal Activity + Risk Engine**
+
+#### *From ChatGPT: Comprehensive Risk Engine*
+#### *From Original: Pattern Detection*
+
+```python
+# src/risk/risk_engine.py
+class ComprehensiveRiskEngine:
+    """
+    ChatGPT's risk scoring + Original's pattern detection
+    """
+    def __init__(self):
+        self.weights = {
+            'climate': 0.25,
+            'human_activity': 0.30,
+            'enforcement': 0.20,
+            'historical': 0.15,
+            'geo_sensitivity': 0.10
+        }
+        
+    async def calculate_risk_score(self, region_data: Dict) -> Dict:
+        """
+        Calculate comprehensive risk score
+        """
+        # Component scores
+        climate_risk = await self._calculate_climate_risk(region_data)
+        activity_risk = await self._calculate_activity_risk(region_data)
+        enforcement_score = await self._calculate_enforcement_score(region_data)
+        historical_risk = await self._calculate_historical_risk(region_data)
+        geo_sensitivity = await self._calculate_geo_sensitivity(region_data)
+        
+        # Weighted average
+        total_risk = (
+            climate_risk * self.weights['climate'] +
+            activity_risk * self.weights['human_activity'] +
+            (1 - enforcement_score) * self.weights['enforcement'] +  # Inverse
+            historical_risk * self.weights['historical'] +
+            geo_sensitivity * self.weights['geo_sensitivity']
+        )
+        
+        # Risk breakdown
+        risk_report = {
+            'total_risk_score': total_risk,
+            'risk_level': self._get_risk_level(total_risk),
+            'components': {
+                'climate_risk': climate_risk,
+                'human_activity_risk': activity_risk,
+                'enforcement_strength': enforcement_score,
+                'historical_risk': historical_risk,
+                'geo_sensitivity': geo_sensitivity
+            },
+            'contributing_factors': self._identify_top_factors({
+                'climate': climate_risk,
+                'activity': activity_risk,
+                'enforcement_gap': 1 - enforcement_score,
+                'history': historical_risk,
+                'sensitivity': geo_sensitivity
+            }),
+            'recommended_actions': self._generate_risk_actions(region_data, total_risk)
+        }
+        
+        # ChatGPT's automated alert
+        if total_risk > 0.7:
+            risk_report['alert'] = {
+                'level': 'HIGH_RISK_ALERT',
+                'message': f"Region {region_data['name']} at critical risk",
+                'immediate_actions': risk_report['recommended_actions'][:3]
+            }
+        
+        return risk_report
+    
+    async def predict_illegal_activity(self, region: str, season: str):
+        """
+        Original's illegal activity prediction
+        """
+        # Seasonal patterns
+        seasonal_multipliers = {
+            'winter': 0.7,
+            'spring': 1.2,
+            'summer': 1.5,
+            'autumn': 1.1
+        }
+        
+        # Get baseline risk
+        baseline = await self._get_baseline_illegal_activity(region)
+        
+        # Apply seasonal factor
+        seasonal_risk = baseline * seasonal_multipliers.get(season, 1.0)
+        
+        # Time-based patterns (more at night)
+        hourly_pattern = {
+            'day': 0.8,
+            'night': 1.3
+        }
+        
+        # Final predictions
+        return {
+            'region': region,
+            'season': season,
+            'predicted_daily_incidents': seasonal_risk,
+            'peak_hours': 'night' if seasonal_risk > 1 else 'day',
+            'hotspots': await self._get_predicted_hotspots(region),
+            'recommended_patrols': self._optimize_patrol_routes(region, seasonal_risk)
+        }
+```
+
+### **WEEK 11: Decision Support System + Alerts**
+
+#### *From ChatGPT: Decision Support Engine*
+#### *From AntiGravity: Alert System + Resolve Button*
+
+```python
+# src/decision/support_engine.py
+class DecisionSupportSystem:
+    """
+    ChatGPT's government-grade DSS + AntiGravity's alerts
+    """
+    def __init__(self):
+        self.risk_engine = ComprehensiveRiskEngine()
+        self.alert_system = AlertSystem()
+        self.optimizer = ResourceOptimizer()
+        
+    async def generate_policy_recommendations(self, region: str) -> Dict:
+        """
+        Generate policy and conservation recommendations
+        """
+        # Get comprehensive data
+        region_data = await self._get_region_intelligence(region)
+        
+        # Calculate risks
+        risk_report = await self.risk_engine.calculate_risk_score(region_data)
+        
+        # Get conservation opportunities
+        opportunities = await self._identify_conservation_opportunities(region)
+        
+        # Generate policy suggestions
+        policy_suggestions = await self._generate_policies(
+            region_data, 
+            risk_report,
+            opportunities
+        )
+        
+        # Resource allocation advice
+        resource_allocation = await self.optimizer.optimize_resources(
+            region=region,
+            budget=region_data.get('available_budget', 1000000),
+            priorities=[
+                ('enforcement', risk_report['components']['human_activity_risk']),
+                ('conservation', len(opportunities)),
+                ('community', region_data.get('community_engagement', 0.5))
+            ]
+        )
+        
+        # Comprehensive decision support
+        decision_package = {
+            'region': region,
+            'timestamp': datetime.now(),
+            'executive_summary': {
+                'overall_risk': risk_report['risk_level'],
+                'critical_issues': risk_report['contributing_factors'][:3],
+                'top_priority': policy_suggestions['top_recommendation']
+            },
+            'detailed_analysis': {
+                'risk_breakdown': risk_report['components'],
+                'conservation_opportunities': opportunities,
+                'resource_optimization': resource_allocation
+            },
+            'policy_suggestions': policy_suggestions['all'],
+            'enforcement_priorities': self._prioritize_enforcement(region_data),
+            'protection_strategies': self._generate_protection_strategies(region_data),
+            'expected_outcomes': self._project_outcomes(
+                policy_suggestions['all'],
+                resource_allocation
+            ),
+            'alerts': await self.alert_system.get_active_alerts(region)
+        }
+        
+        # AntiGravity's CSV-based incident tracking
+        decision_package['incident_summary'] = await self._get_incident_summary(region)
+        
+        return decision_package
+    
+    async def _generate_policies(self, region_data, risk_report, opportunities):
+        """ChatGPT's policy generation"""
+        
+        policies = []
+        
+        # If high deforestation risk
+        if risk_report['components']['human_activity_risk'] > 0.6:
+            policies.append({
+                'type': 'ENFORCEMENT',
+                'priority': 'HIGH',
+                'suggestion': 'Increase forest patrol frequency by 50% in identified hotspots',
+                'rationale': 'High human activity risk detected',
+                'estimated_cost': 50000,
+                'expected_impact': '30% reduction in illegal activity'
+            })
+        
+        # If high climate risk
+        if risk_report['components']['climate_risk'] > 0.6:
+            policies.append({
+                'type': 'CLIMATE_ADAPTATION',
+                'priority': 'HIGH',
+                'suggestion': 'Establish climate-resilient tree planting program',
+                'rationale': 'Region showing high climate vulnerability',
+                'estimated_cost': 75000,
+                'expected_impact': 'Increase forest resilience by 40%'
+            })
+        
+        # If conservation opportunities
+        if len(opportunities) > 3:
+            policies.append({
+                'type': 'CONSERVATION',
+                'priority': 'MEDIUM',
+                'suggestion': f'Create protected corridors for {len(opportunities)} identified biodiversity zones',
+                'rationale': 'High conservation potential identified',
+                'estimated_cost': 100000,
+                'expected_impact': 'Protect 500 hectares of critical habitat'
+            })
+        
+        # Community engagement
+        if region_data.get('community_engagement', 0) < 0.4:
+            policies.append({
+                'type': 'COMMUNITY',
+                'priority': 'MEDIUM',
+                'suggestion': 'Launch community awareness program about forestry laws',
+                'rationale': 'Low community engagement increases violation risk',
+                'estimated_cost': 25000,
+                'expected_impact': 'Reduce unintentional violations by 25%'
+            })
+        
+        return {
+            'all': policies,
+            'top_recommendation': max(policies, key=lambda x: x['priority'] == 'HIGH')
+        }
+
+class AlertSystem:
+    """
+    AntiGravity's alert system + ChatGPT's severity levels
+    """
+    def __init__(self):
+        self.alerts_db = []  # In production: Redis/PostgreSQL
+        
+    async def create_alert(self, alert_data: Dict):
+        """Create new alert"""
+        
+        alert = {
+            'id': str(uuid.uuid4()),
+            'type': alert_data['type'],
+            'severity': alert_data.get('severity', 'MEDIUM'),
+            'region': alert_data.get('region'),
+            'message': alert_data['message'],
+            'data': alert_data.get('data', {}),
+            'recommended_action': alert_data.get('recommended_action'),
+            'created_at': datetime.now(),
+            'status': 'active',
+            'resolved_at': None,
+            'resolved_by': None
+        }
+        
+        self.alerts_db.append(alert)
+        
+        # AntiGravity's UI integration
+        if alert['severity'] in ['HIGH', 'CRITICAL']:
+            await self._send_immediate_notification(alert)
+        
+        return alert
+    
+    async def resolve_alert(self, alert_id: str, resolved_by: str):
+        """AntiGravity's resolve button functionality"""
+        for alert in self.alerts_db:
+            if alert['id'] == alert_id:
+                alert['status'] = 'resolved'
+                alert['resolved_at'] = datetime.now()
+                alert['resolved_by'] = resolved_by
+                return alert
+        return None
+    
+    async def get_active_alerts(self, region: str = None):
+        """Get all active alerts"""
+        active = [a for a in self.alerts_db if a['status'] == 'active']
+        
+        if region:
+            active = [a for a in active if a.get('region') == region]
+        
+        # Sort by severity
+        severity_order = {'CRITICAL': 0, 'HIGH': 1, 'MEDIUM': 2, 'LOW': 3}
+        active.sort(key=lambda x: severity_order.get(x['severity'], 4))
+        
+        return active
+```
+
+### **WEEK 12: Operational Hardening + Final Testing**
+
+#### *From AntiGravity: Logging, Rate Limiting, Stress Testing*
+#### *From Original: Comprehensive Testing*
+
+```python
+# src/ops/logging.py
+import loguru
+from loguru import logger
+
+class OperationalHardening:
+    """
+    AntiGravity's Loguru integration + rate limiting
+    """
+    def __init__(self):
+        # Configure Loguru
+        logger.add(
+            "logs/greenlaw_{time}.log",
+            rotation="500 MB",
+            retention="30 days",
+            compression="zip",
+            format="{time:YYYY-MM-DD HH:mm:ss} | {level} | {name}:{function}:{line} | {message}",
+            level="INFO"
+        )
+        
+        # Error logging
+        logger.add(
+            "logs/errors_{time}.log",
+            rotation="100 MB",
+            retention="90 days",
+            level="ERROR",
+            backtrace=True,
+            diagnose=True
+        )
+        
+        # Rate limiter
+        self.rate_limiter = RateLimiter(
+            max_requests_per_minute=60,
+            burst_limit=100
+        )
+        
+    async def log_agent_action(self, agent_name: str, action: str, duration_ms: int):
+        """Structured logging for agent actions"""
+        
+        logger.info(f"Agent={agent_name} | Action={action} | Duration={duration_ms}ms")
+        
+        # Also log to metrics DB
+        await self._log_metric('agent_action', {
+            'agent': agent_name,
+            'action': action,
+            'duration_ms': duration_ms,
+            'timestamp': datetime.now()
+        })
+    
+    async def log_error(self, error: Exception, context: Dict):
+        """Comprehensive error logging"""
+        
+        logger.error(
+            f"Error={error.__class__.__name__} | Message={str(error)} | "
+            f"Context={json.dumps(context, default=str)}"
+        )
+        
+        # Stack trace
+        logger.exception("Exception details:")
+        
+        # Alert on critical errors
+        if self._is_critical_error(error):
+            await self._send_error_alert(error, context)
+    
+    async def check_rate_limit(self, user_id: str) -> bool:
+        """AntiGravity's rate limiting"""
+        return await self.rate_limiter.check(user_id)
+
+# Final testing suite
+class Phase3TestSuite:
+    """
+    Comprehensive testing for Phase 3
+    """
+    async def run_all_tests(self):
+        results = {
+            'adaptive_learning': await self.test_adaptive_learning(),
+            'knowledge_evolution': await self.test_knowledge_evolution(),
+            'gis_integration': await self.test_gis(),
+            'climate_apis': await self.test_climate_apis(),
+            'prediction_models': await self.test_predictions(),
+            'risk_engine': await self.test_risk_engine(),
+            'decision_support': await self.test_dss(),
+            'memory_persistence': await self.test_memory(),
+            'operational_hardening': await self.test_ops()
+        }
+        
+        # Calculate overall
+        passed = sum(1 for r in results.values() if r['passed'])
+        total = len(results)
+        
+        return {
+            'passed_tests': passed,
+            'total_tests': total,
+            'success_rate': f"{passed/total*100:.1f}%",
+            'detailed': results,
+            'phase3_complete': passed == total
+        }
+```
+
+---
+
+## 📊 PHASE 3 DELIVERABLES CHECKLIST 
+
+| Component | Status | Source Plan |
+|-----------|--------|-------------|
+| **Adaptive Learning** | | |
+| Feedback System + DB | ✅ Week 1 | ChatGPT + Original |
+| Learning Store | ✅ Week 1 | ChatGPT |
+| Knowledge Evolution | ✅ Week 2 | ChatGPT + AntiGravity |
+| Version Control | ✅ Week 2 | AntiGravity |
+| Advanced Knowledge Tools | ✅ Week 3 | AntiGravity + Original |
+| Growth Curves/Carbon Models | ✅ Week 3 | Original |
+| Graph Reasoning | ✅ Week 4 | AntiGravity |
+| Legal Precedents | ✅ Week 4 | AntiGravity |
+| **External Integration** | | |
+| GIS Engine | ✅ Week 5 | ChatGPT |
+| Map Visualization (st.map) | ✅ Week 5 | AntiGravity |
+| Incident CSV + Resolve Button | ✅ Week 5 | AntiGravity |
+| Climate APIs | ✅ Week 6 | Original + ChatGPT |
+| Forest Datasets (FAO/Local) | ✅ Week 6 | AntiGravity |
+| Satellite Imagery | ✅ Week 7 | Original |
+| Real-time Monitoring | ✅ Week 7 | AntiGravity |
+| **Memory & State** | | |
+| Memory Persistence | ✅ Week 8 | AntiGravity |
+| LangGraph Threads | ✅ Week 8 | AntiGravity |
+| User Context | ✅ Week 8 | Original |
+| **Prediction Engine** | | |
+| Deforestation Model | ✅ Week 9 | Original |
+| Fire Risk Model | ✅ Week 9 | Original + ChatGPT |
+| Illegal Activity Predictor | ✅ Week 10 | ChatGPT |
+| Risk Engine | ✅ Week 10 | ChatGPT + Original |
+| **Decision Support** | | |
+| DSS Engine | ✅ Week 11 | ChatGPT |
+| Policy Suggestions | ✅ Week 11 | ChatGPT |
+| Resource Optimization | ✅ Week 11 | Original |
+| Alert System | ✅ Week 11 | AntiGravity + ChatGPT |
+| **Operational** | | |
+| Loguru Integration | ✅ Week 12 | AntiGravity |
+| Rate Limiting | ✅ Week 12 | AntiGravity |
+| Stress Testing | ✅ Week 12 | AntiGravity |
+| Final Report | ✅ Week 12 | All |
+
+---
+
+## 🎯 Phase 3 Success Metrics
+
+```python
+phase3_success_metrics = {
+    "ChatGPT's Intelligence Metrics": {
+        "adaptive_learning": "System improves response accuracy by >15% based on feedback",
+        "prediction_accuracy": ">80% for deforestation risk predictions",
+        "decision_support": "Generate actionable policy recommendations",
+        "knowledge_freshness": "Auto-update knowledge when laws change"
+    },
+    "AntiGravity's Operational Metrics": {
+        "structured_logging": "All actions logged with Loguru",
+        "memory_persistence": "User context remembered across sessions",
+        "incident_tracking": "CSV-based monitoring with resolve button",
+        "map_visualization": "Interactive incident maps with st.map()",
+        "rate_limiting": "Prevent API abuse"
+    },
+    "Original's Technical Metrics": {
+        "carbon_calculations": "Age-based sequestration formulas working",
+        "growth_curves": "Species-specific growth models",
+        "satellite_integration": "Real-time deforestation alerts",
+        "ml_models": "XGBoost/LSTM models deployed"
+    }
+}
+```
+
+---

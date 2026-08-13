@@ -1,0 +1,38 @@
+# GreenLawAI Agentic Configuration
+
+version: "1.0.0"
+
+reasoning:
+  max_steps: 15
+  temperature: 0.1
+  variant_b_ratio: 0.2
+  confidence_threshold: 0.2
+
+memory:
+  persist_dir: "e:/GL_AI/data/memory"
+  collections:
+    episodic: "agent_interactions"
+    semantic: "knowledge_base"
+    procedural: "forestry_manuals"
+    lessons: "agent_lessons"
+
+tools:
+  categories:
+    - search
+    - forestry
+    - automation
+    - communication
+    - certification
+    - agent_wrappers
+  defaults:
+    search_k: 5
+    cert_export: "e:/GL_AI/exports"
+
+reflection:
+  success_threshold: 0.75
+  lesson_collection: "agent_lessons"
+
+orchestration:
+  env: "production"
+  llm_timeout: 45
+  logging_level: "INFO"

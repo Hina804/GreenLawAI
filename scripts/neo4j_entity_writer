@@ -1,0 +1,333 @@
+"""
+neo4j_entity_writer.py
+──────────────────────
+Drop-in replacement for whatever code currently calls:
+
+    session.run("MERGE (e:Entity {canonical_name: $name}) SET e += $props …")
+
+Use EntityWriter instead and every node will be:
+  • Written with a CLEAN canonical_name  (no dbh_1_, no cedrus_, etc.)
+  • Pre-populated with its full ALIASES array from the dictionary
+  • Deduplicated  (MERGE, not CREATE)
+
+QUICK START
+───────────
+    from neo4j_entity_writer import EntityWriter
+    from neo4j import GraphDatabase
+
+    driver = GraphDatabase.driver("bolt://localhost:7687", auth=("neo4j", "password"))
+    writer = EntityWriter(driver)
+
+    # Called once per chunk during ingestion
+    writer.write_entities_for_chunk(
+        chunk_id="chunk_001",
+        entity_mentions=["cedrus_deodara", "dbh_1_deodar", "the_province_of_punjab"],
+        entity_types=["DOMAIN_TERM", "DOMAIN_TERM", "GPE"],
+        source_file="forest_act_1927.pdf",
+    )
+
+    writer.flush()   # write any remaining buffered nodes
+"""
+
+from __future__ import annotations
+
+import re
+import unicodedata
+from typing import Dict, List, Optional, Set, Tuple
+
+# ── Import shared helpers from entity_extractor ───────────────────────────────
+try:
+    from data_pipeline.indexing.entity_extractor import (
+        resolve_to_canonical,
+        build_aliases_for,
+        _unicode_slug,
+        _strip_prefixes_suffixes,
+        LEGAL_DICTIONARY,
+        SPECIES_DICTIONARY,
+    )
+except ImportError:
+    # Inline fallback if entity_extractor not on path
+    _NON_ALNUM = re.compile(r"[^a-z0-9]+")
+
+    def _unicode_slug(text: str) -> str:
+        s = unicodedata.normalize("NFKD", text)
+        s = "".join(c for c in s if not unicodedata.combining(c))
+        return _NON_ALNUM.sub("_", s.lower()).strip("_")
+
+    _STRIP_PREFIXES = (
+        "the_province_of_", "province_of_", "the_district_of_", "district_of_",
+        "the_", "cedrus_", "pinus_", "quercus_", "abies_", "picea_",
+        "standing_", "dbh_1_", "dbh_2_", "dbh_3_", "dbh_",
+        "avg_", "total_", "no_of_",
+    )
+    _STRIP_SUFFIXES = ("_tree", "_trees", "_species", "_timber", "_wood", "_forest")
+
+    def _strip_prefixes_suffixes(slug: str) -> str:
+        changed = True
+        while changed:
+            changed = False
+            for p in _STRIP_PREFIXES:
+                if slug.startswith(p):
+                    slug, changed = slug[len(p):], True; break
+            for s in _STRIP_SUFFIXES:
+                if slug.endswith(s) and len(slug) > len(s):
+                    slug, changed = slug[:-len(s)], True; break
+        return slug
+
+    LEGAL_DICTIONARY: Dict[str, List[str]] = {
+        "deodar":   ["cedrus deodara","cedrus_deodara","diyar","dbh_1_deodar","standing_deodar"],
+        "chir pine":["chir","cheerh","pinus roxburghii","pinus_roxburghii"],
+        "blue pine":["biar","nakhtar","kail","pinus wallichiana","pinus_wallichiana"],
+        "kpk":      ["khyber pakhtunkhwa","khyber_pakhtunkhwa",
+                     "the_province_of_khyber_pakhtunkhwa","nwfp"],
+        "punjab":   ["the_province_of_punjab","province of punjab"],
+        "sindh":    ["the_province_of_sindh","sind"],
+    }
+    SPECIES_DICTIONARY: Dict[str, List[str]] = {
+        "chir pine": ["chir","cheerh","pinus roxburghii"],
+        "deodar":    ["cedrus deodara","diyar"],
+        "blue pine": ["biar","pinus wallichiana","nakhtar","kail"],
+    }
+
+    _REV: Dict[str, str] = {}
+    for _c, _ss in {**LEGAL_DICTIONARY, **SPECIES_DICTIONARY}.items():
+        _REV[_unicode_slug(_c)] = _c
+        for _s in _ss:
+            _REV[_unicode_slug(_s)] = _c
+
+    def resolve_to_canonical(surface: str) -> str:
+        slug = _unicode_slug(surface)
+        if slug in _REV: return _REV[slug]
+        stripped = _strip_prefixes_suffixes(slug)
+        return _REV.get(stripped, stripped or slug)
+
+    def build_aliases_for(canonical: str) -> List[str]:
+        aliases: Set[str] = {canonical, canonical.replace(" ","_"), canonical.replace("_"," ")}
+        for k, syns in {**LEGAL_DICTIONARY, **SPECIES_DICTIONARY}.items():
+            if _unicode_slug(k) == _unicode_slug(canonical):
+                for s in syns:
+                    aliases.update([s, s.replace(" ","_"), s.replace("_"," ")])
+                break
+        return sorted(a for a in aliases if a)
+
+
+# ═════════════════════════════════════════════════════════════════════════════
+# EntityWriter
+# ═════════════════════════════════════════════════════════════════════════════
+
+# Cypher used to MERGE a single entity node and attach it to a Chunk
+_CYPHER_UPSERT_ENTITY = """
+MERGE (e:Entity {canonical_name: $canonical_name})
+ON CREATE SET
+    e.entity_type   = $entity_type,
+    e.aliases       = $aliases,
+    e.original_name = $original_name,
+    e.frequency     = 1
+ON MATCH SET
+    e.frequency     = coalesce(e.frequency, 0) + 1,
+    e.aliases       = CASE
+                        WHEN e.aliases IS NULL THEN $aliases
+                        ELSE apoc.coll.toSet(e.aliases + $aliases)
+                      END
+"""
+
+# Fallback when APOC is not available
+_CYPHER_UPSERT_ENTITY_NO_APOC = """
+MERGE (e:Entity {canonical_name: $canonical_name})
+ON CREATE SET
+    e.entity_type   = $entity_type,
+    e.aliases       = $aliases,
+    e.original_name = $original_name,
+    e.frequency     = 1
+ON MATCH SET
+    e.frequency = coalesce(e.frequency, 0) + 1
+"""
+
+_CYPHER_LINK_CHUNK = """
+MATCH (e:Entity {canonical_name: $canonical_name})
+MATCH (c:Chunk   {chunk_id:       $chunk_id})
+MERGE (c)-[:MENTIONS]->(e)
+"""
+
+# Batched alias union when APOC is unavailable (we just overwrite with union)
+_CYPHER_SET_ALIASES = """
+MATCH (e:Entity {canonical_name: $canonical_name})
+SET e.aliases = $aliases
+"""
+
+
+class EntityWriter:
+    """
+    Write clean Entity nodes to Neo4j during document ingestion.
+
+    Features
+    ────────
+    • Resolves every surface form to its canonical name before writing.
+    • Populates the full `aliases` array from dictionaries + seen surface forms.
+    • Batches writes (default batch_size=200) to reduce round-trips.
+    • Detects APOC availability once at init and uses the appropriate Cypher.
+    """
+
+    def __init__(self, driver, batch_size: int = 200):
+        self.driver = driver
+        self.batch_size = batch_size
+        self._apoc = self._check_apoc()
+        self._pending_entities: List[Dict] = []
+        self._pending_links: List[Dict] = []
+        # Accumulate surface forms per canonical across the entire run
+        # so aliases grow richer as more chunks are processed
+        self._seen_surfaces: Dict[str, Set[str]] = {}
+
+    # ── APOC detection ────────────────────────────────────────────────────────
+
+    def _check_apoc(self) -> bool:
+        try:
+            with self.driver.session() as s:
+                s.run("RETURN apoc.coll.toSet([1,2,1])")
+            print("[OK] EntityWriter: APOC available")
+            return True
+        except Exception:
+            print("[INFO] EntityWriter: APOC not available — using fallback alias merge")
+            return False
+
+    # ── Public API ────────────────────────────────────────────────────────────
+
+    def write_entities_for_chunk(
+        self,
+        chunk_id: str,
+        entity_mentions: List[str],
+        entity_types: Optional[List[str]] = None,
+        source_file: str = "",
+    ) -> None:
+        """
+        Process one chunk's entity list.
+
+        Parameters
+        ----------
+        chunk_id        : the Chunk node's chunk_id property in Neo4j
+        entity_mentions : raw surface forms from EntityExtractor
+                          (can be noisy — will be cleaned here)
+        entity_types    : parallel list of spaCy/Matcher type labels
+        source_file     : document filename for provenance
+        """
+        if entity_types is None:
+            entity_types = ["UNKNOWN"] * len(entity_mentions)
+
+        for surface, etype in zip(entity_mentions, entity_types):
+            # ── Clean the surface form ────────────────────────────────────
+            canonical = resolve_to_canonical(surface)
+            if not canonical:
+                continue
+
+            # ── Accumulate surface forms for richer aliases ───────────────
+            self._seen_surfaces.setdefault(canonical, set())
+            self._seen_surfaces[canonical].add(surface)
+            self._seen_surfaces[canonical].add(surface.replace(" ", "_"))
+            self._seen_surfaces[canonical].add(surface.replace("_", " "))
+            self._seen_surfaces[canonical].add(canonical)
+            self._seen_surfaces[canonical].add(canonical.replace(" ", "_"))
+            self._seen_surfaces[canonical].add(canonical.replace("_", " "))
+
+            # ── Build full alias list ─────────────────────────────────────
+            aliases = list(
+                set(build_aliases_for(canonical))
+                | self._seen_surfaces[canonical]
+            )
+
+            self._pending_entities.append({
+                "canonical_name": canonical,
+                "entity_type":    etype,
+                "aliases":        sorted(a for a in aliases if a),
+                "original_name":  surface,
+            })
+            self._pending_links.append({
+                "canonical_name": canonical,
+                "chunk_id":       chunk_id,
+            })
+
+        # Auto-flush when batch is full
+        if len(self._pending_entities) >= self.batch_size:
+            self.flush()
+
+    def flush(self) -> None:
+        """Write all buffered entities and chunk-links to Neo4j."""
+        if not self._pending_entities:
+            return
+
+        cypher_entity = (
+            _CYPHER_UPSERT_ENTITY if self._apoc
+            else _CYPHER_UPSERT_ENTITY_NO_APOC
+        )
+
+        with self.driver.session() as s:
+            # 1. Upsert entities
+            for params in self._pending_entities:
+                s.run(cypher_entity, **params)
+
+            # 2. If no APOC, do a separate alias union pass
+            if not self._apoc:
+                # Deduplicate by canonical_name for this batch
+                seen: Dict[str, List[str]] = {}
+                for params in self._pending_entities:
+                    cn = params["canonical_name"]
+                    if cn not in seen:
+                        seen[cn] = list(params["aliases"])
+                    else:
+                        seen[cn] = sorted(set(seen[cn]) | set(params["aliases"]))
+
+                for cn, aliases in seen.items():
+                    # Fetch existing aliases and union with new ones
+                    existing = s.run(
+                        "MATCH (e:Entity {canonical_name: $cn}) "
+                        "RETURN coalesce(e.aliases, []) AS a",
+                        cn=cn,
+                    ).single()
+                    if existing:
+                        merged = sorted(set(existing["a"]) | set(aliases))
+                        s.run(_CYPHER_SET_ALIASES, canonical_name=cn, aliases=merged)
+
+            # 3. Link entities to chunks
+            for params in self._pending_links:
+                try:
+                    s.run(_CYPHER_LINK_CHUNK, **params)
+                except Exception:
+                    pass  # Chunk may not exist yet if ingestion order varies
+
+        n = len(self._pending_entities)
+        self._pending_entities.clear()
+        self._pending_links.clear()
+        print(f"  [EntityWriter] Flushed {n} entity records to Neo4j")
+
+    def write_entity_direct(
+        self,
+        canonical_name: str,
+        entity_type: str = "UNKNOWN",
+        extra_aliases: Optional[List[str]] = None,
+        chunk_id: Optional[str] = None,
+    ) -> None:
+        """
+        Write a single known-clean entity directly (e.g. from EKO / hardcoded facts).
+        """
+        aliases = list(set(build_aliases_for(canonical_name)) | set(extra_aliases or []))
+
+        with self.driver.session() as s:
+            cypher_entity = (
+                _CYPHER_UPSERT_ENTITY if self._apoc
+                else _CYPHER_UPSERT_ENTITY_NO_APOC
+            )
+            s.run(
+                cypher_entity,
+                canonical_name=canonical_name,
+                entity_type=entity_type,
+                aliases=sorted(a for a in aliases if a),
+                original_name=canonical_name,
+            )
+            if chunk_id:
+                s.run(_CYPHER_LINK_CHUNK,
+                      canonical_name=canonical_name, chunk_id=chunk_id)
+
+    def __enter__(self):
+        return self
+
+    def __exit__(self, *_):
+        self.flush()

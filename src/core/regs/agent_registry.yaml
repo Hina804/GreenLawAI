@@ -1,0 +1,46 @@
+agents:
+  legal:
+    module: "agents.law_agent"
+    class: "LawAgent"
+    config: {}
+  graph_legal:
+    module: "agents.graph_agent"
+    class: "GraphLawAgent"
+    config: {}
+  climate:
+    module: "agents.climate_agent"
+    class: "ClimateAgent"
+    config: {}
+  monitoring:
+    module: "agents.monitoring_agent"
+    class: "MonitoringAgent"
+    config: {}
+  awareness:
+    module: "agents.awareness_agent"
+    class: "AwarenessAgent"
+    config: {}
+  incident:
+    module: "agents.incident_agent"
+    class: "IncidentAgent"
+    config: {}
+  summary:
+    module: "agents.summary_agent"
+    class: "SummaryAgent"
+    config: {}
+  prediction:
+    module: "agents.prediction_agent"
+    class: "PredictionAgent"
+    config: {}
+  judiciary:
+    module: "agents.judiciary.case_retrieval_agent"
+    class: "CaseRetrievalAgent"
+    config:
+      faiss_index_path: "e:/GL_AI/faiss_index_cases"
+  fir_generator:
+    module: "agents.judiciary.fir_generator_agent"
+    class: "FIRGeneratorAgent"
+    config: {}
+  procedure_guide:
+    module: "agents.judiciary.procedure_guide_agent"
+    class: "ProcedureGuideAgent"
+    config: {}

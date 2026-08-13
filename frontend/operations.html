@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Operations · GREENLAW AI Hazara Forest Intelligence</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    /* Patrol unit card */
+    .patrol-card {
+      background: var(--white);
+      border: 1.5px solid var(--border-card);
+      border-radius: var(--radius-md);
+      padding: 16px;
+      transition: all .25s;
+      position: relative;
+      overflow: hidden;
+    }
+    .patrol-card::before {
+      content: ''; position: absolute;
+      left: 0; top: 0; bottom: 0; width: 4px;
+      border-radius: 4px 0 0 4px;
+    }
+    .patrol-card.active::before   { background: var(--forest-bright); }
+    .patrol-card.overdue::before  { background: var(--red-alert); }
+    .patrol-card.standby::before  { background: var(--amber); }
+    .patrol-card.offline::before  { background: var(--gray-300); }
+    .patrol-card:hover { box-shadow: var(--shadow-md); border-color: var(--forest-bright); }
+
+    .patrol-header { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+    .patrol-id {
+      font-size: 14px; font-weight: 800;
+      font-family: var(--font-mono); color: var(--gray-800);
+    }
+    .patrol-body  { font-size: 12.5px; color: var(--gray-600); }
+    .patrol-meta  { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+    .patrol-tag {
+      font-size: 10.5px; font-weight: 600; padding: 2px 7px;
+      border-radius: 4px; background: var(--gray-100); color: var(--gray-600);
+    }
+
+    .patrol-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+
+    /* Dispatch form */
+    .dispatch-form {
+      background: var(--gray-50);
+      border-radius: var(--radius-md);
+      padding: 20px;
+      border: 1px solid var(--border-light);
+    }
+
+    /* incident row */
+    .incident-item {
+      display: flex; align-items: center; gap: 12px;
+      padding: 10px 0; border-bottom: 1px solid var(--gray-100);
+    }
+    .incident-item:last-child { border-bottom: none; }
+    .incident-num {
+      width: 28px; height: 28px;
+      background: var(--gray-100); color: var(--gray-600);
+      border-radius: 6px; display: flex; align-items: center; justify-content: center;
+      font-size: 11px; font-weight: 700; flex-shrink: 0;
+    }
+    .incident-num.active { background: var(--red-light); color: var(--red-alert); }
+    .incident-title  { font-size: 13px; font-weight: 600; color: var(--gray-800); }
+    .incident-detail { font-size: 11.5px; color: var(--gray-500); margin-top: 2px; }
+  </style>
+</head>
+<body>
+<div id="nav-container"></div>
+
+<div class="main-wrapper">
+  <header class="topbar">
+    <button class="menu-toggle"><i class="fa fa-bars"></i></button>
+    <div>
+      <div class="topbar-title">Patrol Operations & Dispatch</div>
+      <div class="topbar-sub">Unit Deployment · Field Operations · Incident Command · Hazara Division</div>
+    </div>
+    <div class="topbar-right">
+      <div class="topbar-badge" style="background:var(--forest-pale);color:var(--forest-mid);">
+        <i class="fa fa-binoculars"></i> 3 Units Active
+      </div>
+      <div class="topbar-badge" style="background:var(--red-light);color:var(--red-alert);">
+        <i class="fa fa-exclamation-triangle"></i> 2 Overdue
+      </div>
+      <div class="topbar-clock">PKT 00:00:00</div>
+    </div>
+  </header>
+
+  <main class="page-content">
+
+    <!-- KPIs -->
+    <div class="kpi-grid">
+      <div class="kpi-card green">
+        <div class="kpi-icon-wrap green"><i class="fa fa-binoculars"></i></div>
+        <div class="kpi-body">
+          <div class="kpi-value" data-target="8">0</div>
+          <div class="kpi-label">Total Patrol Units</div>
+          <div class="kpi-delta"><i class="fa fa-circle" style="color:var(--forest-bright)"></i> 3 active now</div>
+        </div>
+      </div>
+      <div class="kpi-card fire">
+        <div class="kpi-icon-wrap fire"><i class="fa fa-exclamation-triangle"></i></div>
+        <div class="kpi-body">
+          <div class="kpi-value" data-target="2">0</div>
+          <div class="kpi-label">Units Overdue</div>
+          <div class="kpi-delta up"><i class="fa fa-clock"></i> P-04, P-06 silent</div>
+        </div>
+      </div>
+      <div class="kpi-card defo">
+        <div class="kpi-icon-wrap defo"><i class="fa fa-flag"></i></div>
+        <div class="kpi-body">
+          <div class="kpi-value" data-target="6">0</div>
+          <div class="kpi-label">Active Incidents</div>
+          <div class="kpi-delta up"><i class="fa fa-arrow-up"></i> +2 since morning</div>
+        </div>
+      </div>
+      <div class="kpi-card teal">
+        <div class="kpi-icon-wrap teal"><i class="fa fa-route"></i></div>
+        <div class="kpi-body">
+          <div class="kpi-value" data-target="342">0</div>
+          <div class="kpi-label">km Patrolled Today</div>
+          <div class="kpi-delta down"><i class="fa fa-check"></i> On track</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Patrol Units Grid -->
+    <div class="section-grid" style="margin-bottom:20px;">
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title"><i class="fa fa-users"></i> Patrol Unit Status</div>
+          <div class="live-badge"><span class="live-dot"></span> LIVE</div>
+        </div>
+        <div class="card-body">
+          <div class="patrol-grid">
+            <div class="patrol-card active">
+              <div class="patrol-header">
+                <span class="patrol-id">P-01</span>
+                <span class="badge success">Active</span>
+              </div>
+              <div class="patrol-body">
+                <div><i class="fa fa-map-marker-alt" style="color:var(--forest-bright)"></i> <strong>Mansehra Block-7</strong></div>
+                <div style="margin-top:4px;">👮 4 officers · 1 vehicle</div>
+                <div>📡 Last ping: <strong>2 min ago</strong></div>
+              </div>
+              <div class="patrol-meta">
+                <span class="patrol-tag">🔥 Fire Zone</span>
+                <span class="patrol-tag">Priority: HIGH</span>
+              </div>
+            </div>
+
+            <div class="patrol-card standby">
+              <div class="patrol-header">
+                <span class="patrol-id">P-02</span>
+                <span class="badge medium">Standby</span>
+              </div>
+              <div class="patrol-body">
+                <div><i class="fa fa-map-marker-alt" style="color:var(--amber)"></i> <strong>Mansehra HQ</strong></div>
+                <div style="margin-top:4px;">👮 3 officers · 1 vehicle</div>
+                <div>📡 Ready to deploy</div>
+              </div>
+              <div class="patrol-meta">
+                <span class="patrol-tag">🚒 Rapid Response</span>
+              </div>
+            </div>
+
+            <div class="patrol-card active">
+              <div class="patrol-header">
+                <span class="patrol-id">P-03</span>
+                <span class="badge success">Active</span>
+              </div>
+              <div class="patrol-body">
+                <div><i class="fa fa-map-marker-alt" style="color:var(--forest-bright)"></i> <strong>Abbottabad South</strong></div>
+                <div style="margin-top:4px;">👮 3 officers · 1 vehicle</div>
+                <div>📡 Last ping: <strong>8 min ago</strong></div>
+              </div>
+              <div class="patrol-meta">
+                <span class="patrol-tag">🌲 Logging Patrol</span>
+              </div>
+            </div>
+
+            <div class="patrol-card overdue">
+              <div class="patrol-header">
+                <span class="patrol-id">P-04</span>
+                <span class="badge critical">Overdue</span>
+              </div>
+              <div class="patrol-body">
+                <div><i class="fa fa-map-marker-alt" style="color:var(--red-alert)"></i> <strong>Battagram Zone-2</strong></div>
+                <div style="margin-top:4px;">👮 2 officers · 1 vehicle</div>
+                <div>📡 Last ping: <strong style="color:var(--red-alert)">140 min ago</strong></div>
+              </div>
+              <div class="patrol-meta">
+                <span class="patrol-tag" style="background:var(--red-light);color:var(--red-alert);">⚠️ LOCATE UNIT</span>
+              </div>
+            </div>
+
+            <div class="patrol-card standby">
+              <div class="patrol-header">
+                <span class="patrol-id">P-05</span>
+                <span class="badge medium">Standby</span>
+              </div>
+              <div class="patrol-body">
+                <div><i class="fa fa-map-marker-alt" style="color:var(--amber)"></i> <strong>Battagram HQ</strong></div>
+                <div style="margin-top:4px;">👮 4 officers · 2 vehicles</div>
+                <div>📡 Available for dispatch</div>
+              </div>
+              <div class="patrol-meta">
+                <span class="patrol-tag">Night Patrol Ready</span>
+              </div>
+            </div>
+
+            <div class="patrol-card overdue">
+              <div class="patrol-header">
+                <span class="patrol-id">P-06</span>
+                <span class="badge critical">Overdue</span>
+              </div>
+              <div class="patrol-body">
+                <div><i class="fa fa-map-marker-alt" style="color:var(--red-alert)"></i> <strong>Kohistan North</strong></div>
+                <div style="margin-top:4px;">👮 3 officers · 1 vehicle</div>
+                <div>📡 Last ping: <strong style="color:var(--red-alert)">85 min ago</strong></div>
+              </div>
+              <div class="patrol-meta">
+                <span class="patrol-tag" style="background:var(--red-light);color:var(--red-alert);">⚠️ CHECK COMM</span>
+              </div>
+            </div>
+
+            <div class="patrol-card active">
+              <div class="patrol-header">
+                <span class="patrol-id">P-07</span>
+                <span class="badge success">Active</span>
+              </div>
+              <div class="patrol-body">
+                <div><i class="fa fa-map-marker-alt" style="color:var(--forest-bright)"></i> <strong>Torghar Hills</strong></div>
+                <div style="margin-top:4px;">👮 5 officers · 2 vehicles</div>
+                <div>📡 Last ping: <strong>5 min ago</strong></div>
+              </div>
+              <div class="patrol-meta">
+                <span class="patrol-tag">🌲 Deforestation Zone</span>
+              </div>
+            </div>
+
+            <div class="patrol-card offline">
+              <div class="patrol-header">
+                <span class="patrol-id">P-08</span>
+                <span class="badge" style="background:var(--gray-100);color:var(--gray-500);">Off Duty</span>
+              </div>
+              <div class="patrol-body">
+                <div><i class="fa fa-map-marker-alt" style="color:var(--gray-400)"></i> <strong>Haripur Base</strong></div>
+                <div style="margin-top:4px;">👮 3 officers · 1 vehicle</div>
+                <div>📡 Scheduled: Tomorrow 06:00</div>
+              </div>
+              <div class="patrol-meta">
+                <span class="patrol-tag">Next rotation</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Dispatch + Incidents + Chart -->
+    <div class="section-grid col-3" style="margin-bottom:20px;">
+
+      <!-- Dispatch Form -->
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title"><i class="fa fa-paper-plane"></i> Dispatch Order</div>
+        </div>
+        <div class="card-body">
+          <div class="dispatch-form">
+            <div class="form-group">
+              <label class="form-label">Select Unit</label>
+              <select class="form-select">
+                <option>P-02 — Mansehra HQ (Standby)</option>
+                <option>P-05 — Battagram HQ (Standby)</option>
+                <option>P-08 — Haripur (Off Duty)</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Target Zone</label>
+              <select class="form-select">
+                <option>Mansehra Block-7 (Fire Zone)</option>
+                <option>Torghar Hills</option>
+                <option>Abbottabad Reserve</option>
+                <option>Kohistan North</option>
+                <option>Battagram East</option>
+                <option>Haripur Lowlands</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Priority Level</label>
+              <select class="form-select">
+                <option value="critical">🔴 Critical — Immediate Deploy</option>
+                <option value="high">🟠 High — Within 30 min</option>
+                <option value="medium">🟡 Medium — Within 2 hours</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Mission Type</label>
+              <select class="form-select">
+                <option>Fire Suppression</option>
+                <option>Anti-Logging Patrol</option>
+                <option>Wildlife Protection</option>
+                <option>Encroachment Check</option>
+                <option>Locate Overdue Unit</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Special Instructions</label>
+              <textarea class="form-textarea" rows="3" placeholder="Enter mission briefing notes..."></textarea>
+            </div>
+            <button class="btn btn-primary w-full">
+              <i class="fa fa-paper-plane"></i> Dispatch Unit
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Active Incidents -->
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title"><i class="fa fa-flag"></i> Active Incidents</div>
+          <div class="live-badge"><span class="live-dot"></span> 6 Active</div>
+        </div>
+        <div class="card-body">
+          <div class="incident-item">
+            <div class="incident-num active">1</div>
+            <div>
+              <div class="incident-title">🔥 Forest Fire — Mansehra Block-7</div>
+              <div class="incident-detail">P-01 on site · 3.2 ha affected · FIR lodged</div>
+            </div>
+            <span class="badge critical">Critical</span>
+          </div>
+          <div class="incident-item">
+            <div class="incident-num active">2</div>
+            <div>
+              <div class="incident-title">🌲 Illegal Logging — Torghar</div>
+              <div class="incident-detail">P-07 monitoring · 3 suspects identified</div>
+            </div>
+            <span class="badge high">High</span>
+          </div>
+          <div class="incident-item">
+            <div class="incident-num active">3</div>
+            <div>
+              <div class="incident-title">⚠️ Unit P-04 Overdue</div>
+              <div class="incident-detail">Battagram Zone-2 · 140 min comm silence</div>
+            </div>
+            <span class="badge critical">Urgent</span>
+          </div>
+          <div class="incident-item">
+            <div class="incident-num">4</div>
+            <div>
+              <div class="incident-title">🏕️ Encroachment — Abbottabad</div>
+              <div class="incident-detail">P-03 responding · 0.6 ha cleared</div>
+            </div>
+            <span class="badge medium">Medium</span>
+          </div>
+          <div class="incident-item">
+            <div class="incident-num">5</div>
+            <div>
+              <div class="incident-title">🐾 Wildlife Poaching — Kohistan</div>
+              <div class="incident-detail">Trap detected by citizen report</div>
+            </div>
+            <span class="badge medium">Medium</span>
+          </div>
+          <div class="incident-item">
+            <div class="incident-num">6</div>
+            <div>
+              <div class="incident-title">🚛 Timber Transit Violation</div>
+              <div class="incident-detail">Checkpoint N-35 · Vehicle intercepted</div>
+            </div>
+            <span class="badge high">Active</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Operations Chart -->
+      <div style="display:flex;flex-direction:column;gap:18px;">
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title"><i class="fa fa-chart-bar"></i> Monthly Operations</div>
+          </div>
+          <div class="card-body">
+            <div class="chart-container" style="height:180px;">
+              <canvas id="opsChart"></canvas>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title"><i class="fa fa-tachometer-alt"></i> Operations Stats</div>
+          </div>
+          <div class="card-body">
+            <div class="stat-row"><span class="stat-label">Arrests This Month</span><span class="stat-value text-red fw-bold">23</span></div>
+            <div class="stat-row"><span class="stat-label">Timber Confiscated</span><span class="stat-value">42 m³</span></div>
+            <div class="stat-row"><span class="stat-label">Vehicles Seized</span><span class="stat-value">7</span></div>
+            <div class="stat-row"><span class="stat-label">FIRs Lodged</span><span class="stat-value">18</span></div>
+            <div class="stat-row"><span class="stat-label">Patrol Hours (30d)</span><span class="stat-value">1,284 hrs</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-text">GREENLAW AI · HAZARA FOREST INTELLIGENCE · v4.0</div>
+    <div class="footer-refs">KP FOREST ORDINANCE 2002 · FOREST ACT 1927 · FIRMS · GFW · OWM</div>
+  </footer>
+</div>
+
+<script src="js/nav.js"></script>
+<script src="js/shared.js"></script>
+<script>
+new Chart(document.getElementById('opsChart'), {
+  type: 'bar',
+  data: {
+    labels: ['Jan','Feb','Mar','Apr','May','Jun'],
+    datasets: [
+      { label: 'Patrols', data: [42,38,45,52,48,44], backgroundColor: 'rgba(52,168,114,.7)', borderRadius: 4 },
+      { label: 'Arrests', data: [8,12,10,15,18,23], backgroundColor: 'rgba(239,68,68,.7)', borderRadius: 4 }
+    ]
+  },
+  options: {
+    responsive: true, maintainAspectRatio: false,
+    plugins: { legend: { position: 'top' } },
+    scales: {
+      x: { grid: { display: false } },
+      y: { grid: { color: '#f1f5f9' }, beginAtZero: true }
+    }
+  }
+});
+</script>
+</body>
+</html>

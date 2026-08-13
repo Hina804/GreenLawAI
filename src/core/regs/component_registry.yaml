@@ -1,0 +1,51 @@
+components:
+  trust_engine:
+    module: "verification.trust_engine"
+    class: "TrustEngine"
+    config:
+      min_citations: 1
+      min_trust_score: 0.55
+  confidence_engine:
+    module: "verification.confidence_engine"
+    class: "ConfidenceEngine"
+    config:
+      citation_weight: 0.4
+      overlap_weight: 0.35
+      graph_weight: 0.25
+  fusion_engine:
+    module: "fusion.FusionEngine"
+    class: "FusionEngine"
+    config: {}
+  intent_classifier:
+    module: "intent.classifier"
+    class: "IntentClassifier"
+    config: {}
+  grounding_gate:
+    module: "pipeline.grounding_gate"
+    class: "GroundingGate"
+    config: {}
+  retrieval_tool:
+    module: "tools.legal_tools"
+    class: "LegalSearchTool"
+    config:
+      NEO4J_URI: "bolt://localhost:7687"
+      NEO4J_USER: "neo4j"
+      NEO4J_PASSWORD: "bypass_auth"
+      CHROMA_PERSIST_DIR: "e:/GL_AI/faiss_index"
+  audience_classifier:
+    module: "audience.audience_classifier"
+    class: "AudienceClassifier"
+    config: {}
+  security_manager:
+    module: "core.security"
+    class: "SecurityManager"
+    config: {}
+  llm_manager:
+    module: "data_pipeline.rag.llm_manager"
+    class: "LLMManager"
+    config:
+      provider: "colab"
+      colab_url: "http://nonbarbaric-inocencia-sheepish.ngrok-free.dev"
+      model: "phi-2"
+      temperature: 0.0
+      max_tokens: 2048

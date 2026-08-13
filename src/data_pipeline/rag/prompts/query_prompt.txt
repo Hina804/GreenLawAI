@@ -1,0 +1,15 @@
+User Query: {query}
+
+Retrieved Legal Text:
+{context_chunks}
+
+Instructions:
+- Use STRICT_MODE
+- Use DUAL_AUDIENCE_MODE
+- Use CITATION_ENFORCEMENT
+- Use ANTI_ESSAY_MODE
+- Use LENGTH_LIMITS
+- Use ROLE_BOUNDARY
+- Use ANTI_HALLUCINATION
+
+If not grounded → ABSTAIN.

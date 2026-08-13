@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Permits · GREENLAW AI Hazara Forest Intelligence</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    /* Permit status card */
+    .permit-card {
+      background: var(--white);
+      border: 1.5px solid var(--border-card);
+      border-radius: var(--radius-md);
+      padding: 16px;
+      transition: all .25s;
+      margin-bottom: 12px;
+      position: relative;
+    }
+    .permit-card:hover { border-color: var(--forest-bright); box-shadow: var(--shadow-md); }
+
+    .permit-card-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; }
+    .permit-id    { font-family: var(--font-mono); font-size: 12px; font-weight: 700; color: var(--forest-mid); }
+    .permit-type  { font-size: 13.5px; font-weight: 700; color: var(--gray-800); margin-bottom: 4px; }
+    .permit-meta  { font-size: 12px; color: var(--gray-500); }
+    .permit-progress { margin-top: 10px; }
+    .progress-steps {
+      display: flex; gap: 0;
+    }
+    .ps-step {
+      flex: 1; height: 6px;
+      background: var(--gray-200); margin-right: 2px;
+      border-radius: 3px; transition: background .3s;
+    }
+    .ps-step.done   { background: var(--forest-bright); }
+    .ps-step.active { background: var(--amber); }
+    .ps-step:last-child { margin-right: 0; }
+    .progress-label {
+      font-size: 11px; color: var(--gray-500); margin-top: 5px;
+    }
+
+    /* Permit type cards */
+    .permit-type-card {
+      background: var(--white);
+      border: 1.5px solid var(--border-card);
+      border-radius: var(--radius-md);
+      padding: 16px; cursor: pointer;
+      transition: all .25s; text-align: center;
+    }
+    .permit-type-card:hover {
+      border-color: var(--forest-bright);
+      background: var(--forest-mist);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }
+    .ptc-icon  { font-size: 28px; margin-bottom: 8px; }
+    .ptc-name  { font-size: 13px; font-weight: 700; color: var(--gray-800); }
+    .ptc-fee   { font-size: 11.5px; color: var(--forest-mid); font-weight: 600; margin-top: 4px; }
+
+    .permit-types-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 14px; }
+
+    /* Step tracker */
+    .step-tracker { display: flex; gap: 0; margin-bottom: 20px; position: relative; }
+    .step-tracker::before {
+      content: ''; position: absolute;
+      top: 14px; left: 20px; right: 20px; height: 2px;
+      background: var(--border-light); z-index: 0;
+    }
+    .st-step {
+      flex: 1; display: flex; flex-direction: column; align-items: center; gap: 6px; position: relative; z-index: 1;
+    }
+    .st-dot {
+      width: 28px; height: 28px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 11px; font-weight: 700;
+      border: 2px solid var(--border-card);
+      background: var(--white);
+    }
+    .st-dot.done   { background: var(--forest-bright); color: white; border-color: var(--forest-bright); }
+    .st-dot.active { background: var(--amber);          color: white; border-color: var(--amber); }
+    .st-dot.pending{ background: var(--gray-100);       color: var(--gray-400); }
+    .st-label { font-size: 10.5px; font-weight: 600; color: var(--gray-500); text-align: center; }
+
+    /* Timeline events */
+    .permit-event {
+      display: flex; gap: 12px; padding: 10px 0;
+      border-bottom: 1px solid var(--gray-100);
+    }
+    .permit-event:last-child { border-bottom: none; }
+    .pe-dot {
+      width: 10px; height: 10px; border-radius: 50%;
+      margin-top: 4px; flex-shrink: 0;
+    }
+    .pe-dot.green  { background: var(--forest-bright); }
+    .pe-dot.amber  { background: var(--amber); }
+    .pe-dot.red    { background: var(--red-alert); }
+    .pe-dot.blue   { background: var(--sky); }
+    .pe-title  { font-size: 12.5px; font-weight: 600; color: var(--gray-800); }
+    .pe-detail { font-size: 11.5px; color: var(--gray-500); }
+    .pe-time   { font-size: 10.5px; color: var(--gray-400); margin-left: auto; white-space: nowrap; }
+  </style>
+</head>
+<body>
+<div id="nav-container"></div>
+
+<div class="main-wrapper">
+  <header class="topbar">
+    <button class="menu-toggle"><i class="fa fa-bars"></i></button>
+    <div>
+      <div class="topbar-title">Permit Management System</div>
+      <div class="topbar-sub">Forest Permit Applications · Review Pipeline · Approvals · Hazara Division</div>
+    </div>
+    <div class="topbar-right">
+      <div class="topbar-badge"><i class="fa fa-tasks"></i> 34 Active Permits</div>
+      <div class="topbar-badge" style="background:var(--amber-light);color:#b45309;border-color:var(--amber-light);">
+        <i class="fa fa-clock"></i> 3 Urgent
+      </div>
+      <div class="topbar-clock">PKT 00:00:00</div>
+    </div>
+  </header>
+
+  <main class="page-content">
+
+    <!-- KPIs -->
+    <div class="kpi-grid">
+      <div class="kpi-card green">
+        <div class="kpi-icon-wrap green"><i class="fa fa-file-alt"></i></div>
+        <div class="kpi-body">
+          <div class="kpi-value" data-target="34">0</div>
+          <div class="kpi-label">Active Permits</div>
+          <div class="kpi-delta"><i class="fa fa-tasks"></i> In pipeline</div>
+        </div>
+      </div>
+      <div class="kpi-card defo">
+        <div class="kpi-icon-wrap defo"><i class="fa fa-check-double"></i></div>
+        <div class="kpi-body">
+          <div class="kpi-value" data-target="68" data-suffix="%">0</div>
+          <div class="kpi-label">Approval Rate (30d)</div>
+          <div class="kpi-delta down"><i class="fa fa-arrow-down"></i> −4% from target</div>
+        </div>
+      </div>
+      <div class="kpi-card legal">
+        <div class="kpi-icon-wrap legal"><i class="fa fa-clock"></i></div>
+        <div class="kpi-body">
+          <div class="kpi-value" data-target="4" data-suffix=".2d">0</div>
+          <div class="kpi-label">Avg Processing Time</div>
+          <div class="kpi-delta down"><i class="fa fa-check"></i> Within SLA</div>
+        </div>
+      </div>
+      <div class="kpi-card fire">
+        <div class="kpi-icon-wrap fire"><i class="fa fa-exclamation-triangle"></i></div>
+        <div class="kpi-body">
+          <div class="kpi-value" data-target="3">0</div>
+          <div class="kpi-label">Urgent / Overdue</div>
+          <div class="kpi-delta up"><i class="fa fa-arrow-up"></i> Action needed</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Pipeline Overview -->
+    <div class="card" style="margin-bottom:20px;">
+      <div class="card-header">
+        <div class="card-title"><i class="fa fa-stream"></i> Permit Pipeline Overview</div>
+        <div class="card-badge">34 Total</div>
+      </div>
+      <div class="card-body">
+        <div class="step-tracker">
+          <div class="st-step"><div class="st-dot done"><i class="fa fa-check"></i></div><div class="st-label">Submitted<br><strong style="color:var(--gray-800);">12</strong></div></div>
+          <div class="st-step"><div class="st-dot done"><i class="fa fa-check"></i></div><div class="st-label">Under Review<br><strong style="color:var(--gray-800);">8</strong></div></div>
+          <div class="st-step"><div class="st-dot active">3</div><div class="st-label">Site Verified<br><strong style="color:var(--gray-800);">6</strong></div></div>
+          <div class="st-step"><div class="st-dot pending">4</div><div class="st-label">Approved<br><strong style="color:var(--gray-800);">5</strong></div></div>
+          <div class="st-step"><div class="st-dot pending">5</div><div class="st-label">Rejected<br><strong style="color:var(--gray-800);">3</strong></div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-grid col-3-2" style="margin-bottom:20px;">
+
+      <!-- Left: Active Permits List + Chart -->
+      <div>
+        <div class="card" style="margin-bottom:16px;">
+          <div class="card-header">
+            <div class="card-title"><i class="fa fa-folder-open"></i> Active Permit Applications</div>
+            <div class="card-badge">34 Active</div>
+          </div>
+          <div style="overflow-x:auto;">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>App. No.</th>
+                  <th>Applicant</th>
+                  <th>Type</th>
+                  <th>District</th>
+                  <th>Filed</th>
+                  <th>Stage</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="text-mono fw-bold" style="color:var(--forest-mid);">#PRM-2024-0045</td>
+                  <td>Ahmad Timber Co.</td>
+                  <td>Commercial Logging</td>
+                  <td>Mansehra</td>
+                  <td>20 Jun</td>
+                  <td><span class="badge medium">Site Verified</span></td>
+                  <td><span class="badge high">In Progress</span></td>
+                </tr>
+                <tr>
+                  <td class="text-mono fw-bold" style="color:var(--forest-mid);">#PRM-2024-0044</td>
+                  <td>KP Tourism Dept.</td>
+                  <td>Resort Development</td>
+                  <td>Abbottabad</td>
+                  <td>18 Jun</td>
+                  <td><span class="badge info">Under Review</span></td>
+                  <td><span class="badge high">In Progress</span></td>
+                </tr>
+                <tr>
+                  <td class="text-mono fw-bold" style="color:var(--forest-mid);">#PRM-2024-0043</td>
+                  <td>Ali Forest Supplies</td>
+                  <td>Fuelwood Extraction</td>
+                  <td>Battagram</td>
+                  <td>16 Jun</td>
+                  <td><span class="badge medium">Site Verified</span></td>
+                  <td><span class="badge success">Approved</span></td>
+                </tr>
+                <tr>
+                  <td class="text-mono fw-bold" style="color:var(--forest-mid);">#PRM-2024-0042</td>
+                  <td>Indus Highway Auth.</td>
+                  <td>Right-of-Way</td>
+                  <td>Haripur</td>
+                  <td>14 Jun</td>
+                  <td><span class="badge info">Under Review</span></td>
+                  <td><span class="badge medium">Pending DFO</span></td>
+                </tr>
+                <tr>
+                  <td class="text-mono fw-bold" style="color:var(--forest-mid);">#PRM-2024-0041</td>
+                  <td>Green Valley Farms</td>
+                  <td>Grazing License</td>
+                  <td>Kohistan</td>
+                  <td>12 Jun</td>
+                  <td><span class="badge info">Submitted</span></td>
+                  <td><span class="badge medium">New</span></td>
+                </tr>
+                <tr>
+                  <td class="text-mono fw-bold" style="color:var(--forest-mid);">#PRM-2024-0040</td>
+                  <td>National Grid Pak.</td>
+                  <td>Power Line Survey</td>
+                  <td>Mansehra</td>
+                  <td>10 Jun</td>
+                  <td><span class="badge success">Approved</span></td>
+                  <td><span class="badge success">Issued</span></td>
+                </tr>
+                <tr>
+                  <td class="text-mono fw-bold" style="color:var(--forest-mid);">#PRM-2024-0039</td>
+                  <td>Zara Builders Ltd.</td>
+                  <td>Land Use Change</td>
+                  <td>Abbottabad</td>
+                  <td>08 Jun</td>
+                  <td><span class="badge critical">Rejected</span></td>
+                  <td><span class="badge critical">Denied</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Permit Trend Chart -->
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title"><i class="fa fa-chart-line"></i> Permit Applications Trend</div>
+            <div class="card-badge">2024</div>
+          </div>
+          <div class="card-body">
+            <div class="chart-container" style="height:180px;">
+              <canvas id="permitChart"></canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: New Application + Activity -->
+      <div style="display:flex;flex-direction:column;gap:16px;">
+
+        <!-- Apply for Permit -->
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title"><i class="fa fa-plus"></i> New Permit Application</div>
+          </div>
+          <div class="card-body">
+            <div class="permit-types-grid">
+              <div class="permit-type-card">
+                <div class="ptc-icon">🌲</div>
+                <div class="ptc-name">Logging</div>
+                <div class="ptc-fee">Fee: ₨5,000</div>
+              </div>
+              <div class="permit-type-card">
+                <div class="ptc-icon">🔥</div>
+                <div class="ptc-name">Fuelwood</div>
+                <div class="ptc-fee">Fee: ₨1,500</div>
+              </div>
+              <div class="permit-type-card">
+                <div class="ptc-icon">🏗️</div>
+                <div class="ptc-name">Development</div>
+                <div class="ptc-fee">Fee: ₨20,000</div>
+              </div>
+              <div class="permit-type-card">
+                <div class="ptc-icon">🐄</div>
+                <div class="ptc-name">Grazing</div>
+                <div class="ptc-fee">Fee: ₨800</div>
+              </div>
+              <div class="permit-type-card">
+                <div class="ptc-icon">🛣️</div>
+                <div class="ptc-name">Right-of-Way</div>
+                <div class="ptc-fee">Fee: ₨10,000</div>
+              </div>
+              <div class="permit-type-card">
+                <div class="ptc-icon">🔬</div>
+                <div class="ptc-name">Research</div>
+                <div class="ptc-fee">Fee: ₨500</div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Applicant / Organization</label>
+              <input type="text" class="form-input" placeholder="Full legal name or organization..." />
+            </div>
+            <div class="form-group">
+              <label class="form-label">Location / District</label>
+              <select class="form-select">
+                <option>Select district...</option>
+                <option>Mansehra</option>
+                <option>Abbottabad</option>
+                <option>Battagram</option>
+                <option>Haripur</option>
+                <option>Kohistan</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Area (hectares)</label>
+              <input type="number" class="form-input" placeholder="0.00" />
+            </div>
+            <button class="btn btn-primary w-full" onclick="submitPermit()">
+              <i class="fa fa-file-alt"></i> Submit Application
+            </button>
+          </div>
+        </div>
+
+        <!-- Recent Activity -->
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title"><i class="fa fa-history"></i> Recent Activity</div>
+          </div>
+          <div class="card-body">
+            <div class="permit-event">
+              <div class="pe-dot green"></div>
+              <div><div class="pe-title">#PRM-2024-0040 Approved & Issued</div><div class="pe-detail">Power Line Survey · Mansehra</div></div>
+              <div class="pe-time">Today</div>
+            </div>
+            <div class="permit-event">
+              <div class="pe-dot red"></div>
+              <div><div class="pe-title">#PRM-2024-0039 Rejected</div><div class="pe-detail">Land use change violates Protected Forest boundary</div></div>
+              <div class="pe-time">Yesterday</div>
+            </div>
+            <div class="permit-event">
+              <div class="pe-dot amber"></div>
+              <div><div class="pe-title">#PRM-2024-0045 Site Verification Done</div><div class="pe-detail">DFO team visited Mansehra Block-4</div></div>
+              <div class="pe-time">2 days ago</div>
+            </div>
+            <div class="permit-event">
+              <div class="pe-dot green"></div>
+              <div><div class="pe-title">#PRM-2024-0043 Approved</div><div class="pe-detail">Fuelwood extraction with conditions</div></div>
+              <div class="pe-time">3 days ago</div>
+            </div>
+            <div class="permit-event">
+              <div class="pe-dot blue"></div>
+              <div><div class="pe-title">3 New Applications Received</div><div class="pe-detail">#0041, #0042, #0044 submitted</div></div>
+              <div class="pe-time">4 days ago</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-text">GREENLAW AI · HAZARA FOREST INTELLIGENCE · v4.0</div>
+    <div class="footer-refs">KP FOREST ORDINANCE 2002 · FOREST ACT 1927 · FIRMS · GFW · OWM</div>
+  </footer>
+</div>
+
+<script src="js/nav.js"></script>
+<script src="js/shared.js"></script>
+<script>
+function submitPermit() {
+  const btn = event.target;
+  btn.innerHTML = '<i class="fa fa-check"></i> Application Submitted!';
+  btn.style.background = 'var(--forest-bright)';
+  btn.disabled = true;
+  setTimeout(() => {
+    btn.innerHTML = '<i class="fa fa-file-alt"></i> Submit Application';
+    btn.style.background = '';
+    btn.disabled = false;
+  }, 3000);
+}
+
+new Chart(document.getElementById('permitChart'), {
+  type: 'bar',
+  data: {
+    labels: ['Jan','Feb','Mar','Apr','May','Jun'],
+    datasets: [
+      { label: 'Applications', data: [18,22,19,28,24,34], backgroundColor: 'rgba(59,130,246,.7)', borderRadius: 5 },
+      { label: 'Approved',     data: [12,15,13,19,17,23], backgroundColor: 'rgba(52,168,114,.7)', borderRadius: 5 },
+      { label: 'Rejected',     data: [4,5,4,6,5,7],       backgroundColor: 'rgba(239,68,68,.6)', borderRadius: 5 }
+    ]
+  },
+  options: {
+    responsive: true, maintainAspectRatio: false,
+    plugins: { legend: { position: 'top' } },
+    scales: {
+      x: { grid: { display: false } },
+      y: { grid: { color: '#f1f5f9' }, beginAtZero: true }
+    }
+  }
+});
+</script>
+</body>
+</html>

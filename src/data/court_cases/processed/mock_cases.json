@@ -1,0 +1,1283 @@
+[
+  {
+    "case_id": "SC-2024-001",
+    "metadata": {
+      "version": "1.0",
+      "last_verified": "2026-04-14",
+      "status": "CURRENT",
+      "superseded_by": null,
+      "lineage": []
+    },
+    "title": "State vs. Accused_1",
+    "court_level": "Supreme Court",
+    "court_name": "Supreme Court of Pakistan",
+    "bench": [
+      "Justice Munib Akhtar",
+      "Justice Yahya Afridi",
+      "Justice Ayesha A. Malik"
+    ],
+    "judgment_date": "2024-08-21",
+    "citation": "2024 SCMR 421",
+    "law_sections": [
+      "Section 42, KP Forest Ordinance 2002"
+    ],
+    "offense_category": "Illegal Logging",
+    "offense_details": "Unlawful cutting of 46 trees in Mansehra during the day.",
+    "location": "Mansehra",
+    "is_night_violation": false,
+    "is_protected_forest": true,
+    "trees_cut": 46,
+    "verdict": "Convicted",
+    "penalty_type": "Fine + Imprisonment",
+    "penalty_amount_rs": 6900000,
+    "imprisonment_months": 21,
+    "repeat_offender": true,
+    "prior_convictions": 2,
+    "precedents_cited": [],
+    "judgment_summary": "The court found the accused convicted regarding the unlawful cutting of 46 trees in mansehra during the day.",
+    "full_text": "This is a synthesized full judgment text for 2024...",
+    "keywords": [
+      "illegal_logging",
+      "mansehra"
+    ]
+  },
+  {
+    "case_id": "PHC-2020-002",
+    "metadata": {
+      "version": "1.0",
+      "last_verified": "2026-04-14",
+      "status": "CURRENT",
+      "superseded_by": null,
+      "lineage": []
+    },
+    "title": "State vs. Accused_2",
+    "court_level": "High Court",
+    "court_name": "Peshawar High Court",
+    "bench": [
+      "Justice Munib Akhtar",
+      "Justice Ishtiaq Ibrahim (PHC)"
+    ],
+    "judgment_date": "2020-12-01",
+    "citation": "2020 PLD 709",
+    "law_sections": [
+      "Section 42, KP Forest Ordinance 2002"
+    ],
+    "offense_category": "Encroachment",
+    "offense_details": "Unauthorized construction and land clearing on 5 kanals of reserved forest land in Kaghan Valley.",
+    "location": "Kaghan Valley",
+    "is_night_violation": false,
+    "is_protected_forest": false,
+    "trees_cut": 6,
+    "verdict": "Convicted",
+    "penalty_type": "Fine + Imprisonment",
+    "penalty_amount_rs": 804849,
+    "imprisonment_months": 15,
+    "repeat_offender": true,
+    "prior_convictions": 3,
+    "precedents_cited": [
+      "2024 SCMR 421"
+    ],
+    "judgment_summary": "The court found the accused convicted regarding the unauthorized construction and land clearing on 5 kanals of reserved forest land in kaghan valley.",
+    "full_text": "This is a synthesized full judgment text for 2020...",
+    "keywords": [
+      "encroachment",
+      "kaghan valley"
+    ]
+  },
+  {
+    "case_id": "SC-2024-003",
+    "metadata": {
+      "version": "1.0",
+      "last_verified": "2026-04-14",
+      "status": "CURRENT",
+      "superseded_by": null,
+      "lineage": []
+    },
+    "title": "State vs. Accused_3",
+    "court_level": "Supreme Court",
+    "court_name": "Supreme Court of Pakistan",
+    "bench": [
+      "Justice Ishtiaq Ibrahim (PHC)",
+      "Justice Munib Akhtar",
+      "Justice Qazi Faez Isa"
+    ],
+    "judgment_date": "2024-11-12",
+    "citation": "2024 SCMR 194",
+    "law_sections": [
+      "Section 9, KP Wildlife Act 2015"
+    ],
+    "offense_category": "Encroachment",
+    "offense_details": "Unauthorized construction and land clearing on 3 kanals of reserved forest land in Swat.",
+    "location": "Swat",
+    "is_night_violation": true,
+    "is_protected_forest": true,
+    "trees_cut": 14,
+    "verdict": "Dismissed",
+    "penalty_type": "None",
+    "penalty_amount_rs": 0,
+    "imprisonment_months": 0,
+    "repeat_offender": false,
+    "prior_convictions": 0,
+    "precedents_cited": [],
+    "judgment_summary": "The court found the accused dismissed regarding the unauthorized construction and land clearing on 3 kanals of reserved forest land in swat.",
+    "full_text": "This is a synthesized full judgment text for 2024...",
+    "keywords": [
+      "encroachment",
+      "swat",
+      "night"
+    ]
+  },
+  {
+    "case_id": "PHC-2020-004",
+    "metadata": {
+      "version": "1.0",
+      "last_verified": "2026-04-14",
+      "status": "CURRENT",
+      "superseded_by": null,
+      "lineage": []
+    },
+    "title": "State vs. Accused_4",
+    "court_level": "High Court",
+    "court_name": "Peshawar High Court",
+    "bench": [
+      "Justice Qazi Faez Isa"
+    ],
+    "judgment_date": "2020-01-23",
+    "citation": "2020 PLD 911",
+    "law_sections": [
+      "Section 11, Pakistan Environmental Protection Act 1997"
+    ],
+    "offense_category": "Illegal Logging",
+    "offense_details": "Unlawful cutting of 10 trees in Swat at night.",
+    "location": "Swat",
+    "is_night_violation": true,
+    "is_protected_forest": true,
+    "trees_cut": 10,
+    "verdict": "Guilty",
+    "penalty_type": "Fine + Imprisonment",
+    "penalty_amount_rs": 750000,
+    "imprisonment_months": 10,
+    "repeat_offender": false,
+    "prior_convictions": 0,
+    "precedents_cited": [
+      "2020 PLD 709"
+    ],
+    "judgment_summary": "The court found the accused guilty regarding the unlawful cutting of 10 trees in swat at night.",
+    "full_text": "This is a synthesized full judgment text for 2020...",
+    "keywords": [
+      "illegal_logging",
+      "swat",
+      "night"
+    ]
+  },
+  {
+    "case_id": "PHC-2020-005",
+    "metadata": {
+      "version": "1.0",
+      "last_verified": "2026-04-14",
+      "status": "CURRENT",
+      "superseded_by": null,
+      "lineage": []
+    },
+    "title": "State vs. Accused_5",
+    "court_level": "High Court",
+    "court_name": "Peshawar High Court",
+    "bench": [
+      "Justice Yahya Afridi"
+    ],
+    "judgment_date": "2020-05-29",
+    "citation": "2020 PLD 40",
+    "law_sections": [
+      "Section 9, KP Wildlife Act 2015",
+      "Section 42, KP Forest Ordinance 2002"
+    ],
+    "offense_category": "Forest Fire",
+    "offense_details": "Setting fire to forest area in Swat during dry season. Approximately 18 hectares affected.",
+    "location": "Swat",
+    "is_night_violation": false,
+    "is_protected_forest": false,
+    "trees_cut": 0,
+    "verdict": "Guilty",
+    "penalty_type": "Fine + Imprisonment",
+    "penalty_amount_rs": 1430772,
+    "imprisonment_months": 11,
+    "repeat_offender": true,
+    "prior_convictions": 2,
+    "precedents_cited": [],
+    "judgment_summary": "The court found the accused guilty regarding the setting fire to forest area in swat during dry season. approximately 18 hectares affected.",
+    "full_text": "This is a synthesized full judgment text for 2020...",
+    "keywords": [
+      "forest_fire",
+      "swat"
+    ]
+  },
+  {
+    "case_id": "SC-2024-006",
+    "metadata": {
+      "version": "1.0",
+      "last_verified": "2026-04-14",
+      "status": "CURRENT",
+      "superseded_by": null,
+      "lineage": []
+    },
+    "title": "State vs. Accused_6",
+    "court_level": "Supreme Court",
+    "court_name": "Supreme Court of Pakistan",
+    "bench": [
+      "Justice Syed Mansoor Ali Shah",
+      "Justice Yahya Afridi",
+      "Justice Ayesha A. Malik"
+    ],
+    "judgment_date": "2024-12-05",
+    "citation": "2024 SCMR 468",
+    "law_sections": [
+      "Section 11, Pakistan Environmental Protection Act 1997"
+    ],
+    "offense_category": "Encroachment",
+    "offense_details": "Unauthorized construction and land clearing on 1 kanals of reserved forest land in Abbottabad.",
+    "location": "Abbottabad",
+    "is_night_violation": true,
+    "is_protected_forest": true,
+    "trees_cut": 6,
+    "verdict": "Convicted",
+    "penalty_type": "Fine + Imprisonment",
+    "penalty_amount_rs": 2175570,
+    "imprisonment_months": 16,
+    "repeat_offender": true,
+    "prior_convictions": 1,
+    "precedents_cited": [],
+    "judgment_summary": "The court found the accused convicted regarding the unauthorized construction and land clearing on 1 kanals of reserved forest land in abbottabad.",
+    "full_text": "This is a synthesized full judgment text for 2024...",
+    "keywords": [
+      "encroachment",
+      "abbottabad",
+      "night"
+    ]
+  },
+  {
+    "case_id": "PHC-2023-007",
+    "metadata": {
+      "version": "1.0",
+      "last_verified": "2026-04-14",
+      "status": "CURRENT",
+      "superseded_by": null,
+      "lineage": []
+    },
+    "title": "State vs. Accused_7",
+    "court_level": "High Court",
+    "court_name": "Peshawar High Court",
+    "bench": [
+      "Justice Ishtiaq Ibrahim (PHC)"
+    ],
+    "judgment_date": "2023-04-12",
+    "citation": "2023 PLD 153",
+    "law_sections": [
+      "Section 33, KP Forest Ordinance 2002"
+    ],
+    "offense_category": "Forest Fire",
+    "offense_details": "Setting fire to forest area in Kaghan Valley near residential zone. Approximately 20 hectares affected.",
+    "location": "Kaghan Valley",
+    "is_night_violation": false,
+    "is_protected_forest": true,
+    "trees_cut": 0,
+    "verdict": "Guilty",
+    "penalty_type": "Fine + Imprisonment",
+    "penalty_amount_rs": 890660,
+    "imprisonment_months": 23,
+    "repeat_offender": false,
+    "prior_convictions": 0,
+    "precedents_cited": [
+      "2024 SCMR 468"
+    ],
+    "judgment_summary": "The court found the accused guilty regarding the setting fire to forest area in kaghan valley near residential zone. approximately 20 hectares affected.",
+    "full_text": "This is a synthesized full judgment text for 2023...",
+    "keywords": [
+      "forest_fire",
+      "kaghan valley"
+    ]
+  },
+  {
+    "case_id": "SC-2023-008",
+    "metadata": {
+      "version": "1.0",
+      "last_verified": "2026-04-14",
+      "status": "CURRENT",
+      "superseded_by": null,
+      "lineage": []
+    },
+    "title": "State vs. Accused_8",
+    "court_level": "Supreme Court",
+    "court_name": "Supreme Court of Pakistan",
+    "bench": [
+      "Justice Ishtiaq Ibrahim (PHC)",
+      "Justice Qazi Faez Isa",
+      "Justice Syed Mansoor Ali Shah"
+    ],
+    "judgment_date": "2023-09-12",
+    "citation": "2023 SCMR 157",
+    "law_sections": [
+      "Section 42, KP Forest Ordinance 2002"
+    ],
+    "offense_category": "Illegal Grazing",
+    "offense_details": "Unauthorized grazing of 46 livestock in protected forest zone of Naran.",
+    "location": "Naran",
+    "is_night_violation": false,
+    "is_protected_forest": true,
+    "trees_cut": 0,
+    "verdict": "Guilty",
+    "penalty_type": "Fine",
+    "penalty_amount_rs": 78610,
+    "imprisonment_months": 0,
+    "repeat_offender": false,
+    "prior_convictions": 0,
+    "precedents_cited": [],
+    "judgment_summary": "The court found the accused guilty regarding the unauthorized grazing of 46 livestock in protected forest zone of naran.",
+    "full_text": "This is a synthesized full judgment text for 2023...",
+    "keywords": [
+      "illegal_grazing",
+      "naran"
+    ]
+  },
+  {
+    "case_id": "SC-2021-009",
+    "metadata": {
+      "version": "1.0",
+      "last_verified": "2026-04-14",
+      "status": "CURRENT",
+      "superseded_by": null,
+      "lineage": []
+    },
+    "title": "State vs. Accused_9",
+    "court_level": "Supreme Court",
+    "court_name": "Supreme Court of Pakistan",
+    "bench": [
+      "Justice Munib Akhtar",
+      "Justice Ishtiaq Ibrahim (PHC)",
+      "Justice Rooh-ul-Amin Khan (PHC)"
+    ],
+    "judgment_date": "2021-04-01",
+    "citation": "2021 SCMR 398",
+    "law_sections": [
+      "Section 33, KP Forest Ordinance 2002"
+    ],
+    "offense_category": "Illegal Logging",
+    "offense_details": "Unlawful cutting of 3 trees in Dir at night.",
+    "location": "Dir",
+    "is_night_violation": true,
+    "is_protected_forest": false,
+    "trees_cut": 3,
+    "verdict": "Guilty",
+    "penalty_type": "Fine",
+    "penalty_amount_rs": 112500,
+    "imprisonment_months": 0,
+    "repeat_offender": false,
+    "prior_convictions": 0,
+    "precedents_cited": [],
+    "judgment_summary": "The court found the accused guilty regarding the unlawful cutting of 3 trees in dir at night.",
+    "full_text": "This is a synthesized full judgment text for 2021...",
+    "keywords": [
+      "illegal_logging",
+      "dir",
+      "night"
+    ]
+  },
+  {
+    "case_id": "PHC-2021-010",
+    "metadata": {
+      "version": "1.0",
+      "last_verified": "2026-04-14",
+      "status": "CURRENT",
+      "superseded_by": null,
+      "lineage": []
+    },
+    "title": "State vs. Accused_10",
+    "court_level": "High Court",
+    "court_name": "Peshawar High Court",
+    "bench": [
+      "Justice Qazi Faez Isa",
+      "Justice Rooh-ul-Amin Khan (PHC)"
+    ],
+    "judgment_date": "2021-10-27",
+    "citation": "2021 PLD 653",
+    "law_sections": [
+      "Section 11, Pakistan Environmental Protection Act 1997"
+    ],
+    "offense_category": "Poaching",
+    "offense_details": "Illegal hunting of protected species (Musk Deer) in Mansehra wildlife sanctuary.",
+    "location": "Mansehra",
+    "is_night_violation": false,
+    "is_protected_forest": true,
+    "trees_cut": 0,
+    "verdict": "Convicted",
+    "penalty_type": "Fine + Imprisonment",
+    "penalty_amount_rs": 828236,
+    "imprisonment_months": 10,
+    "repeat_offender": false,
+    "prior_convictions": 0,
+    "precedents_cited": [],
+    "judgment_summary": "The court found the accused convicted regarding the illegal hunting of protected species (musk deer) in mansehra wildlife sanctuary.",
+    "full_text": "This is a synthesized full judgment text for 2021...",
+    "keywords": [
+      "poaching",
+      "mansehra"
+    ]
+  },
+  {
+    "case_id": "SC-2022-011",
+    "metadata": {
+      "version": "1.0",
+      "last_verified": "2026-04-14",
+      "status": "CURRENT",
+      "superseded_by": null,
+      "lineage": []
+    },
+    "title": "State vs. Accused_11",
+    "court_level": "Supreme Court",
+    "court_name": "Supreme Court of Pakistan",
+    "bench": [
+      "Justice Syed Mansoor Ali Shah",
+      "Justice Qazi Faez Isa",
+      "Justice Munib Akhtar"
+    ],
+    "judgment_date": "2022-10-29",
+    "citation": "2022 SCMR 23",
+    "law_sections": [
+      "Section 11, Pakistan Environmental Protection Act 1997"
+    ],
+    "offense_category": "Illegal Logging",
+    "offense_details": "Unlawful cutting of 50 trees in Kalam during the day.",
+    "location": "Kalam",
+    "is_night_violation": false,
+    "is_protected_forest": true,
+    "trees_cut": 50,
+    "verdict": "Dismissed",
+    "penalty_type": "None",
+    "penalty_amount_rs": 0,
+    "imprisonment_months": 0,
+    "repeat_offender": false,
+    "prior_convictions": 0,
+    "precedents_cited": [],
+    "judgment_summary": "The court found the accused dismissed regarding the unlawful cutting of 50 trees in kalam during the day.",
+    "full_text": "This is a synthesized full judgment text for 2022...",
+    "keywords": [
+      "illegal_logging",
+      "kalam"
+    ]
+  },
+  {
+    "case_id": "PHC-2025-012",
+    "metadata": {
+      "version": "1.0",
+      "last_verified": "2026-04-14",
+      "status": "CURRENT",
+      "superseded_by": null,
+      "lineage": []
+    },
+    "title": "State vs. Accused_12",
+    "court_level": "High Court",
+    "court_name": "Peshawar High Court",
+    "bench": [
+      "Justice Qazi Faez Isa"
+    ],
+    "judgment_date": "2025-05-16",
+    "citation": "2025 PLD 453",
+    "law_sections": [
+      "Section 11, Pakistan Environmental Protection Act 1997",
+      "Section 9, KP Wildlife Act 2015"
+    ],
+    "offense_category": "Poaching",
+    "offense_details": "Illegal hunting of protected species (Markhor) in Dir wildlife sanctuary.",
+    "location": "Dir",
+    "is_night_violation": false,
+    "is_protected_forest": true,
+    "trees_cut": 0,
+    "verdict": "Guilty",
+    "penalty_type": "Fine + Imprisonment",
+    "penalty_amount_rs": 847608,
+    "imprisonment_months": 16,
+    "repeat_offender": false,
+    "prior_convictions": 0,
+    "precedents_cited": [
+      "2020 PLD 709"
+    ],
+    "judgment_summary": "The court found the accused guilty regarding the illegal hunting of protected species (markhor) in dir wildlife sanctuary.",
+    "full_text": "This is a synthesized full judgment text for 2025...",
+    "keywords": [
+      "poaching",
+      "dir"
+    ]
+  },
+  {
+    "case_id": "SC-2024-013",
+    "metadata": {
+      "version": "1.0",
+      "last_verified": "2026-04-14",
+      "status": "CURRENT",
+      "superseded_by": null,
+      "lineage": []
+    },
+    "title": "State vs. Accused_13",
+    "court_level": "Supreme Court",
+    "court_name": "Supreme Court of Pakistan",
+    "bench": [
+      "Justice Amin-ud-Din Khan",
+      "Justice Qazi Faez Isa",
+      "Justice Munib Akhtar"
+    ],
+    "judgment_date": "2024-04-03",
+    "citation": "2024 SCMR 192",
+    "law_sections": [
+      "Section 9, KP Wildlife Act 2015",
+      "Section 11, Pakistan Environmental Protection Act 1997"
+    ],
+    "offense_category": "Encroachment",
+    "offense_details": "Unauthorized construction and land clearing on 5 kanals of reserved forest land in Kalam.",
+    "location": "Kalam",
+    "is_night_violation": false,
+    "is_protected_forest": true,
+    "trees_cut": 4,
+    "verdict": "Convicted",
+    "penalty_type": "Fine",
+    "penalty_amount_rs": 313910,
+    "imprisonment_months": 0,
+    "repeat_offender": false,
+    "prior_convictions": 0,
+    "precedents_cited": [],
+    "judgment_summary": "The court found the accused convicted regarding the unauthorized construction and land clearing on 5 kanals of reserved forest land in kalam.",
+    "full_text": "This is a synthesized full judgment text for 2024...",
+    "keywords": [
+      "encroachment",
+      "kalam"
+    ]
+  },
+  {
+    "case_id": "PHC-2020-014",
+    "metadata": {
+      "version": "1.0",
+      "last_verified": "2026-04-14",
+      "status": "CURRENT",
+      "superseded_by": null,
+      "lineage": []
+    },
+    "title": "State vs. Accused_14",
+    "court_level": "High Court",
+    "court_name": "Peshawar High Court",
+    "bench": [
+      "Justice Ishtiaq Ibrahim (PHC)",
+      "Justice Munib Akhtar"
+    ],
+    "judgment_date": "2020-11-24",
+    "citation": "2020 PLD 492",
+    "law_sections": [
+      "Section 33, KP Forest Ordinance 2002",
+      "Section 9, KP Wildlife Act 2015"
+    ],
+    "offense_category": "Forest Fire",
+    "offense_details": "Setting fire to forest area in Swat near residential zone. Approximately 8 hectares affected.",
+    "location": "Swat",
+    "is_night_violation": false,
+    "is_protected_forest": true,
+    "trees_cut": 0,
+    "verdict": "Guilty",
+    "penalty_type": "Fine + Imprisonment",
+    "penalty_amount_rs": 1744284,
+    "imprisonment_months": 4,
+    "repeat_offender": true,
+    "prior_convictions": 3,
+    "precedents_cited": [
+      "2024 SCMR 192"
+    ],
+    "judgment_summary": "The court found the accused guilty regarding the setting fire to forest area in swat near residential zone. approximately 8 hectares affected.",
+    "full_text": "This is a synthesized full judgment text for 2020...",
+    "keywords": [
+      "forest_fire",
+      "swat"
+    ]
+  },
+  {
+    "case_id": "PHC-2022-015",
+    "metadata": {
+      "version": "1.0",
+      "last_verified": "2026-04-14",
+      "status": "CURRENT",
+      "superseded_by": null,
+      "lineage": []
+    },
+    "title": "State vs. Accused_15",
+    "court_level": "High Court",
+    "court_name": "Peshawar High Court",
+    "bench": [
+      "Justice Syed Mansoor Ali Shah"
+    ],
+    "judgment_date": "2022-03-19",
+    "citation": "2022 PLD 426",
+    "law_sections": [
+      "Section 11, Pakistan Environmental Protection Act 1997"
+    ],
+    "offense_category": "Poaching",
+    "offense_details": "Illegal hunting of protected species (Snow Leopard) in Kaghan Valley wildlife sanctuary.",
+    "location": "Kaghan Valley",
+    "is_night_violation": true,
+    "is_protected_forest": false,
+    "trees_cut": 0,
+    "verdict": "Not Guilty",
+    "penalty_type": "None",
+    "penalty_amount_rs": 0,
+    "imprisonment_months": 0,
+    "repeat_offender": false,
+    "prior_convictions": 0,
+    "precedents_cited": [
+      "2021 PLD 653"
+    ],
+    "judgment_summary": "The court found the accused not guilty regarding the illegal hunting of protected species (snow leopard) in kaghan valley wildlife sanctuary.",
+    "full_text": "This is a synthesized full judgment text for 2022...",
+    "keywords": [
+      "poaching",
+      "kaghan valley",
+      "night"
+    ]
+  },
+  {
+    "case_id": "SC-2020-016",
+    "metadata": {
+      "version": "1.0",
+      "last_verified": "2026-04-14",
+      "status": "CURRENT",
+      "superseded_by": null,
+      "lineage": []
+    },
+    "title": "State vs. Accused_16",
+    "court_level": "Supreme Court",
+    "court_name": "Supreme Court of Pakistan",
+    "bench": [
+      "Justice Munib Akhtar",
+      "Justice Ishtiaq Ibrahim (PHC)",
+      "Justice Qazi Faez Isa"
+    ],
+    "judgment_date": "2020-05-20",
+    "citation": "2020 SCMR 383",
+    "law_sections": [
+      "Section 9, KP Wildlife Act 2015"
+    ],
+    "offense_category": "Forest Fire",
+    "offense_details": "Setting fire to forest area in Kaghan Valley during dry season. Approximately 15 hectares affected.",
+    "location": "Kaghan Valley",
+    "is_night_violation": false,
+    "is_protected_forest": false,
+    "trees_cut": 0,
+    "verdict": "Convicted",
+    "penalty_type": "Fine + Imprisonment",
+    "penalty_amount_rs": 368233,
+    "imprisonment_months": 13,
+    "repeat_offender": false,
+    "prior_convictions": 0,
+    "precedents_cited": [
+      "2024 SCMR 421"
+    ],
+    "judgment_summary": "The court found the accused convicted regarding the setting fire to forest area in kaghan valley during dry season. approximately 15 hectares affected.",
+    "full_text": "This is a synthesized full judgment text for 2020...",
+    "keywords": [
+      "forest_fire",
+      "kaghan valley"
+    ]
+  },
+  {
+    "case_id": "PHC-2021-017",
+    "metadata": {
+      "version": "1.0",
+      "last_verified": "2026-04-14",
+      "status": "CURRENT",
+      "superseded_by": null,
+      "lineage": []
+    },
+    "title": "State vs. Accused_17",
+    "court_level": "High Court",
+    "court_name": "Peshawar High Court",
+    "bench": [
+      "Justice Qazi Faez Isa"
+    ],
+    "judgment_date": "2021-01-21",
+    "citation": "2021 PLD 980",
+    "law_sections": [
+      "Section 33, KP Forest Ordinance 2002",
+      "Section 9, KP Wildlife Act 2015"
+    ],
+    "offense_category": "Encroachment",
+    "offense_details": "Unauthorized construction and land clearing on 1 kanals of reserved forest land in Kaghan Valley.",
+    "location": "Kaghan Valley",
+    "is_night_violation": false,
+    "is_protected_forest": true,
+    "trees_cut": 2,
+    "verdict": "Convicted",
+    "penalty_type": "Fine",
+    "penalty_amount_rs": 524212,
+    "imprisonment_months": 0,
+    "repeat_offender": false,
+    "prior_convictions": 0,
+    "precedents_cited": [
+      "2020 PLD 911"
+    ],
+    "judgment_summary": "The court found the accused convicted regarding the unauthorized construction and land clearing on 1 kanals of reserved forest land in kaghan valley.",
+    "full_text": "This is a synthesized full judgment text for 2021...",
+    "keywords": [
+      "encroachment",
+      "kaghan valley"
+    ]
+  },
+  {
+    "case_id": "PHC-2025-018",
+    "metadata": {
+      "version": "1.0",
+      "last_verified": "2026-04-14",
+      "status": "CURRENT",
+      "superseded_by": null,
+      "lineage": []
+    },
+    "title": "State vs. Accused_18",
+    "court_level": "High Court",
+    "court_name": "Peshawar High Court",
+    "bench": [
+      "Justice Rooh-ul-Amin Khan (PHC)"
+    ],
+    "judgment_date": "2025-04-06",
+    "citation": "2025 PLD 545",
+    "law_sections": [
+      "Section 11, Pakistan Environmental Protection Act 1997",
+      "Section 42, KP Forest Ordinance 2002"
+    ],
+    "offense_category": "Encroachment",
+    "offense_details": "Unauthorized construction and land clearing on 6 kanals of reserved forest land in Shangla.",
+    "location": "Shangla",
+    "is_night_violation": true,
+    "is_protected_forest": true,
+    "trees_cut": 15,
+    "verdict": "Guilty",
+    "penalty_type": "Fine + Imprisonment",
+    "penalty_amount_rs": 1789602,
+    "imprisonment_months": 21,
+    "repeat_offender": true,
+    "prior_convictions": 1,
+    "precedents_cited": [
+      "2024 SCMR 192"
+    ],
+    "judgment_summary": "The court found the accused guilty regarding the unauthorized construction and land clearing on 6 kanals of reserved forest land in shangla.",
+    "full_text": "This is a synthesized full judgment text for 2025...",
+    "keywords": [
+      "encroachment",
+      "shangla",
+      "night"
+    ]
+  },
+  {
+    "case_id": "SC-2022-019",
+    "metadata": {
+      "version": "1.0",
+      "last_verified": "2026-04-14",
+      "status": "CURRENT",
+      "superseded_by": null,
+      "lineage": []
+    },
+    "title": "State vs. Accused_19",
+    "court_level": "Supreme Court",
+    "court_name": "Supreme Court of Pakistan",
+    "bench": [
+      "Justice Ishtiaq Ibrahim (PHC)",
+      "Justice Munib Akhtar",
+      "Justice Yahya Afridi"
+    ],
+    "judgment_date": "2022-09-19",
+    "citation": "2022 SCMR 275",
+    "law_sections": [
+      "Section 11, Pakistan Environmental Protection Act 1997"
+    ],
+    "offense_category": "Poaching",
+    "offense_details": "Illegal hunting of protected species (Snow Leopard) in Naran wildlife sanctuary.",
+    "location": "Naran",
+    "is_night_violation": true,
+    "is_protected_forest": true,
+    "trees_cut": 0,
+    "verdict": "Convicted",
+    "penalty_type": "Fine + Imprisonment",
+    "penalty_amount_rs": 2323898,
+    "imprisonment_months": 16,
+    "repeat_offender": false,
+    "prior_convictions": 0,
+    "precedents_cited": [
+      "2025 PLD 453"
+    ],
+    "judgment_summary": "The court found the accused convicted regarding the illegal hunting of protected species (snow leopard) in naran wildlife sanctuary.",
+    "full_text": "This is a synthesized full judgment text for 2022...",
+    "keywords": [
+      "poaching",
+      "naran",
+      "night"
+    ]
+  },
+  {
+    "case_id": "SC-2024-020",
+    "metadata": {
+      "version": "1.0",
+      "last_verified": "2026-04-14",
+      "status": "CURRENT",
+      "superseded_by": null,
+      "lineage": []
+    },
+    "title": "State vs. Accused_20",
+    "court_level": "Supreme Court",
+    "court_name": "Supreme Court of Pakistan",
+    "bench": [
+      "Justice Ishtiaq Ibrahim (PHC)",
+      "Justice Munib Akhtar",
+      "Justice Syed Mansoor Ali Shah"
+    ],
+    "judgment_date": "2024-12-23",
+    "citation": "2024 SCMR 544",
+    "law_sections": [
+      "Section 33, KP Forest Ordinance 2002"
+    ],
+    "offense_category": "Forest Fire",
+    "offense_details": "Setting fire to forest area in Dir during dry season. Approximately 14 hectares affected.",
+    "location": "Dir",
+    "is_night_violation": false,
+    "is_protected_forest": true,
+    "trees_cut": 0,
+    "verdict": "Convicted",
+    "penalty_type": "Fine + Imprisonment",
+    "penalty_amount_rs": 487112,
+    "imprisonment_months": 21,
+    "repeat_offender": false,
+    "prior_convictions": 0,
+    "precedents_cited": [
+      "2023 SCMR 157"
+    ],
+    "judgment_summary": "The court found the accused convicted regarding the setting fire to forest area in dir during dry season. approximately 14 hectares affected.",
+    "full_text": "This is a synthesized full judgment text for 2024...",
+    "keywords": [
+      "forest_fire",
+      "dir"
+    ]
+  },
+  {
+    "case_id": "PHC-2021-021",
+    "metadata": {
+      "version": "1.0",
+      "last_verified": "2026-04-14",
+      "status": "CURRENT",
+      "superseded_by": null,
+      "lineage": []
+    },
+    "title": "State vs. Accused_21",
+    "court_level": "High Court",
+    "court_name": "Peshawar High Court",
+    "bench": [
+      "Justice Ishtiaq Ibrahim (PHC)"
+    ],
+    "judgment_date": "2021-11-15",
+    "citation": "2021 PLD 416",
+    "law_sections": [
+      "Section 42, KP Forest Ordinance 2002"
+    ],
+    "offense_category": "Encroachment",
+    "offense_details": "Unauthorized construction and land clearing on 9 kanals of reserved forest land in Kalam.",
+    "location": "Kalam",
+    "is_night_violation": true,
+    "is_protected_forest": true,
+    "trees_cut": 2,
+    "verdict": "Convicted",
+    "penalty_type": "Fine + Imprisonment",
+    "penalty_amount_rs": 836288,
+    "imprisonment_months": 10,
+    "repeat_offender": false,
+    "prior_convictions": 0,
+    "precedents_cited": [],
+    "judgment_summary": "The court found the accused convicted regarding the unauthorized construction and land clearing on 9 kanals of reserved forest land in kalam.",
+    "full_text": "This is a synthesized full judgment text for 2021...",
+    "keywords": [
+      "encroachment",
+      "kalam",
+      "night"
+    ]
+  },
+  {
+    "case_id": "PHC-2021-022",
+    "metadata": {
+      "version": "1.0",
+      "last_verified": "2026-04-14",
+      "status": "CURRENT",
+      "superseded_by": null,
+      "lineage": []
+    },
+    "title": "State vs. Accused_22",
+    "court_level": "High Court",
+    "court_name": "Peshawar High Court",
+    "bench": [
+      "Justice Ishtiaq Ibrahim (PHC)"
+    ],
+    "judgment_date": "2021-02-24",
+    "citation": "2021 PLD 272",
+    "law_sections": [
+      "Section 33, KP Forest Ordinance 2002",
+      "Section 11, Pakistan Environmental Protection Act 1997"
+    ],
+    "offense_category": "Illegal Logging",
+    "offense_details": "Unlawful cutting of 26 trees in Kaghan Valley during the day.",
+    "location": "Kaghan Valley",
+    "is_night_violation": false,
+    "is_protected_forest": true,
+    "trees_cut": 26,
+    "verdict": "Dismissed",
+    "penalty_type": "None",
+    "penalty_amount_rs": 0,
+    "imprisonment_months": 0,
+    "repeat_offender": false,
+    "prior_convictions": 0,
+    "precedents_cited": [],
+    "judgment_summary": "The court found the accused dismissed regarding the unlawful cutting of 26 trees in kaghan valley during the day.",
+    "full_text": "This is a synthesized full judgment text for 2021...",
+    "keywords": [
+      "illegal_logging",
+      "kaghan valley"
+    ]
+  },
+  {
+    "case_id": "SC-2025-023",
+    "metadata": {
+      "version": "1.0",
+      "last_verified": "2026-04-14",
+      "status": "CURRENT",
+      "superseded_by": null,
+      "lineage": []
+    },
+    "title": "State vs. Accused_23",
+    "court_level": "Supreme Court",
+    "court_name": "Supreme Court of Pakistan",
+    "bench": [
+      "Justice Munib Akhtar",
+      "Justice Ishtiaq Ibrahim (PHC)",
+      "Justice Yahya Afridi"
+    ],
+    "judgment_date": "2025-02-21",
+    "citation": "2025 SCMR 966",
+    "law_sections": [
+      "Section 11, Pakistan Environmental Protection Act 1997"
+    ],
+    "offense_category": "Illegal Logging",
+    "offense_details": "Unlawful cutting of 23 trees in Swat at night.",
+    "location": "Swat",
+    "is_night_violation": true,
+    "is_protected_forest": true,
+    "trees_cut": 23,
+    "verdict": "Convicted",
+    "penalty_type": "Fine + Imprisonment",
+    "penalty_amount_rs": 1725000,
+    "imprisonment_months": 11,
+    "repeat_offender": false,
+    "prior_convictions": 0,
+    "precedents_cited": [],
+    "judgment_summary": "The court found the accused convicted regarding the unlawful cutting of 23 trees in swat at night.",
+    "full_text": "This is a synthesized full judgment text for 2025...",
+    "keywords": [
+      "illegal_logging",
+      "swat",
+      "night"
+    ]
+  },
+  {
+    "case_id": "SC-2020-024",
+    "metadata": {
+      "version": "1.0",
+      "last_verified": "2026-04-14",
+      "status": "CURRENT",
+      "superseded_by": null,
+      "lineage": []
+    },
+    "title": "State vs. Accused_24",
+    "court_level": "Supreme Court",
+    "court_name": "Supreme Court of Pakistan",
+    "bench": [
+      "Justice Munib Akhtar",
+      "Justice Qazi Faez Isa",
+      "Justice Ishtiaq Ibrahim (PHC)"
+    ],
+    "judgment_date": "2020-05-02",
+    "citation": "2020 SCMR 192",
+    "law_sections": [
+      "Section 9, KP Wildlife Act 2015"
+    ],
+    "offense_category": "Illegal Logging",
+    "offense_details": "Unlawful cutting of 20 trees in Dir at night.",
+    "location": "Dir",
+    "is_night_violation": true,
+    "is_protected_forest": true,
+    "trees_cut": 20,
+    "verdict": "Convicted",
+    "penalty_type": "Fine + Imprisonment",
+    "penalty_amount_rs": 1500000,
+    "imprisonment_months": 12,
+    "repeat_offender": false,
+    "prior_convictions": 0,
+    "precedents_cited": [
+      "2023 SCMR 157"
+    ],
+    "judgment_summary": "The court found the accused convicted regarding the unlawful cutting of 20 trees in dir at night.",
+    "full_text": "This is a synthesized full judgment text for 2020...",
+    "keywords": [
+      "illegal_logging",
+      "dir",
+      "night"
+    ]
+  },
+  {
+    "case_id": "SC-2022-025",
+    "metadata": {
+      "version": "1.0",
+      "last_verified": "2026-04-14",
+      "status": "CURRENT",
+      "superseded_by": null,
+      "lineage": []
+    },
+    "title": "State vs. Accused_25",
+    "court_level": "Supreme Court",
+    "court_name": "Supreme Court of Pakistan",
+    "bench": [
+      "Justice Rooh-ul-Amin Khan (PHC)",
+      "Justice Syed Mansoor Ali Shah",
+      "Justice Ishtiaq Ibrahim (PHC)"
+    ],
+    "judgment_date": "2022-12-08",
+    "citation": "2022 SCMR 764",
+    "law_sections": [
+      "Section 33, KP Forest Ordinance 2002"
+    ],
+    "offense_category": "Poaching",
+    "offense_details": "Illegal hunting of protected species (Himalayan Black Bear) in Mansehra wildlife sanctuary.",
+    "location": "Mansehra",
+    "is_night_violation": false,
+    "is_protected_forest": true,
+    "trees_cut": 0,
+    "verdict": "Convicted",
+    "penalty_type": "Fine + Imprisonment",
+    "penalty_amount_rs": 1207878,
+    "imprisonment_months": 3,
+    "repeat_offender": false,
+    "prior_convictions": 0,
+    "precedents_cited": [],
+    "judgment_summary": "The court found the accused convicted regarding the illegal hunting of protected species (himalayan black bear) in mansehra wildlife sanctuary.",
+    "full_text": "This is a synthesized full judgment text for 2022...",
+    "keywords": [
+      "poaching",
+      "mansehra"
+    ]
+  },
+  {
+    "case_id": "PHC-2024-026",
+    "metadata": {
+      "version": "1.0",
+      "last_verified": "2026-04-14",
+      "status": "CURRENT",
+      "superseded_by": null,
+      "lineage": []
+    },
+    "title": "State vs. Accused_26",
+    "court_level": "High Court",
+    "court_name": "Peshawar High Court",
+    "bench": [
+      "Justice Rooh-ul-Amin Khan (PHC)",
+      "Justice Ishtiaq Ibrahim (PHC)"
+    ],
+    "judgment_date": "2024-11-07",
+    "citation": "2024 PLD 596",
+    "law_sections": [
+      "Section 9, KP Wildlife Act 2015"
+    ],
+    "offense_category": "Illegal Logging",
+    "offense_details": "Unlawful cutting of 19 trees in Mansehra at night.",
+    "location": "Mansehra",
+    "is_night_violation": true,
+    "is_protected_forest": false,
+    "trees_cut": 19,
+    "verdict": "Convicted",
+    "penalty_type": "Fine + Imprisonment",
+    "penalty_amount_rs": 712500,
+    "imprisonment_months": 1,
+    "repeat_offender": false,
+    "prior_convictions": 0,
+    "precedents_cited": [
+      "2022 PLD 426"
+    ],
+    "judgment_summary": "The court found the accused convicted regarding the unlawful cutting of 19 trees in mansehra at night.",
+    "full_text": "This is a synthesized full judgment text for 2024...",
+    "keywords": [
+      "illegal_logging",
+      "mansehra",
+      "night"
+    ]
+  },
+  {
+    "case_id": "PHC-2023-027",
+    "metadata": {
+      "version": "1.0",
+      "last_verified": "2026-04-14",
+      "status": "CURRENT",
+      "superseded_by": null,
+      "lineage": []
+    },
+    "title": "State vs. Accused_27",
+    "court_level": "High Court",
+    "court_name": "Peshawar High Court",
+    "bench": [
+      "Justice Syed Mansoor Ali Shah"
+    ],
+    "judgment_date": "2023-02-19",
+    "citation": "2023 PLD 195",
+    "law_sections": [
+      "Section 9, KP Wildlife Act 2015"
+    ],
+    "offense_category": "Poaching",
+    "offense_details": "Illegal hunting of protected species (Musk Deer) in Shangla wildlife sanctuary.",
+    "location": "Shangla",
+    "is_night_violation": false,
+    "is_protected_forest": true,
+    "trees_cut": 0,
+    "verdict": "Guilty",
+    "penalty_type": "Fine + Imprisonment",
+    "penalty_amount_rs": 625842,
+    "imprisonment_months": 13,
+    "repeat_offender": false,
+    "prior_convictions": 0,
+    "precedents_cited": [],
+    "judgment_summary": "The court found the accused guilty regarding the illegal hunting of protected species (musk deer) in shangla wildlife sanctuary.",
+    "full_text": "This is a synthesized full judgment text for 2023...",
+    "keywords": [
+      "poaching",
+      "shangla"
+    ]
+  },
+  {
+    "case_id": "SC-2025-028",
+    "metadata": {
+      "version": "1.0",
+      "last_verified": "2026-04-14",
+      "status": "CURRENT",
+      "superseded_by": null,
+      "lineage": []
+    },
+    "title": "State vs. Accused_28",
+    "court_level": "Supreme Court",
+    "court_name": "Supreme Court of Pakistan",
+    "bench": [
+      "Justice Qazi Faez Isa",
+      "Justice Munib Akhtar",
+      "Justice Syed Mansoor Ali Shah"
+    ],
+    "judgment_date": "2025-06-19",
+    "citation": "2025 SCMR 605",
+    "law_sections": [
+      "Section 11, Pakistan Environmental Protection Act 1997"
+    ],
+    "offense_category": "Illegal Grazing",
+    "offense_details": "Unauthorized grazing of 72 livestock in protected forest zone of Swat.",
+    "location": "Swat",
+    "is_night_violation": false,
+    "is_protected_forest": true,
+    "trees_cut": 0,
+    "verdict": "Guilty",
+    "penalty_type": "Fine",
+    "penalty_amount_rs": 86184,
+    "imprisonment_months": 0,
+    "repeat_offender": false,
+    "prior_convictions": 0,
+    "precedents_cited": [
+      "2024 SCMR 421"
+    ],
+    "judgment_summary": "The court found the accused guilty regarding the unauthorized grazing of 72 livestock in protected forest zone of swat.",
+    "full_text": "This is a synthesized full judgment text for 2025...",
+    "keywords": [
+      "illegal_grazing",
+      "swat"
+    ]
+  },
+  {
+    "case_id": "PHC-2020-029",
+    "metadata": {
+      "version": "1.0",
+      "last_verified": "2026-04-14",
+      "status": "CURRENT",
+      "superseded_by": null,
+      "lineage": []
+    },
+    "title": "State vs. Accused_29",
+    "court_level": "High Court",
+    "court_name": "Peshawar High Court",
+    "bench": [
+      "Justice Munib Akhtar"
+    ],
+    "judgment_date": "2020-04-04",
+    "citation": "2020 PLD 197",
+    "law_sections": [
+      "Section 11, Pakistan Environmental Protection Act 1997"
+    ],
+    "offense_category": "Forest Fire",
+    "offense_details": "Setting fire to forest area in Swat during dry season. Approximately 6 hectares affected.",
+    "location": "Swat",
+    "is_night_violation": false,
+    "is_protected_forest": true,
+    "trees_cut": 0,
+    "verdict": "Convicted",
+    "penalty_type": "Fine + Imprisonment",
+    "penalty_amount_rs": 953006,
+    "imprisonment_months": 8,
+    "repeat_offender": false,
+    "prior_convictions": 0,
+    "precedents_cited": [
+      "2021 PLD 980"
+    ],
+    "judgment_summary": "The court found the accused convicted regarding the setting fire to forest area in swat during dry season. approximately 6 hectares affected.",
+    "full_text": "This is a synthesized full judgment text for 2020...",
+    "keywords": [
+      "forest_fire",
+      "swat"
+    ]
+  },
+  {
+    "case_id": "PHC-2025-030",
+    "metadata": {
+      "version": "1.0",
+      "last_verified": "2026-04-14",
+      "status": "CURRENT",
+      "superseded_by": null,
+      "lineage": []
+    },
+    "title": "State vs. Accused_30",
+    "court_level": "High Court",
+    "court_name": "Peshawar High Court",
+    "bench": [
+      "Justice Amin-ud-Din Khan"
+    ],
+    "judgment_date": "2025-09-20",
+    "citation": "2025 PLD 27",
+    "law_sections": [
+      "Section 9, KP Wildlife Act 2015",
+      "Section 42, KP Forest Ordinance 2002"
+    ],
+    "offense_category": "Forest Fire",
+    "offense_details": "Setting fire to forest area in Abbottabad near residential zone. Approximately 17 hectares affected.",
+    "location": "Abbottabad",
+    "is_night_violation": false,
+    "is_protected_forest": true,
+    "trees_cut": 0,
+    "verdict": "Guilty",
+    "penalty_type": "Fine + Imprisonment",
+    "penalty_amount_rs": 524864,
+    "imprisonment_months": 13,
+    "repeat_offender": false,
+    "prior_convictions": 0,
+    "precedents_cited": [],
+    "judgment_summary": "The court found the accused guilty regarding the setting fire to forest area in abbottabad near residential zone. approximately 17 hectares affected.",
+    "full_text": "This is a synthesized full judgment text for 2025...",
+    "keywords": [
+      "forest_fire",
+      "abbottabad"
+    ]
+  }
+]

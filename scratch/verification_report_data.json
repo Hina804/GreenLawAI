@@ -1,0 +1,350 @@
+{
+  "base_exists": true,
+  "doc_folder_count": 45,
+  "phase_counts": {
+    "phase_0": 45,
+    "phase_1": 45,
+    "phase_2": 45,
+    "phase_3": 45,
+    "phase_4": 45,
+    "phase_5": 45,
+    "phase_6": 45,
+    "phase_7": 0
+  },
+  "full_8_phases": 0,
+  "partial": 45,
+  "zero_phases": 0,
+  "pipeline_summary": {
+    "success": 0,
+    "failed": 0,
+    "missing": 45
+  },
+  "missing_phases": [
+    {
+      "document": "(CONSERVATION_AND_EXPLOITATION_OF_CERTAIN_FORESTS_IN_HAZARA_DIVISION)_ORDINANCE,_1980",
+      "missing": [
+        7
+      ]
+    },
+    {
+      "document": "1964_11_THE_WEST_PAKISTAN_FIREWOOD_AND_CHARCOAL_RESTRICTION_ACT_1964",
+      "missing": [
+        7
+      ]
+    },
+    {
+      "document": "1999_15_THE_KHYBER_PAKHTUNKHWA_FORESTRY_COMMISSION_ACT_1999",
+      "missing": [
+        7
+      ]
+    },
+    {
+      "document": "201908021564725298-NWFP Manual of Secretariat Instructions",
+      "missing": [
+        7
+      ]
+    },
+    {
+      "document": "ACR Forms Gazetted, For Officers in BPS-17 & 18",
+      "missing": [
+        7
+      ]
+    },
+    {
+      "document": "Civil_Servants_(Appointment,_Promotion_and_Transfer)_Rules_1989",
+      "missing": [
+        7
+      ]
+    },
+    {
+      "document": "Forest  Manual-Vol-I",
+      "missing": [
+        7
+      ]
+    },
+    {
+      "document": "forest_act_1927",
+      "missing": [
+        7
+      ]
+    },
+    {
+      "document": "Forest_Act_1927_Key_Sections_Urdu",
+      "missing": [
+        7
+      ]
+    },
+    {
+      "document": "FOREST_DEVELOPMENT_CORPORATION_ORDINANCE,_1980",
+      "missing": [
+        7
+      ]
+    },
+    {
+      "document": "Forest_Manual_Volume_II",
+      "missing": [
+        7
+      ]
+    },
+    {
+      "document": "Forest_Manual_Volume_III",
+      "missing": [
+        7
+      ]
+    },
+    {
+      "document": "Forest_Protection_Awareness_Pamphlet",
+      "missing": [
+        7
+      ]
+    },
+    {
+      "document": "Fortnightly     30.6.2023.xls 2",
+      "missing": [
+        7
+      ]
+    },
+    {
+      "document": "GOVT. OF NWFP, FOREST DEPARTMENT ANNUAL CONFIDENTIAL REPORT FOR THE YEAR",
+      "missing": [
+        7
+      ]
+    },
+    {
+      "document": "Hazara Forest Act, 1936",
+      "missing": [
+        7
+      ]
+    },
+    {
+      "document": "How_to_Report_Illegal_Logging_Quick_Guide",
+      "missing": [
+        7
+      ]
+    },
+    {
+      "document": "Instructional Manual - International Rescue Challenge (PDF)",
+      "missing": [
+        7
+      ]
+    },
+    {
+      "document": "Khyber_Pakhtunkhwa_Civil_Defense_Fire_Safety_Order_2019",
+      "missing": [
+        7
+      ]
+    },
+    {
+      "document": "KP Civil Servants Act 1973",
+      "missing": [
+        7
+      ]
+    },
+    {
+      "document": "kp-delegation-of-financial-power-rules-2018.2",
+      "missing": [
+        7
+      ]
+    },
+    {
+      "document": "KPK Delegation of Financial Power Rules, 2018",
+      "missing": [
+        7
+      ]
+    },
+    {
+      "document": "KPK Land Revenue Amendment Act, 2014",
+      "missing": [
+        7
+      ]
+    },
+    {
+      "document": "kpk_forest_ordinance_2002",
+      "missing": [
+        7
+      ]
+    },
+    {
+      "document": "Manual Vol-III",
+      "missing": [
+        7
+      ]
+    },
+    {
+      "document": "Market Rate System (2nd Bi Annual) 2022",
+      "missing": [
+        7
+      ]
+    },
+    {
+      "document": "Market Rate System 2022 (Notifications)",
+      "missing": [
+        7
+      ]
+    },
+    {
+      "document": "Market Rate System 2024 (1st Bi Annual)",
+      "missing": [
+        7
+      ]
+    },
+    {
+      "document": "Market Rate System Notification 2022",
+      "missing": [
+        7
+      ]
+    },
+    {
+      "document": "Market Rate System Notification 2024 (1st Bi Annual)",
+      "missing": [
+        7
+      ]
+    },
+    {
+      "document": "Master FM- Vol-II",
+      "missing": [
+        7
+      ]
+    },
+    {
+      "document": "MRS 2015",
+      "missing": [
+        7
+      ]
+    },
+    {
+      "document": "MRS 2023",
+      "missing": [
+        7
+      ]
+    },
+    {
+      "document": "NATIONAL CLIMATE CHANGE POLICY 2021",
+      "missing": [
+        7
+      ]
+    },
+    {
+      "document": "National Forest Policy 2010",
+      "missing": [
+        7
+      ]
+    },
+    {
+      "document": "National Forest Policy 2010 (1)",
+      "missing": [
+        7
+      ]
+    },
+    {
+      "document": "NATIONAL FOREST POLICY 2015",
+      "missing": [
+        7
+      ]
+    },
+    {
+      "document": "NWFP Manual of Secretariat Instructions",
+      "missing": [
+        7
+      ]
+    },
+    {
+      "document": "Pakistan Updated NDC 2021",
+      "missing": [
+        7
+      ]
+    },
+    {
+      "document": "Restoration of Scientific Management in KP",
+      "missing": [
+        7
+      ]
+    },
+    {
+      "document": "Standardized methodology for Resource Inventory and Planning",
+      "missing": [
+        7
+      ]
+    },
+    {
+      "document": "Technical Specification 2024 (1st Bi Annual)",
+      "missing": [
+        7
+      ]
+    },
+    {
+      "document": "The NWFP Police Rules 1937 reduced size",
+      "missing": [
+        7
+      ]
+    },
+    {
+      "document": "The-Khyber-Pakhtunkhwa-Climate-Action-Board-Act-2025-GC",
+      "missing": [
+        7
+      ]
+    },
+    {
+      "document": "West_Pakistan_Land_Revenue_Act_1967",
+      "missing": [
+        7
+      ]
+    }
+  ],
+  "manifests": {},
+  "registry_added_count": 0,
+  "registry_missing_from_output": [],
+  "output_not_in_registry": [],
+  "faiss": {
+    "exists": true,
+    "files": [],
+    "vector_count": null,
+    "search_ok": false,
+    "search_error": null
+  },
+  "graph": {
+    "exists": false,
+    "files": []
+  },
+  "zero_byte_files": [],
+  "log_scan": {},
+  "quality_targets": [
+    {
+      "label": "Act",
+      "document": "West_Pakistan_Land_Revenue_Act_1967",
+      "found": true,
+      "checks": {
+        "phase1_text_len": 0,
+        "phase1_snippet": "",
+        "sections_count": 0
+      }
+    },
+    {
+      "label": "Court Case",
+      "needle": "2022_SCMR_88",
+      "found": false
+    },
+    {
+      "label": "Permit JSON",
+      "needle": "PER-2024-001",
+      "found": false
+    },
+    {
+      "label": "CSV Reference",
+      "needle": "species_price_list",
+      "found": false
+    },
+    {
+      "label": "Working Plan",
+      "needle": "WORKING PLAN FOR HARIPUR",
+      "found": false
+    }
+  ],
+  "registry_source_found": false,
+  "faiss_baseline_file_names": [
+    "config.json",
+    "metadata.pkl",
+    "vectors.index"
+  ],
+  "faiss_new_file_names": []
+}

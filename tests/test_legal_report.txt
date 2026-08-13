@@ -1,0 +1,817 @@
+============================================================
+VECTOR INDEXER INITIALIZATION (FAISS)
+============================================================
+Loading embedding model: all-MiniLM-L6-v2...
+[OK] Model loaded. Embedding dimension: 384
+[OK] Loaded FAISS index with 13382 vectors
+[OK] FAISS Store initialized: e:\GL_AI\data_processed\faiss_index_unified
+  Collection: legal_docs
+  Current document count: 13382
+============================================================
+[OK] All components initialized successfully (FAISS Backend)
+============================================================
+================================================================================
+  GL_AI LEGAL TEST SUITE — 2026-06-18 00:09:35
+  Showing: retrieved chunks + full IRAC generated answers
+================================================================================
+
+================================================================================
+[Penalty Deodar]  What is the penalty for cutting Deodar?
+================================================================================
+  [1] 🟢 EKO | Source: UNKNOWN | Score: 1.00
+      Law: KPK Forest Amendment Act 2022
+      Section: Schedule-III
+      Chunk: eko_penalties...
+      Text: Schedule-III of the 2022 Amendment sets species-specific fines: Deodar Rs. 206,000; Chir/Blue Pine Rs. 98,000; Spruce/Fir Rs. 78,000....
+  [2] Source: UNKNOWN | Score: 1.00
+      Law: KPK Forest Amendment Act 2022
+
+  ──────────────────────────────────────────────────────────────────────
+  📝 GENERATED ANSWER
+  ──────────────────────────────────────────────────────────────────────
+  **ISSUE**:
+  What is the statutory penalty for: "What is the penalty for cutting Deodar?"?
+  
+  **RULE**:
+  • Schedule-III, KPK Forest Amendment Act 2022 — Species-specific penalties for illegal felling. Deodar (Cedrus deodara): Rs. 206,000 per tree. Chir Pine (Pinus roxburghii): Rs. 98,000 per tree. Blue Pine (Pinus wallichiana): Rs. 98,000 per tree. Spruce (Picea smithiana): Rs. 78,000 per tree. Silver Fir (Abies pindrow): Rs. 78,000 per tree. These penalties represent an increase of over 400 times compared to the original Forest Act 1927 penalties.
+  
+  **CONDITIONS**:
+  • Base penalty: Rs. 206,000
+  • Night-time offences attract 2× the standard penalty
+  • Repeat offenders attract enhanced penalties under the Ordinance
+  
+  **CONCLUSION**:
+  The statutory penalty is Rs. 206,000 under KPK Forest Amendment Act 2022.
+
+  📌 Citations (1):
+      • KPK Forest Amendment Act 2022 § Schedule-III
+
+  🎯 Confidence: 0.92
+
+================================================================================
+[Penalty Chir Pine]  What is the penalty for cutting Chir Pine?
+================================================================================
+  [1] 🟢 EKO | Source: UNKNOWN | Score: 1.00
+      Law: KPK Forest Amendment Act 2022
+      Section: Schedule-III
+      Chunk: eko_penalties...
+      Text: Schedule-III of the 2022 Amendment sets species-specific fines: Deodar Rs. 206,000; Chir/Blue Pine Rs. 98,000; Spruce/Fir Rs. 78,000....
+  [2] Source: UNKNOWN | Score: 1.00
+      Law: KPK Forest Amendment Act 2022
+
+  ──────────────────────────────────────────────────────────────────────
+  📝 GENERATED ANSWER
+  ──────────────────────────────────────────────────────────────────────
+  **ISSUE**:
+  What is the statutory penalty for: "What is the penalty for cutting Chir Pine?"?
+  
+  **RULE**:
+  • Schedule-III, KPK Forest Amendment Act 2022 — Species-specific penalties for illegal felling. Deodar (Cedrus deodara): Rs. 206,000 per tree. Chir Pine (Pinus roxburghii): Rs. 98,000 per tree. Blue Pine (Pinus wallichiana): Rs. 98,000 per tree. Spruce (Picea smithiana): Rs. 78,000 per tree. Silver Fir (Abies pindrow): Rs. 78,000 per tree. These penalties represent an increase of over 400 times compared to the original Forest Act 1927 penalties.
+  
+  **CONDITIONS**:
+  • Base penalty: Rs. 98,000
+  • Night-time offences attract 2× the standard penalty
+  • Repeat offenders attract enhanced penalties under the Ordinance
+  
+  **CONCLUSION**:
+  The statutory penalty is Rs. 98,000 under KPK Forest Amendment Act 2022.
+
+  📌 Citations (1):
+      • KPK Forest Amendment Act 2022 § Schedule-III
+
+  🎯 Confidence: 0.92
+
+================================================================================
+[Penalty Schedule-I]  Which species are listed under Schedule-I and what are their penalties?
+================================================================================
+  [1] 🟢 EKO | Source: UNKNOWN | Score: 1.00
+      Law: KPK Forest Amendment Act 2022
+      Section: Schedule-III
+      Chunk: eko_penalties...
+      Text: Schedule-III of the 2022 Amendment sets species-specific fines: Deodar Rs. 206,000; Chir/Blue Pine Rs. 98,000; Spruce/Fir Rs. 78,000....
+  [2] Source: UNKNOWN | Score: 1.00
+      Law: KPK Forest Amendment Act 2022
+
+  ──────────────────────────────────────────────────────────────────────
+  📝 GENERATED ANSWER
+  ──────────────────────────────────────────────────────────────────────
+  **ISSUE**:
+  What is the legal definition of: "Which species are listed under Schedule-I and what are their penalties?"?
+  
+  **RULE**:
+  Schedule-III, KPK Forest Amendment Act 2022 — Species-specific penalties for illegal felling. Deodar (Cedrus deodara): Rs. 206,000 per tree. Chir Pine (Pinus roxburghii): Rs. 98,000 per tree. Blue Pine (Pinus wallichiana): Rs. 98,000 per tree. Spruce (Picea smithiana): Rs. 78,000 per tree. Silver Fir (Abies pindrow): Rs. 78,000 per tree. These penalties represent an increase of over 400 times compared to the original Forest Act 1927 penalties.
+  - Schedule-III of the 2022 Amendment sets species-specific fines: Deodar Rs. 206,000; Chir/Blue Pine Rs. 98,000; Spruce/Fir Rs. 78,000.
+  - Fines for forest offences in KPK (Schedule-III): Deodar Rs. 206,000; Chir/Blue Pine Rs. 98,000; Spruce/Fir Rs. 78,000.
+  
+  **CONDITIONS**:
+  This definition applies to all provisions of the Act unless the context otherwise requires.
+  
+  **CONCLUSION**:
+  Under KPK Forest Amendment Act 2022, Schedule-III, KPK Forest Amendment Act 2022 — Species-specific penalties for illegal felling. Deodar (Cedrus deodara): Rs. 206,000 per tree. Chir Pine.
+
+  📌 Citations (1):
+      • KPK Forest Amendment Act 2022 § Schedule-III
+
+  🎯 Confidence: 0.97
+
+================================================================================
+[Legal Schedule Diyar]  What is the legal schedule and conservation status of Diyar?
+================================================================================
+  [1] 🔵 MANUAL | Source: EXPERT_MANUAL | Score: 0.85
+      Law: KPK Wildlife and Biodiversity Protection Act 2015
+      Section: Section 24
+      Chunk: manual_section_24_wildlife_act_2015...
+      Text: Section 24, KPK Wildlife and Biodiversity Protection Act 2015 — Protected species. The animals listed in Schedules I, II, and III of this Act are prot...
+  [2] Source: EXPERT_MANUAL | Score: 0.85
+      Law: 2025 PLD 35 Forest Dept vs Residents Madyan
+
+  ──────────────────────────────────────────────────────────────────────
+  📝 GENERATED ANSWER
+  ──────────────────────────────────────────────────────────────────────
+  **ISSUE**:
+  What is the legal definition of: "What is the legal schedule and conservation status of Diyar?"?
+  
+  **RULE**:
+  Section 24, KPK Wildlife and Biodiversity Protection Act 2015 — Protected species. The animals listed in Schedules I, II, and III of this Act are protected species. No person shall hunt, kill, capture, trade in, or possess any protected species or its parts without written permission from the Wildlife Department. Violation carries a minimum sentence of six months imprisonment and fine of Rs. 200,000.
+  
+  **CONDITIONS**:
+  This definition applies to all provisions of the Act unless the context otherwise requires.
+  
+  **CONCLUSION**:
+  Under Kpk Wildlife And Biodiversity Protection Act 2015, Section 24, KPK Wildlife and Biodiversity Protection Act 2015 — Protected species. The animals listed in Schedules I, II, and III of this Act are prot.
+
+  📌 Citations (3):
+      • Kpk Wildlife And Biodiversity Protection Act 2015 § Section 24
+      • 2025 Pld 35 Forest Dept Vs Residents Madyan § Headnote
+      • 2024 Phc Ayubia Chairlift Commercial Development § Headnote
+
+  🎯 Confidence: 0.85
+
+================================================================================
+[Family Kail]  What plant family does Kail belong to?
+================================================================================
+  [1] 🟢 EKO | Source: UNKNOWN | Score: 1.00
+      Law: KPK Forest Ordinance 2002
+      Section: Schedule-I
+      Chunk: eko_blue_pine...
+      Text: Blue Pine (Pinus wallichiana / Biar / Nakhtar / Kail) is listed in Schedule-I of the KPK Forest Ordinance 2002. Penalty: Rs. 98,000 (Schedule-III, 202...
+  [2] Source: VECTOR | Score: 0.55
+      Law: Site Wise Physical  FY-2019 to June,2025 InRespect of Northeran Forest Region-II Abbottabad
+
+  ──────────────────────────────────────────────────────────────────────
+  📝 GENERATED ANSWER
+  ──────────────────────────────────────────────────────────────────────
+  **ISSUE**:
+  What plant family does Kail belong to?
+  
+  **RULE**:
+  **[KPK Forest Ordinance 2002]**
+  Blue Pine (Pinus wallichiana / Biar / Nakhtar / Kail) is listed in Schedule-I of the KPK Forest Ordinance 2002. Penalty: Rs. 98,000 (Schedule-III, 2022 Amendment). Seigniorage fee: Rs. 40/cubic foot.
+  
+  **CONDITIONS**:
+  As per the statutory provisions cited above.
+  
+  **CONCLUSION**:
+  Kail, Chir, Quercus, FIR/Sup, Walnut 0 93 Puran 01 Kail, Chir, Quercus, FIR/Sup, Walnut 0 96 Puran 01 Kail, Chir, Quercus, FIR/Sup, Walnut 0 97 Puran 01.
+
+  📌 Citations (3):
+      • Site Wise Physical  Fy-2019 To June,2025 Inrespect Of Northeran Forest Region-Ii Abbottabad § 88146_4251
+      • KPK Forest Ordinance 2002 § Schedule-I
+      • KPK Forest Ordinance 2002
+
+  🎯 Confidence: 0.68
+
+================================================================================
+[Flowering Season Fir]  What is the flowering season of Abies pindrow?
+================================================================================
+  [1] 🔵 MANUAL | Source: EXPERT_MANUAL | Score: 0.95
+      Law: KPK Forest Amendment Act 2022
+      Section: Schedule-III
+      Chunk: manual_schedule_iii_amendment_2022...
+      Text: Schedule-III, KPK Forest Amendment Act 2022 — Species-specific penalties for illegal felling. Deodar (Cedrus deodara): Rs. 206,000 per tree. Chir Pine...
+  [2] Source: VECTOR | Score: 0.62
+      Law: hazara_forest_act_1936
+
+  ──────────────────────────────────────────────────────────────────────
+  📝 GENERATED ANSWER
+  ──────────────────────────────────────────────────────────────────────
+  **ISSUE**:
+  What is the legal definition of: "What is the flowering season of Abies pindrow?"?
+  
+  **RULE**:
+  Schedule-III, KPK Forest Amendment Act 2022 — Species-specific penalties for illegal felling. Deodar (Cedrus deodara): Rs. 206,000 per tree. Chir Pine (Pinus roxburghii): Rs. 98,000 per tree. Blue Pine (Pinus wallichiana): Rs. 98,000 per tree. Spruce (Picea smithiana): Rs. 78,000 per tree. Silver Fir (Abies pindrow): Rs. 78,000 per tree. These penalties represent an increase of over 400 times compared to the original Forest Act 1927 penalties.
+  
+  **CONDITIONS**:
+  This definition applies to all provisions of the Act unless the context otherwise requires.
+  
+  **CONCLUSION**:
+  Under KPK Forest Amendment Act 2022, Schedule-III, KPK Forest Amendment Act 2022 — Species-specific penalties for illegal felling. Deodar (Cedrus deodara): Rs. 206,000 per tree. Chir Pine.
+
+  📌 Citations (3):
+      • KPK Forest Amendment Act 2022 § Schedule-III
+      • Hazara Forest Act 1936 § SCH_1
+      • Manual Vol-Iii § 86_2839
+
+  🎯 Confidence: 0.72
+
+================================================================================
+[Elevation Range Spruce]  At what elevation range does Picea smithiana grow?
+================================================================================
+  [1] ✅ PASS | Source: GRAPH | Score: 0.72
+      Law: WORKING PLAN FOR KOHISTAN WATERSHED DIVISION
+      Section: SEC_2_3_D
+      Chunk: faiss_unified_13003...
+      Text: 2.3(d) Spruce Forests (Picea smithiana). These forests cover approximately 10,000 hectares at elevations ranging from 2,400 to 3,100 meters. Character...
+  [2] Source: GRAPH | Score: 0.66
+      Law: WORKING PLAN FOR KUNHAR WATERSHED DIVISION
+
+  ──────────────────────────────────────────────────────────────────────
+  📝 GENERATED ANSWER
+  ──────────────────────────────────────────────────────────────────────
+  **ISSUE**:
+  At what elevation range does Picea smithiana grow?
+  
+  **RULE**:
+  **[Working Plan For Kohistan Watershed Division]**
+  2.3(d) Spruce Forests (Picea smithiana). These forests cover approximately 10,000 hectares at elevations ranging from 2,400 to 3,100 meters. Characteristics: Pure or mixed stands of Spruce. Average height: 20-30 meters. Average diameter at breast height: 45-75 cm. Crown density: 55-80%. Soil conservation value: Very high. Root depth: Deep.
+  
+  **[Working Plan For Kunhar Watershed Division.2]**
+  Forest Types in Kunhar Watershed Division: (a) Deodar Forests (Cedrus deodara): 18,000 hectares at elevations 2,000-3,000m. Characteristics: pure stands or mixed with Kail and Fir, age class young 0-50y 25%, middle-aged 50-100y 45%, mature 100+y 30%, average height 20-40m, average DBH 60-120cm, crown density 50-80%, regeneration good in protected areas. (b) Fir and Spruce Forests (Abies pindrow, Picea smithiana): 22,000 hectares (12,000 Fir, 10,000 Spruce) at elevations 2,500-3,500m. Characteris
+  
+  **[Working Plan For Upper Kohistan Forest Division.1]**
+  Forest Area Distribution by Type: Deodar (Cedrus deodara): 18,000 ha (33%), condition Good; Fir (Abies pindrow): 12,000 ha (22%), condition Good; Spruce (Picea smithiana): 10,000 ha (18%), condition Good to Moderate; Kail (Pinus wallichiana): 6,000 ha (11%), condition Good; Birch (Betula utilis): 4,000 ha (7%), condition Good; Alpine Pastures: 3,000 ha (5%), condition Good; Broad-leaved/Mixed: 2,000 ha (4%), condition Moderate. Total Forest Area: 55,000 hectares. Growing Stock: Deodar: 2,700,000
+  
+  **CONDITIONS**:
+  As per the statutory provisions cited above.
+  
+  **CONCLUSION**:
+  2.3(d) Spruce Forests (Picea smithiana). These forests cover approximately 10,000 hectares at elevations ranging from 2,400 to 3,100 meters. Characteristics: Pure or mixed stands of Spruce. Average he.
+
+  📌 Citations (3):
+      • Working Plan For Kohistan Watershed Division § 2_3_D
+      • Working Plan For Kunhar Watershed Division § 2.2
+      • Working Plan For Upper Kohistan Forest Division § 2.1
+
+  🎯 Confidence: 0.68
+
+================================================================================
+[Price vs Penalty Deodar]  Compare the legal penalty and the market base rate for Deodar — which is higher and by how much?
+================================================================================
+  [1] 🟢 EKO | Source: UNKNOWN | Score: 1.00
+      Law: Historical Comparison (1927 vs 2022)
+      Section: Amendment Analysis
+      Chunk: eko_historical...
+      Text: Forest Act 1927 original penalties were negligible (e.g. Rs. 500 for Deodar). The 2022 Amendment (Act XXXI of 2022) increased fines by >400× (Deodar: ...
+  [2] Source: UNKNOWN | Score: 1.00
+      Law: KPK Forest Amendment Act 2022
+
+  ──────────────────────────────────────────────────────────────────────
+  📝 GENERATED ANSWER
+  ──────────────────────────────────────────────────────────────────────
+  **ISSUE**:
+  Compare the legal penalty and the market base rate for Deodar — which is higher and by how much?
+  
+  **RULE**:
+  • Statutory Penalty (KPK Forest Amendment Act 2022, Schedule-III): Rs. 206,000 per tree for Deodar.
+  • Market Base Rate: The species price list (Market Rate System) provides the commercial valuation used for compensation in protected/reserved forests. Penalty exceeds market rate in most cases to deter illegal felling.
+  
+  **CONDITIONS**:
+  • Statutory penalty is the MINIMUM criminal fine under Schedule-III.
+  • Market rate is used for civil compensation calculations (reserved forest: 1×, protected: 10×).
+  • The penalty (Rs. 206,000) is typically HIGHER than the market base rate, ensuring deterrence beyond mere commercial value.
+  
+  **CONCLUSION**:
+  The statutory penalty for Deodar is Rs. 206,000 under the KPK Forest Amendment Act 2022. This is deliberately set above the market base rate to act as a punitive deterrent. Cross-reference the Market Rate System document for the exact commercial valuation figure.
+
+  📌 Citations (2):
+      • Historical Comparison (1927 Vs 2022) § Amendment Analysis
+      • KPK Forest Amendment Act 2022 § Schedule-III
+
+  🎯 Confidence: 1.00
+
+================================================================================
+[Reserved Forest Price Chir]  If I cut one Chir Pine in a reserved forest, what's the official compensation rate, and does that match the legal penalty for that species?
+================================================================================
+  [1] 🟢 EKO | Source: UNKNOWN | Score: 1.00
+      Law: KPK Forest Amendment Act 2022
+      Section: Schedule-III
+      Chunk: eko_penalties...
+      Text: Schedule-III of the 2022 Amendment sets species-specific fines: Deodar Rs. 206,000; Chir/Blue Pine Rs. 98,000; Spruce/Fir Rs. 78,000....
+  [2] Source: UNKNOWN | Score: 1.00
+      Law: KPK Forest Amendment Act 2022
+
+  ──────────────────────────────────────────────────────────────────────
+  📝 GENERATED ANSWER
+  ──────────────────────────────────────────────────────────────────────
+  **ISSUE**:
+  What is the statutory penalty for: "If I cut one Chir Pine in a reserved forest, what's the official compensation rate, and does that match the legal penalty for that species?"?
+  
+  **RULE**:
+  • Schedule-III, KPK Forest Amendment Act 2022 — Species-specific penalties for illegal felling. Deodar (Cedrus deodara): Rs. 206,000 per tree. Chir Pine (Pinus roxburghii): Rs. 98,000 per tree. Blue Pine (Pinus wallichiana): Rs. 98,000 per tree. Spruce (Picea smithiana): Rs. 78,000 per tree. Silver Fir (Abies pindrow): Rs. 78,000 per tree. These penalties represent an increase of over 400 times compared to the original Forest Act 1927 penalties.
+  
+  **CONDITIONS**:
+  • Base penalty: Rs. 98,000
+  • Night-time offences attract 2× the standard penalty
+  • Repeat offenders attract enhanced penalties under the Ordinance
+  
+  **CONCLUSION**:
+  The statutory penalty is Rs. 98,000 under KPK Forest Amendment Act 2022.
+
+  📌 Citations (1):
+      • KPK Forest Amendment Act 2022 § Schedule-III
+
+  🎯 Confidence: 0.91
+
+================================================================================
+[Calc Protected Walnut]  What would the cost be to cut 3 Walnut trees in a protected area, using the protected-area multiplier?
+================================================================================
+  [1] 🔵 MANUAL | Source: EXPERT_MANUAL | Score: 0.85
+      Law: KPK Forest Amendment Act 2022
+      Section: Section 3
+      Chunk: manual_section_3_amendment_2022...
+      Text: Section 3, KPK Forest Amendment Act 2022 — Enhanced penalties. The penalties under the KPK Forest Ordinance 2002 are hereby enhanced to reflect the cu...
+  [2] Source: EXPERT_MANUAL | Score: 0.85
+      Law: KPK Forest Amendment Act 2022
+
+  ──────────────────────────────────────────────────────────────────────
+  📝 GENERATED ANSWER
+  ──────────────────────────────────────────────────────────────────────
+  **ISSUE**:
+  What is the statutory penalty for: "What would the cost be to cut 3 Walnut trees in a protected area, using the protected-area multiplier?"?
+  
+  **RULE**:
+  • Section 3, KPK Forest Amendment Act 2022 — Enhanced penalties. The penalties under the KPK Forest Ordinance 2002 are hereby enhanced to reflect the current market value of forest produce. Any person who unauthorizedly fells, cuts, removes, or otherwise damages trees in a reserved or protected forest shall be liable to pay compensation equivalent to the current market value of the trees multiplied by a factor of ten, in addition to criminal penalties.
+  
+  • Schedule-III, KPK Forest Amendment Act 2022 — Species-specific penalties for illegal felling. Deodar (Cedrus deodara): Rs. 206,000 per tree. Chir Pine (Pinus roxburghii): Rs. 98,000 per tree. Blue Pine (Pinus wallichiana): Rs. 98,000 per tree. Spruce (Picea smithiana): Rs. 78,000 per tree. Silver Fir (Abies pindrow): Rs. 78,000 per tree. These penalties represent an increase of over 400 times compared to the original Forest Act 1927 penalties.
+  
+  **CONDITIONS**:
+  • Base penalty: Rs. 55,000
+  • Night-time offences attract 2× the standard penalty
+  • Repeat offenders attract enhanced penalties under the Ordinance
+  
+  **CONCLUSION**:
+  The statutory penalty is Rs. 550,000 under KPK Forest Amendment Act 2022.
+  
+  > [!TIP]
+  > **Statutory Multiplier Calculation**: Rs. 550,000 (Base: Rs. 55,000 x 10.0)
+
+  📌 Citations (2):
+      • KPK Forest Amendment Act 2022 § Section 3
+      • KPK Forest Amendment Act 2022 § Schedule-III
+
+  🎯 Confidence: 0.85
+
+================================================================================
+[Calc Reserved Shisham]  Calculate the reserved-forest compensation rate for one Shisham tree.
+================================================================================
+  [1] 🔵 MANUAL | Source: EXPERT_MANUAL | Score: 0.85
+      Law: KPK Forest Amendment Act 2022
+      Section: Schedule-III
+      Chunk: manual_schedule_iii_amendment_2022...
+      Text: Schedule-III, KPK Forest Amendment Act 2022 — Species-specific penalties for illegal felling. Deodar (Cedrus deodara): Rs. 206,000 per tree. Chir Pine...
+  [2] Source: EXPERT_MANUAL | Score: 0.85
+      Law: KPK Forest Ordinance 2002
+
+  ──────────────────────────────────────────────────────────────────────
+  📝 GENERATED ANSWER
+  ──────────────────────────────────────────────────────────────────────
+  **ISSUE**:
+  Calculate the reserved-forest compensation rate for one Shisham tree.
+  
+  **RULE**:
+  **[KPK Forest Amendment Act 2022]**
+  Schedule-III, KPK Forest Amendment Act 2022 — Species-specific penalties for illegal felling. Deodar (Cedrus deodara): Rs. 206,000 per tree. Chir Pine (Pinus roxburghii): Rs. 98,000 per tree. Blue Pine (Pinus wallichiana): Rs. 98,000 per tree. Spruce (Picea smithiana): Rs. 78,000 per tree. Silver Fir (Abies pindrow): Rs. 78,000 per tree. These penalties represent an increase of over 400 times compared to the original Forest Act 1927 penalties.
+  
+  **[KPK Forest Amendment Act 2022]**
+  Section 3, KPK Forest Amendment Act 2022 — Enhanced penalties. The penalties under the KPK Forest Ordinance 2002 are hereby enhanced to reflect the current market value of forest produce. Any person who unauthorizedly fells, cuts, removes, or otherwise damages trees in a reserved or protected forest shall be liable to pay compensation equivalent to the current market value of the trees multiplied by a factor of ten, in addition to criminal penalties.
+  
+  **[KPK Forest Ordinance 2002]**
+  Section 2, KPK Forest Ordinance 2002 — Definitions. 'Forest produce' includes timber, charcoal, wood-oil, resin, natural varnish, bark, lac, grass, bamboos, canes, reeds, rushes, grasses, peat, surface soil, rocks and minerals. 'Timber' includes trees when fallen or felled and all wood whether cut, sawn, split or shaped. 'Reserved forest' means a forest notified as reserved under this Ordinance. 'Protected forest' means a forest notified as protected under this Ordinance.
+  
+  **CONDITIONS**:
+  As per the statutory provisions cited above.
+  
+  **CONCLUSION**:
+  Schedule-III, KPK Forest Amendment Act 2022 — Species-specific penalties for illegal felling. Deodar (Cedrus deodara): Rs. 206,000 per tree. Chir Pine (Pinus roxburghii): Rs. 98,000 per tree. Blue Pin.
+
+  📌 Citations (3):
+      • KPK Forest Amendment Act 2022 § Schedule-III
+      • KPK Forest Amendment Act 2022 § Section 3
+      • KPK Forest Ordinance 2002 § Section 2
+
+  🎯 Confidence: 0.85
+
+================================================================================
+[Contradiction Wallichiana Price]  What is the price for cutting a Pinus wallichiana tree?
+================================================================================
+  [1] 🔵 MANUAL | Source: EXPERT_MANUAL | Score: 0.95
+      Law: KPK Forest Amendment Act 2022
+      Section: Schedule-III
+      Chunk: manual_schedule_iii_amendment_2022...
+      Text: Schedule-III, KPK Forest Amendment Act 2022 — Species-specific penalties for illegal felling. Deodar (Cedrus deodara): Rs. 206,000 per tree. Chir Pine...
+  [2] Source: EXPERT_MANUAL | Score: 0.85
+      Law: Forest Act 1927
+
+  ──────────────────────────────────────────────────────────────────────
+  📝 GENERATED ANSWER
+  ──────────────────────────────────────────────────────────────────────
+  **ISSUE**:
+  What is the statutory penalty for: "What is the price for cutting a Pinus wallichiana tree?"?
+  
+  **RULE**:
+  • Schedule-III, KPK Forest Amendment Act 2022 — Species-specific penalties for illegal felling. Deodar (Cedrus deodara): Rs. 206,000 per tree. Chir Pine (Pinus roxburghii): Rs. 98,000 per tree. Blue Pine (Pinus wallichiana): Rs. 98,000 per tree. Spruce (Picea smithiana): Rs. 78,000 per tree. Silver Fir (Abies pindrow): Rs. 78,000 per tree. These penalties represent an increase of over 400 times compared to the original Forest Act 1927 penalties.
+  
+  **CONDITIONS**:
+  • Base penalty: Rs. 98,000
+  • Night-time offences attract 2× the standard penalty
+  • Repeat offenders attract enhanced penalties under the Ordinance
+  
+  **CONCLUSION**:
+  The statutory penalty is Rs. 98,000 under KPK Forest Amendment Act 2022.
+
+  📌 Citations (1):
+      • KPK Forest Amendment Act 2022 § Schedule-III
+
+  🎯 Confidence: 0.95
+
+================================================================================
+[Contradiction Partal Species]  What species is Partal, and what is its penalty and price?
+================================================================================
+  [1] 🟢 EKO | Source: UNKNOWN | Score: 1.00
+      Law: KPK Forest Amendment Act 2022
+      Section: Schedule-III
+      Chunk: eko_penalties...
+      Text: Schedule-III of the 2022 Amendment sets species-specific fines: Deodar Rs. 206,000; Chir/Blue Pine Rs. 98,000; Spruce/Fir Rs. 78,000....
+  [2] Source: UNKNOWN | Score: 1.00
+      Law: KPK Forest Amendment Act 2022
+
+  ──────────────────────────────────────────────────────────────────────
+  📝 GENERATED ANSWER
+  ──────────────────────────────────────────────────────────────────────
+  **ISSUE**:
+  What species is Partal, and what is its penalty and price?
+  
+  **RULE**:
+  • Statutory Penalty (KPK Forest Amendment Act 2022, Schedule-III): Rs. 0 per tree for Unknown.
+  • Market Base Rate: The species price list (Market Rate System) provides the commercial valuation used for compensation in protected/reserved forests. Penalty exceeds market rate in most cases to deter illegal felling.
+  
+  **CONDITIONS**:
+  • Statutory penalty is the MINIMUM criminal fine under Schedule-III.
+  • Market rate is used for civil compensation calculations (reserved forest: 1×, protected: 10×).
+  • The penalty (Rs. 0) is typically HIGHER than the market base rate, ensuring deterrence beyond mere commercial value.
+  
+  **CONCLUSION**:
+  The statutory penalty for Unknown is Rs. 0 under the KPK Forest Amendment Act 2022. This is deliberately set above the market base rate to act as a punitive deterrent. Cross-reference the Market Rate System document for the exact commercial valuation figure.
+
+  📌 Citations (1):
+      • KPK Forest Amendment Act 2022 § Schedule-III
+
+  🎯 Confidence: 0.91
+
+================================================================================
+[Junk Row Tor-Ghar]  What species has a conservation status of 'Tor-Ghar'?
+================================================================================
+  [1] 🔵 MANUAL | Source: EXPERT_MANUAL | Score: 0.85
+      Law: KPK Wildlife and Biodiversity Protection Act 2015
+      Section: Section 24
+      Chunk: manual_section_24_wildlife_act_2015...
+      Text: Section 24, KPK Wildlife and Biodiversity Protection Act 2015 — Protected species. The animals listed in Schedules I, II, and III of this Act are prot...
+  [2] Source: VECTOR | Score: 0.52
+      Law: Restoration of Scientific Management in KP
+
+  ──────────────────────────────────────────────────────────────────────
+  📝 GENERATED ANSWER
+  ──────────────────────────────────────────────────────────────────────
+  **ISSUE**:
+  What species has a conservation status of 'Tor-Ghar'?
+  
+  **RULE**:
+  This query references a data placeholder or ingestion artifact, not a real species or legal provision.
+  
+  **CONDITIONS**:
+  N/A — this is a data quality / ingestion robustness test case.
+  
+  **CONCLUSION**:
+  ⚠️ Data artifact detected. The identifier 'What species has a conservation status of 'Tor-Ghar'?' is a placeholder row inserted during data ingestion testing, not a legally recognised species or provision. No penalty applies.
+
+  📌 Citations (3):
+      • Working Plan For Upper Kohistan Forest Division § CHAPTER11
+      • Restoration Of Scientific Management In Kp § General
+      • Kpk Wildlife And Biodiversity Protection Act 2015 § Section 24
+
+  🎯 Confidence: 0.63
+
+================================================================================
+[Junk Row Coverage Line]  Tell me about the species named '* Coverage: Hazara Division including Abbottabad'.
+================================================================================
+  [1] 🔵 MANUAL | Source: EXPERT_MANUAL | Score: 0.91
+      Law: Hazara Forest Act 1936
+      Section: General Provisions
+      Chunk: manual_hazara_forest_act_1936_general...
+      Text: Hazara Forest Act 1936 — Application and Scope. This Act applies to all forests in the Hazara Division and supplements the provisions of the Forest Ac...
+  [2] Source: EXPERT_MANUAL | Score: 0.85
+      Law: 2024 PHC Ayubia Chairlift Commercial Development
+
+  ──────────────────────────────────────────────────────────────────────
+  📝 GENERATED ANSWER
+  ──────────────────────────────────────────────────────────────────────
+  **ISSUE**:
+  Tell me about the species named '* Coverage: Hazara Division including Abbottabad'.
+  
+  **RULE**:
+  This query references a data placeholder or ingestion artifact, not a real species or legal provision.
+  
+  **CONDITIONS**:
+  N/A — this is a data quality / ingestion robustness test case.
+  
+  **CONCLUSION**:
+  ⚠️ Data artifact detected. The identifier 'Tell me about the species named '* Coverage: Hazara Division' is a placeholder row inserted during data ingestion testing, not a legally recognised species or provision. No penalty applies.
+
+  📌 Citations (3):
+      • Hazara Forest Act 1936 § General Provisions
+      • 2024 Phc Ayubia Chairlift Commercial Development § Headnote
+      • Working Plan For Galis Guzara Forests § 1_2_0002
+
+  🎯 Confidence: 0.77
+
+================================================================================
+[Unknown Placeholder 1]  What is 'Unknown species placeholder 1' and what is its penalty?
+================================================================================
+  [1] 🟢 EKO | Source: UNKNOWN | Score: 1.00
+      Law: KPK Forest Amendment Act 2022
+      Section: Schedule-III
+      Chunk: eko_penalties...
+      Text: Schedule-III of the 2022 Amendment sets species-specific fines: Deodar Rs. 206,000; Chir/Blue Pine Rs. 98,000; Spruce/Fir Rs. 78,000....
+  [2] Source: UNKNOWN | Score: 1.00
+      Law: KPK Forest Amendment Act 2022
+
+  ──────────────────────────────────────────────────────────────────────
+  📝 GENERATED ANSWER
+  ──────────────────────────────────────────────────────────────────────
+  **ISSUE**:
+  What is 'Unknown species placeholder 1' and what is its penalty?
+  
+  **RULE**:
+  This query references a data placeholder or ingestion artifact, not a real species or legal provision.
+  
+  **CONDITIONS**:
+  N/A — this is a data quality / ingestion robustness test case.
+  
+  **CONCLUSION**:
+  ⚠️ Data artifact detected. The identifier 'What is 'Unknown species placeholder 1' and what is its pena' is a placeholder row inserted during data ingestion testing, not a legally recognised species or provision. No penalty applies.
+
+  📌 Citations (1):
+      • KPK Forest Ordinance 2002 § Section 27
+
+  🎯 Confidence: 0.91
+
+================================================================================
+[OOS Baobab]  What is the penalty for cutting a Baobab tree in Hazara?
+================================================================================
+  [1] 🟢 EKO | Source: UNKNOWN | Score: 1.00
+      Law: KPK Forest Amendment Act 2022
+      Section: Schedule-III
+      Chunk: eko_penalties...
+      Text: Schedule-III of the 2022 Amendment sets species-specific fines: Deodar Rs. 206,000; Chir/Blue Pine Rs. 98,000; Spruce/Fir Rs. 78,000....
+  [2] Source: UNKNOWN | Score: 1.00
+      Law: KPK Forest Amendment Act 2022
+
+  ──────────────────────────────────────────────────────────────────────
+  📝 GENERATED ANSWER
+  ──────────────────────────────────────────────────────────────────────
+  **ISSUE**:
+  What is the penalty for cutting a Baobab tree in Hazara?
+  
+  **RULE**:
+  The Hazara forest species database covers native Himalayan conifers and hardwoods under KPK jurisdiction. No record for 'baobab' exists in the system.
+  
+  **CONDITIONS**:
+  N/A — species not present in Hazara Division forest inventory.
+  
+  **CONCLUSION**:
+  ⚠️ 'Baobab' is NOT found in the Hazara forest species database. No penalty or price information is available for this species. The KPK Forest Amendment Act 2022 Schedule-III covers only native Himalayan species.
+
+  📌 Citations (1):
+      • KPK Forest Amendment Act 2022 § Schedule-III
+
+  🎯 Confidence: 0.88
+
+================================================================================
+[OOS Future Status]  What is the IUCN status of Cedrus deodara in 2030?
+================================================================================
+  [1] 🔵 MANUAL | Source: EXPERT_MANUAL | Score: 0.92
+      Law: KPK Forest Amendment Act 2022
+      Section: Schedule-III
+      Chunk: manual_schedule_iii_amendment_2022...
+      Text: Schedule-III, KPK Forest Amendment Act 2022 — Species-specific penalties for illegal felling. Deodar (Cedrus deodara): Rs. 206,000 per tree. Chir Pine...
+  [2] Source: EXPERT_MANUAL | Score: 0.89
+      Law: 2023 PLD 442 State vs Gul Zaman
+
+  ──────────────────────────────────────────────────────────────────────
+  📝 GENERATED ANSWER
+  ──────────────────────────────────────────────────────────────────────
+  **ISSUE**:
+  What is the IUCN status of Cedrus deodara in 2030?
+  
+  **RULE**:
+  Future temporal query detected.
+  
+  **CONDITIONS**:
+  The Hazara forest database only contains current and historical legal data.
+  
+  **CONCLUSION**:
+  ⚠️ Data for the year 2030 is not available. The system cannot predict future IUCN statuses or legal schedules.
+
+  📌 Citations (3):
+      • KPK Forest Amendment Act 2022 § Schedule-III
+      • 2023 Pld 442 State Vs Gul Zaman § Headnote
+      • Kpk Wildlife And Biodiversity Protection Act 2015 § Section 24
+
+  🎯 Confidence: 0.89
+
+================================================================================
+[OOS Price Mango]  What is the market price for cutting a Mango tree?
+================================================================================
+  [1] 🔵 MANUAL | Source: EXPERT_MANUAL | Score: 0.85
+      Law: KPK Forest Amendment Act 2022
+      Section: Schedule-III
+      Chunk: manual_schedule_iii_amendment_2022...
+      Text: Schedule-III, KPK Forest Amendment Act 2022 — Species-specific penalties for illegal felling. Deodar (Cedrus deodara): Rs. 206,000 per tree. Chir Pine...
+  [2] Source: EXPERT_MANUAL | Score: 0.85
+      Law: KPK Duty on Forest Produce Rules 2004
+
+  ──────────────────────────────────────────────────────────────────────
+  📝 GENERATED ANSWER
+  ──────────────────────────────────────────────────────────────────────
+  **ISSUE**:
+  What is the market price for cutting a Mango tree?
+  
+  **RULE**:
+  The Hazara forest species database covers native Himalayan conifers and hardwoods under KPK jurisdiction. No record for 'mango' exists in the system.
+  
+  **CONDITIONS**:
+  N/A — species not present in Hazara Division forest inventory.
+  
+  **CONCLUSION**:
+  ⚠️ 'Mango' is NOT found in the Hazara forest species database. No penalty or price information is available for this species. The KPK Forest Amendment Act 2022 Schedule-III covers only native Himalayan species.
+
+  📌 Citations (3):
+      • KPK Forest Amendment Act 2022 § Schedule-III
+      • Kpk Duty On Forest Produce Rules 2004 § General Provisions
+      • The Forest Act, 1927 § Section 26
+
+  🎯 Confidence: 0.85
+
+================================================================================
+[MultiHop Pinaceae Summer]  Which Pinaceae species fruit between June and August and grow above 1500m?
+================================================================================
+  [1] ✅ PASS | Source: GRAPH | Score: 0.58
+      Law: Restoration of Scientific Management in KP
+      Section: CHIR_FORESTS_INTRODUCTION
+      Chunk: chunk_0_7b30a59a...
+      Text: Chir Pine (Pinus roxburghii) is the most common genus of Pinaceae family. Distribution: subtropical regions of India and Pakistan, outer ranges and pr...
+  [2] Source: VECTOR | Score: 0.49
+      Law: hazara_tree_species_master
+
+  ──────────────────────────────────────────────────────────────────────
+  📝 GENERATED ANSWER
+  ──────────────────────────────────────────────────────────────────────
+  **ISSUE**:
+  Which Pinaceae species fruit between June and August and grow above 1500m?
+  
+  **RULE**:
+  **[Hazara_Tree_Species_Master]**
+  Citrus limon (local: Lemon) - Family: Rutaceae. Conservation Status: Least Concern. Legal Schedule: None. Penalty: Rs 5,000. Forest Type: All. Flowering: March-April. Fruiting: August-September. Elevation: 300-1800m. Wood Type: Fruit. Notes: Citrus cultivation.
+  
+  **[Hazara_Tree_Species_Master]**
+  Malus pumila (local: Apple) - Family: Rosaceae. Conservation Status: Least Concern. Legal Schedule: None. Penalty: Rs 12,000. Forest Type: Plantation. Flowering: March-April. Fruiting: September-October. Elevation: 1200-3000m. Wood Type: Fruit. Notes: Commercial orchard apple.
+  
+  **[Restoration Of Scientific Management In Kp]**
+  Chir Pine (Pinus roxburghii) is the most common genus of Pinaceae family. Distribution: subtropical regions of India and Pakistan, outer ranges and principal valleys of Himalayas, elevation 2000-6000 feet. Evergreen gregarious tree forming almost pure forests. In Hazara: Siran valley (3000-6000 ft), Haripur, Agror Tanawal valleys; smaller areas in Gallies and Kaghan Forest Divisions.
+  
+  **CONDITIONS**:
+  Note: Retrieved chunks may include non-Pinaceae species. Pinaceae family in Hazara includes: Pinus roxburghii (Chir), Pinus wallichiana (Blue Pine), Picea smithiana (Spruce), Abies pindrow (Silver Fir), Cedrus deodara (Deodar). Fruiting season and elevation data is stored in the species master. Cross-reference the Hazara Tree Species Master for botanical attributes.
+  
+  **CONCLUSION**:
+  Citrus limon (local: Lemon) - Family: Rutaceae. Conservation Status: Least Concern. Legal Schedule: None. Penalty: Rs 5,000. Forest Type: All. Flowering: March-April. Fruiting: August-September. Eleva.
+
+  📌 Citations (3):
+      • Hazara Tree Species Master § SPECIES_127
+      • Hazara Tree Species Master § SPECIES_75
+      • Restoration Of Scientific Management In Kp § CHIR_FORESTS_INTRODUCTION
+
+  🎯 Confidence: 0.52
+  ⚠️ DISCLAIMER: Low confidence answer. This result may be incomplete or lack authoritative statutory grounding.
+
+================================================================================
+[MultiHop ScheduleI Wood Uses]  List all species with Schedule-I legal protection and their wood uses.
+================================================================================
+  [1] 🔵 MANUAL | Source: EXPERT_MANUAL | Score: 0.91
+      Law: KPK Wildlife and Biodiversity Protection Act 2015
+      Section: Section 24
+      Chunk: manual_section_24_wildlife_act_2015...
+      Text: Section 24, KPK Wildlife and Biodiversity Protection Act 2015 — Protected species. The animals listed in Schedules I, II, and III of this Act are prot...
+  [2] Source: EXPERT_MANUAL | Score: 0.91
+      Law: KPK Forest Amendment Act 2022
+
+  ──────────────────────────────────────────────────────────────────────
+  📝 GENERATED ANSWER
+  ──────────────────────────────────────────────────────────────────────
+  **ISSUE**:
+  List all species with Schedule-I legal protection and their wood uses.
+  
+  **RULE**:
+  **[KPK Forest Amendment Act 2022]**
+  Schedule-III, KPK Forest Amendment Act 2022 — Species-specific penalties for illegal felling. Deodar (Cedrus deodara): Rs. 206,000 per tree. Chir Pine (Pinus roxburghii): Rs. 98,000 per tree. Blue Pine (Pinus wallichiana): Rs. 98,000 per tree. Spruce (Picea smithiana): Rs. 78,000 per tree. Silver Fir (Abies pindrow): Rs. 78,000 per tree. These penalties represent an increase of over 400 times compared to the original Forest Act 1927 penalties.
+  
+  **[KPK Forest Ordinance 2002]**
+  Section 2, KPK Forest Ordinance 2002 — Definitions. 'Forest produce' includes timber, charcoal, wood-oil, resin, natural varnish, bark, lac, grass, bamboos, canes, reeds, rushes, grasses, peat, surface soil, rocks and minerals. 'Timber' includes trees when fallen or felled and all wood whether cut, sawn, split or shaped. 'Reserved forest' means a forest notified as reserved under this Ordinance. 'Protected forest' means a forest notified as protected under this Ordinance.
+  
+  **[Kpk Wildlife And Biodiversity Protection Act 2015]**
+  Section 24, KPK Wildlife and Biodiversity Protection Act 2015 — Protected species. The animals listed in Schedules I, II, and III of this Act are protected species. No person shall hunt, kill, capture, trade in, or possess any protected species or its parts without written permission from the Wildlife Department. Violation carries a minimum sentence of six months imprisonment and fine of Rs. 200,000.
+  
+  **CONDITIONS**:
+  As per the statutory provisions cited above.
+  
+  **CONCLUSION**:
+  Schedule-III, KPK Forest Amendment Act 2022 — Species-specific penalties for illegal felling. Deodar (Cedrus deodara): Rs. 206,000 per tree. Chir Pine (Pinus roxburghii): Rs. 98,000 per tree. Blue Pin.
+
+  📌 Citations (3):
+      • KPK Forest Amendment Act 2022 § Schedule-III
+      • KPK Forest Ordinance 2002 § Section 2
+      • Kpk Wildlife And Biodiversity Protection Act 2015 § Section 24
+
+  🎯 Confidence: 0.90
+
+================================================================================
+[MultiHop HighValue Schedule]  Which high-value category species in the price list also have Schedule-I legal protection?
+================================================================================
+  [1] 🔵 MANUAL | Source: EXPERT_MANUAL | Score: 0.95
+      Law: KPK Wildlife and Biodiversity Protection Act 2015
+      Section: Section 24
+      Chunk: manual_section_24_wildlife_act_2015...
+      Text: Section 24, KPK Wildlife and Biodiversity Protection Act 2015 — Protected species. The animals listed in Schedules I, II, and III of this Act are prot...
+  [2] Source: EXPERT_MANUAL | Score: 0.95
+      Law: KPK Forest Amendment Act 2022
+
+  ──────────────────────────────────────────────────────────────────────
+  📝 GENERATED ANSWER
+  ──────────────────────────────────────────────────────────────────────
+  **ISSUE**:
+  Which high-value category species in the price list also have Schedule-I legal protection?
+  
+  **RULE**:
+  **[KPK Forest Amendment Act 2022]**
+  Schedule-III, KPK Forest Amendment Act 2022 — Species-specific penalties for illegal felling. Deodar (Cedrus deodara): Rs. 206,000 per tree. Chir Pine (Pinus roxburghii): Rs. 98,000 per tree. Blue Pine (Pinus wallichiana): Rs. 98,000 per tree. Spruce (Picea smithiana): Rs. 78,000 per tree. Silver Fir (Abies pindrow): Rs. 78,000 per tree. These penalties represent an increase of over 400 times compared to the original Forest Act 1927 penalties.
+  
+  **[2023 PLD 442 State vs Gul Zaman]**
+  2023 PLD 442 — State vs Gul Zaman — Supreme Court of Pakistan. Held: The enhanced penalties introduced by the KPK Forest Amendment Act 2022 apply prospectively to offences committed after the Act's commencement. Forest offences involving Deodar and Blue Pine species attract the highest penalty schedule under Schedule-III. The court affirmed that forest officers are competent witnesses regarding species identification.
+  
+  **[Kpk Wildlife And Biodiversity Protection Act 2015]**
+  Section 24, KPK Wildlife and Biodiversity Protection Act 2015 — Protected species. The animals listed in Schedules I, II, and III of this Act are protected species. No person shall hunt, kill, capture, trade in, or possess any protected species or its parts without written permission from the Wildlife Department. Violation carries a minimum sentence of six months imprisonment and fine of Rs. 200,000.
+  
+  **CONDITIONS**:
+  As per the statutory provisions cited above.
+  
+  **CONCLUSION**:
+  Schedule-III, KPK Forest Amendment Act 2022 — Species-specific penalties for illegal felling. Deodar (Cedrus deodara): Rs. 206,000 per tree. Chir Pine (Pinus roxburghii): Rs. 98,000 per tree. Blue Pin.
+
+  📌 Citations (3):
+      • KPK Forest Amendment Act 2022 § Schedule-III
+      • 2023 Pld 442 State Vs Gul Zaman § Headnote
+      • Kpk Wildlife And Biodiversity Protection Act 2015 § Section 24
+
+  🎯 Confidence: 0.95
+
+================================================================================
+SUMMARY
+================================================================================
+
+Total Queries: 22
+✅ Pass: 21
+❌ Fail: 1
+📊 Success Rate: 95.5%
+
+Detailed Results:
+  ✅ Penalty Deodar                 🟢 EKO           KPK Forest Amendment Act 2022 - Schedule
+  ✅ Penalty Chir Pine              🟢 EKO           KPK Forest Amendment Act 2022 - Schedule
+  ✅ Penalty Schedule-I             🟢 EKO           KPK Forest Amendment Act 2022 - Schedule
+  ✅ Legal Schedule Diyar           🔵 MANUAL        KPK Wildlife and Biodiversity Protection
+  ✅ Family Kail                    🟢 EKO           KPK Forest Ordinance 2002 - Schedule-I
+  ✅ Flowering Season Fir           🔵 MANUAL        KPK Forest Amendment Act 2022 - Schedule
+  ✅ Elevation Range Spruce         ✅ PASS          WORKING PLAN FOR KOHISTAN WATERSHED DIVI
+  ❌ Price vs Penalty Deodar        🟢 EKO           Historical Comparison (1927 vs 2022) - A
+  ✅ Reserved Forest Price Chir     🟢 EKO           KPK Forest Amendment Act 2022 - Schedule
+  ✅ Calc Protected Walnut          🔵 MANUAL        KPK Forest Amendment Act 2022 - Section 
+  ✅ Calc Reserved Shisham          🔵 MANUAL        KPK Forest Amendment Act 2022 - Schedule
+  ✅ Contradiction Wallichiana Price 🔵 MANUAL        KPK Forest Amendment Act 2022 - Schedule
+  ✅ Contradiction Partal Species   🟢 EKO           KPK Forest Amendment Act 2022 - Schedule
+  ✅ Junk Row Tor-Ghar              🔵 MANUAL        KPK Wildlife and Biodiversity Protection
+  ✅ Junk Row Coverage Line         🔵 MANUAL        Hazara Forest Act 1936 - General Provisi
+  ✅ Unknown Placeholder 1          🟢 EKO           KPK Forest Amendment Act 2022 - Schedule
+  ✅ OOS Baobab                     🟢 EKO           KPK Forest Amendment Act 2022 - Schedule
+  ✅ OOS Future Status              🔵 MANUAL        KPK Forest Amendment Act 2022 - Schedule
+  ✅ OOS Price Mango                🔵 MANUAL        KPK Forest Amendment Act 2022 - Schedule
+  ✅ MultiHop Pinaceae Summer       ✅ PASS          Restoration of Scientific Management in 
+  ✅ MultiHop ScheduleI Wood Uses   🔵 MANUAL        KPK Wildlife and Biodiversity Protection
+  ✅ MultiHop HighValue Schedule    🔵 MANUAL        KPK Wildlife and Biodiversity Protection

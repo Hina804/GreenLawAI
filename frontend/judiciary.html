@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Judiciary · GREENLAW AI Hazara Forest Intelligence</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    .search-bar-row {
+      display: flex; gap: 10px; margin-bottom: 20px;
+      background: var(--white); padding: 14px 16px;
+      border-radius: var(--radius-lg); border: 1px solid var(--border-card);
+      box-shadow: var(--shadow-sm);
+    }
+    .search-bar-row input {
+      flex: 1; padding: 9px 14px;
+      border: 1.5px solid var(--border-card); border-radius: var(--radius-sm);
+      font-size: 13.5px; font-family: var(--font-main); outline: none;
+      transition: border-color .2s;
+    }
+    .search-bar-row input:focus { border-color: var(--forest-bright); }
+    .filter-select {
+      padding: 9px 12px; border: 1.5px solid var(--border-card);
+      border-radius: var(--radius-sm); font-size: 13px; outline: none;
+      background: var(--white); color: var(--gray-700); min-width: 140px;
+    }
+
+    /* Timeline */
+    .timeline { position: relative; padding-left: 24px; }
+    .timeline::before {
+      content: ''; position: absolute; left: 8px; top: 0; bottom: 0;
+      width: 2px; background: var(--border-light);
+    }
+    .timeline-item { position: relative; margin-bottom: 18px; }
+    .timeline-dot {
+      position: absolute; left: -20px; top: 4px;
+      width: 12px; height: 12px; border-radius: 50%;
+      border: 2px solid white;
+      box-shadow: 0 0 0 2px currentColor;
+    }
+    .timeline-dot.critical { color: var(--red-alert); background: var(--red-alert); }
+    .timeline-dot.high     { color: var(--orange);    background: var(--orange); }
+    .timeline-dot.resolved { color: var(--forest-bright); background: var(--forest-bright); }
+    .timeline-dot.pending  { color: var(--amber); background: var(--amber); }
+    .timeline-date { font-size: 10.5px; color: var(--gray-400); font-family: var(--font-mono); margin-bottom: 3px; }
+    .timeline-title { font-size: 13px; font-weight: 700; color: var(--gray-800); }
+    .timeline-detail { font-size: 12px; color: var(--gray-500); margin-top: 2px; }
+
+    /* Court card */
+    .court-card {
+      background: var(--white); border: 1px solid var(--border-card);
+      border-radius: var(--radius-md); padding: 16px;
+      display: flex; flex-direction: column; gap: 8px;
+      transition: all .2s; cursor: pointer;
+    }
+    .court-card:hover {
+      border-color: var(--forest-bright); box-shadow: var(--shadow-md);
+    }
+    .court-name  { font-size: 13px; font-weight: 700; color: var(--gray-800); }
+    .court-count { font-size: 22px; font-weight: 800; font-family: var(--font-mono); color: var(--forest-mid); }
+    .court-sub   { font-size: 11.5px; color: var(--gray-500); }
+
+    /* Hearing schedule */
+    .hearing-item {
+      display: flex; align-items: center; gap: 12px;
+      padding: 11px 0; border-bottom: 1px solid var(--gray-100);
+    }
+    .hearing-item:last-child { border-bottom: none; }
+    .hearing-date-box {
+      width: 44px; text-align: center;
+      background: var(--forest-pale); border-radius: 8px; padding: 6px 4px; flex-shrink: 0;
+    }
+    .hd-day  { font-size: 18px; font-weight: 800; color: var(--forest-mid); line-height: 1; }
+    .hd-mon  { font-size: 9px; font-weight: 700; color: var(--forest-light); text-transform: uppercase; }
+    .hearing-case  { font-size: 13px; font-weight: 600; color: var(--gray-800); }
+    .hearing-court { font-size: 11.5px; color: var(--gray-500); }
+    .hearing-time  { font-family: var(--font-mono); font-size: 12px; color: var(--gray-600); margin-left: auto; white-space: nowrap; }
+
+    .courts-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 16px; }
+  </style>
+</head>
+<body>
+<div id="nav-container"></div>
+
+<div class="main-wrapper">
+  <header class="topbar">
+    <button class="menu-toggle"><i class="fa fa-bars"></i></button>
+    <div>
+      <div class="topbar-title">Judiciary & Court Analytics</div>
+      <div class="topbar-sub">Case Retrieval · Hearing Schedules · Verdict Analysis · Hazara Courts</div>
+    </div>
+    <div class="topbar-right">
+      <div class="topbar-badge"><i class="fa fa-gavel"></i> 47 Active Cases</div>
+      <div class="topbar-clock">PKT 00:00:00</div>
+    </div>
+  </header>
+
+  <main class="page-content">
+
+    <!-- KPIs -->
+    <div class="kpi-grid">
+      <div class="kpi-card legal">
+        <div class="kpi-icon-wrap legal"><i class="fa fa-gavel"></i></div>
+        <div class="kpi-body">
+          <div class="kpi-value" data-target="47">0</div>
+          <div class="kpi-label">Active Cases</div>
+          <div class="kpi-delta up"><i class="fa fa-arrow-up"></i> +3 filed this week</div>
+        </div>
+      </div>
+      <div class="kpi-card green">
+        <div class="kpi-icon-wrap green"><i class="fa fa-check-circle"></i></div>
+        <div class="kpi-body">
+          <div class="kpi-value" data-target="31">0</div>
+          <div class="kpi-label">Resolved (30d)</div>
+          <div class="kpi-delta down"><i class="fa fa-check"></i> 66% conviction</div>
+        </div>
+      </div>
+      <div class="kpi-card defo">
+        <div class="kpi-icon-wrap defo"><i class="fa fa-calendar-day"></i></div>
+        <div class="kpi-body">
+          <div class="kpi-value" data-target="8">0</div>
+          <div class="kpi-label">Hearings This Week</div>
+          <div class="kpi-delta"><i class="fa fa-clock"></i> Next: Mon 10:00</div>
+        </div>
+      </div>
+      <div class="kpi-card co2">
+        <div class="kpi-icon-wrap co2"><i class="fa fa-exclamation-circle"></i></div>
+        <div class="kpi-body">
+          <div class="kpi-value" data-target="9">0</div>
+          <div class="kpi-label">Cases Under Appeal</div>
+          <div class="kpi-delta up"><i class="fa fa-arrow-up"></i> +2 new appeals</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Search Bar -->
+    <div class="search-bar-row">
+      <input type="text" placeholder="Search case ID, accused name, offence type, district..." id="caseSearch" />
+      <select class="filter-select">
+        <option>All Districts</option>
+        <option>Mansehra</option>
+        <option>Abbottabad</option>
+        <option>Battagram</option>
+        <option>Haripur</option>
+        <option>Kohistan</option>
+      </select>
+      <select class="filter-select">
+        <option>All Offences</option>
+        <option>Illegal Logging</option>
+        <option>Arson</option>
+        <option>Encroachment</option>
+        <option>Wildlife</option>
+        <option>Transit Violation</option>
+      </select>
+      <select class="filter-select">
+        <option>All Status</option>
+        <option>Active</option>
+        <option>Convicted</option>
+        <option>Acquitted</option>
+        <option>Appeal</option>
+      </select>
+      <button class="btn btn-primary btn-sm"><i class="fa fa-search"></i> Search</button>
+    </div>
+
+    <!-- Court Distribution + Charts -->
+    <div class="section-grid col-2" style="margin-bottom:20px;">
+      <!-- Case Analytics Chart -->
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title"><i class="fa fa-chart-bar"></i> Monthly Case Filings & Verdicts</div>
+          <div class="card-badge">2024</div>
+        </div>
+        <div class="card-body">
+          <div class="chart-container" style="height:240px;">
+            <canvas id="caseChart"></canvas>
+          </div>
+        </div>
+      </div>
+      <!-- Verdict Breakdown -->
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title"><i class="fa fa-chart-pie"></i> Verdict Distribution</div>
+        </div>
+        <div class="card-body" style="display:flex;flex-direction:column;align-items:center;">
+          <div class="chart-container" style="height:200px;width:200px;">
+            <canvas id="verdictChart"></canvas>
+          </div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;width:100%;margin-top:16px;">
+            <div style="background:var(--forest-pale);border-radius:8px;padding:10px;text-align:center;">
+              <div style="font-size:18px;font-weight:800;color:var(--forest-mid);">66%</div>
+              <div style="font-size:11px;color:var(--gray-500);">Conviction Rate</div>
+            </div>
+            <div style="background:var(--sky-light);border-radius:8px;padding:10px;text-align:center;">
+              <div style="font-size:18px;font-weight:800;color:var(--sky);">4.8m</div>
+              <div style="font-size:11px;color:var(--gray-500);">Avg Duration</div>
+            </div>
+            <div style="background:var(--amber-light);border-radius:8px;padding:10px;text-align:center;">
+              <div style="font-size:18px;font-weight:800;color:#b45309;">₨128K</div>
+              <div style="font-size:11px;color:var(--gray-500);">Avg Fine</div>
+            </div>
+            <div style="background:var(--red-light);border-radius:8px;padding:10px;text-align:center;">
+              <div style="font-size:18px;font-weight:800;color:var(--red-alert);">19%</div>
+              <div style="font-size:11px;color:var(--gray-500);">Appeal Rate</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Case Table + Upcoming Hearings -->
+    <div class="section-grid col-3-2" style="margin-bottom:20px;">
+      <!-- Full Case Table -->
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title"><i class="fa fa-folder"></i> Case Registry</div>
+          <div class="card-badge">47 Active</div>
+        </div>
+        <div style="overflow-x:auto;">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Case ID</th>
+                <th>Offence</th>
+                <th>District</th>
+                <th>Filed</th>
+                <th>Court</th>
+                <th>Status</th>
+                <th>Fine (₨)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="text-mono" style="color:var(--forest-mid);font-weight:700;">#HZR-2024-091</td>
+                <td>Illegal Logging</td>
+                <td>Mansehra</td>
+                <td>15 Jun</td>
+                <td>Sessions Court</td>
+                <td><span class="badge critical">Convicted</span></td>
+                <td class="text-mono fw-bold">480,000</td>
+              </tr>
+              <tr>
+                <td class="text-mono" style="color:var(--forest-mid);font-weight:700;">#HZR-2024-088</td>
+                <td>Forest Encroachment</td>
+                <td>Abbottabad</td>
+                <td>12 Jun</td>
+                <td>Civil Court</td>
+                <td><span class="badge high">Active</span></td>
+                <td class="text-mono fw-bold">120,000</td>
+              </tr>
+              <tr>
+                <td class="text-mono" style="color:var(--forest-mid);font-weight:700;">#HZR-2024-082</td>
+                <td>Arson (Forest Fire)</td>
+                <td>Battagram</td>
+                <td>08 Jun</td>
+                <td>Sessions Court</td>
+                <td><span class="badge critical">Convicted</span></td>
+                <td class="text-mono fw-bold">350,000</td>
+              </tr>
+              <tr>
+                <td class="text-mono" style="color:var(--forest-mid);font-weight:700;">#HZR-2024-079</td>
+                <td>Transit Violation</td>
+                <td>Haripur</td>
+                <td>05 Jun</td>
+                <td>Magistrate</td>
+                <td><span class="badge medium">Acquitted</span></td>
+                <td class="text-mono fw-bold">0</td>
+              </tr>
+              <tr>
+                <td class="text-mono" style="color:var(--forest-mid);font-weight:700;">#HZR-2024-075</td>
+                <td>Wildlife Poaching</td>
+                <td>Kohistan</td>
+                <td>01 Jun</td>
+                <td>Sessions Court</td>
+                <td><span class="badge success">Convicted</span></td>
+                <td class="text-mono fw-bold">200,000</td>
+              </tr>
+              <tr>
+                <td class="text-mono" style="color:var(--forest-mid);font-weight:700;">#HZR-2024-071</td>
+                <td>Land Conversion</td>
+                <td>Mansehra</td>
+                <td>28 May</td>
+                <td>Env. Tribunal</td>
+                <td><span class="badge high">Active</span></td>
+                <td class="text-mono fw-bold">750,000</td>
+              </tr>
+              <tr>
+                <td class="text-mono" style="color:var(--forest-mid);font-weight:700;">#HZR-2024-068</td>
+                <td>Illegal Grazing</td>
+                <td>Battagram</td>
+                <td>24 May</td>
+                <td>Magistrate</td>
+                <td><span class="badge medium">Pending</span></td>
+                <td class="text-mono fw-bold">45,000</td>
+              </tr>
+              <tr>
+                <td class="text-mono" style="color:var(--forest-mid);font-weight:700;">#HZR-2024-065</td>
+                <td>Timber Smuggling</td>
+                <td>Mansehra</td>
+                <td>20 May</td>
+                <td>Sessions Court</td>
+                <td><span class="badge violet">Appeal</span></td>
+                <td class="text-mono fw-bold">620,000</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Right panel -->
+      <div style="display:flex;flex-direction:column;gap:20px;">
+        <!-- Upcoming Hearings -->
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title"><i class="fa fa-calendar-alt"></i> Upcoming Hearings</div>
+            <div class="card-badge">This Week</div>
+          </div>
+          <div class="card-body">
+            <div class="hearing-item">
+              <div class="hearing-date-box"><div class="hd-day">23</div><div class="hd-mon">Jun</div></div>
+              <div><div class="hearing-case">#HZR-2024-088 · Encroachment</div><div class="hearing-court">Civil Court, Abbottabad</div></div>
+              <div class="hearing-time">10:00</div>
+            </div>
+            <div class="hearing-item">
+              <div class="hearing-date-box"><div class="hd-day">24</div><div class="hd-mon">Jun</div></div>
+              <div><div class="hearing-case">#HZR-2024-071 · Land Conversion</div><div class="hearing-court">Environmental Tribunal</div></div>
+              <div class="hearing-time">09:30</div>
+            </div>
+            <div class="hearing-item">
+              <div class="hearing-date-box"><div class="hd-day">25</div><div class="hd-mon">Jun</div></div>
+              <div><div class="hearing-case">#HZR-2024-065 · Appeal</div><div class="hearing-court">High Court Peshawar</div></div>
+              <div class="hearing-time">11:00</div>
+            </div>
+            <div class="hearing-item">
+              <div class="hearing-date-box"><div class="hd-day">26</div><div class="hd-mon">Jun</div></div>
+              <div><div class="hearing-case">#HZR-2024-068 · Grazing</div><div class="hearing-court">Magistrate, Battagram</div></div>
+              <div class="hearing-time">14:00</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Court Distribution -->
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title"><i class="fa fa-landmark"></i> Court Distribution</div>
+          </div>
+          <div class="card-body">
+            <div class="courts-grid">
+              <div class="court-card">
+                <div class="court-name">Sessions Court</div>
+                <div class="court-count">18</div>
+                <div class="court-sub">Major offences</div>
+              </div>
+              <div class="court-card">
+                <div class="court-name">Civil Court</div>
+                <div class="court-count">12</div>
+                <div class="court-sub">Land disputes</div>
+              </div>
+              <div class="court-card">
+                <div class="court-name">Magistrate</div>
+                <div class="court-count">10</div>
+                <div class="court-sub">Minor offences</div>
+              </div>
+              <div class="court-card">
+                <div class="court-name">Env. Tribunal</div>
+                <div class="court-count">5</div>
+                <div class="court-sub">PEPA cases</div>
+              </div>
+              <div class="court-card">
+                <div class="court-name">High Court</div>
+                <div class="court-count">2</div>
+                <div class="court-sub">Appeals</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-text">GREENLAW AI · HAZARA FOREST INTELLIGENCE · v4.0</div>
+    <div class="footer-refs">KP FOREST ORDINANCE 2002 · FOREST ACT 1927 · FIRMS · GFW · OWM</div>
+  </footer>
+</div>
+
+<script src="js/nav.js"></script>
+<script src="js/shared.js"></script>
+<script>
+new Chart(document.getElementById('caseChart'), {
+  type: 'bar',
+  data: {
+    labels: ['Jan','Feb','Mar','Apr','May','Jun'],
+    datasets: [
+      { label: 'Filed', data: [8,11,9,14,12,10], backgroundColor: 'rgba(59,130,246,.7)', borderRadius: 5 },
+      { label: 'Resolved', data: [5,8,7,10,9,7],  backgroundColor: 'rgba(52,168,114,.7)', borderRadius: 5 },
+      { label: 'Convicted', data: [3,5,5,7,6,5], backgroundColor: 'rgba(239,68,68,.6)', borderRadius: 5 }
+    ]
+  },
+  options: {
+    responsive: true, maintainAspectRatio: false,
+    plugins: { legend: { position: 'top' } },
+    scales: {
+      x: { grid: { display: false } },
+      y: { grid: { color: '#f1f5f9' }, beginAtZero: true }
+    }
+  }
+});
+
+new Chart(document.getElementById('verdictChart'), {
+  type: 'doughnut',
+  data: {
+    labels: ['Convicted','Acquitted','Under Trial','Appeal'],
+    datasets: [{
+      data: [31,8,47,9],
+      backgroundColor: ['#52a872','#94a3b8','#3b82f6','#f59e0b'],
+      borderWidth: 0, hoverOffset: 6
+    }]
+  },
+  options: {
+    responsive: true, maintainAspectRatio: false,
+    cutout: '65%',
+    plugins: { legend: { position: 'bottom', labels: { font: { size: 11 } } } }
+  }
+});
+
+// Case search filter
+document.getElementById('caseSearch').addEventListener('input', function() {
+  const q = this.value.toLowerCase();
+  document.querySelectorAll('.data-table tbody tr').forEach(row => {
+    row.style.display = row.textContent.toLowerCase().includes(q) ? '' : 'none';
+  });
+});
+</script>
+</body>
+</html>

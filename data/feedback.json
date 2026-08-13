@@ -1,0 +1,90 @@
+[
+  {
+    "id": "a5fa1f77",
+    "timestamp": "2026-03-23T13:03:16.038116",
+    "query": "portal_feedback",
+    "rating": 5,
+    "comment": "improve accuracy",
+    "confidence": 0.0
+  },
+  {
+    "id": "91678364",
+    "timestamp": "2026-05-30T15:26:01.052777",
+    "query": "citizen_report",
+    "rating": 0,
+    "comment": "Location: mansehra | Report: heres smoke has been detected!!! | Contact: 03429545030",
+    "confidence": 0.0
+  },
+  {
+    "id": "e1c11ee5",
+    "timestamp": "2026-05-30T21:09:27.252054",
+    "query": "citizen_report",
+    "rating": 0,
+    "comment": "ID:CIT-20260530210855|Loc:MANSEHA|Desc:SMOKE DETECTED NEWAR ATTERSHISHA|Contact:03495997803",
+    "confidence": 0.0
+  },
+  {
+    "id": "21f2ab93",
+    "timestamp": "2026-05-30T21:15:58.502387",
+    "query": "citizen_report",
+    "rating": 0,
+    "comment": "ID:CIT-20260530211521|Loc:mansehra|Desc:firs detected|Contact:032489561",
+    "confidence": 0.0
+  },
+  {
+    "id": "c7a2cb8a",
+    "timestamp": "2026-05-30T21:31:06.657875",
+    "query": "citizen_report",
+    "rating": 0,
+    "comment": "ID:CIT-20260530213037|Loc:mansehra|Desc:fire detected here|Contact:0349594830",
+    "confidence": 0.0
+  },
+  {
+    "id": "6438cbb3",
+    "timestamp": "2026-05-30T21:52:12.239187",
+    "query": "citizen_report",
+    "rating": 0,
+    "comment": "ID:CIT-20260530215203|Loc:mansehra|Desc:illegal grazing detected here|Contact:03030000000",
+    "confidence": 0.0
+  },
+  {
+    "id": "3b448024",
+    "timestamp": "2026-05-30T22:07:42.869733",
+    "query": "citizen_report",
+    "rating": 0,
+    "comment": "ID:CIT-20260530220734|Loc:|Desc:new  threat|Contact:",
+    "confidence": 0.0
+  },
+  {
+    "id": "fc33d6e4",
+    "timestamp": "2026-05-30T22:15:53.665168",
+    "query": "citizen_report",
+    "rating": 0,
+    "comment": "ID:CIT-20260530221544|Loc:abbottabad|Desc:illegal loging detedcted here|Contact:032582004380",
+    "confidence": 0.0
+  },
+  {
+    "id": "1e08e5d3",
+    "timestamp": "2026-05-30T22:20:33.021530",
+    "query": "citizen_report",
+    "rating": 0,
+    "comment": "ID:CIT-20260530222024|Loc:|Desc:NEWWWW  THREATTTTT|Contact:",
+    "confidence": 0.0
+  },
+  {
+    "id": "2be06812",
+    "timestamp": "2026-05-30T22:24:13.994842",
+    "query": "citizen_report",
+    "rating": 0,
+    "comment": "ID:CIT-20260530222405|Loc:|Desc:NEWWWWWW THREAT|Contact:",
+    "confidence": 0.0
+  },
+  {
+    "id": "b5675308",
+    "timestamp": "2026-06-08T14:09:06.832853",
+    "query": "citizen_report",
+    "rating": 0,
+    "comment": "ID:CIT-20260608140854|Loc:Mansehra|Desc:fire detected|Contact:",
+    "confidence": 0.0
+  }
+]

@@ -1,0 +1,100 @@
+{
+    "26": {
+        "act": "Forest Act, 1927",
+        "title": "Acts Prohibited in Reserved Forests",
+        "status": "ACTIVE (Amended)",
+        "details": "Federally active. Penalties significantly enhanced under KP Forest Ordinance 2002. Covers unauthorized tree felling, starting fires, and clearing land in reserved forest.",
+        "penalty": "Historical: 6 months or Rs. 500. Enhanced under KPK Ordinance 2002: Up to 2 years / Rs. 50,000.",
+        "amendments": "KPK Forest Ordinance, 2002 (Section 4); NWFP (Amendment) Act, 2006; Punjab Forest (Amendment) Act, 2010.",
+        "related_sections": ["33", "52", "69"],
+        "case_references": [
+            "2022 SCMR 88 (Muhammad Akram v. State)",
+            "2019 YLR 1155 (DFO Hazara v. Khan)"
+        ]
+    },
+    "33": {
+        "act": "Forest Act, 1927",
+        "title": "Acts Prohibited in Protected Forests",
+        "status": "ACTIVE",
+        "details": "Regulates felling and quarrying in protected domains without explicit authorization from the DFO.",
+        "penalty": "Up to 6 months imprisonment / Rs. 500 fine historically. Enhanced locally under KPK Ordinance 2002.",
+        "amendments": "KPK Forest Ordinance, 2002 extended protections to community-managed forests.",
+        "related_sections": ["26", "34", "52"],
+        "case_references": [
+            "2021 PLD 442 (State v. Fazal Rehman)",
+            "2018 CLC 890 (DFO Swat v. Akhtar Ali)"
+        ]
+    },
+    "34": {
+        "act": "Forest Act, 1927",
+        "title": "Power to Issue Rules for Protected Forests",
+        "status": "ACTIVE",
+        "details": "Empowers provincial governments to regulate grazing, movement of cattle, and removal of forest produce from protected forests.",
+        "penalty": "Violation of rules: Fine up to Rs. 500 or 6 months imprisonment.",
+        "amendments": "Powers delegated to DFOs under provincial devolution orders post-18th Amendment.",
+        "related_sections": ["33", "26"],
+        "case_references": [
+            "2020 MLD 1622 (Provincial Government KPK v. Zaman Khan)"
+        ]
+    },
+    "52": {
+        "act": "Forest Act, 1927",
+        "title": "Seizure of Property Liable to Confiscation",
+        "status": "ACTIVE (High Power)",
+        "details": "Vests extreme power to Forest Officers to seize tools, vehicles, and timber involved in suspected forestry offences without a magistrate's warrant.",
+        "penalty": "Instrument expropriation / Vehicle impoundment. Increasingly non-releasable via standard bail.",
+        "amendments": "KPK High Court directives (2019-2023) have progressively restricted bail for seized vehicles under this section.",
+        "related_sections": ["26", "33", "68"],
+        "case_references": [
+            "2023 PLD 118 (Timber Mafia Case - Peshawar HC)",
+            "2020 YLR 2201 (DFO Mansehra v. Sher Khan)"
+        ]
+    },
+    "68": {
+        "act": "Forest Act, 1927",
+        "title": "Power to Compound Offences",
+        "status": "ACTIVE",
+        "details": "Forest Officers of Division rank or above may compound (settle out of court) any forest offence, accepting compensation in lieu of prosecution.",
+        "penalty": "Compensation amount determined by officer based on damage assessment and timber value.",
+        "amendments": "Compounding authority now requires approval of Conservator for offences exceeding Rs. 100,000 under KPK rules.",
+        "related_sections": ["52", "69"],
+        "case_references": [
+            "2021 SCMR 455 (Muhammad Idrees v. Forest Department)"
+        ]
+    },
+    "69": {
+        "act": "Forest Act, 1927",
+        "title": "Presumption that Forest Produce Belongs to Government",
+        "status": "ACTIVE",
+        "details": "Whenever a question arises as to whether any forest-produce is the property of the Government, such produce shall be presumed to be the property of the Government until the contrary is proved.",
+        "penalty": "N/A (Evidentiary Rule). Reverses the burden of proof onto the accused.",
+        "amendments": "Strictly upheld by the Supreme Court of Pakistan across multiple constitutional petitions.",
+        "related_sections": ["26", "52", "68"],
+        "case_references": [
+            "2017 SCMR 1204 (Federation v. Sardar Muhammad)",
+            "2022 PLD 95 (Khyber Pakhtunkhwa Forest Dept v. Rehman Gul)"
+        ]
+    },
+    "73": {
+        "act": "Forest Act, 1927",
+        "title": "Power to Make Rules",
+        "status": "ACTIVE",
+        "details": "Provincial government's overarching rule-making authority for regulating transit of timber, licensing of sawmills, and forest management plans.",
+        "penalty": "Violation of rules: Punishable under Section 26 or Section 33 depending on forest classification.",
+        "amendments": "Post-18th Amendment (2010), all rule-making authority devolved to provincial legislatures.",
+        "related_sections": ["26", "33", "34"],
+        "case_references": [
+            "2019 CLC 442 (KPK v. Timber Traders Association)"
+        ]
+    },
+    "100": {
+        "act": "KPK Forest Ordinance, 2002",
+        "title": "Repeal of Minor Conflicting Provisions",
+        "status": "REPEALED",
+        "details": "The exact wording of historical minor fines under the 1927 Act was formally overridden in KP by this ordinance. Replaced by enhanced penalty schedules.",
+        "penalty": "N/A (Repealed provision)",
+        "amendments": "Superseded by KPK Forest Ordinance, 2002, Sections 3-8.",
+        "related_sections": ["26", "33"],
+        "case_references": []
+    }
+}

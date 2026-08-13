@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Chat · GREENLAW AI Hazara Forest Intelligence</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" />
+  <style>
+    .chat-page-layout {
+      display: grid;
+      grid-template-columns: 1fr 300px;
+      gap: 20px;
+      height: calc(100vh - var(--topbar-h) - 80px);
+    }
+
+    .chat-main-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-card);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-card);
+      display: flex; flex-direction: column;
+      overflow: hidden;
+    }
+
+    .chat-header {
+      padding: 16px 20px;
+      border-bottom: 1px solid var(--border-light);
+      display: flex; align-items: center; gap: 12px;
+      background: linear-gradient(135deg, var(--forest-dark), var(--forest-mid));
+    }
+    .chat-ai-avatar {
+      width: 40px; height: 40px; border-radius: 10px;
+      background: rgba(255,255,255,.15);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 18px;
+    }
+    .chat-ai-name  { font-size: 14px; font-weight: 800; color: white; }
+    .chat-ai-role  { font-size: 11px; color: rgba(255,255,255,.6); margin-top: 1px; }
+    .chat-online {
+      display: flex; align-items: center; gap: 5px;
+      font-size: 10.5px; color: #4ade80; font-weight: 600;
+      margin-left: auto;
+    }
+
+    .chat-messages { flex: 1; overflow-y: auto; padding: 20px; }
+
+    .chat-typing {
+      display: flex; gap: 4px; padding: 12px 16px;
+      background: var(--white); border: 1px solid var(--border-card);
+      border-radius: 14px; border-top-left-radius: 4px;
+      width: fit-content; box-shadow: var(--shadow-sm);
+    }
+    .typing-dot {
+      width: 7px; height: 7px; border-radius: 50%;
+      background: var(--forest-bright);
+      animation: typingBounce 1.2s infinite;
+    }
+    .typing-dot:nth-child(2) { animation-delay: .2s; }
+    .typing-dot:nth-child(3) { animation-delay: .4s; }
+    @keyframes typingBounce {
+      0%,100% { transform: translateY(0); }
+      50%      { transform: translateY(-6px); }
+    }
+
+    .suggested-prompts {
+      display: flex; flex-direction: column; gap: 8px;
+    }
+    .prompt-chip {
+      display: flex; align-items: center; gap: 8px;
+      padding: 10px 14px;
+      background: var(--white); border: 1.5px solid var(--border-card);
+      border-radius: var(--radius-sm); cursor: pointer;
+      font-size: 12.5px; color: var(--gray-700);
+      transition: all .2s;
+    }
+    .prompt-chip:hover {
+      border-color: var(--forest-bright);
+      background: var(--forest-mist);
+      color: var(--forest-mid);
+    }
+    .prompt-chip i { color: var(--forest-bright); font-size: 12px; }
+
+    .chat-sidebar { display: flex; flex-direction: column; gap: 14px; }
+
+    .context-tag {
+      display: inline-flex; align-items: center; gap: 5px;
+      background: var(--forest-pale); color: var(--forest-mid);
+      font-size: 11px; font-weight: 600;
+      padding: 3px 9px; border-radius: 20px; margin: 2px;
+    }
+
+    @media (max-width: 900px) {
+      .chat-page-layout { grid-template-columns: 1fr; height: auto; }
+      .chat-sidebar { display: none; }
+    }
+  </style>
+</head>
+<body>
+<div id="nav-container"></div>
+
+<div class="main-wrapper">
+  <header class="topbar">
+    <button class="menu-toggle"><i class="fa fa-bars"></i></button>
+    <div>
+      <div class="topbar-title">AI Forest Intelligence Chat</div>
+      <div class="topbar-sub">Powered by GREENLAW AI · Hazara Division Knowledge Base</div>
+    </div>
+    <div class="topbar-right">
+      <div class="topbar-badge" style="background:var(--forest-pale);color:var(--forest-mid);">
+        <i class="fa fa-robot"></i> GreenBot v4.0
+      </div>
+      <div class="topbar-clock">PKT 00:00:00</div>
+    </div>
+  </header>
+
+  <main class="page-content" style="padding-bottom:0;">
+
+    <!-- KPIs -->
+    <div class="kpi-grid" style="margin-bottom:18px;">
+      <div class="kpi-card green">
+        <div class="kpi-icon-wrap green"><i class="fa fa-comments"></i></div>
+        <div class="kpi-body">
+          <div class="kpi-value" data-target="1284">0</div>
+          <div class="kpi-label">Queries This Month</div>
+          <div class="kpi-delta down"><i class="fa fa-check"></i> 94% resolved</div>
+        </div>
+      </div>
+      <div class="kpi-card legal">
+        <div class="kpi-icon-wrap legal"><i class="fa fa-clock"></i></div>
+        <div class="kpi-body">
+          <div class="kpi-value" data-target="1" data-suffix=".2s">0</div>
+          <div class="kpi-label">Avg Response Time</div>
+          <div class="kpi-delta down"><i class="fa fa-bolt"></i> Real-time AI</div>
+        </div>
+      </div>
+      <div class="kpi-card defo">
+        <div class="kpi-icon-wrap defo"><i class="fa fa-star"></i></div>
+        <div class="kpi-body">
+          <div class="kpi-value" data-target="4" data-suffix=".8/5">0</div>
+          <div class="kpi-label">User Rating</div>
+          <div class="kpi-delta down"><i class="fa fa-thumbs-up"></i> High satisfaction</div>
+        </div>
+      </div>
+      <div class="kpi-card teal">
+        <div class="kpi-icon-wrap teal"><i class="fa fa-database"></i></div>
+        <div class="kpi-body">
+          <div class="kpi-value" data-target="3">0</div>
+          <div class="kpi-label">Knowledge Bases</div>
+          <div class="kpi-delta down"><i class="fa fa-sync"></i> Updated daily</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="chat-page-layout">
+      <!-- Main Chat -->
+      <div class="chat-main-card">
+        <div class="chat-header">
+          <div class="chat-ai-avatar">🌲</div>
+          <div>
+            <div class="chat-ai-name">GreenBot AI Assistant</div>
+            <div class="chat-ai-role">Forest Intelligence · Legal · Monitoring</div>
+          </div>
+          <div class="chat-online"><span class="status-dot"></span> Online</div>
+        </div>
+
+        <div class="chat-messages" id="chatMessages">
+          <!-- AI welcome message -->
+          <div class="chat-msg">
+            <div class="chat-avatar ai">🌲</div>
+            <div>
+              <div class="chat-bubble ai">
+                <strong>Assalam-o-Alaikum!</strong> I am GreenBot, your AI assistant for the Hazara Forest Intelligence Platform.<br><br>
+                I can help you with:<br>
+                🔥 <strong>Fire & deforestation alerts</strong> — current threats, hotspots<br>
+                ⚖️ <strong>Legal queries</strong> — KP Forest Ordinance, Forest Act 1927<br>
+                📊 <strong>Predictions</strong> — risk forecasting, patrol planning<br>
+                🗺️ <strong>Patrol operations</strong> — unit deployment, routes<br><br>
+                How can I assist you today?
+              </div>
+              <div style="font-size:10.5px;color:var(--gray-400);margin-top:4px;margin-left:4px;">GreenBot · Just now</div>
+            </div>
+          </div>
+
+          <!-- User message -->
+          <div class="chat-msg user">
+            <div class="chat-avatar user"><i class="fa fa-user"></i></div>
+            <div>
+              <div class="chat-bubble user">What is the current fire threat level in Mansehra district?</div>
+              <div style="font-size:10.5px;color:var(--gray-400);margin-top:4px;text-align:right;margin-right:4px;">DFO Hazara · 2 min ago</div>
+            </div>
+          </div>
+
+          <!-- AI response -->
+          <div class="chat-msg">
+            <div class="chat-avatar ai">🌲</div>
+            <div>
+              <div class="chat-bubble ai">
+                🔥 <strong>CRITICAL ALERT — Mansehra District</strong><br><br>
+                Based on real-time NASA FIRMS data and AI analysis:<br><br>
+                • <strong>Active fire hits:</strong> 9 confirmed (VIIRS 375m)<br>
+                • <strong>Threat level:</strong> <span style="color:var(--red-alert);font-weight:700;">CRITICAL</span><br>
+                • <strong>AI Confidence:</strong> 92%<br>
+                • <strong>Most affected:</strong> Block-7 (Darband area)<br>
+                • <strong>Wind direction:</strong> SW → NE at 24 km/h<br><br>
+                🌡️ Temperature: 33°C | 💧 Humidity: 18% | ⚡ FWI Index: 8.4/10<br><br>
+                <strong>Recommended action:</strong> Immediate deployment of Patrol Unit P-01 and P-02. Aerial surveillance requested. DFO authorization required under §37 KP Forest Ordinance 2002.
+              </div>
+              <div style="font-size:10.5px;color:var(--gray-400);margin-top:4px;margin-left:4px;">GreenBot · 1 min ago</div>
+            </div>
+          </div>
+
+          <!-- User message 2 -->
+          <div class="chat-msg user">
+            <div class="chat-avatar user"><i class="fa fa-user"></i></div>
+            <div>
+              <div class="chat-bubble user">What legal action can we take against the offenders?</div>
+              <div style="font-size:10.5px;color:var(--gray-400);margin-top:4px;text-align:right;margin-right:4px;">DFO Hazara · Just now</div>
+            </div>
+          </div>
+
+          <!-- AI typing -->
+          <div class="chat-msg" id="typingIndicator">
+            <div class="chat-avatar ai">🌲</div>
+            <div class="chat-typing">
+              <div class="typing-dot"></div>
+              <div class="typing-dot"></div>
+              <div class="typing-dot"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="chat-input-wrap">
+          <input class="chat-input" type="text" id="chatInput"
+            placeholder="Ask about forest threats, legal queries, patrol assignments..."
+            onkeypress="if(event.key==='Enter') sendMessage()" />
+          <button class="chat-send-btn" onclick="sendMessage()">
+            <i class="fa fa-paper-plane"></i> Send
+          </button>
+        </div>
+      </div>
+
+      <!-- Sidebar -->
+      <div class="chat-sidebar">
+        <!-- Suggested prompts -->
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title"><i class="fa fa-lightbulb"></i> Suggested Queries</div>
+          </div>
+          <div class="card-body" style="padding:12px;">
+            <div class="suggested-prompts">
+              <div class="prompt-chip" onclick="fillPrompt('Show fire alerts for today')"><i class="fa fa-fire"></i> Today's fire alerts</div>
+              <div class="prompt-chip" onclick="fillPrompt('What is the penalty for illegal logging?')"><i class="fa fa-balance-scale"></i> Logging penalties</div>
+              <div class="prompt-chip" onclick="fillPrompt('Which patrol units are active now?')"><i class="fa fa-binoculars"></i> Active patrol units</div>
+              <div class="prompt-chip" onclick="fillPrompt('Show deforestation hotspots this month')"><i class="fa fa-tree"></i> Deforestation hotspots</div>
+              <div class="prompt-chip" onclick="fillPrompt('Generate field report for Abbottabad')"><i class="fa fa-file-alt"></i> Generate field report</div>
+              <div class="prompt-chip" onclick="fillPrompt('CO2 emissions risk assessment Kohistan')"><i class="fa fa-smog"></i> CO₂ risk assessment</div>
+              <div class="prompt-chip" onclick="fillPrompt('Permit status for application #2024-0045')"><i class="fa fa-file-certificate"></i> Check permit status</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Active context -->
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title"><i class="fa fa-brain"></i> Active Context</div>
+          </div>
+          <div class="card-body">
+            <div class="mb-8" style="font-size:11.5px;color:var(--gray-600);font-weight:600;">Knowledge Bases Loaded:</div>
+            <span class="context-tag"><i class="fa fa-book"></i> KP Forest Ordinance 2002</span>
+            <span class="context-tag"><i class="fa fa-book"></i> Forest Act 1927</span>
+            <span class="context-tag"><i class="fa fa-satellite"></i> NASA FIRMS Live</span>
+            <span class="context-tag"><i class="fa fa-tree"></i> GFW GLAD</span>
+            <span class="context-tag"><i class="fa fa-cloud-sun"></i> OWM Weather</span>
+            <span class="context-tag"><i class="fa fa-map"></i> Hazara GIS Data</span>
+          </div>
+        </div>
+
+        <!-- Session stats -->
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title"><i class="fa fa-chart-line"></i> Session Stats</div>
+          </div>
+          <div class="card-body">
+            <div class="stat-row"><span class="stat-label">Messages</span><span class="stat-value">4</span></div>
+            <div class="stat-row"><span class="stat-label">Queries Resolved</span><span class="stat-value text-green">2</span></div>
+            <div class="stat-row"><span class="stat-label">Session Duration</span><span class="stat-value">4m 12s</span></div>
+            <div class="stat-row"><span class="stat-label">Confidence Avg</span><span class="stat-value">91.5%</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <footer class="site-footer" style="margin-top:20px;">
+    <div class="footer-text">GREENLAW AI · HAZARA FOREST INTELLIGENCE · v4.0</div>
+    <div class="footer-refs">KP FOREST ORDINANCE 2002 · FOREST ACT 1927 · FIRMS · GFW · OWM</div>
+  </footer>
+</div>
+
+<script src="js/nav.js"></script>
+<script src="js/shared.js"></script>
+<script>
+// Sample AI responses
+const aiResponses = [
+  "Based on current satellite data, there are <strong>23 active fire alerts</strong> across Hazara Division. Mansehra has the highest concentration with 9 confirmed VIIRS hits. AI confidence: 92%. Immediate patrol deployment recommended for Block-7 and Torghar Hills.",
+  "Under <strong>Section 37, KP Forest Ordinance 2002</strong>, illegal logging carries penalties of 3 years imprisonment and ₨50,000–₨500,000 fine. Additional charges under Forest Act 1927 §26 may add ₨500 per tree. I recommend filing an FIR immediately and applying for timber confiscation under §39.",
+  "Currently <strong>3 patrol units are active</strong>: P-01 (Mansehra Grid-34), P-03 (Abbottabad South), P-07 (Torghar Hills). Units P-04 and P-06 are overdue for check-in. Recommend immediate contact with field supervisor.",
+  "🌲 I've analyzed the deforestation data. <strong>Top hotspots this month:</strong> Kohistan (38.0 ha), Mansehra (34.2 ha), Abbottabad (21.7 ha). Total estimated loss: 124 GFW GLAD pixels confirmed. This represents a <strong>14% increase</strong> from last month.",
+  "I've generated a preliminary field report for Abbottabad District. The report includes 5 deforestation events, 3 patrol encounters, and 1 citizen complaint. Would you like me to format it for official submission or include the satellite evidence annexures?"
+];
+
+let msgCount = 4;
+let responseIdx = 0;
+
+// Show AI reply after typing indicator
+setTimeout(() => {
+  const typingEl = document.getElementById('typingIndicator');
+  if (typingEl) {
+    typingEl.outerHTML = `
+      <div class="chat-msg" id="msg-auto">
+        <div class="chat-avatar ai">🌲</div>
+        <div>
+          <div class="chat-bubble ai">
+            ⚖️ <strong>Legal Action — Forest Arson / Illegal Activity</strong><br><br>
+            Under <strong>KP Forest Ordinance 2002, Section 37</strong>, if arson or criminal negligence is proven:<br><br>
+            • <strong>FIR registration</strong> at local police station (cognizable offence)<br>
+            • <strong>Penalty:</strong> Up to 3 years + ₨50,000–₨500,000 fine<br>
+            • <strong>Timber/vehicle confiscation</strong> under §39<br>
+            • <strong>PEPA 1997 §14</strong> — Environmental Tribunal restoration order<br><br>
+            I recommend initiating Case #HZR-2024-NEW under Sessions Court, Mansehra. AI legal confidence: <strong>94.2%</strong>.<br><br>
+            Shall I prepare the FIR draft and evidence annexure?
+          </div>
+          <div style="font-size:10.5px;color:var(--gray-400);margin-top:4px;margin-left:4px;">GreenBot · Just now</div>
+        </div>
+      </div>`;
+    msgCount++;
+    scrollChat();
+  }
+}, 2500);
+
+function sendMessage() {
+  const input = document.getElementById('chatInput');
+  const msg = input.value.trim();
+  if (!msg) return;
+
+  const messagesEl = document.getElementById('chatMessages');
+
+  // Add user message
+  messagesEl.innerHTML += `
+    <div class="chat-msg user">
+      <div class="chat-avatar user"><i class="fa fa-user"></i></div>
+      <div>
+        <div class="chat-bubble user">${msg}</div>
+        <div style="font-size:10.5px;color:var(--gray-400);margin-top:4px;text-align:right;margin-right:4px;">DFO Hazara · Just now</div>
+      </div>
+    </div>`;
+
+  input.value = '';
+  scrollChat();
+
+  // Add typing indicator
+  const typingId = 'typing_' + Date.now();
+  messagesEl.innerHTML += `
+    <div class="chat-msg" id="${typingId}">
+      <div class="chat-avatar ai">🌲</div>
+      <div class="chat-typing">
+        <div class="typing-dot"></div><div class="typing-dot"></div><div class="typing-dot"></div>
+      </div>
+    </div>`;
+  scrollChat();
+
+  // Replace with AI response after delay
+  setTimeout(() => {
+    const typingEl = document.getElementById(typingId);
+    if (typingEl) {
+      const resp = aiResponses[responseIdx % aiResponses.length];
+      responseIdx++;
+      typingEl.outerHTML = `
+        <div class="chat-msg">
+          <div class="chat-avatar ai">🌲</div>
+          <div>
+            <div class="chat-bubble ai">${resp}</div>
+            <div style="font-size:10.5px;color:var(--gray-400);margin-top:4px;margin-left:4px;">GreenBot · Just now</div>
+          </div>
+        </div>`;
+      scrollChat();
+    }
+  }, 1500 + Math.random() * 1000);
+}
+
+function fillPrompt(text) {
+  document.getElementById('chatInput').value = text;
+  document.getElementById('chatInput').focus();
+}
+
+function scrollChat() {
+  const el = document.getElementById('chatMessages');
+  if (el) el.scrollTop = el.scrollHeight;
+}
+</script>
+</body>
+</html>

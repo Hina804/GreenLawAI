@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard · GREENLAW AI Hazara Forest Intelligence</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    .hero-strip {
+      background: linear-gradient(135deg, var(--forest-dark) 0%, var(--forest-mid) 60%, var(--forest-light) 100%);
+      border-radius: var(--radius-xl);
+      padding: 24px 28px;
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-strip::before {
+      content: '';
+      position: absolute;
+      right: -20px;
+      top: -20px;
+      width: 200px;
+      height: 200px;
+      background: radial-gradient(circle, rgba(82, 168, 114, .3) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+
+    .hero-title {
+      font-size: 22px;
+      font-weight: 800;
+      color: white;
+    }
+
+    .hero-sub {
+      font-size: 13px;
+      color: rgba(255, 255, 255, .65);
+      margin-top: 4px;
+    }
+
+    .hero-right {
+      text-align: right;
+    }
+
+    .hero-date {
+      font-size: 12px;
+      color: rgba(255, 255, 255, .6);
+      font-family: var(--font-mono);
+    }
+
+    .hero-status {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(74, 222, 128, .15);
+      border: 1px solid rgba(74, 222, 128, .3);
+      color: #4ade80;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 20px;
+      margin-top: 6px;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="nav-container"></div>
+
+  <div class="main-wrapper">
+    <!-- Topbar -->
+    <header class="topbar">
+      <button class="menu-toggle" aria-label="Toggle menu"><i class="fa fa-bars"></i></button>
+      <div>
+        <div class="topbar-title">Forest Intelligence Dashboard</div>
+        <div class="topbar-sub">Hazara Division · Real-time Environmental Monitoring</div>
+      </div>
+      <div class="topbar-right">
+        <div class="topbar-badge"><i class="fa fa-satellite-dish"></i> FIRMS Active</div>
+        <div class="topbar-badge"><i class="fa fa-shield-alt"></i> GFW Live</div>
+        <div class="topbar-clock">PKT 00:00:00</div>
+      </div>
+    </header>
+
+    <main class="page-content">
+
+      <!-- Hero Strip -->
+      <div class="hero-strip">
+        <div>
+          <div class="hero-title">🌲 HAZARA DIVISION INTELLIGENCE CENTER</div>
+          <div class="hero-sub">KP Forest Ordinance 2002 · Forest Act 1927 · AI-Assisted Threat Analysis</div>
+        </div>
+        <div class="hero-right">
+          <div class="hero-date" id="heroDate">Loading date...</div>
+          <div class="hero-status"><span class="status-dot"></span> ALL SYSTEMS OPERATIONAL</div>
+        </div>
+      </div>
+
+      <!-- KPI Cards -->
+      <div class="kpi-grid">
+        <div class="kpi-card fire">
+          <div class="kpi-icon-wrap fire"><i class="fa fa-fire"></i></div>
+          <div class="kpi-body">
+            <div class="kpi-value" data-target="23">0</div>
+            <div class="kpi-label">Active Fire Alerts</div>
+            <div class="kpi-delta up"><i class="fa fa-arrow-up"></i> +4 from yesterday</div>
+          </div>
+        </div>
+        <div class="kpi-card defo">
+          <div class="kpi-icon-wrap defo"><i class="fa fa-tree"></i></div>
+          <div class="kpi-body">
+            <div class="kpi-value" data-target="124">0</div>
+            <div class="kpi-label">Deforestation Alerts</div>
+            <div class="kpi-delta up"><i class="fa fa-arrow-up"></i> +11 this week</div>
+          </div>
+        </div>
+        <div class="kpi-card legal">
+          <div class="kpi-icon-wrap legal"><i class="fa fa-balance-scale"></i></div>
+          <div class="kpi-body">
+            <div class="kpi-value" data-target="47">0</div>
+            <div class="kpi-label">Legal Cases Active</div>
+            <div class="kpi-delta down"><i class="fa fa-arrow-down"></i> −3 resolved</div>
+          </div>
+        </div>
+        <div class="kpi-card co2">
+          <div class="kpi-icon-wrap co2"><i class="fa fa-smog"></i></div>
+          <div class="kpi-body">
+            <div class="kpi-value text-mono" data-target="2240">0</div>
+            <div class="kpi-label">CO₂ at Risk (tonnes)</div>
+            <div class="kpi-delta up"><i class="fa fa-arrow-up"></i> +180 this month</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Row 2: Charts -->
+      <div class="section-grid col-2" style="margin-bottom:20px;">
+        <!-- 30-Day Threat Activity -->
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title"><i class="fa fa-chart-area"></i> 30-Day Threat Activity</div>
+            <div class="live-badge"><span class="live-dot"></span> LIVE</div>
+          </div>
+          <div class="card-body">
+            <div class="chart-container" style="height:240px;">
+              <canvas id="threatChart"></canvas>
+            </div>
+          </div>
+        </div>
+        <!-- AI Accuracy -->
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title"><i class="fa fa-brain"></i> AI Prediction Accuracy</div>
+            <div class="card-badge">12-Month Trend</div>
+          </div>
+          <div class="card-body">
+            <div class="chart-container" style="height:240px;">
+              <canvas id="accuracyChart"></canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Row 3: District Matrix + Alert Feed -->
+      <div class="section-grid col-3-2" style="margin-bottom:20px;">
+        <!-- District Threat Matrix -->
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title"><i class="fa fa-map-marked-alt"></i> District Threat Matrix</div>
+            <div class="card-badge">5 Districts</div>
+          </div>
+          <div style="overflow-x:auto;">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>District</th>
+                  <th>Fires</th>
+                  <th>Defo (ha)</th>
+                  <th>Incidents</th>
+                  <th>Threat Level</th>
+                  <th>AI Conf.</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Mansehra</strong></td>
+                  <td class="text-red fw-bold">9</td>
+                  <td>34.2</td>
+                  <td>22</td>
+                  <td><span class="badge critical">Critical</span></td>
+                  <td>
+                    <div class="confidence-bar">
+                      <div class="conf-track">
+                        <div class="conf-fill" style="width:92%"></div>
+                      </div>
+                      <span class="conf-pct">92%</span>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td><strong>Abbottabad</strong></td>
+                  <td class="text-amber fw-bold">5</td>
+                  <td>21.7</td>
+                  <td>15</td>
+                  <td><span class="badge high">High</span></td>
+                  <td>
+                    <div class="confidence-bar">
+                      <div class="conf-track">
+                        <div class="conf-fill" style="width:87%"></div>
+                      </div>
+                      <span class="conf-pct">87%</span>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td><strong>Battagram</strong></td>
+                  <td class="text-amber fw-bold">4</td>
+                  <td>18.3</td>
+                  <td>11</td>
+                  <td><span class="badge high">High</span></td>
+                  <td>
+                    <div class="confidence-bar">
+                      <div class="conf-track">
+                        <div class="conf-fill" style="width:84%"></div>
+                      </div>
+                      <span class="conf-pct">84%</span>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td><strong>Haripur</strong></td>
+                  <td>3</td>
+                  <td>12.1</td>
+                  <td>8</td>
+                  <td><span class="badge medium">Medium</span></td>
+                  <td>
+                    <div class="confidence-bar">
+                      <div class="conf-track">
+                        <div class="conf-fill" style="width:79%"></div>
+                      </div>
+                      <span class="conf-pct">79%</span>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td><strong>Kohistan</strong></td>
+                  <td>2</td>
+                  <td>38.0</td>
+                  <td>6</td>
+                  <td><span class="badge medium">Medium</span></td>
+                  <td>
+                    <div class="confidence-bar">
+                      <div class="conf-track">
+                        <div class="conf-fill" style="width:71%"></div>
+                      </div>
+                      <span class="conf-pct">71%</span>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Live Alert Feed -->
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title"><i class="fa fa-bell"></i> Live Alert Feed</div>
+            <div class="live-badge"><span class="live-dot"></span> LIVE</div>
+          </div>
+          <div class="card-body" style="padding:12px 20px;">
+            <div class="alert-item">
+              <div class="alert-icon-wrap critical"><i class="fa fa-fire"></i></div>
+              <div class="alert-body">
+                <div class="alert-title">🔴 Fire Outbreak Detected</div>
+                <div class="alert-desc">Active wildfire at Grid 34-N. 3.2 ha affected.</div>
+                <div class="alert-meta"><i class="fa fa-map-marker-alt"></i> Mansehra Block-7 <span
+                    class="badge critical" style="font-size:9px;">Critical</span></div>
+              </div>
+              <div class="alert-time">2 min</div>
+            </div>
+            <div class="alert-item">
+              <div class="alert-icon-wrap high"><i class="fa fa-tree"></i></div>
+              <div class="alert-body">
+                <div class="alert-title">🟠 Illegal Logging Activity</div>
+                <div class="alert-desc">SAR anomaly: 0.8 ha cleared overnight.</div>
+                <div class="alert-meta"><i class="fa fa-map-marker-alt"></i> Abbottabad Sec-3 <span class="badge high"
+                    style="font-size:9px;">High</span></div>
+              </div>
+              <div class="alert-time">11 min</div>
+            </div>
+            <div class="alert-item">
+              <div class="alert-icon-wrap high"><i class="fa fa-exclamation-triangle"></i></div>
+              <div class="alert-body">
+                <div class="alert-title">🟠 Patrol Overdue — Unit P-04</div>
+                <div class="alert-desc">Last check-in 140 min ago. Communications silent.</div>
+                <div class="alert-meta"><i class="fa fa-map-marker-alt"></i> Battagram Zone-2 <span class="badge high"
+                    style="font-size:9px;">High</span></div>
+              </div>
+              <div class="alert-time">22 min</div>
+            </div>
+            <div class="alert-item">
+              <div class="alert-icon-wrap medium"><i class="fa fa-smog"></i></div>
+              <div class="alert-body">
+                <div class="alert-title">🟡 CO₂ Flux Anomaly</div>
+                <div class="alert-desc">Carbon flux spike 2.3× baseline in Kohistan.</div>
+                <div class="alert-meta"><i class="fa fa-map-marker-alt"></i> Kohistan North <span class="badge medium"
+                    style="font-size:9px;">Medium</span></div>
+              </div>
+              <div class="alert-time">35 min</div>
+            </div>
+            <div class="alert-item">
+              <div class="alert-icon-wrap info"><i class="fa fa-user"></i></div>
+              <div class="alert-body">
+                <div class="alert-title">🔵 Citizen Report Received</div>
+                <div class="alert-desc">Timber truck spotted on restricted forest road.</div>
+                <div class="alert-meta"><i class="fa fa-map-marker-alt"></i> Haripur District <span class="badge info"
+                    style="font-size:9px;">Info</span></div>
+              </div>
+              <div class="alert-time">48 min</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Row 4: Threat Donut + Permit Pipeline + Quick Actions -->
+      <div class="section-grid col-3" style="margin-bottom:20px;">
+        <!-- Threat Donut -->
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title"><i class="fa fa-chart-pie"></i> Threat Composition</div>
+          </div>
+          <div class="card-body" style="display:flex;flex-direction:column;align-items:center;">
+            <div class="chart-container" style="height:200px;width:200px;">
+              <canvas id="donutChart"></canvas>
+            </div>
+            <div style="display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:12px;">
+              <span class="tag" style="background:#fee2e2;color:#ef4444;">🔴 Fire 31%</span>
+              <span class="tag" style="background:#fef3c7;color:#b45309;">🟡 Deforestation 45%</span>
+              <span class="tag" style="background:#dbeafe;color:#3b82f6;">🔵 Legal 13%</span>
+              <span class="tag" style="background:#ede9fe;color:#7c3aed;">🟣 Other 11%</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Permit Pipeline -->
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title"><i class="fa fa-tasks"></i> Permit Pipeline</div>
+            <div class="card-badge">Active: 34</div>
+          </div>
+          <div class="card-body">
+            <div class="pipeline-steps">
+              <div class="pipeline-step done"><span class="step-count">12</span>Submitted</div>
+              <div class="pipeline-step done"><span class="step-count">8</span>Under Review</div>
+              <div class="pipeline-step active"><span class="step-count">6</span>Site Verified</div>
+              <div class="pipeline-step pending"><span class="step-count">5</span>Approved</div>
+              <div class="pipeline-step pending"><span class="step-count">3</span>Rejected</div>
+            </div>
+            <div style="margin-top:14px;">
+              <div class="stat-row"><span class="stat-label">Avg. Processing Time</span><span class="stat-value">4.2
+                  days</span></div>
+              <div class="stat-row"><span class="stat-label">Approval Rate (30d)</span><span
+                  class="stat-value">68.4%</span></div>
+              <div class="stat-row"><span class="stat-label">Pending Review</span><span class="stat-value">8
+                  permits</span></div>
+              <div class="stat-row"><span class="stat-label">High-Priority</span><span class="stat-value text-red">3
+                  urgent</span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Quick Actions -->
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title"><i class="fa fa-bolt"></i> Quick Actions</div>
+          </div>
+          <div class="card-body">
+            <div class="quick-actions">
+              <a href="operations.html" class="qa-btn">
+                <div class="qa-btn-icon" style="background:var(--red-light);color:var(--red-alert);">🚒</div>
+                <span class="qa-btn-label">Fire Response</span>
+              </a>
+              <a href="legal.html" class="qa-btn">
+                <div class="qa-btn-icon" style="background:var(--sky-light);color:var(--sky);">⚖️</div>
+                <span class="qa-btn-label">Legal Case</span>
+              </a>
+              <a href="permit.html" class="qa-btn">
+                <div class="qa-btn-icon" style="background:var(--forest-pale);color:var(--forest-mid);">📄</div>
+                <span class="qa-btn-label">Permit Apply</span>
+              </a>
+              <a href="citizen.html" class="qa-btn">
+                <div class="qa-btn-icon" style="background:var(--violet-light);color:var(--violet);">📋</div>
+                <span class="qa-btn-label">Field Report</span>
+              </a>
+            </div>
+            <div style="margin-top:16px;padding-top:16px;border-top:1px solid var(--border-light);">
+              <div class="section-heading">System Health</div>
+              <div class="health-item">
+                <span class="health-label">NASA FIRMS Feed</span>
+                <div class="health-bar-wrap">
+                  <div class="health-bar-track">
+                    <div class="health-bar-fill" style="width:98%"></div>
+                  </div>
+                </div>
+                <span class="health-pct">98%</span>
+                <span class="health-status ok">OK</span>
+              </div>
+              <div class="health-item">
+                <span class="health-label">GFW GLAD Feed</span>
+                <div class="health-bar-wrap">
+                  <div class="health-bar-track">
+                    <div class="health-bar-fill" style="width:95%"></div>
+                  </div>
+                </div>
+                <span class="health-pct">95%</span>
+                <span class="health-status ok">OK</span>
+              </div>
+              <div class="health-item">
+                <span class="health-label">AI Fuser Engine</span>
+                <div class="health-bar-wrap">
+                  <div class="health-bar-track">
+                    <div class="health-bar-fill" style="width:99%"></div>
+                  </div>
+                </div>
+                <span class="health-pct">99%</span>
+                <span class="health-status ok">OK</span>
+              </div>
+              <div class="health-item">
+                <span class="health-label">OWM Climate API</span>
+                <div class="health-bar-wrap">
+                  <div class="health-bar-track">
+                    <div class="health-bar-fill" style="width:88%"></div>
+                  </div>
+                </div>
+                <span class="health-pct">88%</span>
+                <span class="health-status warn">Lag</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Row 5: 7-Day Forecast -->
+      <div class="card" style="margin-bottom:20px;">
+        <div class="card-header">
+          <div class="card-title"><i class="fa fa-cloud-sun"></i> 7-Day Climate & Fire Risk Forecast</div>
+          <div class="card-badge">OWM · Hazara Division</div>
+        </div>
+        <div class="card-body">
+          <div class="forecast-strip">
+            <div class="forecast-day">
+              <div class="fc-day-name">Mon</div>
+              <div class="fc-icon">⛅</div>
+              <div class="fc-temp">28°C</div>
+              <div class="fc-risk high">HIGH</div>
+            </div>
+            <div class="forecast-day">
+              <div class="fc-day-name">Tue</div>
+              <div class="fc-icon">☀️</div>
+              <div class="fc-temp">31°C</div>
+              <div class="fc-risk high">HIGH</div>
+            </div>
+            <div class="forecast-day">
+              <div class="fc-day-name">Wed</div>
+              <div class="fc-icon">🌤️</div>
+              <div class="fc-temp">33°C</div>
+              <div class="fc-risk high">CRIT</div>
+            </div>
+            <div class="forecast-day">
+              <div class="fc-day-name">Thu</div>
+              <div class="fc-icon">⛈️</div>
+              <div class="fc-temp">24°C</div>
+              <div class="fc-risk medium">MED</div>
+            </div>
+            <div class="forecast-day">
+              <div class="fc-day-name">Fri</div>
+              <div class="fc-icon">🌧️</div>
+              <div class="fc-temp">22°C</div>
+              <div class="fc-risk low">LOW</div>
+            </div>
+            <div class="forecast-day">
+              <div class="fc-day-name">Sat</div>
+              <div class="fc-icon">🌤️</div>
+              <div class="fc-temp">26°C</div>
+              <div class="fc-risk medium">MED</div>
+            </div>
+            <div class="forecast-day">
+              <div class="fc-day-name">Sun</div>
+              <div class="fc-icon">☀️</div>
+              <div class="fc-temp">30°C</div>
+              <div class="fc-risk high">HIGH</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+      <div class="footer-text">GREENLAW AI · HAZARA FOREST INTELLIGENCE · v4.0</div>
+      <div class="footer-refs">KP FOREST ORDINANCE 2002 · FOREST ACT 1927 · FIRMS · GFW · OWM</div>
+    </footer>
+  </div>
+
+  <script src="js/nav.js"></script>
+  <script src="js/shared.js"></script>
+
+  <script>
+    /* ============================================================
+       GREENLAW AI — Dashboard Data Integration
+       Fetches real data from FastAPI (localhost:8000/api/*)
+       Falls back to original hardcoded values if API is offline.
+       HTML, CSS, nav.js and shared.js are completely untouched.
+       ============================================================ */
+
+    const API = '';  // empty = same origin (FastAPI serves index.html)
+    // change to 'http://localhost:8000' if serving HTML separately
+
+    // ── Hero date (unchanged from original) ──────────────────────
+    document.getElementById('heroDate').textContent = new Date().toLocaleDateString('en-PK', {
+      weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', timeZone: 'Asia/Karachi'
+    });
+
+    // ── Chart instances (need global refs for updates) ────────────
+    let threatChartInstance = null;
+    let accuracyChartInstance = null;
+    let donutChartInstance = null;
+
+    // ── Counter animation (reuse shared.js logic) ─────────────────
+    function animateValue(el, target) {
+      const duration = 1200;
+      const start = performance.now();
+      const isFloat = String(target).includes('.');
+      function step(now) {
+        const elapsed = now - start;
+        const progress = Math.min(elapsed / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        const current = isFloat
+          ? (eased * target).toFixed(1)
+          : Math.floor(eased * target).toLocaleString();
+        el.textContent = current;
+        if (progress < 1) requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
+    }
+
+    // ════════════════════════════════════════════════════════════
+    // 1. KPI VALUES
+    // ════════════════════════════════════════════════════════════
+    async function loadKPIs() {
+      try {
+        const res = await fetch(`${API}/api/dashboard/kpis`);
+        const data = await res.json();
+
+        // Update data-target and animate
+        const kpiEls = document.querySelectorAll('.kpi-value[data-target]');
+        const mapping = [
+          data.active_fires,
+          data.deforestation_alerts,
+          data.legal_cases,
+          data.co2_risk_tonnes,
+        ];
+        kpiEls.forEach((el, i) => {
+          if (mapping[i] !== undefined) {
+            el.dataset.target = mapping[i];
+            animateValue(el, mapping[i]);
+          }
+        });
+
+        // Update feed status badge if degraded
+        if (data.feed_status && data.feed_status !== 'STABLE') {
+          document.querySelectorAll('.topbar-badge').forEach((b, i) => {
+            if (i === 0) b.style.color = '#f59e0b';
+          });
+        }
+      } catch (e) {
+        // API offline — run original counter animation on existing data-target values
+        console.warn('KPI API offline, using demo values:', e.message);
+        document.querySelectorAll('.kpi-value[data-target]').forEach(el => {
+          animateValue(el, parseFloat(el.dataset.target));
+        });
+      }
+    }
+
+    // ════════════════════════════════════════════════════════════
+    // 2. ALERT FEED
+    // ════════════════════════════════════════════════════════════
+    async function loadAlerts() {
+      const container = document.querySelector('.card-body[style*="padding:12px 20px"]');
+      if (!container) return;
+
+      try {
+        const res = await fetch(`${API}/api/alerts?limit=5`);
+        const data = await res.json();
+        if (!data.alerts || data.alerts.length === 0) return;
+
+        // Emoji map by type
+        const emoji = { critical: '🔴', high: '🟠', medium: '🟡', info: '🔵' };
+
+        container.innerHTML = data.alerts.map(a => `
+      <div class="alert-item">
+        <div class="alert-icon-wrap ${a.type}"><i class="fa ${a.icon}"></i></div>
+        <div class="alert-body">
+          <div class="alert-title">${emoji[a.type] || '⚫'} ${a.title}</div>
+          <div class="alert-desc">${a.desc}</div>
+          <div class="alert-meta">
+            <i class="fa fa-map-marker-alt"></i> ${a.location}
+            <span class="badge ${a.badge_cls}" style="font-size:9px;">${a.badge}</span>
+          </div>
+        </div>
+        <div class="alert-time">${a.time}</div>
+      </div>
+    `).join('');
+
+      } catch (e) {
+        console.warn('Alerts API offline, keeping demo alerts:', e.message);
+        // Original HTML alerts remain — no change needed
+      }
+    }
+
+    // ════════════════════════════════════════════════════════════
+    // 3. DISTRICT MATRIX
+    // ════════════════════════════════════════════════════════════
+    async function loadDistricts() {
+      const tbody = document.querySelector('.data-table tbody');
+      if (!tbody) return;
+
+      try {
+        const res = await fetch(`${API}/api/districts`);
+        const data = await res.json();
+        if (!data.districts || data.districts.length === 0) return;
+
+        const fireClass = f => f >= 6 ? 'text-red fw-bold' : f >= 3 ? 'text-amber fw-bold' : '';
+
+        tbody.innerHTML = data.districts.map(d => `
+      <tr>
+        <td><strong>${d.district}</strong></td>
+        <td class="${fireClass(d.fires)}">${d.fires}</td>
+        <td>${d.defo_ha}</td>
+        <td>${d.incidents}</td>
+        <td><span class="badge ${d.badge_cls}">${d.threat}</span></td>
+        <td>
+          <div class="confidence-bar">
+            <div class="conf-track">
+              <div class="conf-fill" style="width:${d.confidence}%"></div>
+            </div>
+            <span class="conf-pct">${d.confidence}%</span>
+          </div>
+        </td>
+      </tr>
+    `).join('');
+
+      } catch (e) {
+        console.warn('Districts API offline, keeping demo table:', e.message);
+      }
+    }
+
+    // ════════════════════════════════════════════════════════════
+    // 4. FORECAST STRIP
+    // ════════════════════════════════════════════════════════════
+    async function loadForecast() {
+      const strip = document.querySelector('.forecast-strip');
+      if (!strip) return;
+
+      try {
+        const res = await fetch(`${API}/api/forecast/Abbottabad`);
+        const data = await res.json();
+        if (!data.forecast || data.forecast.length === 0) return;
+
+        strip.innerHTML = data.forecast.map(f => `
+      <div class="forecast-day">
+        <div class="fc-day-name">${f.day}</div>
+        <div class="fc-icon">${f.icon}</div>
+        <div class="fc-temp">${f.temp}°C</div>
+        <div class="fc-risk ${f.risk_cls}">${f.risk_label}</div>
+      </div>
+    `).join('');
+
+      } catch (e) {
+        console.warn('Forecast API offline, keeping demo forecast:', e.message);
+      }
+    }
+
+    // ════════════════════════════════════════════════════════════
+    // 5. SYSTEM HEALTH BARS
+    // ════════════════════════════════════════════════════════════
+    async function loadSystemHealth() {
+      const healthItems = document.querySelectorAll('.health-item');
+      if (!healthItems.length) return;
+
+      try {
+        const res = await fetch(`${API}/api/system/health`);
+        const data = await res.json();
+        if (!data.systems) return;
+
+        data.systems.forEach((sys, i) => {
+          const item = healthItems[i];
+          if (!item) return;
+          const fill = item.querySelector('.health-bar-fill');
+          const pct = item.querySelector('.health-pct');
+          const status = item.querySelector('.health-status');
+          const label = item.querySelector('.health-label');
+          if (label) label.textContent = sys.name;
+          if (fill) fill.style.width = sys.pct + '%';
+          if (pct) pct.textContent = sys.pct + '%';
+          if (status) {
+            status.textContent = sys.cls === 'ok' ? 'OK' : 'Lag';
+            status.className = `health-status ${sys.cls}`;
+          }
+        });
+
+      } catch (e) {
+        console.warn('System health API offline:', e.message);
+      }
+    }
+
+    // ════════════════════════════════════════════════════════════
+    // 6. CHARTS
+    // ════════════════════════════════════════════════════════════
+    async function loadCharts() {
+      // ── Threat Activity (30-day) ──────────────────────────────
+      let labels30, fireData, defoData;
+      try {
+        const res = await fetch(`${API}/api/charts/threat-history`);
+        const data = await res.json();
+        labels30 = data.labels;
+        fireData = data.fires;
+        defoData = data.defos;
+      } catch (e) {
+        console.warn('Chart API offline, using demo data');
+        labels30 = Array.from({ length: 30 }, (_, i) => { const d = new Date(); d.setDate(d.getDate() - 29 + i); return d.getDate(); });
+        fireData = [3, 2, 4, 3, 5, 6, 4, 3, 2, 4, 5, 7, 8, 6, 5, 4, 6, 7, 9, 8, 7, 6, 8, 10, 9, 8, 7, 9, 11, 9];
+        defoData = [6, 7, 5, 8, 9, 10, 8, 7, 9, 10, 11, 9, 10, 12, 11, 10, 9, 11, 13, 12, 14, 13, 11, 12, 14, 13, 15, 14, 16, 15];
+      }
+
+      threatChartInstance = new Chart(document.getElementById('threatChart'), {
+        type: 'line',
+        data: {
+          labels: labels30,
+          datasets: [
+            {
+              label: 'Fire Alerts',
+              data: fireData,
+              borderColor: '#ef4444',
+              backgroundColor: 'rgba(239,68,68,.1)',
+              fill: true, tension: .4,
+              pointRadius: 2, pointHoverRadius: 5, borderWidth: 2
+            },
+            {
+              label: 'Deforestation Alerts',
+              data: defoData,
+              borderColor: '#f59e0b',
+              backgroundColor: 'rgba(245,158,11,.08)',
+              fill: true, tension: .4,
+              pointRadius: 2, pointHoverRadius: 5, borderWidth: 2
+            }
+          ]
+        },
+        options: {
+          responsive: true, maintainAspectRatio: false,
+          plugins: { legend: { position: 'top' } },
+          scales: {
+            x: { grid: { color: '#f1f5f9' } },
+            y: { grid: { color: '#f1f5f9' }, beginAtZero: true }
+          }
+        }
+      });
+
+      // ── AI Accuracy (12-month) — static, no API needed yet ────
+      accuracyChartInstance = new Chart(document.getElementById('accuracyChart'), {
+        type: 'bar',
+        data: {
+          labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+          datasets: [
+            {
+              label: 'Fire Prediction %',
+              data: [81, 83, 82, 85, 86, 88, 87, 89, 90, 91, 92, 93],
+              backgroundColor: 'rgba(239,68,68,.7)',
+              borderRadius: 6,
+            },
+            {
+              label: 'Deforestation %',
+              data: [76, 78, 79, 81, 82, 83, 85, 86, 87, 88, 89, 91],
+              backgroundColor: 'rgba(52,168,114,.7)',
+              borderRadius: 6,
+            }
+          ]
+        },
+        options: {
+          responsive: true, maintainAspectRatio: false,
+          plugins: { legend: { position: 'top' } },
+          scales: {
+            x: { grid: { display: false } },
+            y: { grid: { color: '#f1f5f9' }, min: 70, max: 100, ticks: { callback: v => v + '%' } }
+          }
+        }
+      });
+
+      // ── Donut — static for now (threat composition needs legal DB) ──
+      donutChartInstance = new Chart(document.getElementById('donutChart'), {
+        type: 'doughnut',
+        data: {
+          labels: ['Fire', 'Deforestation', 'Legal', 'Other'],
+          datasets: [{
+            data: [31, 45, 13, 11],
+            backgroundColor: ['#ef4444', '#f59e0b', '#3b82f6', '#7c3aed'],
+            borderWidth: 0, hoverOffset: 6
+          }]
+        },
+        options: {
+          responsive: true, maintainAspectRatio: false,
+          cutout: '68%',
+          plugins: { legend: { display: false } }
+        }
+      });
+    }
+
+    // ════════════════════════════════════════════════════════════
+    // BOOT — load everything on page load
+    // ════════════════════════════════════════════════════════════
+    window.addEventListener('load', async () => {
+      await Promise.allSettled([
+        loadKPIs(),
+        loadAlerts(),
+        loadDistricts(),
+        loadForecast(),
+        loadSystemHealth(),
+        loadCharts(),
+      ]);
+
+      // Auto-refresh KPIs and alerts every 60 seconds
+      setInterval(() => { loadKPIs(); loadAlerts(); }, 60_000);
+    });
+  </script>
+</body>
+
+</html>

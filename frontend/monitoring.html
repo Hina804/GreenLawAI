@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Monitoring · GREENLAW AI Hazara Forest Intelligence</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    .map-container { min-height: 460px; }
+
+    .feed-status-item {
+      display: flex; align-items: center; gap: 12px;
+      padding: 14px 0;
+      border-bottom: 1px solid var(--gray-100);
+    }
+    .feed-status-item:last-child { border-bottom: none; }
+    .feed-icon {
+      width: 38px; height: 38px; border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 16px; flex-shrink: 0;
+    }
+    .feed-icon.green  { background: var(--forest-pale); color: var(--forest-mid); }
+    .feed-icon.blue   { background: var(--sky-light);   color: var(--sky); }
+    .feed-icon.violet { background: var(--violet-light);color: var(--violet); }
+    .feed-icon.amber  { background: var(--amber-light); color: #b45309; }
+
+    .feed-label  { font-size: 13px; font-weight: 700; color: var(--gray-800); }
+    .feed-detail { font-size: 11.5px; color: var(--gray-500); margin-top: 2px; }
+    .feed-body   { flex: 1; }
+    .feed-actions { display: flex; align-items: center; gap: 8px; }
+
+    .uptime-pill {
+      font-size: 10px; font-weight: 700;
+      padding: 2px 8px; border-radius: 20px;
+      background: var(--forest-pale); color: var(--forest-mid);
+    }
+    .uptime-pill.warn { background: var(--amber-light); color: #92400e; }
+
+    .propensity-item {
+      display: flex; align-items: center; gap: 10px;
+      padding: 10px 0; border-bottom: 1px solid var(--gray-100);
+    }
+    .propensity-item:last-child { border-bottom: none; }
+    .prop-rank {
+      width: 26px; height: 26px; border-radius: 6px;
+      background: var(--gray-100); color: var(--gray-600);
+      font-size: 11px; font-weight: 800;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .prop-rank.r1 { background: var(--red-light);    color: var(--red-alert); }
+    .prop-rank.r2 { background: var(--orange-light); color: var(--orange); }
+    .prop-rank.r3 { background: var(--amber-light);  color: #b45309; }
+    .prop-name  { font-size: 13px; font-weight: 700; color: var(--gray-800); flex: 1; }
+    .prop-detail { font-size: 11.5px; color: var(--gray-500); }
+    .prop-pct   {
+      font-size: 14px; font-weight: 800;
+      font-family: var(--font-mono);
+      min-width: 46px; text-align: right;
+    }
+    .prop-pct.high   { color: var(--red-alert); }
+    .prop-pct.medium { color: var(--amber); }
+    .prop-pct.low    { color: var(--forest-bright); }
+
+    /* Satellite strips */
+    .sat-strip {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px;
+      margin-bottom: 16px;
+    }
+    .sat-tile {
+      background: linear-gradient(135deg, #1a3a2a, #2d5a40);
+      border-radius: var(--radius-sm);
+      padding: 12px;
+      position: relative; overflow: hidden; min-height: 80px;
+      display: flex; flex-direction: column; justify-content: flex-end;
+      cursor: pointer; transition: transform .2s;
+    }
+    .sat-tile:hover { transform: scale(1.02); }
+    .sat-tile-label { font-size: 10px; font-weight: 700; color: rgba(255,255,255,.8); letter-spacing: .5px; }
+    .sat-tile-val   { font-size: 16px; font-weight: 800; color: #7deba6; font-family: var(--font-mono); }
+    .sat-tile-time  { font-size: 10px; color: rgba(255,255,255,.4); }
+    .sat-tile-icon  {
+      position: absolute; top: 10px; right: 10px;
+      font-size: 22px; opacity: .3;
+    }
+    .sat-tile.alert-tile {
+      background: linear-gradient(135deg, #7f1d1d, #b91c1c);
+    }
+    .sat-tile.alert-tile .sat-tile-val { color: #fca5a5; }
+
+    /* Anim scan line for map */
+    .map-scanline {
+      position: absolute; left: 0; right: 0; height: 2px;
+      background: linear-gradient(90deg, transparent, rgba(82,168,114,.6), transparent);
+      animation: scanline 4s linear infinite;
+    }
+    @keyframes scanline {
+      0%   { top: 0;    opacity: 1; }
+      95%  { top: 100%; opacity: .5; }
+      100% { top: 100%; opacity: 0; }
+    }
+
+    .data-integrity-bar {
+      display: flex; align-items: center; gap: 8px; margin-top: 6px;
+    }
+    .di-track {
+      flex: 1; height: 8px; background: var(--gray-200); border-radius: 4px; overflow: hidden;
+    }
+    .di-fill {
+      height: 100%; border-radius: 4px;
+      background: linear-gradient(90deg, var(--forest-bright), #6dd89a);
+    }
+    .di-fill.warn { background: linear-gradient(90deg, var(--amber), #fbbf24); }
+  </style>
+</head>
+<body>
+<div id="nav-container"></div>
+
+<div class="main-wrapper">
+  <header class="topbar">
+    <button class="menu-toggle"><i class="fa fa-bars"></i></button>
+    <div>
+      <div class="topbar-title">Environmental Surveillance</div>
+      <div class="topbar-sub">Satellite Intelligence · Real-Time Threat Detection · Hazara Division</div>
+    </div>
+    <div class="topbar-right">
+      <div class="topbar-badge" style="background:var(--red-light);color:var(--red-alert);border-color:var(--red-light);">
+        <span class="live-dot"></span> SENTINEL ACTIVE
+      </div>
+      <div class="topbar-clock">PKT 00:00:00</div>
+    </div>
+  </header>
+
+  <main class="page-content">
+
+    <!-- KPIs -->
+    <div class="kpi-grid">
+      <div class="kpi-card fire">
+        <div class="kpi-icon-wrap fire"><i class="fa fa-fire-alt"></i></div>
+        <div class="kpi-body">
+          <div class="kpi-value" data-target="23">0</div>
+          <div class="kpi-label">Raw Fire Hits</div>
+          <div class="kpi-delta up"><i class="fa fa-arrow-up"></i> +4 since 06:00 PKT</div>
+        </div>
+      </div>
+      <div class="kpi-card defo">
+        <div class="kpi-icon-wrap defo"><i class="fa fa-tree"></i></div>
+        <div class="kpi-body">
+          <div class="kpi-value" data-target="124">0</div>
+          <div class="kpi-label">Raw Tree Hits</div>
+          <div class="kpi-delta up"><i class="fa fa-arrow-up"></i> GLAD Alert Pass</div>
+        </div>
+      </div>
+      <div class="kpi-card teal">
+        <div class="kpi-icon-wrap teal"><i class="fa fa-layer-group"></i></div>
+        <div class="kpi-body">
+          <div class="kpi-value" data-target="14">0</div>
+          <div class="kpi-label">Fused Threats</div>
+          <div class="kpi-delta down"><i class="fa fa-check"></i> AI verified</div>
+        </div>
+      </div>
+      <div class="kpi-card green">
+        <div class="kpi-icon-wrap green"><i class="fa fa-satellite"></i></div>
+        <div class="kpi-body">
+          <div class="kpi-value" data-target="82" data-suffix="%">0</div>
+          <div class="kpi-label">Satellite Visibility</div>
+          <div class="kpi-delta down"><i class="fa fa-arrow-down"></i> 18% cloud cover</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Satellite tiles -->
+    <div class="sat-strip" style="margin-bottom:20px;">
+      <div class="sat-tile alert-tile">
+        <span class="sat-tile-icon"><i class="fa fa-fire"></i></span>
+        <div class="sat-tile-label">FIRMS VIIRS PASS</div>
+        <div class="sat-tile-val">23 Detections</div>
+        <div class="sat-tile-time">Last pass: 08:42 PKT</div>
+      </div>
+      <div class="sat-tile">
+        <span class="sat-tile-icon"><i class="fa fa-tree"></i></span>
+        <div class="sat-tile-label">GFW GLAD ALERT</div>
+        <div class="sat-tile-val">124 Pixels</div>
+        <div class="sat-tile-time">Confirmed: 07:15 PKT</div>
+      </div>
+      <div class="sat-tile" style="background:linear-gradient(135deg,#1e3a5f,#1d4ed8);">
+        <span class="sat-tile-icon"><i class="fa fa-satellite-dish"></i></span>
+        <div class="sat-tile-label">SAR SENTINEL-1</div>
+        <div class="sat-tile-val">3 Anomalies</div>
+        <div class="sat-tile-time">Pass: 05:30 PKT</div>
+      </div>
+    </div>
+
+    <!-- Map + Data Integrity -->
+    <div class="section-grid col-3-2" style="margin-bottom:20px;">
+      <!-- Map -->
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title"><i class="fa fa-map"></i> Tactical Geo-Intelligence Map</div>
+          <div class="live-badge"><span class="live-dot"></span> LIVE</div>
+        </div>
+        <div class="card-body" style="padding:0;">
+          <div class="map-container" style="border-radius:0 0 var(--radius-lg) var(--radius-lg);">
+            <div class="map-grid"></div>
+            <div class="map-scanline"></div>
+
+            <!-- Fire dots -->
+            <div class="map-threat-dot fire" style="top:28%;left:42%;" data-tooltip="🔥 Mansehra Block-7 — Critical"></div>
+            <div class="map-threat-dot fire" style="top:35%;left:55%;" data-tooltip="🔥 Abbottabad N — High"></div>
+            <div class="map-threat-dot fire" style="top:18%;left:38%;" data-tooltip="🔥 Battagram East — High"></div>
+            <div class="map-threat-dot fire" style="top:45%;left:30%;" data-tooltip="🔥 Kohistan South — Medium"></div>
+            <div class="map-threat-dot fire" style="top:55%;left:62%;" data-tooltip="🔥 Haripur Reserve — Medium"></div>
+
+            <!-- Deforestation dots -->
+            <div class="map-threat-dot defo" style="top:40%;left:48%;" data-tooltip="🌲 Abbottabad Sec-3 — 0.8ha cleared"></div>
+            <div class="map-threat-dot defo" style="top:22%;left:65%;" data-tooltip="🌲 Torghar — 1.2ha cleared"></div>
+            <div class="map-threat-dot defo" style="top:60%;left:42%;" data-tooltip="🌲 Haripur Zone-2 — 0.5ha cleared"></div>
+            <div class="map-threat-dot defo" style="top:32%;left:28%;" data-tooltip="🌲 Kohistan N — 2.1ha cleared"></div>
+
+            <!-- Patrol dots -->
+            <div class="map-threat-dot patrol" style="top:38%;left:52%;" data-tooltip="👮 Patrol P-01 Active"></div>
+            <div class="map-threat-dot patrol" style="top:48%;left:45%;" data-tooltip="👮 Patrol P-03 Active"></div>
+            <div class="map-threat-dot patrol" style="top:25%;left:58%;" data-tooltip="👮 Patrol P-07 Active"></div>
+
+            <!-- Region Labels -->
+            <div style="position:absolute;top:24%;left:37%;font-size:10px;font-weight:700;color:var(--forest-dark);background:rgba(255,255,255,.7);padding:2px 5px;border-radius:4px;">MANSEHRA</div>
+            <div style="position:absolute;top:33%;left:52%;font-size:10px;font-weight:700;color:var(--forest-dark);background:rgba(255,255,255,.7);padding:2px 5px;border-radius:4px;">ABBOTTABAD</div>
+            <div style="position:absolute;top:15%;left:35%;font-size:10px;font-weight:700;color:var(--forest-dark);background:rgba(255,255,255,.7);padding:2px 5px;border-radius:4px;">BATTAGRAM</div>
+            <div style="position:absolute;top:42%;left:25%;font-size:10px;font-weight:700;color:var(--forest-dark);background:rgba(255,255,255,.7);padding:2px 5px;border-radius:4px;">KOHISTAN</div>
+            <div style="position:absolute;top:53%;left:58%;font-size:10px;font-weight:700;color:var(--forest-dark);background:rgba(255,255,255,.7);padding:2px 5px;border-radius:4px;">HARIPUR</div>
+
+            <div class="map-legend">
+              <div class="map-legend-item"><div class="legend-dot" style="background:var(--red-alert);"></div> Fire Alert (23)</div>
+              <div class="map-legend-item"><div class="legend-dot" style="background:var(--amber);"></div> Deforestation (9)</div>
+              <div class="map-legend-item"><div class="legend-dot" style="background:var(--sky);"></div> Active Patrol (3)</div>
+            </div>
+            <div class="map-controls">
+              <button class="map-ctrl-btn"><i class="fa fa-plus"></i></button>
+              <button class="map-ctrl-btn"><i class="fa fa-minus"></i></button>
+              <button class="map-ctrl-btn"><i class="fa fa-layer-group"></i></button>
+              <button class="map-ctrl-btn"><i class="fa fa-crosshairs"></i></button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Data Integrity + Propensity -->
+      <div style="display:flex;flex-direction:column;gap:20px;">
+        <!-- Data Feeds -->
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title"><i class="fa fa-database"></i> Data Integrity Panel</div>
+            <div class="card-badge">3 Feeds</div>
+          </div>
+          <div class="card-body">
+            <div class="feed-status-item">
+              <div class="feed-icon green"><i class="fa fa-fire"></i></div>
+              <div class="feed-body">
+                <div class="feed-label">NASA FIRMS</div>
+                <div class="feed-detail">VIIRS + MODIS · 375m resolution</div>
+                <div class="data-integrity-bar">
+                  <div class="di-track"><div class="di-fill" style="width:98%"></div></div>
+                  <span style="font-size:11px;font-weight:700;color:var(--forest-mid);">98.2%</span>
+                </div>
+              </div>
+              <span class="uptime-pill">LIVE</span>
+            </div>
+            <div class="feed-status-item">
+              <div class="feed-icon blue"><i class="fa fa-tree"></i></div>
+              <div class="feed-body">
+                <div class="feed-label">GFW GLAD</div>
+                <div class="feed-detail">Landsat 8 · 30m resolution · daily</div>
+                <div class="data-integrity-bar">
+                  <div class="di-track"><div class="di-fill" style="width:94%"></div></div>
+                  <span style="font-size:11px;font-weight:700;color:var(--forest-mid);">94.1%</span>
+                </div>
+              </div>
+              <span class="uptime-pill">LIVE</span>
+            </div>
+            <div class="feed-status-item">
+              <div class="feed-icon violet"><i class="fa fa-brain"></i></div>
+              <div class="feed-body">
+                <div class="feed-label">AI Fuser Engine</div>
+                <div class="feed-detail">Multi-source fusion · 92.3% accuracy</div>
+                <div class="data-integrity-bar">
+                  <div class="di-track"><div class="di-fill" style="width:99%"></div></div>
+                  <span style="font-size:11px;font-weight:700;color:var(--forest-mid);">99.1%</span>
+                </div>
+              </div>
+              <span class="uptime-pill">ACTIVE</span>
+            </div>
+            <div class="feed-status-item">
+              <div class="feed-icon amber"><i class="fa fa-cloud-sun"></i></div>
+              <div class="feed-body">
+                <div class="feed-label">OWM Climate API</div>
+                <div class="feed-detail">Weather · humidity · wind data</div>
+                <div class="data-integrity-bar">
+                  <div class="di-track"><div class="di-fill warn" style="width:88%"></div></div>
+                  <span style="font-size:11px;font-weight:700;color:#b45309;">88.4%</span>
+                </div>
+              </div>
+              <span class="uptime-pill warn">LAG 2s</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Propensity Zones -->
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title"><i class="fa fa-chart-bar"></i> 30-Day Propensity Zones</div>
+            <div class="card-badge">Probability</div>
+          </div>
+          <div class="card-body">
+            <div class="propensity-item">
+              <div class="prop-rank r1">1</div>
+              <div><div class="prop-name">Mansehra Block-7</div><div class="prop-detail">High temp + dry biomass</div></div>
+              <div class="prop-pct high">87%</div>
+            </div>
+            <div class="propensity-item">
+              <div class="prop-rank r2">2</div>
+              <div><div class="prop-name">Torghar Hills</div><div class="prop-detail">Wind channels + slope factor</div></div>
+              <div class="prop-pct high">79%</div>
+            </div>
+            <div class="propensity-item">
+              <div class="prop-rank r3">3</div>
+              <div><div class="prop-name">Abbottabad Reserve</div><div class="prop-detail">Prior deforestation area</div></div>
+              <div class="prop-pct medium">68%</div>
+            </div>
+            <div class="propensity-item">
+              <div class="prop-rank">4</div>
+              <div><div class="prop-name">Battagram East</div><div class="prop-detail">Human activity corridor</div></div>
+              <div class="prop-pct medium">55%</div>
+            </div>
+            <div class="propensity-item">
+              <div class="prop-rank">5</div>
+              <div><div class="prop-name">Haripur Lowlands</div><div class="prop-detail">Seasonal drought risk</div></div>
+              <div class="prop-pct low">38%</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Threat Heatmap Chart -->
+    <div class="section-grid col-2" style="margin-bottom:20px;">
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title"><i class="fa fa-chart-area"></i> Satellite Pass Coverage</div>
+          <div class="card-badge">30 Days</div>
+        </div>
+        <div class="card-body">
+          <div class="chart-container" style="height:220px;">
+            <canvas id="coverageChart"></canvas>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title"><i class="fa fa-fire-alt"></i> Fire Density by Hour</div>
+          <div class="card-badge">UTC+5 PKT</div>
+        </div>
+        <div class="card-body">
+          <div class="chart-container" style="height:220px;">
+            <canvas id="hourlyChart"></canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-text">GREENLAW AI · HAZARA FOREST INTELLIGENCE · v4.0</div>
+    <div class="footer-refs">KP FOREST ORDINANCE 2002 · FOREST ACT 1927 · FIRMS · GFW · OWM</div>
+  </footer>
+</div>
+
+<script src="js/nav.js"></script>
+<script src="js/shared.js"></script>
+<script>
+new Chart(document.getElementById('coverageChart'), {
+  type: 'line',
+  data: {
+    labels: Array.from({length:30},(_,i)=>i+1),
+    datasets: [{
+      label: 'VIIRS Coverage %',
+      data: [82,85,80,78,84,88,86,83,79,85,87,90,88,84,82,86,89,91,87,83,80,84,88,92,90,86,82,85,88,82],
+      borderColor: '#3b82f6', backgroundColor: 'rgba(59,130,246,.1)',
+      fill: true, tension: .4, borderWidth: 2, pointRadius: 0
+    },{
+      label: 'GLAD Coverage %',
+      data: [75,78,72,70,76,82,80,76,71,78,82,85,83,78,75,80,84,87,82,77,73,78,83,88,85,80,76,79,83,75],
+      borderColor: '#52a872', backgroundColor: 'rgba(82,168,114,.08)',
+      fill: true, tension: .4, borderWidth: 2, pointRadius: 0
+    }]
+  },
+  options: {
+    responsive: true, maintainAspectRatio: false,
+    plugins: { legend: { position: 'top' } },
+    scales: {
+      x: { grid: { color: '#f1f5f9' } },
+      y: { grid: { color: '#f1f5f9' }, min: 50, max: 100, ticks: { callback: v => v + '%' } }
+    }
+  }
+});
+
+new Chart(document.getElementById('hourlyChart'), {
+  type: 'bar',
+  data: {
+    labels: ['0h','2h','4h','6h','8h','10h','12h','14h','16h','18h','20h','22h'],
+    datasets: [{
+      label: 'Fire Events',
+      data: [1,0,1,2,3,5,7,9,8,6,4,2],
+      backgroundColor: 'rgba(239,68,68,.7)',
+      borderRadius: 5,
+    }]
+  },
+  options: {
+    responsive: true, maintainAspectRatio: false,
+    plugins: { legend: { display: false } },
+    scales: {
+      x: { grid: { display: false } },
+      y: { grid: { color: '#f1f5f9' }, beginAtZero: true }
+    }
+  }
+});
+</script>
+</body>
+</html>

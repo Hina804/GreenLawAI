@@ -1,0 +1,40 @@
+﻿{
+    "species": {
+        "deodar": {
+            "scientific_name": "Cedrus deodara",
+            "common_name": "Deodar Cedar",
+            "annual_sequestration_kg_co2": 150.0,
+            "biomass_factor": 450.0,
+            "max_age_years": 500,
+            "region": "High Altitude / Moist Temperate"
+        },
+        "chir_pine": {
+            "scientific_name": "Pinus roxburghii",
+            "common_name": "Chir Pine",
+            "annual_sequestration_kg_co2": 95.0,
+            "biomass_factor": 280.0,
+            "max_age_years": 350,
+            "region": "Subtropical / Low Altitude"
+        },
+        "blue_pine": {
+            "scientific_name": "Pinus wallichiana",
+            "common_name": "Kail (Blue Pine)",
+            "annual_sequestration_kg_co2": 110.0,
+            "biomass_factor": 320.0,
+            "max_age_years": 400,
+            "region": "Temperate"
+        },
+        "scrub": {
+            "scientific_name": "Various",
+            "common_name": "Dry Scub Forest",
+            "annual_sequestration_kg_co2": 45.0,
+            "biomass_factor": 120.0,
+            "max_age_years": 100,
+            "region": "Arid / Foothills"
+        }
+    },
+    "social_equivalents": {
+        "co2_kg_per_km_car": 0.25,
+        "co2_kg_per_flight_hour": 90.0
+    }
+}

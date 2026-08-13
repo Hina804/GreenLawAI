@@ -1,0 +1,41 @@
+{
+    "reconciliation_rules": {
+        "species_habitat_vibe": {
+            "description": "Ensures the legal penalty applies to a species actually present in the report region.",
+            "agents": ["judiciary", "climate"],
+            "severity": "CRITICAL",
+            "fail_message": "Species Mismatch: Legal penalty assumes species {jud_species} but habitat data shows {cli_species}."
+        },
+        "thermal_activity_check": {
+            "description": "Ensures thermal signatures exist for the alleged trespassing date.",
+            "agents": ["monitoring", "judiciary"],
+            "severity": "HIGH",
+            "fail_message": "Activity Conflict: No corroborating remote sensing data for the alleged incident date."
+        },
+        "temporal_alignment": {
+            "description": "Cross-verifies incident timestamps between monitoring logs and legal filings.",
+            "agents": ["monitoring", "incident"],
+            "severity": "CRITICAL",
+            "fail_message": "Temporal Mismatch: Monitoring logs indicate activity at {mon_time} but incident report specifies {inc_time}."
+        },
+        "jurisdictional_check": {
+            "description": "Validates that the matched legal provision applies to the specific GPS coordinates provided.",
+            "agents": ["judiciary", "graph_legal"],
+            "severity": "HIGH",
+            "fail_message": "Jurisdiction Error: GPS coordinates {lat},{lon} fall outside the legislative scope of {act_name}."
+        },
+        "impact_consensus": {
+            "description": "Ensures climate impact assessment (CO2 loss) broadly aligns with tree count from incident analysis.",
+            "agents": ["climate", "incident"],
+            "severity": "MEDIUM",
+            "fail_message": "Impact Variance: Climate loss projection ({cli_loss}) is statistically inconsistent with reported tree count ({inc_count})."
+        }
+    },
+    "trust_thresholds": {
+        "consensus_high": 0.92,
+        "conflict_penalty": 0.35,
+        "minimum_data_points": 2,
+        "abstain_on_critical_conflict": true
+    }
+}
+

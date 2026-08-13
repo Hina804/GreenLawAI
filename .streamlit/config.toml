@@ -1,0 +1,14 @@
+[theme]
+primaryColor="#3C7A69"
+backgroundColor="#FFFFFF"
+secondaryBackgroundColor="#EDF8D0"
+textColor="#092C1B"
+font="sans serif"
+
+[server]
+headless = true
+
+[browser]
+serverAddress = "localhost"
+gatherUsageStats = false
+serverPort = 8501

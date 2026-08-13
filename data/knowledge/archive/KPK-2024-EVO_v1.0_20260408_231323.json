@@ -1,0 +1,33 @@
+{
+    "case_id": "KPK-2024-EVO",
+    "metadata": {
+        "version": "1.0",
+        "last_verified": "2025-09-20",
+        "status": "CURRENT",
+        "superseded_by": null,
+        "lineage": []
+    },
+    "title": "Test Heritage Tree Protection",
+    "court_level": "Forest Tribunal",
+    "court_name": "Abbottabad",
+    "bench": [],
+    "judgment_date": "2024-01-01",
+    "citation": "2024 FT 01",
+    "law_sections": [],
+    "offense_category": "Illegal Cutting",
+    "offense_details": "Cutting ancient Deodar",
+    "location": "Galiyat",
+    "is_night_violation": false,
+    "is_protected_forest": false,
+    "trees_cut": 0,
+    "verdict": "Guilty",
+    "penalty_type": "Fine",
+    "penalty_amount_rs": 0,
+    "imprisonment_months": 0,
+    "repeat_offender": false,
+    "prior_convictions": 0,
+    "precedents_cited": [],
+    "judgment_summary": "Protection of heritage trees is mandatory.",
+    "full_text": "",
+    "keywords": []
+}

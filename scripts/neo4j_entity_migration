@@ -1,0 +1,622 @@
+"""
+neo4j_entity_migration.py
+─────────────────────────
+One-time (and idempotent) migration that fixes the Entity nodes already in Neo4j.
+
+WHAT IT DOES
+────────────
+  Step 1  — AUDIT
+            Scans every :Entity node and prints a summary of how many have
+            noisy canonical_names (dbh_1_, cedrus_, the_province_of_, etc.)
+            and how many have no aliases array.
+
+  Step 2  — CLEAN CANONICAL NAMES
+            Renames every noisy canonical_name to its clean form
+            (e.g. "dbh_1_deodar" → "deodar", "cedrus_deodara" → "deodar").
+            When two nodes collapse to the same canonical:
+              • their MENTIONS relationships are re-pointed to the survivor
+              • their chunk_ids / aliases are merged
+              • the duplicate node is deleted
+
+  Step 3  — REBUILD ALIAS ARRAYS
+            For every :Entity node, sets the `aliases` property to the full
+            synonym list from LEGAL_DICTIONARY + SPECIES_DICTIONARY plus any
+            surface forms already stored in `mentions`.
+            Both space-form and underscore-form variants are included so the
+            retriever's CONTAINS clause always has something to hit.
+
+  Step 4  — CREATE INDEX
+            Ensures a full-text index exists on Entity.canonical_name and
+            Entity.aliases so Cypher CONTAINS queries are fast.
+
+  Step 5  — VERIFY
+            Re-scans and prints a before/after report.
+
+USAGE
+─────
+    python neo4j_entity_migration.py
+    python neo4j_entity_migration.py --dry-run      # audit only, no writes
+    python neo4j_entity_migration.py --step 3       # run only alias rebuild
+    python neo4j_entity_migration.py --uri bolt://remotehost:7687
+
+All steps are idempotent — safe to re-run after partial failure.
+"""
+
+from __future__ import annotations
+
+import argparse
+import re
+import sys
+import unicodedata
+from collections import defaultdict
+from typing import Dict, List, Optional, Set, Tuple
+
+# ── Try to import neo4j driver ────────────────────────────────────────────────
+try:
+    from neo4j import GraphDatabase
+except ImportError:
+    print("ERROR: neo4j driver not installed.  Run:  pip install neo4j")
+    sys.exit(1)
+
+
+# ═════════════════════════════════════════════════════════════════════════════
+# Import shared dictionaries from your project
+# (falls back to inline copies if the project path isn't on sys.path)
+# ═════════════════════════════════════════════════════════════════════════════
+try:
+    from data_pipeline.indexing.entity_extractor import (
+        LEGAL_DICTIONARY,
+        SPECIES_DICTIONARY,
+        resolve_to_canonical,
+        _strip_prefixes_suffixes,
+        _unicode_slug,
+    )
+    print("[OK] Loaded dictionaries from entity_extractor.py")
+except ImportError:
+    print("[WARN] Could not import entity_extractor — using inline fallback dictionaries.")
+
+    # ── Inline fallback (minimal, covers the most common noisy cases) ─────────
+    _NON_ALNUM = re.compile(r"[^a-z0-9]+")
+
+    def _unicode_slug(text: str) -> str:
+        s = unicodedata.normalize("NFKD", text)
+        s = "".join(c for c in s if not unicodedata.combining(c))
+        s = s.lower()
+        s = _NON_ALNUM.sub("_", s)
+        return s.strip("_")
+
+    _STRIP_PREFIXES: Tuple[str, ...] = (
+        "the_province_of_", "province_of_", "the_district_of_",
+        "district_of_", "the_", "cedrus_", "pinus_", "quercus_",
+        "abies_", "picea_", "juglans_", "fraxinus_", "platanus_",
+        "morus_", "populus_", "standing_",
+        "dbh_1_", "dbh_2_", "dbh_3_", "dbh_", "avg_", "total_", "no_of_",
+    )
+    _STRIP_SUFFIXES: Tuple[str, ...] = (
+        "_tree", "_trees", "_species", "_timber", "_wood", "_forest",
+    )
+
+    def _strip_prefixes_suffixes(slug: str) -> str:
+        changed = True
+        while changed:
+            changed = False
+            for p in _STRIP_PREFIXES:
+                if slug.startswith(p):
+                    slug = slug[len(p):]
+                    changed = True
+                    break
+            for s in _STRIP_SUFFIXES:
+                if slug.endswith(s) and len(slug) > len(s):
+                    slug = slug[: -len(s)]
+                    changed = True
+                    break
+        return slug
+
+    LEGAL_DICTIONARY: Dict[str, List[str]] = {
+        "deodar":     ["cedrus deodara", "cedrus_deodara", "diyar", "devdar",
+                       "himalayan cedar", "dbh_1_deodar", "dbh_2_deodar",
+                       "dbh_3_deodar", "standing_deodar"],
+        "chir pine":  ["chir", "cheerh", "chirh", "cheer", "long leaved pine",
+                       "pinus roxburghii", "pinus_roxburghii"],
+        "blue pine":  ["biar", "nakhtar", "kail", "pinus wallichiana",
+                       "pinus_wallichiana"],
+        "spruce":     ["kachal", "rai", "picea smithiana", "picea_smithiana"],
+        "fir":        ["silver fir", "abies pindrow", "abies_pindrow", "partal"],
+        "kpk":        ["khyber pakhtunkhwa", "khyber_pakhtunkhwa",
+                       "the_province_of_khyber_pakhtunkhwa",
+                       "province_of_khyber_pakhtunkhwa",
+                       "nwfp", "north west frontier province",
+                       "north-west frontier province"],
+        "punjab":     ["the_province_of_punjab", "province_of_punjab",
+                       "province of punjab"],
+        "sindh":      ["the_province_of_sindh", "province_of_sindh",
+                       "sind", "sindh province"],
+        "balochistan":["the_province_of_balochistan", "baluchistan"],
+        "reserved forest":  ["reserve forest", "rf", "reserved_forest"],
+        "protected forest": ["protected forests", "pf", "protected_forest"],
+        "forest officer":   ["forest-officer", "fo"],
+        "timber":           ["wood", "lumber", "logs"],
+        "offence":          ["offense", "offences", "violation", "breach"],
+        "fine":             ["penalty", "penalties", "monetary penalty"],
+        "imprisonment":     ["jail", "prison", "detention", "confinement"],
+        "carbon credit":    ["carbon credits", "carbon offset", "ghg credit", "cer"],
+        "noc":              ["no objection certificate", "clearance certificate"],
+        "writ petition":    ["writ", "constitutional petition", "article 199 petition"],
+        "appeal":           ["revision", "review petition"],
+    }
+
+    SPECIES_DICTIONARY: Dict[str, List[str]] = {
+        "chir pine": ["chir", "cheerh", "pinus roxburghii", "pinus_roxburghii"],
+        "deodar":    ["cedrus deodara", "cedrus_deodara", "diyar"],
+        "blue pine": ["biar", "pinus wallichiana", "pinus_wallichiana", "nakhtar", "kail"],
+        "fir":       ["abies pindrow", "abies_pindrow", "partal"],
+        "spruce":    ["kachal", "picea smithiana"],
+    }
+
+    # Build reverse lookup
+    _REVERSE: Dict[str, str] = {}
+    for _c, _syns in {**LEGAL_DICTIONARY, **SPECIES_DICTIONARY}.items():
+        _REVERSE[_unicode_slug(_c)] = _c
+        for _s in _syns:
+            _REVERSE[_unicode_slug(_s)] = _c
+
+    def resolve_to_canonical(surface: str) -> str:
+        slug = _unicode_slug(surface)
+        if slug in _REVERSE:
+            return _REVERSE[slug]
+        stripped = _strip_prefixes_suffixes(slug)
+        if stripped in _REVERSE:
+            return _REVERSE[stripped]
+        return stripped if stripped else slug
+
+
+# ═════════════════════════════════════════════════════════════════════════════
+# Alias builder  — the single source of truth for what aliases a node should have
+# ═════════════════════════════════════════════════════════════════════════════
+
+def build_aliases_for(canonical: str) -> List[str]:
+    """
+    Return the complete alias list for a canonical entity name.
+    Includes:
+      • the canonical itself
+      • all LEGAL_DICTIONARY synonyms
+      • all SPECIES_DICTIONARY synonyms
+      • space ↔ underscore variants of every alias
+    """
+    aliases: Set[str] = {canonical, canonical.replace(" ", "_"),
+                         canonical.replace("_", " ")}
+
+    for key, syns in LEGAL_DICTIONARY.items():
+        key_slug = _unicode_slug(key)
+        canon_slug = _unicode_slug(canonical)
+        if key_slug == canon_slug or key == canonical:
+            for s in syns:
+                aliases.add(s)
+                aliases.add(s.replace(" ", "_"))
+                aliases.add(s.replace("_", " "))
+            break
+
+    for key, syns in SPECIES_DICTIONARY.items():
+        key_slug = _unicode_slug(key)
+        canon_slug = _unicode_slug(canonical)
+        if key_slug == canon_slug or key == canonical:
+            for s in syns:
+                aliases.add(s)
+                aliases.add(s.replace(" ", "_"))
+                aliases.add(s.replace("_", " "))
+            break
+
+    return sorted(a for a in aliases if a)
+
+
+# ═════════════════════════════════════════════════════════════════════════════
+# Migration runner
+# ═════════════════════════════════════════════════════════════════════════════
+
+class EntityMigration:
+
+    def __init__(self, uri: str, user: str, password: str, dry_run: bool = False):
+        self.driver = GraphDatabase.driver(uri, auth=(user, password))
+        self.dry_run = dry_run
+        self._verify()
+
+    def _verify(self) -> None:
+        with self.driver.session() as s:
+            s.run("RETURN 1")
+        mode = "DRY-RUN" if self.dry_run else "LIVE"
+        print(f"[OK] Connected to Neo4j  [{mode} mode]")
+
+    def close(self) -> None:
+        self.driver.close()
+
+    # ─────────────────────────────────────────────────────────────────────────
+    # Step 1 — Audit
+    # ─────────────────────────────────────────────────────────────────────────
+
+    def step1_audit(self) -> Dict:
+        print("\n" + "═" * 60)
+        print("STEP 1 — AUDIT")
+        print("═" * 60)
+
+        with self.driver.session() as s:
+            total = s.run("MATCH (e:Entity) RETURN count(e) AS n").single()["n"]
+
+            noisy = s.run("""
+                MATCH (e:Entity)
+                WHERE e.canonical_name =~ '^dbh_\\\\d+_.*'
+                   OR e.canonical_name =~ '^the_province_of_.*'
+                   OR e.canonical_name =~ '^province_of_.*'
+                   OR e.canonical_name =~ '^standing_.*'
+                   OR e.canonical_name =~ '^cedrus_.*'
+                   OR e.canonical_name =~ '^pinus_.*'
+                   OR e.canonical_name =~ '^abies_.*'
+                   OR e.canonical_name =~ '^picea_.*'
+                RETURN count(e) AS n
+            """).single()["n"]
+
+            no_aliases = s.run("""
+                MATCH (e:Entity)
+                WHERE e.aliases IS NULL OR size(e.aliases) = 0
+                RETURN count(e) AS n
+            """).single()["n"]
+
+            # Sample 10 noisy names for the report
+            samples = s.run("""
+                MATCH (e:Entity)
+                WHERE e.canonical_name =~ '^dbh_.*'
+                   OR e.canonical_name =~ '^the_province_.*'
+                   OR e.canonical_name =~ '^cedrus_.*'
+                   OR e.canonical_name =~ '^pinus_.*'
+                   OR e.canonical_name =~ '^standing_.*'
+                RETURN e.canonical_name AS name
+                LIMIT 10
+            """).data()
+
+        print(f"  Total :Entity nodes    : {total}")
+        print(f"  Nodes with noisy names : {noisy}")
+        print(f"  Nodes with no aliases  : {no_aliases}")
+        if samples:
+            print(f"  Sample noisy names     :")
+            for row in samples:
+                clean = resolve_to_canonical(row["name"])
+                print(f"    {row['name']!r:45s} → {clean!r}")
+
+        return {"total": total, "noisy": noisy, "no_aliases": no_aliases}
+
+    # ─────────────────────────────────────────────────────────────────────────
+    # Step 2 — Clean canonical names + merge duplicates
+    # ─────────────────────────────────────────────────────────────────────────
+
+    def step2_clean_names(self) -> None:
+        print("\n" + "═" * 60)
+        print("STEP 2 — CLEAN CANONICAL NAMES  (merge duplicates)")
+        print("═" * 60)
+
+        with self.driver.session() as s:
+            all_nodes = s.run("""
+                MATCH (e:Entity)
+                RETURN e.canonical_name AS name,
+                       id(e)            AS node_id,
+                       e.aliases        AS aliases,
+                       e.entity_type    AS etype
+            """).data()
+
+        print(f"  Loaded {len(all_nodes)} entity nodes from Neo4j")
+
+        # Group by cleaned canonical
+        groups: Dict[str, List[Dict]] = defaultdict(list)
+        for node in all_nodes:
+            clean = resolve_to_canonical(node["name"])
+            groups[clean].append(node)
+
+        to_rename   = []   # (node_id, old_name, new_name)
+        to_merge    = []   # (survivor_id, duplicate_ids, canonical)
+        unchanged   = 0
+
+        for clean_name, nodes in groups.items():
+            if len(nodes) == 1:
+                node = nodes[0]
+                if node["name"] != clean_name:
+                    to_rename.append((node["node_id"], node["name"], clean_name))
+                else:
+                    unchanged += 1
+            else:
+                # Multiple nodes map to same canonical → merge
+                # Survivor = node whose current name is already cleanest
+                survivor = min(nodes, key=lambda n: len(n["name"]))
+                duplicates = [n for n in nodes if n["node_id"] != survivor["node_id"]]
+                to_merge.append((survivor["node_id"], [d["node_id"] for d in duplicates], clean_name))
+
+        print(f"  Unchanged nodes         : {unchanged}")
+        print(f"  Nodes to rename         : {len(to_rename)}")
+        print(f"  Merge groups            : {len(to_merge)}")
+
+        if self.dry_run:
+            print("  [DRY-RUN] No writes performed.")
+            for node_id, old, new in to_rename[:5]:
+                print(f"    RENAME  {old!r} → {new!r}")
+            for surv, dups, canon in to_merge[:5]:
+                print(f"    MERGE   {len(dups)} duplicate(s) into survivor for {canon!r}")
+            return
+
+        # ── Execute renames ────────────────────────────────────────────────
+        renamed = 0
+        with self.driver.session() as s:
+            for node_id, old_name, new_name in to_rename:
+                s.run(
+                    "MATCH (e:Entity) WHERE id(e) = $nid "
+                    "SET e.canonical_name = $new, e.original_name = $old",
+                    nid=node_id, new=new_name, old=old_name,
+                )
+                renamed += 1
+
+        print(f"  [OK] Renamed {renamed} nodes")
+
+        # ── Execute merges ─────────────────────────────────────────────────
+        merged = 0
+        with self.driver.session() as s:
+            for survivor_id, dup_ids, canon_name in to_merge:
+                # Re-point all MENTIONS relationships from duplicates to survivor
+                for dup_id in dup_ids:
+                    s.run("""
+                        MATCH (dup:Entity) WHERE id(dup) = $dup_id
+                        MATCH (surv:Entity) WHERE id(surv) = $surv_id
+                        OPTIONAL MATCH (c:Chunk)-[r:MENTIONS]->(dup)
+                        FOREACH (_ IN CASE WHEN c IS NOT NULL THEN [1] ELSE [] END |
+                            MERGE (c)-[:MENTIONS]->(surv)
+                        )
+                        WITH dup, surv
+                        OPTIONAL MATCH (dup)-[r2:MENTIONS]->(x)
+                        FOREACH (_ IN CASE WHEN x IS NOT NULL THEN [1] ELSE [] END |
+                            MERGE (surv)-[:MENTIONS]->(x)
+                        )
+                        WITH dup
+                        DETACH DELETE dup
+                    """, dup_id=dup_id, surv_id=survivor_id)
+                    merged += 1
+
+                # Set clean canonical name on survivor
+                s.run(
+                    "MATCH (e:Entity) WHERE id(e) = $nid "
+                    "SET e.canonical_name = $name",
+                    nid=survivor_id, name=canon_name,
+                )
+
+        print(f"  [OK] Deleted {merged} duplicate nodes (relationships re-pointed)")
+
+    # ─────────────────────────────────────────────────────────────────────────
+    # Step 3 — Rebuild alias arrays on all Entity nodes
+    # ─────────────────────────────────────────────────────────────────────────
+
+    def step3_rebuild_aliases(self) -> None:
+        print("\n" + "═" * 60)
+        print("STEP 3 — REBUILD ALIAS ARRAYS")
+        print("═" * 60)
+
+        with self.driver.session() as s:
+            nodes = s.run("""
+                MATCH (e:Entity)
+                RETURN id(e) AS node_id,
+                       e.canonical_name AS name,
+                       COALESCE(e.mentions, []) AS existing_mentions
+            """).data()
+
+        print(f"  Processing {len(nodes)} entity nodes…")
+
+        if self.dry_run:
+            # Show sample of what aliases WOULD be set
+            for node in nodes[:5]:
+                aliases = build_aliases_for(node["name"])
+                print(f"    {node['name']!r:40s} → {len(aliases)} aliases: {aliases[:4]}…")
+            print("  [DRY-RUN] No writes performed.")
+            return
+
+        updated = 0
+        batch: List[Dict] = []
+
+        for node in nodes:
+            # Start with dictionary-derived aliases
+            aliases: Set[str] = set(build_aliases_for(node["name"]))
+            # Add any surface forms already stored in `mentions`
+            for mention in (node["existing_mentions"] or []):
+                if mention:
+                    aliases.add(mention)
+                    aliases.add(mention.replace(" ", "_"))
+                    aliases.add(mention.replace("_", " "))
+            # Always include the node's own name in multiple forms
+            n = node["name"]
+            aliases.update([n, n.replace(" ", "_"), n.replace("_", " ")])
+
+            batch.append({
+                "node_id": node["node_id"],
+                "aliases": sorted(a for a in aliases if a),
+            })
+
+            if len(batch) >= 500:
+                self._flush_alias_batch(batch)
+                updated += len(batch)
+                batch = []
+
+        if batch:
+            self._flush_alias_batch(batch)
+            updated += len(batch)
+
+        print(f"  [OK] Rebuilt aliases for {updated} nodes")
+
+    def _flush_alias_batch(self, batch: List[Dict]) -> None:
+        with self.driver.session() as s:
+            s.run("""
+                UNWIND $batch AS row
+                MATCH (e:Entity) WHERE id(e) = row.node_id
+                SET e.aliases = row.aliases
+            """, batch=batch)
+
+    # ─────────────────────────────────────────────────────────────────────────
+    # Step 4 — Create / ensure indexes
+    # ─────────────────────────────────────────────────────────────────────────
+
+    def step4_create_indexes(self) -> None:
+        print("\n" + "═" * 60)
+        print("STEP 4 — CREATE / VERIFY INDEXES")
+        print("═" * 60)
+
+        if self.dry_run:
+            print("  [DRY-RUN] Skipping index creation.")
+            return
+
+        indexes = [
+            # Standard B-tree index on canonical_name for fast equality lookup
+            (
+                "idx_entity_canonical",
+                "CREATE INDEX idx_entity_canonical IF NOT EXISTS "
+                "FOR (e:Entity) ON (e.canonical_name)",
+            ),
+            # Full-text index for CONTAINS and similarity queries
+            (
+                "entity_fulltext",
+                "CALL db.index.fulltext.createNodeIndex("
+                "'entity_fulltext', ['Entity'], ['canonical_name', 'aliases'], "
+                "{analyzer: 'standard'}) YIELD name",
+            ),
+        ]
+
+        with self.driver.session() as s:
+            for idx_name, cypher in indexes:
+                try:
+                    s.run(cypher)
+                    print(f"  [OK] Index '{idx_name}' created or already exists")
+                except Exception as e:
+                    # Full-text index raises if already present on older Neo4j
+                    if "already exists" in str(e).lower() or "equivalent" in str(e).lower():
+                        print(f"  [OK] Index '{idx_name}' already present")
+                    else:
+                        print(f"  [WARN] Index '{idx_name}': {e}")
+
+    # ─────────────────────────────────────────────────────────────────────────
+    # Step 5 — Verify
+    # ─────────────────────────────────────────────────────────────────────────
+
+    def step5_verify(self) -> None:
+        print("\n" + "═" * 60)
+        print("STEP 5 — VERIFY")
+        print("═" * 60)
+
+        # Spot-check: can the retriever now find these entities?
+        test_cases = [
+            ("deodar",      ["deodar", "dbh_1_deodar", "cedrus deodara", "diyar"]),
+            ("chir pine",   ["chir pine", "chir", "pinus roxburghii", "cheerh"]),
+            ("kpk",         ["kpk", "khyber pakhtunkhwa",
+                              "the_province_of_khyber_pakhtunkhwa"]),
+            ("blue pine",   ["blue pine", "biar", "nakhtar"]),
+            ("reserved forest", ["reserved forest", "rf", "reserve forest"]),
+        ]
+
+        print("\n  SPOT-CHECK — simulating retriever CONTAINS queries:\n")
+
+        with self.driver.session() as s:
+            for canonical, probe_terms in test_cases:
+                for term in probe_terms:
+                    result = s.run("""
+                        MATCH (e:Entity)
+                        WHERE toLower(e.canonical_name) = toLower($term)
+                           OR any(alias IN e.aliases WHERE toLower(alias) = toLower($term))
+                           OR toLower(e.canonical_name) CONTAINS toLower($term)
+                           OR any(alias IN e.aliases WHERE toLower(alias) CONTAINS toLower($term))
+                        RETURN e.canonical_name AS found, size(e.aliases) AS alias_count
+                        LIMIT 1
+                    """, term=term).single()
+
+                    status = "✓" if result else "✗ MISS"
+                    if result:
+                        print(f"    {status}  query={term!r:45s} "
+                              f"→ {result['found']!r}  ({result['alias_count']} aliases)")
+                    else:
+                        print(f"    {status}  query={term!r:45s} "
+                              f"→ NOT FOUND (node may not exist in this graph)")
+
+        # Summary counts
+        with self.driver.session() as s:
+            total = s.run("MATCH (e:Entity) RETURN count(e) AS n").single()["n"]
+            with_aliases = s.run("""
+                MATCH (e:Entity)
+                WHERE e.aliases IS NOT NULL AND size(e.aliases) > 0
+                RETURN count(e) AS n
+            """).single()["n"]
+            noisy = s.run("""
+                MATCH (e:Entity)
+                WHERE e.canonical_name =~ '^dbh_.*'
+                   OR e.canonical_name =~ '^the_province_of_.*'
+                   OR e.canonical_name =~ '^cedrus_.*'
+                   OR e.canonical_name =~ '^pinus_.*'
+                   OR e.canonical_name =~ '^standing_.*'
+                RETURN count(e) AS n
+            """).single()["n"]
+
+        print(f"\n  POST-MIGRATION SUMMARY")
+        print(f"  Total entities   : {total}")
+        print(f"  Have aliases     : {with_aliases}  ({100*with_aliases//total if total else 0}%)")
+        print(f"  Still noisy      : {noisy}  (should be 0)")
+
+    # ─────────────────────────────────────────────────────────────────────────
+    # Run all steps
+    # ─────────────────────────────────────────────────────────────────────────
+
+    def run_all(self, steps: Optional[List[int]] = None) -> None:
+        run = steps or [1, 2, 3, 4, 5]
+        if 1 in run:
+            self.step1_audit()
+        if 2 in run:
+            self.step2_clean_names()
+        if 3 in run:
+            self.step3_rebuild_aliases()
+        if 4 in run:
+            self.step4_create_indexes()
+        if 5 in run:
+            self.step5_verify()
+        print("\n[DONE] Migration complete.\n")
+
+
+# ═════════════════════════════════════════════════════════════════════════════
+# CLI
+# ═════════════════════════════════════════════════════════════════════════════
+
+def main() -> None:
+    parser = argparse.ArgumentParser(
+        description="Migrate Neo4j Entity nodes: clean names + rebuild aliases"
+    )
+    parser.add_argument("--uri",      default="bolt://localhost:7687")
+    parser.add_argument("--user",     default="neo4j")
+    parser.add_argument("--password", default="password")
+    parser.add_argument(
+        "--dry-run", action="store_true",
+        help="Audit and preview only — no writes to Neo4j",
+    )
+    parser.add_argument(
+        "--step", type=int, nargs="+",
+        metavar="N", help="Run only specific steps (e.g. --step 3 5)"
+    )
+    parser.add_argument(
+        "--skip-step2", action="store_true",
+        help="Skip duplicate merging (safe if Entity nodes have non-MENTIONS relationships)"
+    )
+    args = parser.parse_args()
+
+    migration = EntityMigration(
+        uri=args.uri,
+        user=args.user,
+        password=args.password,
+        dry_run=args.dry_run,
+    )
+    steps = args.step
+    if args.skip_step2 and not steps:
+        steps = [1, 3, 4, 5]
+        print("[INFO] --skip-step2 set: running steps 1, 3, 4, 5 only")
+
+    try:
+        migration.run_all(steps=steps)
+    finally:
+        migration.close()
+
+
+if __name__ == "__main__":
+    main()

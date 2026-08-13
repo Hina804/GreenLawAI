@@ -1,0 +1,30 @@
+# Indexing Configuration
+
+# Embedding Model
+embedding:
+  model_name: "all-MiniLM-L6-v2"  # HuggingFace model
+  dimension: 384
+  device: "cpu"  # or "cuda" if GPU available
+  batch_size: 32
+
+# Chunking Strategy
+chunking:
+  max_chunk_size: 512  # Maximum tokens per chunk
+  overlap_size: 50     # Overlap between chunks
+  min_chunk_size: 100  # Minimum chunk size
+
+# ChromaDB Configuration
+chromadb:
+  persist_directory: "./chroma_db_v3"
+  collection_name: "legal_docs"
+  distance_metric: "cosine"  # cosine, l2, or ip
+
+# Indexing Paths
+paths:
+  structured_json_dir: "./data_processed/forestry/structured"
+  json_pattern: "*_final_structured.json"
+
+# Neo4j Integration (for future use)
+neo4j:
+  generate_node_ids: true  # Generate UUIDs for Neo4j linking
+  id_prefix: "legal_doc"

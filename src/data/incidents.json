@@ -1,0 +1,98 @@
+[
+    {
+        "id": "INC-2026-001",
+        "date": "2026-03-05",
+        "location": "Swat Valley, Kalam Block",
+        "lat": 35.48,
+        "lon": 72.58,
+        "species": "Deodar",
+        "violation": "Illegal felling of 3 Deodar trees (Reserved)",
+        "penalty_applied": "Rs. 618,000 (Triple penalty due to night offence)",
+        "status": "Investigating",
+        "officer": "Ranger Ahmad"
+    },
+    {
+        "id": "INC-2026-002",
+        "date": "2026-03-07",
+        "location": "Shangla, Forest Zone B",
+        "lat": 34.86,
+        "lon": 72.76,
+        "species": "Chir Pine",
+        "violation": "Encroachment and Chir pine tapping violation",
+        "penalty_applied": "Rs. 98,000 per violation",
+        "status": "Filed",
+        "officer": "Inspector Khan"
+    },
+    {
+        "id": "INC-2026-003",
+        "date": "2026-03-08",
+        "location": "Naran, Kaghan Valley",
+        "lat": 34.91,
+        "lon": 73.65,
+        "species": "Spruce",
+        "violation": "Cutting of Spruce for firewood without permit",
+        "penalty_applied": "Rs. 78,000 expected",
+        "status": "Alert High",
+        "officer": "Guard Zafar"
+    },
+    {
+        "id": "INC-2026-004",
+        "date": "2026-03-08",
+        "location": "Abbottabad, Galiyat Division",
+        "lat": 34.16,
+        "lon": 73.22,
+        "species": "General",
+        "violation": "Unauthorized truck movement detected at night",
+        "penalty_applied": "Pending inspection",
+        "status": "Patrol Dispatched",
+        "officer": "Ranger Bilal"
+    },
+    {
+        "id": "INC-2026-005",
+        "date": "2026-03-28",
+        "location": "Swat Valley, Madyan",
+        "lat": 35.33,
+        "lon": 72.34,
+        "species": "Deodar",
+        "violation": "Illegal logging detected via satellite - 5 Deodar trees felled",
+        "penalty_applied": "Rs. 1,030,000 (5 trees x Rs. 206,000)",
+        "status": "FIR Filed",
+        "officer": "DFO Swat"
+    },
+    {
+        "id": "INC-2026-006",
+        "date": "2026-03-30",
+        "location": "Swat, Mingora Forest Range",
+        "lat": 35.28,
+        "lon": 72.36,
+        "species": "Chir Pine",
+        "violation": "Unauthorized grazing of cattle herd (50+ animals) in Reserved Forest",
+        "penalty_applied": "Rs. 25,000",
+        "status": "Fine Imposed",
+        "officer": "Ranger Farooq"
+    },
+    {
+        "id": "INC-2026-007",
+        "date": "2026-04-01",
+        "location": "Abbottabad, Shimla Hill",
+        "lat": 34.17,
+        "lon": 73.22,
+        "species": "Deodar",
+        "violation": "Night-time timber smuggling attempt intercepted",
+        "penalty_applied": "Rs. 412,000 (Night penalty 2x)",
+        "status": "Arrested",
+        "officer": "Inspector Usman"
+    },
+    {
+        "id": "INC-2026-008",
+        "date": "2026-04-02",
+        "location": "Mansehra, Balakot Forest",
+        "lat": 34.55,
+        "lon": 73.35,
+        "species": "Spruce",
+        "violation": "Deforestation alert confirmed - 2 Spruce trees cut",
+        "penalty_applied": "Rs. 156,000 pending",
+        "status": "Under Investigation",
+        "officer": "Guard Imran"
+    }
+]

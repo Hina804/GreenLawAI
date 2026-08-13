@@ -1,0 +1,65 @@
+data_raw supported files (total): 163
+data_raw non-baseline supported: 143
+new_documents folders: 45
+non-baseline raw files NOT in new_documents output: 108
+  MISSING: analytics\case_volumes_by_court.csv
+  MISSING: analytics\conviction_rates.csv
+  MISSING: analytics\court_analytics_dashboard.xlsx
+  MISSING: analytics\court_efficiency_metrics.csv
+  MISSING: analytics\monthly_case_trends.csv
+  MISSING: analytics\penalty_analysis.csv
+  MISSING: citizen_engagement\Citizen_Reporting_Guide.pdf
+  MISSING: forestry\federal\laws\KP Civil Servants Act 1973..pdf
+  MISSING: forestry\kpk\forms\ACR Forms Gazetted.doc
+  MISSING: forestry\kpk\forms\FORM.docx
+  MISSING: forestry\kpk\laws\rules\Forest Rules for Application NWFP 1950.pdf
+  MISSING: forestry\kpk\laws\rules\KP Forest Force Rules, 2013..pdf
+  MISSING: forestry\kpk\laws\rules\KP Forest Produce Transport Rules, 2004..pdf
+  MISSING: forestry\kpk\laws\rules\KP Joint Forest Mgt Rules, 2004..pdf
+  MISSING: forestry\kpk\laws\rules\KP Sale, sawing & processing of timber rules, 2004.pdf
+  MISSING: forestry\kpk\policies\BTAP, 10 BTTP and general overview of KP Forest Department.pdf
+  MISSING: forestry\kpk\reports\fire\Building Code of Pakistan (Fire Safety Provisions-2016),.pdf
+  MISSING: forestry\kpk\reports\fire\Fire Report.pdf
+  MISSING: forestry\manuals\Instructional Manual - International Rescue Challenge (PDF)..pdf
+  MISSING: judiciary\high court\2018_LHC_Asim_Farooq_Deforestation_Mandamus.pdf
+  MISSING: judiciary\high court\2021_PHC_Nathiagali_Hotel_Forest_Encroachmen.pdf
+  MISSING: judiciary\high court\2024_PHC_Ayubia_Chairlift_Commercial_Development.pdf
+  MISSING: judiciary\high court\2024_PHC_WP701_Ayubia_National_Park_Construction_Ban.pdf
+  MISSING: judiciary\high court\2024_SC_Shisham_Trees_Mardan_Illegal_Logging.pdf
+  MISSING: judiciary\supereme court\2022_SCMR_708_State_vs_Sher_Wali.pdf
+  ... +83 more
+
+Phase 1 empty raw_text: 45/45
+Phase 1 non-empty: 0/45
+Phase 0 total_pages=0: 41/45
+Phase 0 quality=unreadable: 41/45
+
+Smallest 5 doc folders by bytes:
+  Forest  Manual-Vol-I: 36330 bytes
+  forest_act_1927: 37100 bytes
+  Hazara Forest Act, 1936: 37297 bytes
+  kpk_forest_ordinance_2002: 37333 bytes
+  KP Civil Servants Act 1973: 37340 bytes
+
+Largest 5 doc folders by bytes:
+  The-Khyber-Pakhtunkhwa-Climate-Action-Board-Act-2025-GC: 42580 bytes
+  Instructional Manual - International Rescue Challenge (PDF): 42535 bytes
+  201908021564725298-NWFP Manual of Secretariat Instructions: 42523 bytes
+  Market Rate System Notification 2024 (1st Bi Annual): 42360 bytes
+  How_to_Report_Illegal_Logging_Quick_Guide: 42218 bytes
+
+FAISS dir exists: True
+FAISS files: []
+
+graph_exports exists: False
+batch_manifest_new.json exists at new_documents: False
+deferred_bottlenecks.json exists at new_documents: False
+batch_manifest_new.json exists at data_processed: False
+phase_5_6_background_log.txt exists at data_processed: True
+
+Quality target presence in output folders:
+  2022_SCMR_88: NOT FOUND
+  PER-2024-001: NOT FOUND
+  species_price_list: NOT FOUND
+  HARIPUR: NOT FOUND
+  West_Pakistan_Land_Revenue_Act_1967: ['West_Pakistan_Land_Revenue_Act_1967']

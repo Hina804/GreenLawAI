@@ -1,0 +1,37 @@
+[
+  {
+    "original_path": "C:\\Users\\QURESHI COMP\\Downloads\\a (1).pdf",
+    "original_name": "a (1).pdf",
+    "preview_text": ""
+  },
+  {
+    "original_path": "C:\\Users\\QURESHI COMP\\Downloads\\a.pdf",
+    "original_name": "a.pdf",
+    "preview_text": ""
+  },
+  {
+    "original_path": "C:\\Users\\QURESHI COMP\\Downloads\\CamScanner 18-02-2026 13.27.pdf",
+    "original_name": "CamScanner 18-02-2026 13.27.pdf",
+    "preview_text": "CamScanner\nCamScanner\n"
+  },
+  {
+    "original_path": "C:\\Users\\QURESHI COMP\\Downloads\\manzil.pdf",
+    "original_name": "manzil.pdf",
+    "preview_text": ""
+  },
+  {
+    "original_path": "C:\\Users\\QURESHI COMP\\Desktop\\KPK Specialization .pdf",
+    "original_name": "KPK Specialization .pdf",
+    "preview_text": "KPK FORESTRY 100% SPECIALIZATION BLUEPRINT v2.0\n\"The Living Law Library\" - Complete Document Registry for Any Question\nDocument Status Legend\nINGESTED: In pipeline, processed, in knowledge graph\n✅\nPROCESSING: Currently in preprocessing pipeline\nMISSING: Known gap, needs acquisition\n❌\nLOCATION: Where to find it\nPRIORITY: 1 (Essential) to 5 (Nice-to-have)\nTIERED SPECIALIZATION MATRIX\nTIER 1: CORE LEGAL FOUNDATION (100% Complete)\nEnables: \"What does the law say about...\"\ntext\nKPK Forest Ordinance, 2002 (Amended 2011)\n✅\nHazara Forest Act, 1936 (Historical continuity)\n✅\nWest Pakistan Land Revenue Act, 1967 (Property rights)\n✅\nKPK Land Revenue Amendment Act, 2014 (Updated revenue)\n✅\nPakistan Forest Act, 1927 (Federal overlay)\n✅\nEnvironmental Protection Act, 1997 (Cross-sectoral)\n✅\nTIER 2: OPERATIONAL RULES (95% Complete)\nEnables: \"How do I...\" procedures\ntext\nKPK Forest Produce Transport Rules, 2004\n✅\nKPK Forest Officers (Powers/Dues) Rules, 2004\n✅\nKPK Management of Guzara Forest Rules, 2004\n✅\nKPK Protected Forest Management Rules, 2005\n✅\nKPK Private Game Reserve Rules, 1993\n✅\nKPK Duty on Forest Produce Rules, 2004\n✅\nMarket Rate System (MRS) Circulars 2015-2024\n✅\nFire Safety Order 2019 & SOPs\n✅\nPolice Rules 1937 (Arrest/search powers)\n✅\n**Missing**: KPK Forest Offence Reporting SOP 2022\n❌\nLocation: FD Headquarters, Admin Wing\nPriority: 1\nGEOGRAPHIC COMPLETENESS HIERARCHY\nPROVINCIAL LEVEL (100%)\nEnables province-wide questions\ntext\nAll documents in Tiers 1 & 2\n✅\nKPK Wildlife Act, 2015 (Ecosystem integration)\n✅\nKPK Environmental Protection Rules, 2019\n✅\nProvincial Finance Commission Awards\n✅\nDIVISION LEVEL (Currently 15%)\nEnables: \"In [Division], how do I...\"\n"
+  },
+  {
+    "original_path": "C:\\Users\\QURESHI COMP\\Desktop\\Presentation_project_progress_FYP-1_f22-014, f22-024.pdf",
+    "original_name": "Presentation_project_progress_FYP-1_f22-014, f22-024.pdf",
+    "preview_text": ""
+  },
+  {
+    "original_path": "C:\\Users\\QURESHI COMP\\Desktop\\Project_progress_report_f22014, f22024.pdf",
+    "original_name": "Project_progress_report_f22014, f22024.pdf",
+    "preview_text": "Project Progress Report: GreenLawAI\nDate:January25,2026\nTeamMembers:HinaAli(COMSC-F222-014),EmanIrfan(COMSC-F22-024)\n1. Overview\nSincetheprojectstarted,wehavesuccessfullymovedfromrawlegaldocumentstoa\nworking\"LegalIntelligence\"system.Wedidn'twanttobuildjustanotherbasic\nchatbotthatguessesthelaw.Instead,wefocusedonbuildingasystemthatactually\nreadsthelawbeforeitspeaks.\nWe'vecompletedtheheavyfoundationalwork(Phase1)andmostofthe\nintelligencelayer(Phase2).\n2. Data Preprocessing\nThebiggestchallengewasthesourcematerial.LegaldocumentsliketheForestAct\n1927andKPKForestOrdinance2002aremessy,fullofOCRerrors,andstructuredin\nawaythatregularAIcan'thandle.\nHowIprocessedthedata(The5Phases):\n1. Phase1:RawExtraction:Iusedspecializedtoolstopullthetextoutofthe\nscannedPDFs.Thisstepwastrickybecauseoftheside-notesandold-style\nformattingwhichoftenbrokethesentencesmiddle-way.\n2. Phase2:SemanticSegmenting:Insteadofjustcuttingthetextintorandom\nblocks,Ibuiltasmart\"Segmenter.\"Itreadsthetextandidentifieswhere\naChapterbegins,whereaSectionstarts,andwhereaScheduleends.This\nkeepsthelegalcontextalive.\n3. Phase3:HierarchyMapping:Weconvertedthecleanedtextintoa\nstructuredJSONhierarchy.Thismeansforeverysingleparagraph,weknow\nexactlywhichLaw,Chapter,andSectionitbelongsto.\n4. Phase4:EntityExtraction:Iwroteascripttofindallthe\"ImportantWords\"\nliketreespecies(Deodar),legalroles(Conservator),andpenalties.These\nwereusedlatertobuildourKnowledgeGraph.\n5. Phase5:SemanticRoleTagging:Thiswasmyfinalcleanup.Itaggedlegal\nchunksas\"Definitions,\"\"RegulatoryRules,\"or\"Penalties.\"Thisiswhatallows\nourAItoknowitshouldlookina\"Definitions\"chunkwhenyouask\"What\nis...?\"\nWhythismatters:MostAIprojectsjustdumptextintoafolder.Bydoingthese5\nphases,webuiltaGroundTruthdatabasewhereeverywordistrackedand\norganized.\n3. The \"Two-Brain\" Search Engine (GraphRAG)\nTomakethesearchaccurate,IdecidedtogobeyondstandardRAG.Iimplemented\naHybridRetrievalsystem:\n FAISS(VectorDatabase):Thissearchesfortextthatissemanticallysimilarto\ntheuser'squestion.\n Neo4j"
+  }
+]

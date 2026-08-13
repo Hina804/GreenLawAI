@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Predict · GREENLAW AI Hazara Forest Intelligence</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    .scenario-legend {
+      display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 12px;
+    }
+    .scenario-item {
+      display: flex; align-items: center; gap: 6px;
+      font-size: 12px; font-weight: 600;
+    }
+    .scenario-dot { width: 10px; height: 10px; border-radius: 50%; }
+
+    .action-alert {
+      display: flex; align-items: flex-start; gap: 12px;
+      padding: 14px 16px;
+      border-radius: var(--radius-sm);
+      margin-bottom: 10px;
+      border-left: 4px solid;
+    }
+    .action-alert.urgent   { background: var(--red-light);    border-color: var(--red-alert); }
+    .action-alert.warning  { background: var(--amber-light);  border-color: var(--amber); }
+    .action-alert.info     { background: var(--sky-light);    border-color: var(--sky); }
+    .action-alert.success  { background: var(--forest-pale);  border-color: var(--forest-bright); }
+
+    .action-alert-icon { font-size: 18px; flex-shrink: 0; margin-top: 2px; }
+    .action-alert-title { font-size: 13px; font-weight: 700; color: var(--gray-800); }
+    .action-alert-text  { font-size: 12.5px; color: var(--gray-600); margin-top: 3px; line-height: 1.5; }
+    .action-alert-btn {
+      margin-top: 8px; padding: 5px 12px;
+      border: none; border-radius: 6px;
+      font-size: 11.5px; font-weight: 700; cursor: pointer;
+    }
+    .action-alert.urgent .action-alert-btn   { background: var(--red-alert);     color: white; }
+    .action-alert.warning .action-alert-btn  { background: var(--amber);          color: white; }
+    .action-alert.info .action-alert-btn     { background: var(--sky);            color: white; }
+    .action-alert.success .action-alert-btn  { background: var(--forest-bright); color: white; }
+
+    /* Risk meter */
+    .risk-meter {
+      width: 100%; height: 12px; background: var(--gray-200);
+      border-radius: 6px; overflow: hidden; margin-top: 6px;
+    }
+    .risk-meter-fill {
+      height: 100%; border-radius: 6px;
+      transition: width .8s ease;
+    }
+    .risk-meter-fill.critical { background: linear-gradient(90deg, var(--red-alert), var(--orange)); }
+    .risk-meter-fill.high     { background: linear-gradient(90deg, var(--orange), var(--amber)); }
+    .risk-meter-fill.medium   { background: linear-gradient(90deg, var(--amber), #fbbf24); }
+    .risk-meter-fill.low      { background: linear-gradient(90deg, var(--forest-bright), #6dd89a); }
+
+    /* Model cards */
+    .model-card {
+      background: var(--gray-50); border: 1px solid var(--border-light);
+      border-radius: var(--radius-sm); padding: 14px;
+    }
+    .model-name  { font-size: 13px; font-weight: 700; color: var(--gray-800); }
+    .model-acc   { font-size: 22px; font-weight: 800; font-family: var(--font-mono); color: var(--forest-mid); }
+    .model-type  { font-size: 11px; color: var(--gray-500); }
+
+    .models-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+  </style>
+</head>
+<body>
+<div id="nav-container"></div>
+
+<div class="main-wrapper">
+  <header class="topbar">
+    <button class="menu-toggle"><i class="fa fa-bars"></i></button>
+    <div>
+      <div class="topbar-title">Risk Forecasting & AI Predictions</div>
+      <div class="topbar-sub">Scenario Analysis · Deforestation Projections · Early Warning System</div>
+    </div>
+    <div class="topbar-right">
+      <div class="topbar-badge"><i class="fa fa-brain"></i> AI Engine Active</div>
+      <div class="topbar-clock">PKT 00:00:00</div>
+    </div>
+  </header>
+
+  <main class="page-content">
+
+    <!-- KPIs -->
+    <div class="kpi-grid">
+      <div class="kpi-card fire">
+        <div class="kpi-icon-wrap fire"><i class="fa fa-exclamation-triangle"></i></div>
+        <div class="kpi-body">
+          <div class="kpi-value" data-target="87" data-suffix="%">0</div>
+          <div class="kpi-label">Fire Risk (Next 7d)</div>
+          <div class="kpi-delta up"><i class="fa fa-arrow-up"></i> Mansehra HIGH</div>
+        </div>
+      </div>
+      <div class="kpi-card defo">
+        <div class="kpi-icon-wrap defo"><i class="fa fa-chart-line"></i></div>
+        <div class="kpi-body">
+          <div class="kpi-value" data-target="2340">0</div>
+          <div class="kpi-label">Projected ha Loss (1yr)</div>
+          <div class="kpi-delta up"><i class="fa fa-arrow-up"></i> Current trend</div>
+        </div>
+      </div>
+      <div class="kpi-card green">
+        <div class="kpi-icon-wrap green"><i class="fa fa-brain"></i></div>
+        <div class="kpi-body">
+          <div class="kpi-value" data-target="93" data-suffix="%">0</div>
+          <div class="kpi-label">Model Accuracy</div>
+          <div class="kpi-delta down"><i class="fa fa-check"></i> v4.2 Random Forest</div>
+        </div>
+      </div>
+      <div class="kpi-card co2">
+        <div class="kpi-icon-wrap co2"><i class="fa fa-smog"></i></div>
+        <div class="kpi-body">
+          <div class="kpi-value" data-target="11200">0</div>
+          <div class="kpi-label">CO₂ at Risk (5yr, t)</div>
+          <div class="kpi-delta up"><i class="fa fa-arrow-up"></i> Worst case projection</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 5-Year Projection Chart + Scenarios -->
+    <div class="section-grid col-3-2" style="margin-bottom:20px;">
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title"><i class="fa fa-chart-area"></i> 5-Year Deforestation Projection</div>
+          <div class="card-badge">Scenario Analysis</div>
+        </div>
+        <div class="card-body">
+          <div class="scenario-legend">
+            <div class="scenario-item"><div class="scenario-dot" style="background:#52a872;"></div> Best Case (Enforcement)</div>
+            <div class="scenario-item"><div class="scenario-dot" style="background:#f59e0b;"></div> Current Trend</div>
+            <div class="scenario-item"><div class="scenario-dot" style="background:#ef4444;"></div> Worst Case (No Action)</div>
+          </div>
+          <div class="chart-container" style="height:280px;">
+            <canvas id="projectionChart"></canvas>
+          </div>
+        </div>
+      </div>
+
+      <!-- Action Recommendations -->
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title"><i class="fa fa-lightbulb"></i> AI Recommendations</div>
+          <div class="live-badge"><span class="live-dot"></span> LIVE</div>
+        </div>
+        <div class="card-body">
+          <div class="action-alert urgent">
+            <div class="action-alert-icon">🚨</div>
+            <div>
+              <div class="action-alert-title">DEPLOY FIRE PATROL — Mansehra Block-7</div>
+              <div class="action-alert-text">87% fire probability over next 72h. Temperature 33°C, humidity 18%, wind 24 km/h. Immediate aerial surveillance recommended.</div>
+              <button class="action-alert-btn">Deploy Now</button>
+            </div>
+          </div>
+          <div class="action-alert warning">
+            <div class="action-alert-icon">⚠️</div>
+            <div>
+              <div class="action-alert-title">TIMBER CHECKPOINT — Abbottabad N11</div>
+              <div class="action-alert-text">Pattern analysis shows 3 transit violations in 10 days at this corridor. Recommend temporary checkpoint deployment.</div>
+              <button class="action-alert-btn">Issue Order</button>
+            </div>
+          </div>
+          <div class="action-alert info">
+            <div class="action-alert-icon">📊</div>
+            <div>
+              <div class="action-alert-title">REFORESTATION ZONE — Kohistan Sector</div>
+              <div class="action-alert-text">Satellite confirms 38 ha degraded. Planting season optimal. Recommend 15,000 saplings deployment in October window.</div>
+              <button class="action-alert-btn">Plan Project</button>
+            </div>
+          </div>
+          <div class="action-alert success">
+            <div class="action-alert-icon">✅</div>
+            <div>
+              <div class="action-alert-title">GOOD NEWS — Battagram Recovery</div>
+              <div class="action-alert-text">AI detects 4.2% canopy recovery in Battagram Protected Area. Patrol enforcement showing positive outcomes.</div>
+              <button class="action-alert-btn">View Report</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- High-Risk Patrol Zones -->
+    <div class="section-grid col-2" style="margin-bottom:20px;">
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title"><i class="fa fa-map-pin"></i> High-Risk Patrol Zones</div>
+          <div class="card-badge">AI-Generated</div>
+        </div>
+        <div class="card-body">
+          <div class="zone-item">
+            <div class="zone-risk-pct high">87%</div>
+            <div style="flex:1;">
+              <div class="zone-name">Mansehra Block-7 (Darband Village)</div>
+              <div class="zone-detail">Dry biomass + wind corridor + prior incident history</div>
+            </div>
+            <span class="badge critical">Critical</span>
+          </div>
+          <div class="zone-item">
+            <div class="zone-risk-pct high">79%</div>
+            <div style="flex:1;">
+              <div class="zone-name">Torghar Hills (Lachi Dara)</div>
+              <div class="zone-detail">Slope 28° + seasonal drought + access track detected</div>
+            </div>
+            <span class="badge high">High</span>
+          </div>
+          <div class="zone-item">
+            <div class="zone-risk-pct high">74%</div>
+            <div style="flex:1;">
+              <div class="zone-name">Battagram East (Allai Valley)</div>
+              <div class="zone-detail">Illegal settlement expansion detected via SAR</div>
+            </div>
+            <span class="badge high">High</span>
+          </div>
+          <div class="zone-item">
+            <div class="zone-risk-pct medium">61%</div>
+            <div style="flex:1;">
+              <div class="zone-name">Abbottabad Reserve (Nathiagali)</div>
+              <div class="zone-detail">Tourism pressure + 3 deforestation events in 30d</div>
+            </div>
+            <span class="badge medium">Medium</span>
+          </div>
+          <div class="zone-item">
+            <div class="zone-risk-pct medium">53%</div>
+            <div style="flex:1;">
+              <div class="zone-name">Kohistan North (Pattan Sector)</div>
+              <div class="zone-detail">Charcoal burning activity + NDVI decline 8%</div>
+            </div>
+            <span class="badge medium">Medium</span>
+          </div>
+          <div class="zone-item">
+            <div class="zone-risk-pct low">38%</div>
+            <div style="flex:1;">
+              <div class="zone-name">Haripur Lowlands (Ghazi Zone)</div>
+              <div class="zone-detail">Agricultural encroachment risk at forest edge</div>
+            </div>
+            <span class="badge low">Low</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Risk heatmap chart + models -->
+      <div style="display:flex;flex-direction:column;gap:20px;">
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title"><i class="fa fa-chart-bar"></i> District Risk Heatmap</div>
+          </div>
+          <div class="card-body">
+            <div class="chart-container" style="height:220px;">
+              <canvas id="riskHeatmap"></canvas>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title"><i class="fa fa-robot"></i> AI Models Active</div>
+          </div>
+          <div class="card-body">
+            <div class="models-grid">
+              <div class="model-card">
+                <div class="model-name">Fire Risk</div>
+                <div class="model-acc">93%</div>
+                <div class="model-type">Random Forest v4.2</div>
+              </div>
+              <div class="model-card">
+                <div class="model-name">Deforestation</div>
+                <div class="model-acc">91%</div>
+                <div class="model-type">CNN + SAR Fusion</div>
+              </div>
+              <div class="model-card">
+                <div class="model-name">Patrol Predict</div>
+                <div class="model-acc">88%</div>
+                <div class="model-type">XGBoost v2.1</div>
+              </div>
+            </div>
+            <div style="margin-top:14px;">
+              <div class="stat-row"><span class="stat-label">Last Model Retrain</span><span class="stat-value">3 days ago</span></div>
+              <div class="stat-row"><span class="stat-label">Training Data Size</span><span class="stat-value">2.4M records</span></div>
+              <div class="stat-row"><span class="stat-label">Validation Accuracy</span><span class="stat-value text-green">92.8%</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-text">GREENLAW AI · HAZARA FOREST INTELLIGENCE · v4.0</div>
+    <div class="footer-refs">KP FOREST ORDINANCE 2002 · FOREST ACT 1927 · FIRMS · GFW · OWM</div>
+  </footer>
+</div>
+
+<script src="js/nav.js"></script>
+<script src="js/shared.js"></script>
+<script>
+// 5-Year Projection
+const years = ['2024','2025','2026','2027','2028','2029'];
+new Chart(document.getElementById('projectionChart'), {
+  type: 'line',
+  data: {
+    labels: years,
+    datasets: [
+      {
+        label: 'Best Case (Enforcement)',
+        data: [1240, 1100, 920, 760, 610, 480],
+        borderColor: '#52a872', backgroundColor: 'rgba(82,168,114,.08)',
+        fill: true, tension: .4, borderWidth: 2.5, borderDash: [5,4],
+        pointRadius: 4, pointHoverRadius: 6
+      },
+      {
+        label: 'Current Trend',
+        data: [1240, 1420, 1680, 1920, 2150, 2340],
+        borderColor: '#f59e0b', backgroundColor: 'rgba(245,158,11,.06)',
+        fill: true, tension: .4, borderWidth: 3,
+        pointRadius: 4, pointHoverRadius: 6
+      },
+      {
+        label: 'Worst Case (No Action)',
+        data: [1240, 1700, 2200, 2900, 3500, 4200],
+        borderColor: '#ef4444', backgroundColor: 'rgba(239,68,68,.05)',
+        fill: true, tension: .4, borderWidth: 2.5, borderDash: [8,4],
+        pointRadius: 4, pointHoverRadius: 6
+      }
+    ]
+  },
+  options: {
+    responsive: true, maintainAspectRatio: false,
+    plugins: {
+      legend: { display: false },
+      tooltip: { mode: 'index', intersect: false }
+    },
+    scales: {
+      x: { grid: { color: '#f1f5f9' } },
+      y: {
+        grid: { color: '#f1f5f9' }, beginAtZero: false,
+        title: { display: true, text: 'Hectares Lost' }
+      }
+    }
+  }
+});
+
+// Risk heatmap
+new Chart(document.getElementById('riskHeatmap'), {
+  type: 'bar',
+  data: {
+    labels: ['Mansehra','Torghar','Battagram','Abbottabad','Kohistan','Haripur'],
+    datasets: [
+      { label: 'Fire Risk %',          data: [87, 79, 74, 61, 45, 38], backgroundColor: 'rgba(239,68,68,.7)', borderRadius: 5 },
+      { label: 'Deforestation Risk %', data: [70, 65, 60, 55, 75, 42], backgroundColor: 'rgba(245,158,11,.7)', borderRadius: 5 }
+    ]
+  },
+  options: {
+    indexAxis: 'y',
+    responsive: true, maintainAspectRatio: false,
+    plugins: { legend: { position: 'top' } },
+    scales: {
+      x: { grid: { color: '#f1f5f9' }, max: 100, ticks: { callback: v => v + '%' } },
+      y: { grid: { display: false } }
+    }
+  }
+});
+</script>
+</body>
+</html>

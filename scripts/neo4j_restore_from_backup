@@ -1,0 +1,84 @@
+"""
+neo4j_restore_from_backup.py
+─────────────────────────────
+Restores Entity nodes from the JSON produced by neo4j_safe_backup.py.
+Run this ONLY if migration caused data loss.
+
+Usage:
+    python neo4j_restore_from_backup.py --input entity_backup.json
+    python neo4j_restore_from_backup.py --input entity_backup.json --dry-run
+"""
+
+from __future__ import annotations
+
+import argparse
+import json
+from neo4j import GraphDatabase
+
+
+def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--uri",      default="bolt://localhost:7687")
+    parser.add_argument("--user",     default="neo4j")
+    parser.add_argument("--password", default="password")
+    parser.add_argument("--input",    required=True)
+    parser.add_argument("--dry-run",  action="store_true")
+    args = parser.parse_args()
+
+    with open(args.input, encoding="utf-8") as f:
+        backup = json.load(f)
+
+    entities = backup["entities"]
+    print(f"\nRestoring {len(entities)} entity records from '{args.input}'")
+    print(f"Backup taken at: {backup['exported_at']}")
+
+    if args.dry_run:
+        print("[DRY-RUN] No writes. Sample of what would be restored:")
+        for e in entities[:5]:
+            print(f"  {e['canonical_name']!r}  aliases={len(e.get('aliases') or [])}  "
+                  f"chunks={len(e.get('chunk_ids') or [])}")
+        return
+
+    driver = GraphDatabase.driver(args.uri, auth=(args.user, args.password))
+    restored = 0
+
+    with driver.session() as s:
+        for entity in entities:
+            cn = entity.get("canonical_name")
+            if not cn:
+                continue
+
+            # Restore the Entity node
+            s.run("""
+                MERGE (e:Entity {canonical_name: $cn})
+                SET e.entity_type   = $etype,
+                    e.aliases       = $aliases,
+                    e.mentions      = $mentions,
+                    e.frequency     = $frequency,
+                    e.original_name = $original_name
+            """,
+                cn           = cn,
+                etype        = entity.get("entity_type", "UNKNOWN"),
+                aliases      = entity.get("aliases") or [],
+                mentions     = entity.get("mentions") or [],
+                frequency    = entity.get("frequency") or 1,
+                original_name= entity.get("original_name") or cn,
+            )
+
+            # Re-link to Chunk nodes
+            for chunk_id in (entity.get("chunk_ids") or []):
+                if chunk_id:
+                    s.run("""
+                        MATCH (e:Entity {canonical_name: $cn})
+                        MATCH (c:Chunk  {chunk_id: $cid})
+                        MERGE (c)-[:MENTIONS]->(e)
+                    """, cn=cn, cid=chunk_id)
+
+            restored += 1
+
+    print(f"[OK] Restored {restored} entity nodes with MENTIONS relationships.")
+    driver.close()
+
+
+if __name__ == "__main__":
+    main()

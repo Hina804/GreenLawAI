@@ -1,0 +1,414 @@
+{
+  "summary": {
+    "total_documents_analyzed": 117,
+    "clusters_found": 23
+  },
+  "clusters": [
+    [
+      {
+        "name": "BTAP, 10 BTTP and general overview of KP Forest Department (1).pptx",
+        "path": "e:\\GL_AI\\data_raw\\incoming_non_pdf\\BTAP, 10 BTTP and general overview of KP Forest Department (1).pptx",
+        "similarity": 0.9999999999999998
+      },
+      {
+        "name": "BTAP, 10 BTTP and general overview of KP Forest Department (1).pptx",
+        "path": "e:\\GL_AI\\data_raw\\incoming_unfiltered\\BTAP, 10 BTTP and general overview of KP Forest Department (1).pptx",
+        "similarity": 0.9999999999999998
+      },
+      {
+        "name": "BTAP, 10 BTTP and general overview of KP Forest Department (2).pptx",
+        "path": "e:\\GL_AI\\data_raw\\incoming_unfiltered\\BTAP, 10 BTTP and general overview of KP Forest Department (2).pptx",
+        "similarity": 0.9999999999999998
+      },
+      {
+        "name": "BTAP, 10 BTTP and general overview of KP Forest Department (3).pptx",
+        "path": "e:\\GL_AI\\data_raw\\incoming_unfiltered\\BTAP, 10 BTTP and general overview of KP Forest Department (3).pptx",
+        "similarity": 0.9999999999999998
+      },
+      {
+        "name": "BTAP, 10 BTTP and general overview of KP Forest Department (4).pptx",
+        "path": "e:\\GL_AI\\data_raw\\incoming_unfiltered\\BTAP, 10 BTTP and general overview of KP Forest Department (4).pptx",
+        "similarity": 0.9999999999999998
+      },
+      {
+        "name": "BTAP, 10 BTTP and general overview of KP Forest Department.pptx",
+        "path": "e:\\GL_AI\\data_raw\\incoming_unfiltered\\BTAP, 10 BTTP and general overview of KP Forest Department.pptx",
+        "similarity": 0.9999999999999998
+      }
+    ],
+    [
+      {
+        "name": "Restoration of Scientific Management in KP (1).doc",
+        "path": "e:\\GL_AI\\data_raw\\incoming_non_pdf\\Restoration of Scientific Management in KP (1).doc",
+        "similarity": 1.0
+      },
+      {
+        "name": "Restoration of Scientific Management in KP (2).doc",
+        "path": "e:\\GL_AI\\data_raw\\incoming_non_pdf\\Restoration of Scientific Management in KP (2).doc",
+        "similarity": 1.0
+      },
+      {
+        "name": "Restoration of Scientific Management in KP (1).doc",
+        "path": "e:\\GL_AI\\data_raw\\incoming_unfiltered\\Restoration of Scientific Management in KP (1).doc",
+        "similarity": 1.0
+      },
+      {
+        "name": "Restoration of Scientific Management in KP.doc",
+        "path": "e:\\GL_AI\\data_raw\\incoming_unfiltered\\Restoration of Scientific Management in KP.doc",
+        "similarity": 1.0
+      }
+    ],
+    [
+      {
+        "name": "Signature.doc",
+        "path": "e:\\GL_AI\\data_raw\\incoming_non_pdf\\Signature.doc",
+        "similarity": 1.0
+      },
+      {
+        "name": "Signature (1) (1).doc",
+        "path": "e:\\GL_AI\\data_raw\\incoming_unfiltered\\Signature (1) (1).doc",
+        "similarity": 1.0
+      },
+      {
+        "name": "Signature (1) (1)_23.doc",
+        "path": "e:\\GL_AI\\data_raw\\incoming_unfiltered\\Signature (1) (1)_23.doc",
+        "similarity": 1.0
+      },
+      {
+        "name": "Signature (1) (2).doc",
+        "path": "e:\\GL_AI\\data_raw\\incoming_unfiltered\\Signature (1) (2).doc",
+        "similarity": 1.0
+      },
+      {
+        "name": "Signature (1).doc",
+        "path": "e:\\GL_AI\\data_raw\\incoming_unfiltered\\Signature (1).doc",
+        "similarity": 1.0
+      }
+    ],
+    [
+      {
+        "name": "strengthening_of_demarcation_division updated.docx",
+        "path": "e:\\GL_AI\\data_raw\\incoming_non_pdf\\strengthening_of_demarcation_division updated.docx",
+        "similarity": 0.9999999999999988
+      },
+      {
+        "name": "strengthening_of_demarcation_division updated (1).docx",
+        "path": "e:\\GL_AI\\data_raw\\incoming_unfiltered\\strengthening_of_demarcation_division updated (1).docx",
+        "similarity": 0.9999999999999988
+      },
+      {
+        "name": "strengthening_of_demarcation_division updated.docx",
+        "path": "e:\\GL_AI\\data_raw\\incoming_unfiltered\\strengthening_of_demarcation_division updated.docx",
+        "similarity": 0.9999999999999988
+      }
+    ],
+    [
+      {
+        "name": "Table of Contents.doc",
+        "path": "e:\\GL_AI\\data_raw\\incoming_non_pdf\\Table of Contents.doc",
+        "similarity": 1.0000000000000007
+      },
+      {
+        "name": "Table of Contents (1).doc",
+        "path": "e:\\GL_AI\\data_raw\\incoming_unfiltered\\Table of Contents (1).doc",
+        "similarity": 1.0000000000000007
+      },
+      {
+        "name": "Table of Contents (1)_30.doc",
+        "path": "e:\\GL_AI\\data_raw\\incoming_unfiltered\\Table of Contents (1)_30.doc",
+        "similarity": 1.0000000000000007
+      },
+      {
+        "name": "Table of Contents (2).doc",
+        "path": "e:\\GL_AI\\data_raw\\incoming_unfiltered\\Table of Contents (2).doc",
+        "similarity": 1.0000000000000007
+      },
+      {
+        "name": "Table of Contents.doc",
+        "path": "e:\\GL_AI\\data_raw\\incoming_unfiltered\\Table of Contents.doc",
+        "similarity": 1.0000000000000007
+      }
+    ],
+    [
+      {
+        "name": "Title Page.doc",
+        "path": "e:\\GL_AI\\data_raw\\incoming_non_pdf\\Title Page.doc",
+        "similarity": 1.0
+      },
+      {
+        "name": "Title Page (1) (1).doc",
+        "path": "e:\\GL_AI\\data_raw\\incoming_unfiltered\\Title Page (1) (1).doc",
+        "similarity": 1.0
+      },
+      {
+        "name": "Title Page (1) (2).doc",
+        "path": "e:\\GL_AI\\data_raw\\incoming_unfiltered\\Title Page (1) (2).doc",
+        "similarity": 1.0
+      },
+      {
+        "name": "Title Page (1).doc",
+        "path": "e:\\GL_AI\\data_raw\\incoming_unfiltered\\Title Page (1).doc",
+        "similarity": 1.0
+      }
+    ],
+    [
+      {
+        "name": "Watershed PC.I (27.09.2022).doc",
+        "path": "e:\\GL_AI\\data_raw\\incoming_non_pdf\\Watershed PC.I (27.09.2022).doc",
+        "similarity": 1.0000000000000007
+      },
+      {
+        "name": "Watershed PC.I (27.09.2022) (1).doc",
+        "path": "e:\\GL_AI\\data_raw\\incoming_unfiltered\\Watershed PC.I (27.09.2022) (1).doc",
+        "similarity": 1.0000000000000007
+      },
+      {
+        "name": "Watershed PC.I (27.09.2022) (1)_38.doc",
+        "path": "e:\\GL_AI\\data_raw\\incoming_unfiltered\\Watershed PC.I (27.09.2022) (1)_38.doc",
+        "similarity": 1.0000000000000007
+      },
+      {
+        "name": "Watershed PC.I (27.09.2022) (2).doc",
+        "path": "e:\\GL_AI\\data_raw\\incoming_unfiltered\\Watershed PC.I (27.09.2022) (2).doc",
+        "similarity": 1.0000000000000007
+      },
+      {
+        "name": "Watershed PC.I (27.09.2022).doc",
+        "path": "e:\\GL_AI\\data_raw\\incoming_unfiltered\\Watershed PC.I (27.09.2022).doc",
+        "similarity": 1.0000000000000007
+      }
+    ],
+    [
+      {
+        "name": "CamScanner 18-02-2026 13.27.pdf",
+        "path": "e:\\GL_AI\\data_raw\\incoming_unfiltered\\CamScanner 18-02-2026 13.27.pdf",
+        "similarity": 1.0
+      },
+      {
+        "name": "CamScanner 26-02-2026 15.01 (1).pdf",
+        "path": "e:\\GL_AI\\data_raw\\incoming_unfiltered\\CamScanner 26-02-2026 15.01 (1).pdf",
+        "similarity": 1.0
+      },
+      {
+        "name": "CamScanner 26-02-2026 15.01 (2).pdf",
+        "path": "e:\\GL_AI\\data_raw\\incoming_unfiltered\\CamScanner 26-02-2026 15.01 (2).pdf",
+        "similarity": 1.0
+      },
+      {
+        "name": "CamScanner 26-02-2026 15.01.pdf",
+        "path": "e:\\GL_AI\\data_raw\\incoming_unfiltered\\CamScanner 26-02-2026 15.01.pdf",
+        "similarity": 1.0
+      },
+      {
+        "name": "pending_ocr_3863.pdf",
+        "path": "e:\\GL_AI\\data_raw\\pending\\pending_ocr_3863.pdf",
+        "similarity": 1.0
+      }
+    ],
+    [
+      {
+        "name": "Civil_Servants_(Appointment,_Promotion_and_Transfer)_Rules_1989.pdf",
+        "path": "e:\\GL_AI\\data_raw\\incoming_unfiltered\\Civil_Servants_(Appointment,_Promotion_and_Transfer)_Rules_1989.pdf",
+        "similarity": 0.9999999999999998
+      },
+      {
+        "name": "Civil_Servants_(Appointment,_Promotion_and_Transfer)_Rules_1989.pdf",
+        "path": "e:\\GL_AI\\data_raw\\forestry\\federal\\laws\\Civil_Servants_(Appointment,_Promotion_and_Transfer)_Rules_1989.pdf",
+        "similarity": 0.9999999999999998
+      }
+    ],
+    [
+      {
+        "name": "Forest Rules for Application NWFP 1950 (1).pdf",
+        "path": "e:\\GL_AI\\data_raw\\incoming_unfiltered\\Forest Rules for Application NWFP 1950 (1).pdf",
+        "similarity": 1.0000000000000002
+      },
+      {
+        "name": "Forest Rules for Application NWFP 1950.pdf",
+        "path": "e:\\GL_AI\\data_raw\\incoming_unfiltered\\Forest Rules for Application NWFP 1950.pdf",
+        "similarity": 1.0000000000000002
+      }
+    ],
+    [
+      {
+        "name": "Galis Guzara Final 25-07-2023  (dated 01-01-2026) (1) (1).docx",
+        "path": "e:\\GL_AI\\data_raw\\incoming_unfiltered\\Galis Guzara Final 25-07-2023  (dated 01-01-2026) (1) (1).docx",
+        "similarity": 1.0
+      },
+      {
+        "name": "Galis Guzara Final 25-07-2023  (dated 01-01-2026) (1).docx",
+        "path": "e:\\GL_AI\\data_raw\\incoming_unfiltered\\Galis Guzara Final 25-07-2023  (dated 01-01-2026) (1).docx",
+        "similarity": 1.0
+      }
+    ],
+    [
+      {
+        "name": "Information Security.pdf",
+        "path": "e:\\GL_AI\\data_raw\\incoming_unfiltered\\Information Security.pdf",
+        "similarity": 1.0000000000000007
+      },
+      {
+        "name": "Information Security_0.pdf",
+        "path": "e:\\GL_AI\\data_raw\\incoming_unfiltered\\Information Security_0.pdf",
+        "similarity": 1.0000000000000007
+      }
+    ],
+    [
+      {
+        "name": "KP Forest Produce Transport Rules, 2004..pdf",
+        "path": "e:\\GL_AI\\data_raw\\incoming_unfiltered\\KP Forest Produce Transport Rules, 2004..pdf",
+        "similarity": 0.9999999999999994
+      },
+      {
+        "name": "Khyber_Pakhtunkhwa_Forest_Produce_Transport_Rules,_2004.pdf",
+        "path": "e:\\GL_AI\\data_raw\\forestry\\kpk\\laws\\rules\\Khyber_Pakhtunkhwa_Forest_Produce_Transport_Rules,_2004.pdf",
+        "similarity": 0.9999999999999994
+      }
+    ],
+    [
+      {
+        "name": "kp-delegation-of-financial-power-rules-2018.2.pdf",
+        "path": "e:\\GL_AI\\data_raw\\incoming_unfiltered\\kp-delegation-of-financial-power-rules-2018.2.pdf",
+        "similarity": 1.0000000000000002
+      },
+      {
+        "name": "kp-delegation-of-financial-power-rules-2018.2.pdf",
+        "path": "e:\\GL_AI\\data_raw\\forestry\\federal\\laws\\kp-delegation-of-financial-power-rules-2018.2.pdf",
+        "similarity": 1.0000000000000002
+      }
+    ],
+    [
+      {
+        "name": "Manual Vol-III.pdf",
+        "path": "e:\\GL_AI\\data_raw\\incoming_unfiltered\\Manual Vol-III.pdf",
+        "similarity": 1.0000000000000007
+      },
+      {
+        "name": "Forest_Manual_Volume_III.pdf",
+        "path": "e:\\GL_AI\\data_raw\\forestry\\manuals\\Forest_Manual_Volume_III.pdf",
+        "similarity": 1.0000000000000007
+      }
+    ],
+    [
+      {
+        "name": "Master FM- Vol-II.pdf",
+        "path": "e:\\GL_AI\\data_raw\\incoming_unfiltered\\Master FM- Vol-II.pdf",
+        "similarity": 1.0000000000000004
+      },
+      {
+        "name": "Forest_Manual_Volume_II.pdf",
+        "path": "e:\\GL_AI\\data_raw\\forestry\\manuals\\Forest_Manual_Volume_II.pdf",
+        "similarity": 1.0000000000000004
+      }
+    ],
+    [
+      {
+        "name": "National Forest Policy 2010 (1).pdf",
+        "path": "e:\\GL_AI\\data_raw\\incoming_unfiltered\\National Forest Policy 2010 (1).pdf",
+        "similarity": 0.9999999999999994
+      },
+      {
+        "name": "National Forest Policy 2010.pdf",
+        "path": "e:\\GL_AI\\data_raw\\incoming_unfiltered\\National Forest Policy 2010.pdf",
+        "similarity": 0.9999999999999994
+      },
+      {
+        "name": "National Forest Policy 2010 (1).pdf",
+        "path": "e:\\GL_AI\\data_raw\\forestry\\federal\\laws\\National Forest Policy 2010 (1).pdf",
+        "similarity": 0.9999999999999994
+      }
+    ],
+    [
+      {
+        "name": "Patrol Squads Northern Forest Region  (Revised) 6.2025 (1).doc",
+        "path": "e:\\GL_AI\\data_raw\\incoming_unfiltered\\Patrol Squads Northern Forest Region  (Revised) 6.2025 (1).doc",
+        "similarity": 1.0
+      },
+      {
+        "name": "Patrol Squads Northern Forest Region  (Revised) 6.2025.doc",
+        "path": "e:\\GL_AI\\data_raw\\incoming_unfiltered\\Patrol Squads Northern Forest Region  (Revised) 6.2025.doc",
+        "similarity": 1.0
+      },
+      {
+        "name": "Patrol Squads Northern Forest Region  (Revised) 6.2025_17.doc",
+        "path": "e:\\GL_AI\\data_raw\\incoming_unfiltered\\Patrol Squads Northern Forest Region  (Revised) 6.2025_17.doc",
+        "similarity": 1.0
+      }
+    ],
+    [
+      {
+        "name": "~$ble of Contents (1).doc",
+        "path": "e:\\GL_AI\\data_raw\\incoming_unfiltered\\~$ble of Contents (1).doc",
+        "similarity": 1.0
+      },
+      {
+        "name": "~$gnature (1) (1).doc",
+        "path": "e:\\GL_AI\\data_raw\\incoming_unfiltered\\~$gnature (1) (1).doc",
+        "similarity": 1.0
+      },
+      {
+        "name": "~$tershed PC.I (27.09.2022) (1).doc",
+        "path": "e:\\GL_AI\\data_raw\\incoming_unfiltered\\~$tershed PC.I (27.09.2022) (1).doc",
+        "similarity": 1.0
+      },
+      {
+        "name": "~$tle Page (1) (1).doc",
+        "path": "e:\\GL_AI\\data_raw\\incoming_unfiltered\\~$tle Page (1) (1).doc",
+        "similarity": 1.0
+      },
+      {
+        "name": "~$trol Squads Northern Forest Region  (Revised) 6.2025.doc",
+        "path": "e:\\GL_AI\\data_raw\\incoming_unfiltered\\~$trol Squads Northern Forest Region  (Revised) 6.2025.doc",
+        "similarity": 1.0
+      }
+    ],
+    [
+      {
+        "name": "Market Rate System (2nd Bi Annual) 2022.pdf",
+        "path": "e:\\GL_AI\\data_raw\\rates\\Market Rate System (2nd Bi Annual) 2022.pdf",
+        "similarity": 1.0000000000000016
+      },
+      {
+        "name": "Market Rate System 2024 (1st Bi Annual).pdf",
+        "path": "e:\\GL_AI\\data_raw\\rates\\Market Rate System 2024 (1st Bi Annual).pdf",
+        "similarity": 0.9319282346945954
+      }
+    ],
+    [
+      {
+        "name": "MRS 2023.pdf",
+        "path": "e:\\GL_AI\\data_raw\\rates\\MRS 2023.pdf",
+        "similarity": 0.9999999999999993
+      },
+      {
+        "name": "Technical Specification 2024 (1st Bi Annual).pdf",
+        "path": "e:\\GL_AI\\data_raw\\uncategorized\\Technical Specification 2024 (1st Bi Annual).pdf",
+        "similarity": 0.9965489112006101
+      }
+    ],
+    [
+      {
+        "name": "KPK FORESTRY 100% SPECIALIZATION.pdf",
+        "path": "e:\\GL_AI\\data_raw\\uncategorized\\KPK FORESTRY 100% SPECIALIZATION.pdf",
+        "similarity": 1.0
+      },
+      {
+        "name": "Markdown to PDF.pdf",
+        "path": "e:\\GL_AI\\data_raw\\uncategorized\\Markdown to PDF.pdf",
+        "similarity": 0.8634023947704403
+      }
+    ],
+    [
+      {
+        "name": "🌲 GreenLawAI 100% SPECIALIZATION - DOCUMENT REGISTRY v3.0.pdf",
+        "path": "e:\\GL_AI\\data_raw\\forestry\\federal\\laws\\🌲 GreenLawAI 100% SPECIALIZATION - DOCUMENT REGISTRY v3.0.pdf",
+        "similarity": 1.0
+      },
+      {
+        "name": "🌲 GreenLawAI 100% SPECIALIZATION - DOCUMENT REGISTRY v4.0.pdf",
+        "path": "e:\\GL_AI\\data_raw\\forestry\\federal\\laws\\🌲 GreenLawAI 100% SPECIALIZATION - DOCUMENT REGISTRY v4.0.pdf",
+        "similarity": 0.9580392422725141
+      }
+    ]
+  ]
+}

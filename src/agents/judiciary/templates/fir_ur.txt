@@ -1,0 +1,36 @@
+ابتدائی اطلاعی رپورٹ (ایف آئی آر)
+(زیر دفعہ 154 مجموعہ ضابطہ فوجداری)
+
+1۔ ضلع: {{district}} | تھانہ: {{station}}
+2۔ ایف آئی آر نمبر: {{fir_no}} | تاریخ: {{date}}
+3۔ ایکٹ / دفعات:
+   - فارسٹ ایکٹ 1927، دفعہ: {{sections}}
+   - دیگر قوانین: {{other_laws}}
+
+4۔ تفصیل وقوعہ:
+   - تاریخ: {{incident_date}}
+   - وقت: {{incident_time}}
+   - مقام: {{location}} ({{coordinates}})
+
+5۔ اطلاع موصول ہونے کی تفصیل:
+   - تاریخ: {{received_date}}
+   - ذریعہ: {{source_type}} (NASA FIRMS / Satellite Dashboard)
+
+6۔ اطلاع کی نوعیت: {{info_type}} (تحریری / زبانی / ڈیجیٹل)
+
+7۔ تفصیل جرم:
+   {{offense_description}}
+
+8۔ جائیداد / نقصان کی تفصیل:
+   - قسم درخت: {{tree_species}}
+   - تعداد: {{tree_count}}
+   - تخمینہ لاگت: روپے {{estimated_value}}
+
+9۔ ملزمان / مشتبہ افراد:
+   {{accused_details}}
+
+10۔ کارروائی پولیس / محکمہ جنگلات:
+    {{action_taken}}
+
+تیار کردہ: گرین لاء اے آئی (GreenLawAI)
+تصدیقی کوڈ: {{verification_code}}

@@ -1,0 +1,114 @@
+# Cloud Storage Configuration
+cloud_storage:
+  provider: "gdrive"  # Options: gdrive, onedrive, huggingface
+  
+  # Mount point - where cloud storage artifacts are stored
+  # For now using local path (will sync to Google Drive via Colab)
+  # Colab will write to: /content/drive/MyDrive/GL_AI
+  # Local will read from: E:/GL_AI_Cloud (you can manually upload to Drive)
+  mount_point: "E:/"  # Local storage path (resolves to E:/GL_AI)
+  
+  # Validate artifacts before queries
+  validate_on_startup: true
+  
+  # Required artifacts for RAG to function
+  required_artifacts:
+    - chroma_db
+    - entity_registry
+    - chunks_export
+
+# Neo4j Configuration
+neo4j:
+  uri: "bolt://localhost:7687"
+  user: "neo4j"
+  password: "password"
+  database: "neo4j"
+  
+  # Load import files from cloud storage
+  import_from_cloud: true
+
+# LLM Configuration
+llm:
+  # Provider: openai, anthropic, ollama, colab
+  provider: "colab"  # Use Colab GPU for fast responses!
+  
+  # Colab Settings (when provider = "colab")
+  colab_url: "https://nonbarbaric-inocencia-sheepish.ngrok-free.dev"  # Static Domain (New Account)
+  colab_timeout: 120  # Increased to 120s for broad legal answers
+  
+  # Fallback provider if Colab unavailable
+  fallback_provider: "ollama"
+  
+  # Model name (for Ollama fallback)
+  model: "phi"
+  
+  # Ollama server URL (fallback)
+  base_url: "http://localhost:11434"
+  
+  # Generation parameters
+  temperature: 0.1  # Low temperature for factual answers
+  max_tokens: 500  # Reduced to fit Phi-2 context window
+  top_p: 0.95
+  
+  # Streaming
+  stream: true
+
+# Retrieval Configuration
+retrieval:
+  # Number of chunks to retrieve
+  top_k: 4  # Reduced from 8 to save context tokens for generation
+  
+  # Minimum relevance score (0-1)
+  min_score: 0.35  # Lowered from 0.45 to prevent excessive filtering and "Recovery Mode" fallbacks
+  
+  # GraphRAG weights (must sum to 1.0)
+  weights:
+    vector: 0.70  # Boost vector search for specific queries
+    graph: 0.20
+    overlap: 0.10
+
+# Prompt Configuration
+prompts:
+  # System prompt file (optional, uses default if not specified)
+  system_prompt_file: null
+  
+  # Include score breakdown in citations
+  show_scores: true
+  
+  # Maximum context length (characters)
+  # Maximum context length (characters)
+  max_context_length: 3500  # Reduced to ~875 tokens to leave room for generation
+  
+  # Default System Prompt (Injected if file is null)
+  system_prompt: |
+    You are GreenLaw AI, an expert legal assistant for Pakistani Forest Laws.
+    
+    INSTRUCTIONS:
+    1. ANSWER ONLY based on the provided "Legal Excerpts". Do not use outside knowledge.
+    2. BE PRECISE. Cite specific Acts and Sections (e.g., "According to Section 42 of KPK Forest Ordinance 2002...").
+    3. NO HALLUCINATIONS. Do not invent "Follow-up Exercises" or "Solutions". Just answer the user's question.
+    4. FORMATTING: Use bullet points for lists. Use bold for key terms.
+    5. IF NO INFO: If the excerpts don't contain the answer, say "I cannot find specific details in the available documents."
+    
+    context_format:
+    "Legal Excerpts: {context}"
+
+# Chat Configuration
+chat:
+  # Enable conversation history
+  enable_history: true
+  
+  # Maximum messages to keep in history
+  max_history: 10
+  
+  # Maximum tokens for history context
+  max_history_tokens: 1000  # Reduced to save space for context
+
+# Logging
+logging:
+  level: "INFO"  # DEBUG, INFO, WARNING, ERROR
+  file: "logs/rag.log"
+
+
+
+

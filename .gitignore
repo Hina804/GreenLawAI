@@ -1,0 +1,57 @@
+# ── Python ──────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg-info/
+dist/
+build/
+*.egg
+
+# ── Virtual Environments ───────────────────────────
+GL_env/
+venv/
+.venv/
+env/
+
+# ── Environment / Secrets ─────────────────────────
+.env
+*.env
+!secrets_template.env
+src/scripts/gfw_*.txt
+src/scripts/*.txt
+
+
+# ── IDE / Editor ──────────────────────────────────
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# ── OS Files ──────────────────────────────────────
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+# ── Google Drive temp uploads ─────────────────────
+.tmp.driveupload/
+
+# ── Database / Index files ────────────────────────
+faiss_index/
+data/chroma_db/
+data/memory/chroma_lessons/
+
+# ── Processed data & raw data ─────────────────────
+data_processed/
+data_raw/
+
+# ── Logs ──────────────────────────────────────────
+logs/
+*.log
+
+# ── Streamlit cache ──────────────────────────────
+.streamlit/__pycache__/
+
+# ── Agents cache ─────────────────────────────────
+.agents/

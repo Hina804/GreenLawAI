@@ -1,0 +1,895 @@
+{
+  "summary": {
+    "total_files": 96,
+    "duplicates_count": 14,
+    "unprocessed_source_count": 77
+  },
+  "unprocessed_source": [
+    {
+      "label": "DOWNLOADS",
+      "path": "C:\\Users\\QURESHI COMP\\Downloads\\1999_15_THE_KHYBER_PAKHTUNKHWA_FORESTRY_COMMISSION_ACT_1999.pdf",
+      "name": "1999_15_THE_KHYBER_PAKHTUNKHWA_FORESTRY_COMMISSION_ACT_1999.pdf",
+      "size": 119078,
+      "hash": "2dd95a9aa6bcf96a02c61fe703ecf44d725a06d485281a8713cb8d5a918c74f3",
+      "is_processed": false
+    },
+    {
+      "label": "DOWNLOADS",
+      "path": "C:\\Users\\QURESHI COMP\\Downloads\\201908021564725298-NWFP Manual of Secretariat Instructions.pdf",
+      "name": "201908021564725298-NWFP Manual of Secretariat Instructions.pdf",
+      "size": 658834,
+      "hash": "c51fcf1ef12cb965f79400c597ac5b1cae241b737d6445b3373169d429c437e4",
+      "is_processed": false
+    },
+    {
+      "label": "DOWNLOADS",
+      "path": "C:\\Users\\QURESHI COMP\\Downloads\\a (1).pdf",
+      "name": "a (1).pdf",
+      "size": 179650,
+      "hash": "845282e8914e0b4eac9b82ef165fd46b9877ef2965513a126d8ec927ac0ad0b6",
+      "is_processed": false
+    },
+    {
+      "label": "DOWNLOADS",
+      "path": "C:\\Users\\QURESHI COMP\\Downloads\\a.pdf",
+      "name": "a.pdf",
+      "size": 179639,
+      "hash": "95591b4a144d50627e9cd7d37247d52aa6d1cd2ee4c780937e9bf05b53551544",
+      "is_processed": false
+    },
+    {
+      "label": "DOWNLOADS",
+      "path": "C:\\Users\\QURESHI COMP\\Downloads\\Asymmetric Encryption.pdf",
+      "name": "Asymmetric Encryption.pdf",
+      "size": 906513,
+      "hash": "f996e3fc4901c04567d5b9867d0548dcca8bd4a970e459ea359767adc9c7a892",
+      "is_processed": false
+    },
+    {
+      "label": "DOWNLOADS",
+      "path": "C:\\Users\\QURESHI COMP\\Downloads\\Building Code of Pakistan (Fire Safety Provisions-2016),.pdf",
+      "name": "Building Code of Pakistan (Fire Safety Provisions-2016),.pdf",
+      "size": 1961270,
+      "hash": "df9f9fe936bd4ddc6d7ecf4fb474ff1e1993f29ba35c3448715606e6147f0257",
+      "is_processed": false
+    },
+    {
+      "label": "DOWNLOADS",
+      "path": "C:\\Users\\QURESHI COMP\\Downloads\\CamScanner 18-02-2026 13.27 (1).pdf",
+      "name": "CamScanner 18-02-2026 13.27 (1).pdf",
+      "size": 4991724,
+      "hash": "7c25b1378488711b9386eafe694f21c3c7a1a4ed6c7232d09f933aa1bf75db4c",
+      "is_processed": false
+    },
+    {
+      "label": "DOWNLOADS",
+      "path": "C:\\Users\\QURESHI COMP\\Downloads\\CamScanner 18-02-2026 13.27.pdf",
+      "name": "CamScanner 18-02-2026 13.27.pdf",
+      "size": 4991724,
+      "hash": "7c25b1378488711b9386eafe694f21c3c7a1a4ed6c7232d09f933aa1bf75db4c",
+      "is_processed": false
+    },
+    {
+      "label": "DOWNLOADS",
+      "path": "C:\\Users\\QURESHI COMP\\Downloads\\Civil_Servants_(Appointment,_Promotion_and_Transfer)_Rules_1989.pdf",
+      "name": "Civil_Servants_(Appointment,_Promotion_and_Transfer)_Rules_1989.pdf",
+      "size": 284508,
+      "hash": "63d37c8113ff4f2643e0fe7a69625d19a7a0b1b26d908bb84320ea9225d7b751",
+      "is_processed": false
+    },
+    {
+      "label": "DOWNLOADS",
+      "path": "C:\\Users\\QURESHI COMP\\Downloads\\Cryptography (1).pdf",
+      "name": "Cryptography (1).pdf",
+      "size": 1934530,
+      "hash": "76440eab2e5ce43c94379c899cd6754610074b9a672833622490e186470c9632",
+      "is_processed": false
+    },
+    {
+      "label": "DOWNLOADS",
+      "path": "C:\\Users\\QURESHI COMP\\Downloads\\Cryptography.pdf",
+      "name": "Cryptography.pdf",
+      "size": 1934530,
+      "hash": "76440eab2e5ce43c94379c899cd6754610074b9a672833622490e186470c9632",
+      "is_processed": false
+    },
+    {
+      "label": "DOWNLOADS",
+      "path": "C:\\Users\\QURESHI COMP\\Downloads\\Defense in Depth (1).pdf",
+      "name": "Defense in Depth (1).pdf",
+      "size": 861194,
+      "hash": "b3d86a8a0df9c4588c00c7b32bd0a63b33ffdbb859b0f92e5f086ec395b524ab",
+      "is_processed": false
+    },
+    {
+      "label": "DOWNLOADS",
+      "path": "C:\\Users\\QURESHI COMP\\Downloads\\Defense in Depth.pdf",
+      "name": "Defense in Depth.pdf",
+      "size": 861194,
+      "hash": "b3d86a8a0df9c4588c00c7b32bd0a63b33ffdbb859b0f92e5f086ec395b524ab",
+      "is_processed": false
+    },
+    {
+      "label": "DOWNLOADS",
+      "path": "C:\\Users\\QURESHI COMP\\Downloads\\Digital signature (1).pdf",
+      "name": "Digital signature (1).pdf",
+      "size": 2750849,
+      "hash": "7cfe34715ece72be5c73d58516f8c7c4088144fe58893bad73d90d388419f52d",
+      "is_processed": false
+    },
+    {
+      "label": "DOWNLOADS",
+      "path": "C:\\Users\\QURESHI COMP\\Downloads\\Digital signature.pdf",
+      "name": "Digital signature.pdf",
+      "size": 2750849,
+      "hash": "7cfe34715ece72be5c73d58516f8c7c4088144fe58893bad73d90d388419f52d",
+      "is_processed": false
+    },
+    {
+      "label": "DOWNLOADS",
+      "path": "C:\\Users\\QURESHI COMP\\Downloads\\ESTACODE-2021.pdf",
+      "name": "ESTACODE-2021.pdf",
+      "size": 8698035,
+      "hash": "0feb1c0acde32d1e5f0e34445f389ea593470a7f778eab203f13e857f047997c",
+      "is_processed": false
+    },
+    {
+      "label": "DOWNLOADS",
+      "path": "C:\\Users\\QURESHI COMP\\Downloads\\Forest  Manual-Vol-I.pdf",
+      "name": "Forest  Manual-Vol-I.pdf",
+      "size": 813079,
+      "hash": "2215d1ed41884f87a4fe7eabda2c9879af60c5e5de9a22997fd0edb7675db2ed",
+      "is_processed": false
+    },
+    {
+      "label": "DOWNLOADS",
+      "path": "C:\\Users\\QURESHI COMP\\Downloads\\Forest_Manual_Volume_II.pdf",
+      "name": "Forest_Manual_Volume_II.pdf",
+      "size": 2367422,
+      "hash": "700000b11fd81bd8b72cdce7fc5a0b9f23f3c286702ec56a0dbc6367924fe518",
+      "is_processed": false
+    },
+    {
+      "label": "DOWNLOADS",
+      "path": "C:\\Users\\QURESHI COMP\\Downloads\\Forest_Manual_Volume_III.pdf",
+      "name": "Forest_Manual_Volume_III.pdf",
+      "size": 1468146,
+      "hash": "282e3558123738660616e156e4704ef3da20c3f97bc8f2826effefd262cb2c81",
+      "is_processed": false
+    },
+    {
+      "label": "DOWNLOADS",
+      "path": "C:\\Users\\QURESHI COMP\\Downloads\\GL_Evidence_20260324.pdf",
+      "name": "GL_Evidence_20260324.pdf",
+      "size": 54,
+      "hash": "7c00dfd2c63b6363bbdc3a7261c4a554c8cc01d91b96ae3e31d879e0b76b3140",
+      "is_processed": false
+    },
+    {
+      "label": "DOWNLOADS",
+      "path": "C:\\Users\\QURESHI COMP\\Downloads\\GL_Evidence_GL-C3FBB1BA520C_20260329_223633 (1).pdf",
+      "name": "GL_Evidence_GL-C3FBB1BA520C_20260329_223633 (1).pdf",
+      "size": 1841,
+      "hash": "8fc2425281ef84e1721464793b79d7e4e074d2a6806aa6f2aca5cc21468316a6",
+      "is_processed": false
+    },
+    {
+      "label": "DOWNLOADS",
+      "path": "C:\\Users\\QURESHI COMP\\Downloads\\GL_Evidence_GL-C3FBB1BA520C_20260329_223633 (2).pdf",
+      "name": "GL_Evidence_GL-C3FBB1BA520C_20260329_223633 (2).pdf",
+      "size": 1841,
+      "hash": "8fc2425281ef84e1721464793b79d7e4e074d2a6806aa6f2aca5cc21468316a6",
+      "is_processed": false
+    },
+    {
+      "label": "DOWNLOADS",
+      "path": "C:\\Users\\QURESHI COMP\\Downloads\\GL_Evidence_GL-C3FBB1BA520C_20260329_223633.pdf",
+      "name": "GL_Evidence_GL-C3FBB1BA520C_20260329_223633.pdf",
+      "size": 1841,
+      "hash": "8fc2425281ef84e1721464793b79d7e4e074d2a6806aa6f2aca5cc21468316a6",
+      "is_processed": false
+    },
+    {
+      "label": "DOWNLOADS",
+      "path": "C:\\Users\\QURESHI COMP\\Downloads\\GreenLawAI_Legal_20260317_2357.pdf",
+      "name": "GreenLawAI_Legal_20260317_2357.pdf",
+      "size": 3075,
+      "hash": "3d61fb36d786a96d643982f43c6c66db85a43f6b52cc98643ced8f1db514df63",
+      "is_processed": false
+    },
+    {
+      "label": "DOWNLOADS",
+      "path": "C:\\Users\\QURESHI COMP\\Downloads\\GreenLawAI_Report_20260308_1348.pdf",
+      "name": "GreenLawAI_Report_20260308_1348.pdf",
+      "size": 2992,
+      "hash": "cc2f83995c258c0c3a88535c08d58adfd56074239ec8b8bef539163ad03184cf",
+      "is_processed": false
+    },
+    {
+      "label": "DOWNLOADS",
+      "path": "C:\\Users\\QURESHI COMP\\Downloads\\Hash Function.pdf",
+      "name": "Hash Function.pdf",
+      "size": 1905417,
+      "hash": "b17647beffd5ed6194a73e8623a2224aba8c3a0fc588e3bf18724dcec91a566c",
+      "is_processed": false
+    },
+    {
+      "label": "DOWNLOADS",
+      "path": "C:\\Users\\QURESHI COMP\\Downloads\\Hazara Forest Act, 1936.pdf",
+      "name": "Hazara Forest Act, 1936.pdf",
+      "size": 963574,
+      "hash": "c5283b4ac4f4956eb1e48175b7c3d60e8f996fda3c180130f68889bec674841a",
+      "is_processed": false
+    },
+    {
+      "label": "DOWNLOADS",
+      "path": "C:\\Users\\QURESHI COMP\\Downloads\\Hina Ali Artificial Intelligence (1).pdf",
+      "name": "Hina Ali Artificial Intelligence (1).pdf",
+      "size": 249190,
+      "hash": "c2e376dee226df38364f9632372ce30cac110d2ea008bee5355168f1ce5e12a5",
+      "is_processed": false
+    },
+    {
+      "label": "DOWNLOADS",
+      "path": "C:\\Users\\QURESHI COMP\\Downloads\\Information Security (1).pdf",
+      "name": "Information Security (1).pdf",
+      "size": 775307,
+      "hash": "a5cf166318052175b47c53cab8a35a92f274b5f1db78cf8c871b74d4a372b9e7",
+      "is_processed": false
+    },
+    {
+      "label": "DOWNLOADS",
+      "path": "C:\\Users\\QURESHI COMP\\Downloads\\Information Security.pdf",
+      "name": "Information Security.pdf",
+      "size": 775307,
+      "hash": "a5cf166318052175b47c53cab8a35a92f274b5f1db78cf8c871b74d4a372b9e7",
+      "is_processed": false
+    },
+    {
+      "label": "DOWNLOADS",
+      "path": "C:\\Users\\QURESHI COMP\\Downloads\\Instructional Manual - International Rescue Challenge (PDF)..pdf",
+      "name": "Instructional Manual - International Rescue Challenge (PDF)..pdf",
+      "size": 1592597,
+      "hash": "e592e51bd8c24029ed216e2d873548fc1c51c583a80fa9d6b62d625dcd9f487c",
+      "is_processed": false
+    },
+    {
+      "label": "DOWNLOADS",
+      "path": "C:\\Users\\QURESHI COMP\\Downloads\\Khyber Pakhtunkhwa Delegation of Financial Power Rules, 2018.pdf",
+      "name": "Khyber Pakhtunkhwa Delegation of Financial Power Rules, 2018.pdf",
+      "size": 606700,
+      "hash": "f550bdb6ef634964a7552ea65588789add53b862f4ce6c0ecddd8932da67b3b9",
+      "is_processed": false
+    },
+    {
+      "label": "DOWNLOADS",
+      "path": "C:\\Users\\QURESHI COMP\\Downloads\\Khyber_Pakhtunkhwa_Civil_Defense_Fire_Safety_Order_2019.pdf",
+      "name": "Khyber_Pakhtunkhwa_Civil_Defense_Fire_Safety_Order_2019.pdf",
+      "size": 1090687,
+      "hash": "6438848fbe0d38cc3814a2abb2fa4fdd50e91f3ee1f7ad9a37c645b16f6f1b3a",
+      "is_processed": false
+    },
+    {
+      "label": "DOWNLOADS",
+      "path": "C:\\Users\\QURESHI COMP\\Downloads\\kp-delegation-of-financial-power-rules-2018.2 (1).pdf",
+      "name": "kp-delegation-of-financial-power-rules-2018.2 (1).pdf",
+      "size": 606700,
+      "hash": "f550bdb6ef634964a7552ea65588789add53b862f4ce6c0ecddd8932da67b3b9",
+      "is_processed": false
+    },
+    {
+      "label": "DOWNLOADS",
+      "path": "C:\\Users\\QURESHI COMP\\Downloads\\kp-delegation-of-financial-power-rules-2018.2.pdf",
+      "name": "kp-delegation-of-financial-power-rules-2018.2.pdf",
+      "size": 606700,
+      "hash": "f550bdb6ef634964a7552ea65588789add53b862f4ce6c0ecddd8932da67b3b9",
+      "is_processed": false
+    },
+    {
+      "label": "DOWNLOADS",
+      "path": "C:\\Users\\QURESHI COMP\\Downloads\\KPK Delegation of Financial Power Rules, 2018.pdf",
+      "name": "KPK Delegation of Financial Power Rules, 2018.pdf",
+      "size": 242848,
+      "hash": "89b48cafd4dd1a8dbab671e43736b449ca7ce7c47d64739b7ea995edf29dc1f4",
+      "is_processed": false
+    },
+    {
+      "label": "DOWNLOADS",
+      "path": "C:\\Users\\QURESHI COMP\\Downloads\\KPK Land Revenue Amendment Act, 2014.pdf",
+      "name": "KPK Land Revenue Amendment Act, 2014.pdf",
+      "size": 3659415,
+      "hash": "5d63912122413b70e8d01463fe532d05f86e611b309116aaba1c081f74b18dbf",
+      "is_processed": false
+    },
+    {
+      "label": "DOWNLOADS",
+      "path": "C:\\Users\\QURESHI COMP\\Downloads\\KPK_Forestry_Blueprint (1).pdf",
+      "name": "KPK_Forestry_Blueprint (1).pdf",
+      "size": 3568,
+      "hash": "9fcdcd4da425790fb0c353d1189ea114e44f1b95dc99786025f13fc78da8f923",
+      "is_processed": false
+    },
+    {
+      "label": "DOWNLOADS",
+      "path": "C:\\Users\\QURESHI COMP\\Downloads\\KPK_Forestry_Blueprint.pdf",
+      "name": "KPK_Forestry_Blueprint.pdf",
+      "size": 8829,
+      "hash": "6b0d19189dc8ba701dc1fd8b397eaf9b65f95a164bb57a79100a58c2dd872511",
+      "is_processed": false
+    },
+    {
+      "label": "DOWNLOADS",
+      "path": "C:\\Users\\QURESHI COMP\\Downloads\\KPK_Forestry_Specialization_Blueprint.pdf",
+      "name": "KPK_Forestry_Specialization_Blueprint.pdf",
+      "size": 4093,
+      "hash": "0163952ed4df085fe6ae40b3a9cd55ffc8eca029b8da1c21e7818ed377686bef",
+      "is_processed": false
+    },
+    {
+      "label": "DOWNLOADS",
+      "path": "C:\\Users\\QURESHI COMP\\Downloads\\KPK_Registry_v3.pdf",
+      "name": "KPK_Registry_v3.pdf",
+      "size": 10553,
+      "hash": "c4945c244d4f55aeb1d3dbb3c12384d2cb4d5cdcb249cb576ae65be8a06cf124",
+      "is_processed": false
+    },
+    {
+      "label": "DOWNLOADS",
+      "path": "C:\\Users\\QURESHI COMP\\Downloads\\KPK_Registry_v3_ELEGANT.pdf",
+      "name": "KPK_Registry_v3_ELEGANT.pdf",
+      "size": 33525,
+      "hash": "e85fe08fedeafa3c8573a02efef047d65c5403dba5981e1da8ca44316f887080",
+      "is_processed": false
+    },
+    {
+      "label": "DOWNLOADS",
+      "path": "C:\\Users\\QURESHI COMP\\Downloads\\KPK_Registry_v3_FINAL.pdf",
+      "name": "KPK_Registry_v3_FINAL.pdf",
+      "size": 13299,
+      "hash": "8ea12be1305943fddf84be837ac38cd93d99864b35b0ee38108acaaa975e837c",
+      "is_processed": false
+    },
+    {
+      "label": "DOWNLOADS",
+      "path": "C:\\Users\\QURESHI COMP\\Downloads\\manzil.pdf",
+      "name": "manzil.pdf",
+      "size": 2779350,
+      "hash": "643097c063b440f8b90fbd3f3b7cb28d8281b98c0dbf61aa96e95da39b1eb145",
+      "is_processed": false
+    },
+    {
+      "label": "DOWNLOADS",
+      "path": "C:\\Users\\QURESHI COMP\\Downloads\\Markdown to PDF.pdf",
+      "name": "Markdown to PDF.pdf",
+      "size": 22674,
+      "hash": "694f053553c4463ae51a431b16cfca423e038405ae4f53d1d5a657a3046c2959",
+      "is_processed": false
+    },
+    {
+      "label": "DOWNLOADS",
+      "path": "C:\\Users\\QURESHI COMP\\Downloads\\Market Rate System (2nd Bi Annual) 2022.pdf",
+      "name": "Market Rate System (2nd Bi Annual) 2022.pdf",
+      "size": 2639314,
+      "hash": "e41f5b2fcf0d63176176d6d9a018d1486115691d3df7abe858f0e10b764fcd94",
+      "is_processed": false
+    },
+    {
+      "label": "DOWNLOADS",
+      "path": "C:\\Users\\QURESHI COMP\\Downloads\\Market Rate System 2022 (Notifications).pdf",
+      "name": "Market Rate System 2022 (Notifications).pdf",
+      "size": 170240,
+      "hash": "10edbbad03ccc97e6f372fb7fbc0353cfff683cba1aec31e5988aca1df5368b0",
+      "is_processed": false
+    },
+    {
+      "label": "DOWNLOADS",
+      "path": "C:\\Users\\QURESHI COMP\\Downloads\\Market Rate System 2024 (1st Bi Annual).pdf",
+      "name": "Market Rate System 2024 (1st Bi Annual).pdf",
+      "size": 1042838,
+      "hash": "b4af926eb9e80169076d9bdca31629cb9e4b3b465eaf656cc60d7139c39ba2aa",
+      "is_processed": false
+    },
+    {
+      "label": "DOWNLOADS",
+      "path": "C:\\Users\\QURESHI COMP\\Downloads\\Market Rate System Notification 2022.pdf",
+      "name": "Market Rate System Notification 2022.pdf",
+      "size": 393186,
+      "hash": "1d5fce1f2e612e72ff34a95e77b1bc894262984f4f4aadfb205b71965ce61cc1",
+      "is_processed": false
+    },
+    {
+      "label": "DOWNLOADS",
+      "path": "C:\\Users\\QURESHI COMP\\Downloads\\Market Rate System Notification 2024 (1st Bi Annual).pdf",
+      "name": "Market Rate System Notification 2024 (1st Bi Annual).pdf",
+      "size": 122640,
+      "hash": "e3000b1ddadc17fe7780c887f345d020e8eee1ab4eb29927041fd7c47c7149a4",
+      "is_processed": false
+    },
+    {
+      "label": "DOWNLOADS",
+      "path": "C:\\Users\\QURESHI COMP\\Downloads\\MRS 2015.pdf",
+      "name": "MRS 2015.pdf",
+      "size": 851898,
+      "hash": "9f1aa894056811c72ddcca175f90a53deca790949d4eac575739fff6dff4f08a",
+      "is_processed": false
+    },
+    {
+      "label": "DOWNLOADS",
+      "path": "C:\\Users\\QURESHI COMP\\Downloads\\MRS 2023.pdf",
+      "name": "MRS 2023.pdf",
+      "size": 17559482,
+      "hash": "b68eabb0102c1c8a9a05e944fdd668a3064ab0ee4b7e139883e3ee1260e8240f",
+      "is_processed": false
+    },
+    {
+      "label": "DOWNLOADS",
+      "path": "C:\\Users\\QURESHI COMP\\Downloads\\NWFP Manual of Secretariat Instructions.pdf",
+      "name": "NWFP Manual of Secretariat Instructions.pdf",
+      "size": 1745549,
+      "hash": "991e19bd0c65f4500828dc7c829be7acadd61b5d532d418db810fa90fc73845f",
+      "is_processed": false
+    },
+    {
+      "label": "DOWNLOADS",
+      "path": "C:\\Users\\QURESHI COMP\\Downloads\\Presenting Numerical Data Education Presentation in Blue Cream Yellow Bold Geometric Style.pdf",
+      "name": "Presenting Numerical Data Education Presentation in Blue Cream Yellow Bold Geometric Style.pdf",
+      "size": 439513,
+      "hash": "3fb05b81221acddea765550caf34a5157f24faf2b1815f62f8dc020c61716c77",
+      "is_processed": false
+    },
+    {
+      "label": "DOWNLOADS",
+      "path": "C:\\Users\\QURESHI COMP\\Downloads\\Public Key Cryptography Algorithms.pdf",
+      "name": "Public Key Cryptography Algorithms.pdf",
+      "size": 1795281,
+      "hash": "274ffcc401048c27821a576199c6549cad264e7f4d1b0a919da129a05d7e040d",
+      "is_processed": false
+    },
+    {
+      "label": "DOWNLOADS",
+      "path": "C:\\Users\\QURESHI COMP\\Downloads\\Security Design Principles.pdf",
+      "name": "Security Design Principles.pdf",
+      "size": 1375839,
+      "hash": "83ef9c1c55bca2c7fa428b6892d062f0d37a9d82b3702fd375139644cc767542",
+      "is_processed": false
+    },
+    {
+      "label": "DOWNLOADS",
+      "path": "C:\\Users\\QURESHI COMP\\Downloads\\surah_yaseen.pdf",
+      "name": "surah_yaseen.pdf",
+      "size": 442544,
+      "hash": "4cb524db4759523ae2473b0b7e83d8141ad75baad3a715d783cc0a3aba7e744b",
+      "is_processed": false
+    },
+    {
+      "label": "DOWNLOADS",
+      "path": "C:\\Users\\QURESHI COMP\\Downloads\\Symmetric Encryption (1).pdf",
+      "name": "Symmetric Encryption (1).pdf",
+      "size": 1010472,
+      "hash": "89f2e93084c229bdbecc562e5221a080749f75265d8c8e48ab7f8a8ab2727b13",
+      "is_processed": false
+    },
+    {
+      "label": "DOWNLOADS",
+      "path": "C:\\Users\\QURESHI COMP\\Downloads\\Symmetric Encryption.pdf",
+      "name": "Symmetric Encryption.pdf",
+      "size": 1010472,
+      "hash": "89f2e93084c229bdbecc562e5221a080749f75265d8c8e48ab7f8a8ab2727b13",
+      "is_processed": false
+    },
+    {
+      "label": "DOWNLOADS",
+      "path": "C:\\Users\\QURESHI COMP\\Downloads\\Technical Specification 2024 (1st Bi Annual).pdf",
+      "name": "Technical Specification 2024 (1st Bi Annual).pdf",
+      "size": 13385301,
+      "hash": "5e461f2525b6840d3f24ce33af4e430f3ef6a4f125fdc0a3024650b241bac6e1",
+      "is_processed": false
+    },
+    {
+      "label": "DOWNLOADS",
+      "path": "C:\\Users\\QURESHI COMP\\Downloads\\Technical Specifications 2022.pdf",
+      "name": "Technical Specifications 2022.pdf",
+      "size": 17559482,
+      "hash": "b68eabb0102c1c8a9a05e944fdd668a3064ab0ee4b7e139883e3ee1260e8240f",
+      "is_processed": false
+    },
+    {
+      "label": "DOWNLOADS",
+      "path": "C:\\Users\\QURESHI COMP\\Downloads\\The NWFP Police Rules 1937 reduced size.pdf",
+      "name": "The NWFP Police Rules 1937 reduced size.pdf",
+      "size": 483137875,
+      "hash": "e2e03d8355b48acdb170539578591ae8d54a72e8e1a398d20d5e464f44700016",
+      "is_processed": false
+    },
+    {
+      "label": "DOWNLOADS",
+      "path": "C:\\Users\\QURESHI COMP\\Downloads\\West Pakistan Forest Manual Volume 1.pdf",
+      "name": "West Pakistan Forest Manual Volume 1.pdf",
+      "size": 813079,
+      "hash": "2215d1ed41884f87a4fe7eabda2c9879af60c5e5de9a22997fd0edb7675db2ed",
+      "is_processed": false
+    },
+    {
+      "label": "DOWNLOADS",
+      "path": "C:\\Users\\QURESHI COMP\\Downloads\\West Pakistan Forest Manual Volume 2.pdf",
+      "name": "West Pakistan Forest Manual Volume 2.pdf",
+      "size": 2367422,
+      "hash": "700000b11fd81bd8b72cdce7fc5a0b9f23f3c286702ec56a0dbc6367924fe518",
+      "is_processed": false
+    },
+    {
+      "label": "DOWNLOADS",
+      "path": "C:\\Users\\QURESHI COMP\\Downloads\\West Pakistan Forest Manual Volume 3.pdf",
+      "name": "West Pakistan Forest Manual Volume 3.pdf",
+      "size": 1468146,
+      "hash": "282e3558123738660616e156e4704ef3da20c3f97bc8f2826effefd262cb2c81",
+      "is_processed": false
+    },
+    {
+      "label": "DOWNLOADS",
+      "path": "C:\\Users\\QURESHI COMP\\Downloads\\West_Pakistan_Land_Revenue_Act_1967.pdf",
+      "name": "West_Pakistan_Land_Revenue_Act_1967.pdf",
+      "size": 626196,
+      "hash": "9f44bfec35d68101d9f0970be8cd4818cd7cc0454d215623fc7aaaf13d0a2d2c",
+      "is_processed": false
+    },
+    {
+      "label": "DESKTOP",
+      "path": "C:\\Users\\QURESHI COMP\\Desktop\\GreenLaw AI(Hina Ali_COMSC-F22-014, Eman Irfan_COMSC-F22-024).docs.pdf",
+      "name": "GreenLaw AI(Hina Ali_COMSC-F22-014, Eman Irfan_COMSC-F22-024).docs.pdf",
+      "size": 174603,
+      "hash": "7ff754d664062b41fba4afd56453f672605914cd684875d25a0f10af55c6d001",
+      "is_processed": false
+    },
+    {
+      "label": "DESKTOP",
+      "path": "C:\\Users\\QURESHI COMP\\Desktop\\GreenLawAI_MISSING_DOCUMENTS_CHECKLIST (1).pdf",
+      "name": "GreenLawAI_MISSING_DOCUMENTS_CHECKLIST (1).pdf",
+      "size": 138305,
+      "hash": "ac294dee228c4db451ebfa35f642df8bd91b044c20a930b7da25d381937eec85",
+      "is_processed": false
+    },
+    {
+      "label": "DESKTOP",
+      "path": "C:\\Users\\QURESHI COMP\\Desktop\\GreenLawAI_MISSING_DOCUMENTS_CHECKLIST.pdf",
+      "name": "GreenLawAI_MISSING_DOCUMENTS_CHECKLIST.pdf",
+      "size": 138305,
+      "hash": "ac294dee228c4db451ebfa35f642df8bd91b044c20a930b7da25d381937eec85",
+      "is_processed": false
+    },
+    {
+      "label": "DESKTOP",
+      "path": "C:\\Users\\QURESHI COMP\\Desktop\\KPK FORESTRY 100% SPECIALIZATION.pdf",
+      "name": "KPK FORESTRY 100% SPECIALIZATION.pdf",
+      "size": 248029,
+      "hash": "0efcd787565ea052103db57852ac471fdd4287da91ef989ff45a7af0f9051bcc",
+      "is_processed": false
+    },
+    {
+      "label": "DESKTOP",
+      "path": "C:\\Users\\QURESHI COMP\\Desktop\\KPK Specialization .pdf",
+      "name": "KPK Specialization .pdf",
+      "size": 170543,
+      "hash": "cfd0348df41a16559f8c293df259b94c0f435f2ec25bda3a30fd88943136eac2",
+      "is_processed": false
+    },
+    {
+      "label": "DESKTOP",
+      "path": "C:\\Users\\QURESHI COMP\\Desktop\\National Forest Policy 2010 (1).pdf",
+      "name": "National Forest Policy 2010 (1).pdf",
+      "size": 199155,
+      "hash": "5d1607bf2f7575b5734c4db29e76af741ffbb19842d7388118b1d541f895a1ef",
+      "is_processed": false
+    },
+    {
+      "label": "DESKTOP",
+      "path": "C:\\Users\\QURESHI COMP\\Desktop\\Presentation_project_progress_FYP-1_f22-014, f22-024.pdf",
+      "name": "Presentation_project_progress_FYP-1_f22-014, f22-024.pdf",
+      "size": 180102,
+      "hash": "18315997e0d3c613251fb21dde2d927106b182f445e164993c8d412e18298eba",
+      "is_processed": false
+    },
+    {
+      "label": "DESKTOP",
+      "path": "C:\\Users\\QURESHI COMP\\Desktop\\Project_progress_report_f22014, f22024.pdf",
+      "name": "Project_progress_report_f22014, f22024.pdf",
+      "size": 82833,
+      "hash": "119d9edf453a3783b2145b9967e8b57124d9da524605d3569f779a2e83f41c5a",
+      "is_processed": false
+    },
+    {
+      "label": "DESKTOP",
+      "path": "C:\\Users\\QURESHI COMP\\Desktop\\psychology.pdf",
+      "name": "psychology.pdf",
+      "size": 72972,
+      "hash": "02a782693074ad7087c4fe45080a8b454135ec77d4077e1c9f42472ba9a1795f",
+      "is_processed": false
+    },
+    {
+      "label": "DESKTOP",
+      "path": "C:\\Users\\QURESHI COMP\\Desktop\\\ud83c\udf32 GreenLawAI 100% SPECIALIZATION - DOCUMENT REGISTRY v3.0.pdf",
+      "name": "\ud83c\udf32 GreenLawAI 100% SPECIALIZATION - DOCUMENT REGISTRY v3.0.pdf",
+      "size": 316507,
+      "hash": "2f6625e00d2ecf6aca8b04d99fbc2108b6d61d3166b9c3d682d17e116b1d2eed",
+      "is_processed": false
+    },
+    {
+      "label": "DESKTOP",
+      "path": "C:\\Users\\QURESHI COMP\\Desktop\\\ud83c\udf32 GreenLawAI 100% SPECIALIZATION - DOCUMENT REGISTRY v4.0.pdf",
+      "name": "\ud83c\udf32 GreenLawAI 100% SPECIALIZATION - DOCUMENT REGISTRY v4.0.pdf",
+      "size": 304479,
+      "hash": "fc544e98a4548854190c100d38a5f4c20fed0707c1d46a3cd3f062400cbaf71c",
+      "is_processed": false
+    }
+  ],
+  "duplicates": {
+    "2dd95a9aa6bcf96a02c61fe703ecf44d725a06d485281a8713cb8d5a918c74f3": [
+      {
+        "label": "DATA_RAW",
+        "path": "e:\\GL_AI\\data_raw\\forestry\\kpk\\laws\\1999_15_THE_KHYBER_PAKHTUNKHWA_FORESTRY_COMMISSION_ACT_1999.pdf",
+        "name": "1999_15_THE_KHYBER_PAKHTUNKHWA_FORESTRY_COMMISSION_ACT_1999.pdf",
+        "size": 119078,
+        "hash": "2dd95a9aa6bcf96a02c61fe703ecf44d725a06d485281a8713cb8d5a918c74f3",
+        "is_processed": true
+      },
+      {
+        "label": "DOWNLOADS",
+        "path": "C:\\Users\\QURESHI COMP\\Downloads\\1999_15_THE_KHYBER_PAKHTUNKHWA_FORESTRY_COMMISSION_ACT_1999.pdf",
+        "name": "1999_15_THE_KHYBER_PAKHTUNKHWA_FORESTRY_COMMISSION_ACT_1999.pdf",
+        "size": 119078,
+        "hash": "2dd95a9aa6bcf96a02c61fe703ecf44d725a06d485281a8713cb8d5a918c74f3",
+        "is_processed": false
+      }
+    ],
+    "7c25b1378488711b9386eafe694f21c3c7a1a4ed6c7232d09f933aa1bf75db4c": [
+      {
+        "label": "DOWNLOADS",
+        "path": "C:\\Users\\QURESHI COMP\\Downloads\\CamScanner 18-02-2026 13.27 (1).pdf",
+        "name": "CamScanner 18-02-2026 13.27 (1).pdf",
+        "size": 4991724,
+        "hash": "7c25b1378488711b9386eafe694f21c3c7a1a4ed6c7232d09f933aa1bf75db4c",
+        "is_processed": false
+      },
+      {
+        "label": "DOWNLOADS",
+        "path": "C:\\Users\\QURESHI COMP\\Downloads\\CamScanner 18-02-2026 13.27.pdf",
+        "name": "CamScanner 18-02-2026 13.27.pdf",
+        "size": 4991724,
+        "hash": "7c25b1378488711b9386eafe694f21c3c7a1a4ed6c7232d09f933aa1bf75db4c",
+        "is_processed": false
+      }
+    ],
+    "76440eab2e5ce43c94379c899cd6754610074b9a672833622490e186470c9632": [
+      {
+        "label": "DOWNLOADS",
+        "path": "C:\\Users\\QURESHI COMP\\Downloads\\Cryptography (1).pdf",
+        "name": "Cryptography (1).pdf",
+        "size": 1934530,
+        "hash": "76440eab2e5ce43c94379c899cd6754610074b9a672833622490e186470c9632",
+        "is_processed": false
+      },
+      {
+        "label": "DOWNLOADS",
+        "path": "C:\\Users\\QURESHI COMP\\Downloads\\Cryptography.pdf",
+        "name": "Cryptography.pdf",
+        "size": 1934530,
+        "hash": "76440eab2e5ce43c94379c899cd6754610074b9a672833622490e186470c9632",
+        "is_processed": false
+      }
+    ],
+    "b3d86a8a0df9c4588c00c7b32bd0a63b33ffdbb859b0f92e5f086ec395b524ab": [
+      {
+        "label": "DOWNLOADS",
+        "path": "C:\\Users\\QURESHI COMP\\Downloads\\Defense in Depth (1).pdf",
+        "name": "Defense in Depth (1).pdf",
+        "size": 861194,
+        "hash": "b3d86a8a0df9c4588c00c7b32bd0a63b33ffdbb859b0f92e5f086ec395b524ab",
+        "is_processed": false
+      },
+      {
+        "label": "DOWNLOADS",
+        "path": "C:\\Users\\QURESHI COMP\\Downloads\\Defense in Depth.pdf",
+        "name": "Defense in Depth.pdf",
+        "size": 861194,
+        "hash": "b3d86a8a0df9c4588c00c7b32bd0a63b33ffdbb859b0f92e5f086ec395b524ab",
+        "is_processed": false
+      }
+    ],
+    "7cfe34715ece72be5c73d58516f8c7c4088144fe58893bad73d90d388419f52d": [
+      {
+        "label": "DOWNLOADS",
+        "path": "C:\\Users\\QURESHI COMP\\Downloads\\Digital signature (1).pdf",
+        "name": "Digital signature (1).pdf",
+        "size": 2750849,
+        "hash": "7cfe34715ece72be5c73d58516f8c7c4088144fe58893bad73d90d388419f52d",
+        "is_processed": false
+      },
+      {
+        "label": "DOWNLOADS",
+        "path": "C:\\Users\\QURESHI COMP\\Downloads\\Digital signature.pdf",
+        "name": "Digital signature.pdf",
+        "size": 2750849,
+        "hash": "7cfe34715ece72be5c73d58516f8c7c4088144fe58893bad73d90d388419f52d",
+        "is_processed": false
+      }
+    ],
+    "2215d1ed41884f87a4fe7eabda2c9879af60c5e5de9a22997fd0edb7675db2ed": [
+      {
+        "label": "DOWNLOADS",
+        "path": "C:\\Users\\QURESHI COMP\\Downloads\\Forest  Manual-Vol-I.pdf",
+        "name": "Forest  Manual-Vol-I.pdf",
+        "size": 813079,
+        "hash": "2215d1ed41884f87a4fe7eabda2c9879af60c5e5de9a22997fd0edb7675db2ed",
+        "is_processed": false
+      },
+      {
+        "label": "DOWNLOADS",
+        "path": "C:\\Users\\QURESHI COMP\\Downloads\\West Pakistan Forest Manual Volume 1.pdf",
+        "name": "West Pakistan Forest Manual Volume 1.pdf",
+        "size": 813079,
+        "hash": "2215d1ed41884f87a4fe7eabda2c9879af60c5e5de9a22997fd0edb7675db2ed",
+        "is_processed": false
+      }
+    ],
+    "700000b11fd81bd8b72cdce7fc5a0b9f23f3c286702ec56a0dbc6367924fe518": [
+      {
+        "label": "DOWNLOADS",
+        "path": "C:\\Users\\QURESHI COMP\\Downloads\\Forest_Manual_Volume_II.pdf",
+        "name": "Forest_Manual_Volume_II.pdf",
+        "size": 2367422,
+        "hash": "700000b11fd81bd8b72cdce7fc5a0b9f23f3c286702ec56a0dbc6367924fe518",
+        "is_processed": false
+      },
+      {
+        "label": "DOWNLOADS",
+        "path": "C:\\Users\\QURESHI COMP\\Downloads\\West Pakistan Forest Manual Volume 2.pdf",
+        "name": "West Pakistan Forest Manual Volume 2.pdf",
+        "size": 2367422,
+        "hash": "700000b11fd81bd8b72cdce7fc5a0b9f23f3c286702ec56a0dbc6367924fe518",
+        "is_processed": false
+      }
+    ],
+    "282e3558123738660616e156e4704ef3da20c3f97bc8f2826effefd262cb2c81": [
+      {
+        "label": "DOWNLOADS",
+        "path": "C:\\Users\\QURESHI COMP\\Downloads\\Forest_Manual_Volume_III.pdf",
+        "name": "Forest_Manual_Volume_III.pdf",
+        "size": 1468146,
+        "hash": "282e3558123738660616e156e4704ef3da20c3f97bc8f2826effefd262cb2c81",
+        "is_processed": false
+      },
+      {
+        "label": "DOWNLOADS",
+        "path": "C:\\Users\\QURESHI COMP\\Downloads\\West Pakistan Forest Manual Volume 3.pdf",
+        "name": "West Pakistan Forest Manual Volume 3.pdf",
+        "size": 1468146,
+        "hash": "282e3558123738660616e156e4704ef3da20c3f97bc8f2826effefd262cb2c81",
+        "is_processed": false
+      }
+    ],
+    "8fc2425281ef84e1721464793b79d7e4e074d2a6806aa6f2aca5cc21468316a6": [
+      {
+        "label": "DOWNLOADS",
+        "path": "C:\\Users\\QURESHI COMP\\Downloads\\GL_Evidence_GL-C3FBB1BA520C_20260329_223633 (1).pdf",
+        "name": "GL_Evidence_GL-C3FBB1BA520C_20260329_223633 (1).pdf",
+        "size": 1841,
+        "hash": "8fc2425281ef84e1721464793b79d7e4e074d2a6806aa6f2aca5cc21468316a6",
+        "is_processed": false
+      },
+      {
+        "label": "DOWNLOADS",
+        "path": "C:\\Users\\QURESHI COMP\\Downloads\\GL_Evidence_GL-C3FBB1BA520C_20260329_223633 (2).pdf",
+        "name": "GL_Evidence_GL-C3FBB1BA520C_20260329_223633 (2).pdf",
+        "size": 1841,
+        "hash": "8fc2425281ef84e1721464793b79d7e4e074d2a6806aa6f2aca5cc21468316a6",
+        "is_processed": false
+      },
+      {
+        "label": "DOWNLOADS",
+        "path": "C:\\Users\\QURESHI COMP\\Downloads\\GL_Evidence_GL-C3FBB1BA520C_20260329_223633.pdf",
+        "name": "GL_Evidence_GL-C3FBB1BA520C_20260329_223633.pdf",
+        "size": 1841,
+        "hash": "8fc2425281ef84e1721464793b79d7e4e074d2a6806aa6f2aca5cc21468316a6",
+        "is_processed": false
+      }
+    ],
+    "a5cf166318052175b47c53cab8a35a92f274b5f1db78cf8c871b74d4a372b9e7": [
+      {
+        "label": "DOWNLOADS",
+        "path": "C:\\Users\\QURESHI COMP\\Downloads\\Information Security (1).pdf",
+        "name": "Information Security (1).pdf",
+        "size": 775307,
+        "hash": "a5cf166318052175b47c53cab8a35a92f274b5f1db78cf8c871b74d4a372b9e7",
+        "is_processed": false
+      },
+      {
+        "label": "DOWNLOADS",
+        "path": "C:\\Users\\QURESHI COMP\\Downloads\\Information Security.pdf",
+        "name": "Information Security.pdf",
+        "size": 775307,
+        "hash": "a5cf166318052175b47c53cab8a35a92f274b5f1db78cf8c871b74d4a372b9e7",
+        "is_processed": false
+      }
+    ],
+    "f550bdb6ef634964a7552ea65588789add53b862f4ce6c0ecddd8932da67b3b9": [
+      {
+        "label": "DOWNLOADS",
+        "path": "C:\\Users\\QURESHI COMP\\Downloads\\Khyber Pakhtunkhwa Delegation of Financial Power Rules, 2018.pdf",
+        "name": "Khyber Pakhtunkhwa Delegation of Financial Power Rules, 2018.pdf",
+        "size": 606700,
+        "hash": "f550bdb6ef634964a7552ea65588789add53b862f4ce6c0ecddd8932da67b3b9",
+        "is_processed": false
+      },
+      {
+        "label": "DOWNLOADS",
+        "path": "C:\\Users\\QURESHI COMP\\Downloads\\kp-delegation-of-financial-power-rules-2018.2 (1).pdf",
+        "name": "kp-delegation-of-financial-power-rules-2018.2 (1).pdf",
+        "size": 606700,
+        "hash": "f550bdb6ef634964a7552ea65588789add53b862f4ce6c0ecddd8932da67b3b9",
+        "is_processed": false
+      },
+      {
+        "label": "DOWNLOADS",
+        "path": "C:\\Users\\QURESHI COMP\\Downloads\\kp-delegation-of-financial-power-rules-2018.2.pdf",
+        "name": "kp-delegation-of-financial-power-rules-2018.2.pdf",
+        "size": 606700,
+        "hash": "f550bdb6ef634964a7552ea65588789add53b862f4ce6c0ecddd8932da67b3b9",
+        "is_processed": false
+      }
+    ],
+    "b68eabb0102c1c8a9a05e944fdd668a3064ab0ee4b7e139883e3ee1260e8240f": [
+      {
+        "label": "DOWNLOADS",
+        "path": "C:\\Users\\QURESHI COMP\\Downloads\\MRS 2023.pdf",
+        "name": "MRS 2023.pdf",
+        "size": 17559482,
+        "hash": "b68eabb0102c1c8a9a05e944fdd668a3064ab0ee4b7e139883e3ee1260e8240f",
+        "is_processed": false
+      },
+      {
+        "label": "DOWNLOADS",
+        "path": "C:\\Users\\QURESHI COMP\\Downloads\\Technical Specifications 2022.pdf",
+        "name": "Technical Specifications 2022.pdf",
+        "size": 17559482,
+        "hash": "b68eabb0102c1c8a9a05e944fdd668a3064ab0ee4b7e139883e3ee1260e8240f",
+        "is_processed": false
+      }
+    ],
+    "89f2e93084c229bdbecc562e5221a080749f75265d8c8e48ab7f8a8ab2727b13": [
+      {
+        "label": "DOWNLOADS",
+        "path": "C:\\Users\\QURESHI COMP\\Downloads\\Symmetric Encryption (1).pdf",
+        "name": "Symmetric Encryption (1).pdf",
+        "size": 1010472,
+        "hash": "89f2e93084c229bdbecc562e5221a080749f75265d8c8e48ab7f8a8ab2727b13",
+        "is_processed": false
+      },
+      {
+        "label": "DOWNLOADS",
+        "path": "C:\\Users\\QURESHI COMP\\Downloads\\Symmetric Encryption.pdf",
+        "name": "Symmetric Encryption.pdf",
+        "size": 1010472,
+        "hash": "89f2e93084c229bdbecc562e5221a080749f75265d8c8e48ab7f8a8ab2727b13",
+        "is_processed": false
+      }
+    ],
+    "ac294dee228c4db451ebfa35f642df8bd91b044c20a930b7da25d381937eec85": [
+      {
+        "label": "DESKTOP",
+        "path": "C:\\Users\\QURESHI COMP\\Desktop\\GreenLawAI_MISSING_DOCUMENTS_CHECKLIST (1).pdf",
+        "name": "GreenLawAI_MISSING_DOCUMENTS_CHECKLIST (1).pdf",
+        "size": 138305,
+        "hash": "ac294dee228c4db451ebfa35f642df8bd91b044c20a930b7da25d381937eec85",
+        "is_processed": false
+      },
+      {
+        "label": "DESKTOP",
+        "path": "C:\\Users\\QURESHI COMP\\Desktop\\GreenLawAI_MISSING_DOCUMENTS_CHECKLIST.pdf",
+        "name": "GreenLawAI_MISSING_DOCUMENTS_CHECKLIST.pdf",
+        "size": 138305,
+        "hash": "ac294dee228c4db451ebfa35f642df8bd91b044c20a930b7da25d381937eec85",
+        "is_processed": false
+      }
+    ]
+  }
+}

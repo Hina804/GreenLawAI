@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Legal Analysis · GREENLAW AI Hazara Forest Intelligence</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" />
+  <style>
+    .legal-query-box {
+      background: linear-gradient(135deg, var(--forest-dark), var(--forest-mid));
+      border-radius: var(--radius-xl);
+      padding: 28px 32px;
+      margin-bottom: 24px;
+      position: relative; overflow: hidden;
+    }
+    .legal-query-box::before {
+      content: '⚖️';
+      position: absolute; right: 30px; top: 50%; transform: translateY(-50%);
+      font-size: 80px; opacity: .08;
+    }
+    .lq-label { font-size: 11px; font-weight: 700; color: rgba(255,255,255,.5); letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 10px; }
+    .lq-title { font-size: 20px; font-weight: 800; color: white; margin-bottom: 6px; }
+    .lq-sub   { font-size: 13px; color: rgba(255,255,255,.6); margin-bottom: 20px; }
+    .lq-input-row { display: flex; gap: 10px; }
+    .lq-input {
+      flex: 1; padding: 12px 18px;
+      background: rgba(255,255,255,.1); border: 1.5px solid rgba(255,255,255,.2);
+      border-radius: var(--radius-md); color: white;
+      font-family: var(--font-main); font-size: 14px;
+      outline: none; transition: border-color .2s;
+    }
+    .lq-input::placeholder { color: rgba(255,255,255,.4); }
+    .lq-input:focus { border-color: rgba(82,168,114,.6); }
+    .lq-btn {
+      padding: 12px 22px;
+      background: linear-gradient(135deg, #52a872, #6dd89a);
+      color: white; border: none; border-radius: var(--radius-md);
+      font-size: 14px; font-weight: 700; cursor: pointer;
+      display: flex; align-items: center; gap: 8px;
+      transition: all .2s;
+    }
+    .lq-btn:hover { transform: translateY(-1px); box-shadow: 0 4px 16px rgba(82,168,114,.4); }
+
+    .examples-strip {
+      display: flex; gap: 8px; flex-wrap: wrap; margin-top: 12px;
+    }
+    .example-chip {
+      background: rgba(255,255,255,.1);
+      border: 1px solid rgba(255,255,255,.15);
+      color: rgba(255,255,255,.7);
+      font-size: 11.5px; padding: 4px 10px;
+      border-radius: 20px; cursor: pointer;
+      transition: all .2s;
+    }
+    .example-chip:hover {
+      background: rgba(255,255,255,.18);
+      color: white;
+    }
+
+    /* IRAC result card */
+    .irac-result-card {
+      border: 1.5px solid var(--border-card);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      margin-bottom: 16px;
+      box-shadow: var(--shadow-sm);
+    }
+    .irac-result-header {
+      background: linear-gradient(135deg, var(--forest-pale), #f8fdfb);
+      padding: 16px 20px;
+      border-bottom: 1px solid var(--border-light);
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .irac-result-title { font-size: 14px; font-weight: 700; color: var(--gray-800); }
+    .irac-confidence {
+      display: flex; align-items: center; gap: 8px;
+    }
+    .verified-badge {
+      display: flex; align-items: center; gap: 5px;
+      background: var(--forest-pale); border: 1px solid var(--forest-bright);
+      color: var(--forest-mid); font-size: 11px; font-weight: 700;
+      padding: 4px 10px; border-radius: 20px;
+    }
+    .irac-result-body { padding: 20px; }
+
+    /* Statutes */
+    .statute-pill {
+      display: inline-flex; align-items: center; gap: 5px;
+      background: var(--sky-light); color: var(--sky);
+      border: 1px solid rgba(59,130,246,.2);
+      font-size: 11px; font-weight: 600;
+      padding: 3px 10px; border-radius: 20px; margin: 3px;
+    }
+
+    /* Case List */
+    .case-item {
+      display: flex; align-items: center; gap: 12px;
+      padding: 12px 0; border-bottom: 1px solid var(--gray-100);
+    }
+    .case-item:last-child { border-bottom: none; }
+    .case-id {
+      font-family: var(--font-mono); font-size: 12px; font-weight: 700;
+      color: var(--forest-mid); min-width: 80px;
+    }
+    .case-verdict { font-size: 11px; font-weight: 700; min-width: 70px; }
+    .case-fine    { font-family: var(--font-mono); font-size: 12px; font-weight: 700; color: var(--gray-800); margin-left: auto; }
+
+    /* Statute reference cards */
+    .statute-card {
+      background: var(--gray-50);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-sm);
+      padding: 14px;
+      margin-bottom: 10px;
+    }
+    .statute-card-header {
+      display: flex; align-items: center; gap: 8px; margin-bottom: 6px;
+    }
+    .statute-num {
+      font-size: 11px; font-weight: 800;
+      background: var(--forest-pale); color: var(--forest-mid);
+      padding: 2px 8px; border-radius: 4px;
+      font-family: var(--font-mono);
+    }
+    .statute-name { font-size: 13px; font-weight: 700; color: var(--gray-800); }
+    .statute-text { font-size: 12.5px; color: var(--gray-600); line-height: 1.6; }
+  </style>
+</head>
+<body>
+<div id="nav-container"></div>
+
+<div class="main-wrapper">
+  <header class="topbar">
+    <button class="menu-toggle"><i class="fa fa-bars"></i></button>
+    <div>
+      <div class="topbar-title">Legal Analysis Center</div>
+      <div class="topbar-sub">AI-Powered Legal Research · IRAC Framework · KP Forest Laws</div>
+    </div>
+    <div class="topbar-right">
+      <div class="topbar-badge"><i class="fa fa-book"></i> KP Ordinance 2002</div>
+      <div class="topbar-badge"><i class="fa fa-balance-scale"></i> Forest Act 1927</div>
+      <div class="topbar-clock">PKT 00:00:00</div>
+    </div>
+  </header>
+
+  <main class="page-content">
+
+    <!-- KPIs -->
+    <div class="kpi-grid">
+      <div class="kpi-card legal">
+        <div class="kpi-icon-wrap legal"><i class="fa fa-balance-scale"></i></div>
+        <div class="kpi-body">
+          <div class="kpi-value" data-target="47">0</div>
+          <div class="kpi-label">Active Legal Cases</div>
+          <div class="kpi-delta up"><i class="fa fa-arrow-up"></i> +3 this week</div>
+        </div>
+      </div>
+      <div class="kpi-card green">
+        <div class="kpi-icon-wrap green"><i class="fa fa-check-double"></i></div>
+        <div class="kpi-body">
+          <div class="kpi-value" data-target="31">0</div>
+          <div class="kpi-label">Cases Resolved (30d)</div>
+          <div class="kpi-delta down"><i class="fa fa-check"></i> 66% conviction rate</div>
+        </div>
+      </div>
+      <div class="kpi-card amber" style="--card-accent:var(--amber);">
+        <div class="kpi-icon-wrap defo"><i class="fa fa-file-alt"></i></div>
+        <div class="kpi-body">
+          <div class="kpi-value" data-target="18">0</div>
+          <div class="kpi-label">Pending Hearings</div>
+          <div class="kpi-delta"><i class="fa fa-calendar"></i> Next: Tomorrow</div>
+        </div>
+      </div>
+      <div class="kpi-card co2">
+        <div class="kpi-icon-wrap co2"><i class="fa fa-coins"></i></div>
+        <div class="kpi-body">
+          <div class="kpi-value text-mono" data-prefix="₨" data-target="4280000">0</div>
+          <div class="kpi-label">Fines Levied (YTD)</div>
+          <div class="kpi-delta down"><i class="fa fa-arrow-down"></i> −12% recovery gap</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Legal Query Box -->
+    <div class="legal-query-box">
+      <div class="lq-label">AI Legal Research Engine</div>
+      <div class="lq-title">Ask a Legal Question</div>
+      <div class="lq-sub">Powered by KP Forest Ordinance 2002 · Forest Act 1927 · PEPA 1997 · Wildlife Act 1975</div>
+      <div class="lq-input-row">
+        <input class="lq-input" type="text" id="legalInput"
+          placeholder="e.g., What is the penalty for illegal timber extraction under KP Forest Ordinance 2002?" />
+        <button class="lq-btn" onclick="runLegalQuery()">
+          <i class="fa fa-search"></i> Analyze
+        </button>
+      </div>
+      <div class="examples-strip">
+        <span class="example-chip" onclick="setQuery(this)">Penalty for illegal logging</span>
+        <span class="example-chip" onclick="setQuery(this)">Forest encroachment offences</span>
+        <span class="example-chip" onclick="setQuery(this)">Wildlife protection Act 1975</span>
+        <span class="example-chip" onclick="setQuery(this)">Forest officer powers of arrest</span>
+        <span class="example-chip" onclick="setQuery(this)">Carbon credit legal framework</span>
+      </div>
+    </div>
+
+    <!-- IRAC Result + Statutes -->
+    <div class="section-grid col-3-2" style="margin-bottom:20px;">
+
+      <!-- IRAC Analysis Result -->
+      <div>
+        <div class="irac-result-card" id="iracResult">
+          <div class="irac-result-header">
+            <div>
+              <div class="irac-result-title">⚖️ Legal Analysis: Illegal Timber Extraction</div>
+              <div style="font-size:12px;color:var(--gray-500);margin-top:3px;">Query processed in 0.8s · KP Forest Ordinance 2002, s.37 · Forest Act 1927, s.26</div>
+            </div>
+            <div class="irac-confidence">
+              <div class="verified-badge"><i class="fa fa-shield-alt"></i> Verified · 94%</div>
+            </div>
+          </div>
+          <div class="irac-result-body">
+            <!-- Statutes Referenced -->
+            <div style="margin-bottom:16px;">
+              <div class="section-heading">Statutes Referenced</div>
+              <span class="statute-pill"><i class="fa fa-book"></i> KP Forest Ordinance 2002 §37</span>
+              <span class="statute-pill"><i class="fa fa-book"></i> Forest Act 1927 §26</span>
+              <span class="statute-pill"><i class="fa fa-book"></i> PEPA 1997 §14</span>
+              <span class="statute-pill"><i class="fa fa-book"></i> CrPC §154</span>
+            </div>
+
+            <!-- IRAC blocks -->
+            <div class="irac-block issue">
+              <div class="irac-label">Issue</div>
+              <div class="irac-text">Whether the unauthorized extraction, transportation, and sale of timber from a designated Reserved Forest in Mansehra District constitutes a criminal offence under the KP Forest Ordinance 2002 and the Forest Act 1927, and what penalties apply to the accused persons.</div>
+            </div>
+            <div class="irac-block rule">
+              <div class="irac-label">Rule</div>
+              <div class="irac-text">Under <strong>Section 37, KP Forest Ordinance 2002</strong>, any person who cuts, fells, girdles, lops, taps, or strips bark/leaves from trees in a Reserved Forest without authorization commits an offence punishable by imprisonment up to <strong>3 years</strong> and/or a fine of <strong>₨50,000–₨500,000</strong>. Section 26 of the <strong>Forest Act 1927</strong> additionally prohibits trespassing in reserved forests and offences thereunder carry penalties of ₨500 fine per tree. PEPA 1997 Section 14 further empowers environmental tribunals to impose restoration orders.</div>
+            </div>
+            <div class="irac-block application">
+              <div class="irac-label">Application</div>
+              <div class="irac-text">Based on satellite evidence from NASA FIRMS and GFW GLAD data showing 3.2 ha of cleared Reserved Forest area in Mansehra Block-7, combined with field patrol reports confirming timber loading operations, the facts constitute unlawful extraction. The accused were operating without a timber transit permit under Section 41 of the KP Forest Ordinance 2002. AI threat confidence at 92% corroborates physical evidence. Multiple accused persons qualify for joint prosecution under Section 34 PPC (common intention).</div>
+            </div>
+            <div class="irac-block conclusion">
+              <div class="irac-label">Conclusion</div>
+              <div class="irac-text">The extraction activity <strong>constitutes a cognizable offence</strong> under KP Forest Ordinance 2002 §37 read with Forest Act 1927 §26. Recommended action: (1) FIR registration under §37 KP Ordinance, (2) confiscation of timber and vehicles under §39, (3) application for ₨250,000 fine plus restoration order, (4) referral to Environmental Tribunal for PEPA 1997 proceedings. AI confidence: <strong>94.2%</strong>.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Recent Cases -->
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title"><i class="fa fa-folder-open"></i> Recent Cases</div>
+            <div class="card-badge">Last 30 days</div>
+          </div>
+          <div class="card-body" style="padding:12px 20px;">
+            <div class="case-item">
+              <div class="case-id">#HZR-2024-091</div>
+              <div style="flex:1;"><div style="font-size:13px;font-weight:600;">Illegal Logging</div><div class="text-xs text-muted">Mansehra District · FIR lodged</div></div>
+              <span class="badge critical">Convicted</span>
+              <div class="case-fine">₨480,000</div>
+            </div>
+            <div class="case-item">
+              <div class="case-id">#HZR-2024-088</div>
+              <div style="flex:1;"><div style="font-size:13px;font-weight:600;">Forest Encroachment</div><div class="text-xs text-muted">Abbottabad · DFO complaint</div></div>
+              <span class="badge high">Pending</span>
+              <div class="case-fine">₨120,000</div>
+            </div>
+            <div class="case-item">
+              <div class="case-id">#HZR-2024-082</div>
+              <div style="flex:1;"><div style="font-size:13px;font-weight:600;">Arson (Forest Fire)</div><div class="text-xs text-muted">Battagram · Criminal case</div></div>
+              <span class="badge critical">Convicted</span>
+              <div class="case-fine">₨350,000</div>
+            </div>
+            <div class="case-item">
+              <div class="case-id">#HZR-2024-079</div>
+              <div style="flex:1;"><div style="font-size:13px;font-weight:600;">Timber Transit Violation</div><div class="text-xs text-muted">Haripur · Checkpoint intercept</div></div>
+              <span class="badge medium">Acquitted</span>
+              <div class="case-fine">₨0</div>
+            </div>
+            <div class="case-item">
+              <div class="case-id">#HZR-2024-075</div>
+              <div style="flex:1;"><div style="font-size:13px;font-weight:600;">Wildlife Poaching</div><div class="text-xs text-muted">Kohistan · Wildlife Act 1975</div></div>
+              <span class="badge success">Convicted</span>
+              <div class="case-fine">₨200,000</div>
+            </div>
+            <div class="case-item">
+              <div class="case-id">#HZR-2024-071</div>
+              <div style="flex:1;"><div style="font-size:13px;font-weight:600;">Illegal Land Conversion</div><div class="text-xs text-muted">Mansehra · PEPA 1997</div></div>
+              <span class="badge high">Under Trial</span>
+              <div class="case-fine">₨750,000</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Statutes + Stats -->
+      <div style="display:flex;flex-direction:column;gap:20px;">
+
+        <!-- Key Statutes -->
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title"><i class="fa fa-book-open"></i> Key Statutes</div>
+          </div>
+          <div class="card-body">
+            <div class="statute-card">
+              <div class="statute-card-header">
+                <span class="statute-num">§37</span>
+                <span class="statute-name">KP Forest Ordinance 2002</span>
+              </div>
+              <div class="statute-text">Unlawful felling, girdling, lopping of trees in Reserved Forest. <strong>Penalty: 3 years + ₨50K–₨500K fine.</strong></div>
+            </div>
+            <div class="statute-card">
+              <div class="statute-card-header">
+                <span class="statute-num">§26</span>
+                <span class="statute-name">Forest Act 1927</span>
+              </div>
+              <div class="statute-text">Offences in Reserved Forests. Trespass, grazing, removal of forest produce. <strong>Penalty: ₨500 per tree + confiscation.</strong></div>
+            </div>
+            <div class="statute-card">
+              <div class="statute-card-header">
+                <span class="statute-num">§14</span>
+                <span class="statute-name">PEPA 1997</span>
+              </div>
+              <div class="statute-text">Environmental Tribunal powers. Restoration orders, injunctions. <strong>Penalty: up to ₨1M + restoration cost.</strong></div>
+            </div>
+            <div class="statute-card">
+              <div class="statute-card-header">
+                <span class="statute-num">§22</span>
+                <span class="statute-name">Wildlife Act 1975</span>
+              </div>
+              <div class="statute-text">Protected species offences. Hunting, trapping, collection prohibited. <strong>Penalty: 2 years + ₨200K fine.</strong></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Legal Stats -->
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title"><i class="fa fa-chart-bar"></i> Legal Statistics</div>
+          </div>
+          <div class="card-body">
+            <div class="stat-row"><span class="stat-label">Conviction Rate (2024)</span><span class="stat-value text-green">66.2%</span></div>
+            <div class="stat-row"><span class="stat-label">Avg. Case Duration</span><span class="stat-value">4.8 months</span></div>
+            <div class="stat-row"><span class="stat-label">Fines Collected (YTD)</span><span class="stat-value">₨3.76M</span></div>
+            <div class="stat-row"><span class="stat-label">Outstanding Fines</span><span class="stat-value text-red">₨0.52M</span></div>
+            <div class="stat-row"><span class="stat-label">Cases Under Appeal</span><span class="stat-value">9</span></div>
+            <div class="stat-row"><span class="stat-label">AI Assist Accuracy</span><span class="stat-value text-green">94.2%</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-text">GREENLAW AI · HAZARA FOREST INTELLIGENCE · v4.0</div>
+    <div class="footer-refs">KP FOREST ORDINANCE 2002 · FOREST ACT 1927 · FIRMS · GFW · OWM</div>
+  </footer>
+</div>
+
+<script src="js/nav.js"></script>
+<script src="js/shared.js"></script>
+<script>
+function setQuery(el) {
+  document.getElementById('legalInput').value = el.textContent;
+}
+
+function runLegalQuery() {
+  const val = document.getElementById('legalInput').value.trim();
+  if (!val) return;
+  // Visual feedback only — in a real system this would call an LLM API
+  const result = document.getElementById('iracResult');
+  result.style.opacity = '0.5';
+  result.style.transform = 'scale(.98)';
+  setTimeout(() => {
+    result.style.transition = 'all .4s ease';
+    result.style.opacity = '1';
+    result.style.transform = 'scale(1)';
+  }, 800);
+}
+</script>
+</body>
+</html>

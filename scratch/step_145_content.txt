@@ -1,0 +1,90 @@
+Created At: 2026-06-13T07:07:07Z
+Completed At: 2026-06-13T07:07:07Z
+File Path: `file:///e:/GL_AI/test_legal.py`
+Total Lines: 228
+Total Bytes: 10108
+Showing lines 1 to 228
+The following code has been modified to include a line number before every line, in the format: <line_number>: <original_line>. Please note that any changes targeting the original code should remove the line number, colon, and leading space.
+1: """
+2: Terminal test for legal pipeline — no UI, no Streamlit.
+3: Tests: retrieval → intent → rank/dedupe → synthesis → output
+4: 
+5: Run from E:\GL_AI:
+6:     python test_legal.py
+7:     python test_legal.py --retrieval-only
+8:     python test_legal.py --query "What is meant by timber?"
+9: """
+10: import asyncio
+11: import sys
+12: import re
+13: import argparse
+14: 
+15: sys.path.insert(0, "E:/GL_AI/src")
+16: 
+17: if hasattr(sys.stdout, "reconfigure"):
+18:     sys.stdout.reconfigure(encoding='utf-8')
+19: if hasattr(sys.stderr, "reconfigure"):
+20:     sys.stderr.reconfigure(encoding='utf-8')
+21: 
+22: # ── Test queries ──────────────────────────────────────────────────────────────
+23: TEST_QUERIES = [
+24:     "What is meant by timber?",
+25:     "What is meant by reserved forest?",
+26:     "What is meant by forest produce?",
+27:     "What is meant by a guzara forest?",
+28:     "What is the penalty for cutting Deodar?",
+29:     "What is the penalty for cutting Chir Pine?",
+30:     "What is the penalty for cutting Deodar at night?",
+31:     "What does Section 26 say?",
+32:     "What does Section 64 say?",
+33:     "What does Section 42 say?",
+34:     "Who can arrest without warrant?",
+35:     "Can a forest officer arrest without warrant?",
+36: ]
+37: 
+38: # ── Helpers ─────────────────────────────────────────────────────────
+<truncated 7541 bytes>
+e_Penalty_Rs" not in answer,
+187:             "No SEC_ ID"     : "SEC_2_M" not in answer,
+188:             "No 'Reasoning pending'" : "Reasoning pending" not in answer,
+189:         }
+190:         # Penalty-specific checks
+191:         if intent == LegalIntentMode.PENALTY:
+192:             checks["Has Rs. amount"] = bool(re.search(r'Rs\.?\s*[\d,]+', answer))
+193:         # Definition checks
+194:         if intent == LegalIntentMode.DEFINITION:
+195:             checks["Has 'includes' or 'means'"] = (
+196:                 "includes" in answer.lower() or "means" in answer.lower()
+197:             )
+198: 
+199:         all_pass = True
+200:         for check, result in checks.items():
+201:             status = "✅" if result else "❌"
+202:             if not result:
+203:                 all_pass = False
+204:             print(f"  {status} {check}")
+205: 
+206:         print(f"\n  {'✅ ALL CHECKS PASSED' if all_pass else '❌ SOME CHECKS FAILED'}")
+207:         print()
+208: 
+209: 
+210: # ── Main ──────────────────────────────────────────────────────────────────────
+211: 
+212: async def main():
+213:     parser = argparse.ArgumentParser(description="Test legal pipeline from terminal")
+214:     parser.add_argument("--retrieval-only", action="store_true",
+215:                         help="Only test retrieval, skip synthesis")
+216:     parser.add_argument("--query", type=str, default=None,
+217:                         help="Test a single custom query")
+218:     args = parser.parse_args()
+219: 
+220:     queries = [args.query] if args.query else TEST_QUERIES
+221: 
+222:     if args.retrieval_only:
+223:         await test_retrieval(queries)
+224:     else:
+225:         await test_pipeline(queries)
+226: 
+227: if __name__ == "__main__":
+228:     asyncio.run(main())
+The above content shows the entire, complete file contents of the requested file.

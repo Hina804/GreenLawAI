@@ -1,0 +1,18 @@
+neo4j:
+  uri: 'bolt://localhost:7687'
+  user: 'neo4j'
+  password: 'bypass_auth'
+
+chroma:
+  persist_dir: 'e:/GL_AI/faiss_index'
+
+cloud_storage:
+  provider: "gdrive"
+  mount_point: "e:/"
+
+llm:
+  provider: "colab"
+  colab_url: "http://nonbarbaric-inocencia-sheepish.ngrok-free.dev"
+  model: "phi-2"
+  temperature: 0.0
+  max_tokens: 512

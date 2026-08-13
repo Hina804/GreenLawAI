@@ -1,0 +1,2541 @@
+{
+    "decisions": [
+        {
+            "timestamp": "2026-03-29T18:40:35.100559",
+            "cluster_id": "CLUSTER-GL-2EA49",
+            "action": "VERIFIED",
+            "reasoning": "",
+            "meta": {
+                "confidence_score": 0.49,
+                "cluster_size": 2,
+                "sensor_diversity": 1,
+                "strategic_narrative": "Intelligence Hot-Zone: 2 signals from 1 independent sensors. MONO-VECTOR DENSITY: High localized concentration of anomalies.",
+                "lineage": "NASA-FIRMS",
+                "system_recall_est": 0.2,
+                "systemic_visibility": 0.73,
+                "carbon_risk": {
+                    "total_mtco2_risk": 1975.0,
+                    "biomass_loss": 1850.0,
+                    "sequestration_lost": 125.0,
+                    "area_estimate_ha": 10.0,
+                    "forest_baseline": "Pine/Oak (Hazara)"
+                },
+                "spread_risk_index": 0.19,
+                "wind_speed_ms": 0.58,
+                "wind_deg": 0,
+                "lat": 34.1689,
+                "lon": 73.2215
+            },
+            "evidence": {}
+        },
+        {
+            "timestamp": "2026-03-29T18:41:59.887227",
+            "cluster_id": "CLUSTER-GL-8BC73",
+            "action": "VERIFIED",
+            "reasoning": "",
+            "meta": {
+                "confidence_score": 0.49,
+                "cluster_size": 2,
+                "sensor_diversity": 1,
+                "strategic_narrative": "Intelligence Hot-Zone: 2 signals from 1 independent sensors. MONO-VECTOR DENSITY: High localized concentration of anomalies.",
+                "lineage": "NASA-FIRMS",
+                "system_recall_est": 0.3,
+                "systemic_visibility": 0.73,
+                "carbon_risk": {
+                    "total_mtco2_risk": 1975.0,
+                    "biomass_loss": 1850.0,
+                    "sequestration_lost": 125.0,
+                    "area_estimate_ha": 10.0,
+                    "forest_baseline": "Pine/Oak (Hazara)"
+                },
+                "spread_risk_index": 0.19,
+                "wind_speed_ms": 0.58,
+                "wind_deg": 0,
+                "lat": 34.3308,
+                "lon": 73.1968
+            },
+            "evidence": {}
+        },
+        {
+            "timestamp": "2026-03-29T18:42:10.931765",
+            "cluster_id": "CLUSTER-GL-4926C",
+            "action": "VERIFIED",
+            "reasoning": "",
+            "meta": {
+                "confidence_score": 0.51,
+                "cluster_size": 3,
+                "sensor_diversity": 1,
+                "strategic_narrative": "Intelligence Hot-Zone: 3 signals from 1 independent sensors. MONO-VECTOR DENSITY: High localized concentration of anomalies.",
+                "lineage": "NASA-FIRMS",
+                "system_recall_est": 0.3,
+                "systemic_visibility": 0.73,
+                "carbon_risk": {
+                    "total_mtco2_risk": 2962.5,
+                    "biomass_loss": 2775.0,
+                    "sequestration_lost": 187.5,
+                    "area_estimate_ha": 15.0,
+                    "forest_baseline": "Pine/Oak (Hazara)"
+                },
+                "spread_risk_index": 0.19,
+                "wind_speed_ms": 0.58,
+                "wind_deg": 0,
+                "lat": 34.0753,
+                "lon": 73.3916
+            },
+            "evidence": {}
+        },
+        {
+            "timestamp": "2026-03-29T18:43:39.040783",
+            "cluster_id": "CLUSTER-GL-324C2",
+            "action": "VERIFIED",
+            "reasoning": "",
+            "meta": {
+                "confidence_score": 0.49,
+                "cluster_size": 2,
+                "sensor_diversity": 1,
+                "strategic_narrative": "Intelligence Hot-Zone: 2 signals from 1 independent sensors. MONO-VECTOR DENSITY: High localized concentration of anomalies.",
+                "lineage": "NASA-FIRMS",
+                "system_recall_est": 0.3,
+                "systemic_visibility": 0.73,
+                "carbon_risk": {
+                    "total_mtco2_risk": 1975.0,
+                    "biomass_loss": 1850.0,
+                    "sequestration_lost": 125.0,
+                    "area_estimate_ha": 10.0,
+                    "forest_baseline": "Pine/Oak (Hazara)"
+                },
+                "spread_risk_index": 0.19,
+                "wind_speed_ms": 0.58,
+                "wind_deg": 0,
+                "lat": 34.5491,
+                "lon": 73.3508
+            },
+            "evidence": {}
+        },
+        {
+            "timestamp": "2026-03-29T18:44:06.563986",
+            "cluster_id": "CLUSTER-GL-08002",
+            "action": "VERIFIED",
+            "reasoning": "",
+            "meta": {
+                "confidence_score": 0.53,
+                "cluster_size": 4,
+                "sensor_diversity": 1,
+                "strategic_narrative": "Intelligence Hot-Zone: 4 signals from 1 independent sensors. MONO-VECTOR DENSITY: High localized concentration of anomalies.",
+                "lineage": "NASA-FIRMS",
+                "system_recall_est": 0.1,
+                "systemic_visibility": 0.73,
+                "carbon_risk": {
+                    "total_mtco2_risk": 3950.0,
+                    "biomass_loss": 3700.0,
+                    "sequestration_lost": 250.0,
+                    "area_estimate_ha": 20.0,
+                    "forest_baseline": "Pine/Oak (Hazara)"
+                },
+                "spread_risk_index": 0.19,
+                "wind_speed_ms": 0.58,
+                "wind_deg": 0,
+                "lat": 35.21,
+                "lon": 73.35
+            },
+            "evidence": {}
+        },
+        {
+            "timestamp": "2026-03-29T18:44:40.612623",
+            "cluster_id": "CLUSTER-GL-3D279",
+            "action": "VERIFIED",
+            "reasoning": "",
+            "meta": {
+                "confidence_score": 0.49,
+                "cluster_size": 2,
+                "sensor_diversity": 1,
+                "strategic_narrative": "Intelligence Hot-Zone: 2 signals from 1 independent sensors. MONO-VECTOR DENSITY: High localized concentration of anomalies.",
+                "lineage": "NASA-FIRMS",
+                "system_recall_est": 0.1,
+                "systemic_visibility": 0.73,
+                "carbon_risk": {
+                    "total_mtco2_risk": 1975.0,
+                    "biomass_loss": 1850.0,
+                    "sequestration_lost": 125.0,
+                    "area_estimate_ha": 10.0,
+                    "forest_baseline": "Pine/Oak (Hazara)"
+                },
+                "spread_risk_index": 0.19,
+                "wind_speed_ms": 0.58,
+                "wind_deg": 0,
+                "lat": 34.1689,
+                "lon": 73.2215
+            },
+            "evidence": {}
+        },
+        {
+            "timestamp": "2026-03-29T18:45:47.577370",
+            "cluster_id": "CLUSTER-GL-07991",
+            "action": "VERIFIED",
+            "reasoning": "",
+            "meta": {
+                "confidence_score": 0.49,
+                "cluster_size": 2,
+                "sensor_diversity": 1,
+                "strategic_narrative": "Intelligence Hot-Zone: 2 signals from 1 independent sensors. MONO-VECTOR DENSITY: High localized concentration of anomalies.",
+                "lineage": "GFW-SIMULATED",
+                "system_recall_est": 0.2,
+                "systemic_visibility": 0.73,
+                "carbon_risk": {
+                    "total_mtco2_risk": 1975.0,
+                    "biomass_loss": 1850.0,
+                    "sequestration_lost": 125.0,
+                    "area_estimate_ha": 10.0,
+                    "forest_baseline": "Pine/Oak (Hazara)"
+                },
+                "lat": 34.3308,
+                "lon": 73.1968
+            },
+            "evidence": {}
+        },
+        {
+            "timestamp": "2026-03-29T18:48:02.400571",
+            "cluster_id": "CLUSTER-GL-8BC73",
+            "action": "DISPATCHED",
+            "reasoning": "Autonomous Trigger (Severity/Verification)",
+            "meta": {
+                "confidence_score": 1.0,
+                "cluster_size": 2,
+                "sensor_diversity": 1,
+                "strategic_narrative": "VERIFIED INCIDENT: Operator CLUSTER-GL-8BC73 confirmed activity on-site.",
+                "lineage": "NASA-FIRMS",
+                "system_recall_est": 0.2,
+                "systemic_visibility": 0.73,
+                "carbon_risk": {
+                    "total_mtco2_risk": 1975.0,
+                    "biomass_loss": 1850.0,
+                    "sequestration_lost": 125.0,
+                    "area_estimate_ha": 10.0,
+                    "forest_baseline": "Pine/Oak (Hazara)"
+                },
+                "spread_risk_index": 0.19,
+                "wind_speed_ms": 0.58,
+                "wind_deg": 0,
+                "lat": 34.0753,
+                "lon": 73.3916
+            },
+            "evidence": {}
+        },
+        {
+            "timestamp": "2026-03-29T18:48:11.050346",
+            "cluster_id": "CLUSTER-GL-4926C",
+            "action": "DISPATCHED",
+            "reasoning": "Autonomous Trigger (Severity/Verification)",
+            "meta": {
+                "confidence_score": 1.0,
+                "cluster_size": 3,
+                "sensor_diversity": 1,
+                "strategic_narrative": "VERIFIED INCIDENT: Operator CLUSTER-GL-4926C confirmed activity on-site.",
+                "lineage": "NASA-FIRMS",
+                "system_recall_est": 0.2,
+                "systemic_visibility": 0.73,
+                "carbon_risk": {
+                    "total_mtco2_risk": 2962.5,
+                    "biomass_loss": 2775.0,
+                    "sequestration_lost": 187.5,
+                    "area_estimate_ha": 15.0,
+                    "forest_baseline": "Pine/Oak (Hazara)"
+                },
+                "spread_risk_index": 0.19,
+                "wind_speed_ms": 0.58,
+                "wind_deg": 0,
+                "lat": 34.5491,
+                "lon": 73.3508
+            },
+            "evidence": {}
+        },
+        {
+            "timestamp": "2026-03-29T18:48:31.586914",
+            "cluster_id": "CLUSTER-GL-2EA49",
+            "action": "DISPATCHED",
+            "reasoning": "Autonomous Trigger (Severity/Verification)",
+            "meta": {
+                "confidence_score": 1.0,
+                "cluster_size": 2,
+                "sensor_diversity": 1,
+                "strategic_narrative": "VERIFIED INCIDENT: Operator CLUSTER-GL-2EA49 confirmed activity on-site.",
+                "lineage": "NASA-FIRMS",
+                "system_recall_est": 0.3,
+                "systemic_visibility": 0.73,
+                "carbon_risk": {
+                    "total_mtco2_risk": 1975.0,
+                    "biomass_loss": 1850.0,
+                    "sequestration_lost": 125.0,
+                    "area_estimate_ha": 10.0,
+                    "forest_baseline": "Pine/Oak (Hazara)"
+                },
+                "spread_risk_index": 0.19,
+                "wind_speed_ms": 0.58,
+                "wind_deg": 0,
+                "lat": 35.21,
+                "lon": 73.35
+            },
+            "evidence": {}
+        },
+        {
+            "timestamp": "2026-03-29T18:56:02.922921",
+            "cluster_id": "CLUSTER-GL-324C2",
+            "action": "DISPATCHED",
+            "reasoning": "Autonomous Trigger (Severity/Verification)",
+            "meta": {
+                "confidence_score": 1.0,
+                "cluster_size": 2,
+                "sensor_diversity": 1,
+                "strategic_narrative": "VERIFIED INCIDENT: Operator CLUSTER-GL-324C2 confirmed activity on-site.",
+                "lineage": "NASA-FIRMS",
+                "system_recall_est": 0.2,
+                "systemic_visibility": 0.73,
+                "carbon_risk": {
+                    "total_mtco2_risk": 1975.0,
+                    "biomass_loss": 1850.0,
+                    "sequestration_lost": 125.0,
+                    "area_estimate_ha": 10.0,
+                    "forest_baseline": "Pine/Oak (Hazara)"
+                },
+                "spread_risk_index": 0.19,
+                "wind_speed_ms": 0.58,
+                "wind_deg": 0,
+                "lat": 34.1689,
+                "lon": 73.2215
+            },
+            "evidence": {}
+        },
+        {
+            "timestamp": "2026-03-29T19:32:48.775896",
+            "cluster_id": "CLUSTER-GL-9F01B",
+            "action": "VERIFIED",
+            "reasoning": "",
+            "meta": {
+                "confidence_score": 0.53,
+                "cluster_size": 4,
+                "sensor_diversity": 1,
+                "strategic_narrative": "Intelligence Hot-Zone: 4 signals from 1 independent sensors. MONO-VECTOR DENSITY: High localized concentration of anomalies.",
+                "lineage": "NASA-FIRMS",
+                "system_recall_est": 0.2,
+                "systemic_visibility": 0.73,
+                "carbon_risk": {
+                    "total_mtco2_risk": 3950.0,
+                    "biomass_loss": 3700.0,
+                    "sequestration_lost": 250.0,
+                    "area_estimate_ha": 20.0,
+                    "forest_baseline": "Pine/Oak (Hazara)"
+                },
+                "spread_risk_index": 0.19,
+                "wind_speed_ms": 0.58,
+                "wind_deg": 0,
+                "lat": 34.3308,
+                "lon": 73.1968
+            },
+            "evidence": {}
+        },
+        {
+            "timestamp": "2026-03-29T19:35:23.405162",
+            "cluster_id": "CLUSTER-GL-9F01B",
+            "action": "DISPATCHED",
+            "reasoning": "Autonomous Trigger (Severity/Verification)",
+            "meta": {
+                "confidence_score": 1.0,
+                "cluster_size": 4,
+                "sensor_diversity": 1,
+                "strategic_narrative": "VERIFIED INCIDENT: Operator CLUSTER-GL-9F01B confirmed activity on-site.",
+                "lineage": "NASA-FIRMS",
+                "system_recall_est": 0.3,
+                "systemic_visibility": 0.73,
+                "carbon_risk": {
+                    "total_mtco2_risk": 3950.0,
+                    "biomass_loss": 3700.0,
+                    "sequestration_lost": 250.0,
+                    "area_estimate_ha": 20.0,
+                    "forest_baseline": "Pine/Oak (Hazara)"
+                },
+                "spread_risk_index": 0.19,
+                "wind_speed_ms": 0.58,
+                "wind_deg": 0,
+                "lat": 34.0753,
+                "lon": 73.3916
+            },
+            "evidence": {}
+        },
+        {
+            "timestamp": "2026-03-29T19:38:27.955693",
+            "cluster_id": "CLUSTER-GL-F287C",
+            "action": "VERIFIED",
+            "reasoning": "",
+            "meta": {
+                "confidence_score": 0.51,
+                "cluster_size": 3,
+                "sensor_diversity": 1,
+                "strategic_narrative": "Intelligence Hot-Zone: 3 signals from 1 independent sensors. MONO-VECTOR DENSITY: High localized concentration of anomalies.",
+                "lineage": "NASA-FIRMS",
+                "system_recall_est": 0.1,
+                "systemic_visibility": 0.73,
+                "carbon_risk": {
+                    "total_mtco2_risk": 2962.5,
+                    "biomass_loss": 2775.0,
+                    "sequestration_lost": 187.5,
+                    "area_estimate_ha": 15.0,
+                    "forest_baseline": "Pine/Oak (Hazara)"
+                },
+                "spread_risk_index": 0.2,
+                "wind_speed_ms": 0.93,
+                "wind_deg": 0,
+                "lat": 34.5491,
+                "lon": 73.3508
+            },
+            "evidence": {}
+        },
+        {
+            "timestamp": "2026-03-29T19:38:35.862632",
+            "cluster_id": "CLUSTER-GL-F287C",
+            "action": "DISPATCHED",
+            "reasoning": "Autonomous Trigger (Severity/Verification)",
+            "meta": {
+                "confidence_score": 1.0,
+                "cluster_size": 3,
+                "sensor_diversity": 1,
+                "strategic_narrative": "VERIFIED INCIDENT: Operator CLUSTER-GL-F287C confirmed activity on-site.",
+                "lineage": "NASA-FIRMS",
+                "system_recall_est": 0.1,
+                "systemic_visibility": 0.73,
+                "carbon_risk": {
+                    "total_mtco2_risk": 2962.5,
+                    "biomass_loss": 2775.0,
+                    "sequestration_lost": 187.5,
+                    "area_estimate_ha": 15.0,
+                    "forest_baseline": "Pine/Oak (Hazara)"
+                },
+                "spread_risk_index": 0.2,
+                "wind_speed_ms": 0.93,
+                "wind_deg": 0,
+                "lat": 35.21,
+                "lon": 73.35
+            },
+            "evidence": {}
+        },
+        {
+            "timestamp": "2026-03-29T19:42:01.311625",
+            "cluster_id": "CLUSTER-GL-8DE15",
+            "action": "VERIFIED",
+            "reasoning": "",
+            "meta": {
+                "confidence_score": 0.49,
+                "cluster_size": 2,
+                "sensor_diversity": 1,
+                "strategic_narrative": "Intelligence Hot-Zone: 2 signals from 1 independent sensors. MONO-VECTOR DENSITY: High localized concentration of anomalies.",
+                "lineage": "GFW-SIMULATED",
+                "system_recall_est": 0.3,
+                "systemic_visibility": 0.73,
+                "carbon_risk": {
+                    "total_mtco2_risk": 1975.0,
+                    "biomass_loss": 1850.0,
+                    "sequestration_lost": 125.0,
+                    "area_estimate_ha": 10.0,
+                    "forest_baseline": "Pine/Oak (Hazara)"
+                },
+                "lat": 34.1689,
+                "lon": 73.2215
+            },
+            "evidence": {}
+        },
+        {
+            "timestamp": "2026-03-29T19:49:42.643074",
+            "cluster_id": "CLUSTER-GL-DB063",
+            "action": "VERIFIED",
+            "reasoning": "",
+            "meta": {
+                "confidence_score": 0.49,
+                "cluster_size": 2,
+                "sensor_diversity": 1,
+                "strategic_narrative": "Intelligence Hot-Zone: 2 signals from 1 independent sensors. MONO-VECTOR DENSITY: High localized concentration of anomalies.",
+                "lineage": "GFW-SIMULATED",
+                "system_recall_est": 0.2,
+                "systemic_visibility": 0.73,
+                "carbon_risk": {
+                    "total_mtco2_risk": 1975.0,
+                    "biomass_loss": 1850.0,
+                    "sequestration_lost": 125.0,
+                    "area_estimate_ha": 10.0,
+                    "forest_baseline": "Pine/Oak (Hazara)"
+                },
+                "lat": 34.3308,
+                "lon": 73.1968
+            },
+            "evidence": {}
+        },
+        {
+            "timestamp": "2026-03-29T19:55:26.204289",
+            "cluster_id": "CLUSTER-GL-1A98C",
+            "action": "VERIFIED",
+            "reasoning": "",
+            "meta": {
+                "confidence_score": 0.49,
+                "cluster_size": 2,
+                "sensor_diversity": 1,
+                "strategic_narrative": "Intelligence Hot-Zone: 2 signals from 1 independent sensors. MONO-VECTOR DENSITY: High localized concentration of anomalies.",
+                "lineage": "GFW-SIMULATED",
+                "system_recall_est": 0.3,
+                "systemic_visibility": 0.73,
+                "carbon_risk": {
+                    "total_mtco2_risk": 1975.0,
+                    "biomass_loss": 1850.0,
+                    "sequestration_lost": 125.0,
+                    "area_estimate_ha": 10.0,
+                    "forest_baseline": "Pine/Oak (Hazara)"
+                },
+                "lat": 34.0753,
+                "lon": 73.3916
+            },
+            "evidence": {}
+        },
+        {
+            "timestamp": "2026-03-29T19:59:50.600496",
+            "cluster_id": "CLUSTER-GL-5B713",
+            "action": "VERIFIED",
+            "reasoning": "",
+            "meta": {
+                "confidence_score": 0.49,
+                "cluster_size": 2,
+                "sensor_diversity": 1,
+                "strategic_narrative": "Intelligence Hot-Zone: 2 signals from 1 independent sensors. MONO-VECTOR DENSITY: High localized concentration of anomalies.",
+                "lineage": "GFW-SIMULATED",
+                "system_recall_est": 0.2,
+                "systemic_visibility": 0.73,
+                "carbon_risk": {
+                    "total_mtco2_risk": 1975.0,
+                    "biomass_loss": 1850.0,
+                    "sequestration_lost": 125.0,
+                    "area_estimate_ha": 10.0,
+                    "forest_baseline": "Pine/Oak (Hazara)"
+                },
+                "lat": 34.5491,
+                "lon": 73.3508
+            },
+            "evidence": {}
+        },
+        {
+            "timestamp": "2026-03-29T20:02:47.523850",
+            "cluster_id": "CLUSTER-GL-C455F",
+            "action": "VERIFIED",
+            "reasoning": "",
+            "meta": {
+                "confidence_score": 0.49,
+                "cluster_size": 2,
+                "sensor_diversity": 1,
+                "strategic_narrative": "Intelligence Hot-Zone: 2 signals from 1 independent sensors. MONO-VECTOR DENSITY: High localized concentration of anomalies.",
+                "lineage": "GFW-SIMULATED",
+                "system_recall_est": 0.2,
+                "systemic_visibility": 0.73,
+                "carbon_risk": {
+                    "total_mtco2_risk": 1975.0,
+                    "biomass_loss": 1850.0,
+                    "sequestration_lost": 125.0,
+                    "area_estimate_ha": 10.0,
+                    "forest_baseline": "Pine/Oak (Hazara)"
+                },
+                "lat": 35.21,
+                "lon": 73.35
+            },
+            "evidence": {}
+        },
+        {
+            "timestamp": "2026-03-29T20:05:35.293469",
+            "cluster_id": "CLUSTER-GL-4D843",
+            "action": "VERIFIED",
+            "reasoning": "",
+            "meta": {
+                "confidence_score": 0.49,
+                "cluster_size": 2,
+                "sensor_diversity": 1,
+                "strategic_narrative": "Intelligence Hot-Zone: 2 signals from 1 independent sensors. MONO-VECTOR DENSITY: High localized concentration of anomalies.",
+                "lineage": "GFW-SIMULATED",
+                "system_recall_est": 0.2,
+                "systemic_visibility": 0.73,
+                "carbon_risk": {
+                    "total_mtco2_risk": 1975.0,
+                    "biomass_loss": 1850.0,
+                    "sequestration_lost": 125.0,
+                    "area_estimate_ha": 10.0,
+                    "forest_baseline": "Pine/Oak (Hazara)"
+                },
+                "lat": 34.1689,
+                "lon": 73.2215
+            },
+            "evidence": {}
+        },
+        {
+            "timestamp": "2026-03-29T20:08:57.354257",
+            "cluster_id": "CLUSTER-GL-02B94",
+            "action": "VERIFIED",
+            "reasoning": "",
+            "meta": {
+                "confidence_score": 0.49,
+                "cluster_size": 2,
+                "sensor_diversity": 1,
+                "strategic_narrative": "Intelligence Hot-Zone: 2 signals from 1 independent sensors. MONO-VECTOR DENSITY: High localized concentration of anomalies.",
+                "lineage": "GFW-SIMULATED",
+                "system_recall_est": 0.2,
+                "systemic_visibility": 0.73,
+                "carbon_risk": {
+                    "total_mtco2_risk": 1975.0,
+                    "biomass_loss": 1850.0,
+                    "sequestration_lost": 125.0,
+                    "area_estimate_ha": 10.0,
+                    "forest_baseline": "Pine/Oak (Hazara)"
+                },
+                "lat": 34.3308,
+                "lon": 73.1968
+            },
+            "evidence": {}
+        },
+        {
+            "timestamp": "2026-03-29T20:09:52.174703",
+            "cluster_id": "CLUSTER-GL-9BF81",
+            "action": "VERIFIED",
+            "reasoning": "",
+            "meta": {
+                "confidence_score": 0.49,
+                "cluster_size": 2,
+                "sensor_diversity": 1,
+                "strategic_narrative": "Intelligence Hot-Zone: 2 signals from 1 independent sensors. MONO-VECTOR DENSITY: High localized concentration of anomalies.",
+                "lineage": "GFW-SIMULATED",
+                "system_recall_est": 0.3,
+                "systemic_visibility": 0.73,
+                "carbon_risk": {
+                    "total_mtco2_risk": 1975.0,
+                    "biomass_loss": 1850.0,
+                    "sequestration_lost": 125.0,
+                    "area_estimate_ha": 10.0,
+                    "forest_baseline": "Pine/Oak (Hazara)"
+                },
+                "lat": 34.0753,
+                "lon": 73.3916
+            },
+            "evidence": {}
+        },
+        {
+            "timestamp": "2026-03-29T20:54:34.486476",
+            "cluster_id": "GL-6B8EDC",
+            "action": "VERIFIED",
+            "reasoning": "",
+            "meta": {
+                "strategic_narrative": "\ud83c\udfaf Intelligence Hot-Zone: 2 signals from 1 independent sensors. MONO-VECTOR DENSITY: High localized concentration of anomalies.",
+                "cluster_id": "GL-6B8EDC",
+                "cluster_size": 2,
+                "sensor_diversity": 1,
+                "lineage": "NASA-FIRMS",
+                "cluster_events": [
+                    "GL-2EA49DCC5C9B",
+                    "GL-5D70A6543B48"
+                ],
+                "confidence_score": 0.49,
+                "system_recall_est": 0.3,
+                "systemic_visibility": 0.73,
+                "carbon_risk": {
+                    "total_mtco2_risk": 1975.0,
+                    "biomass_loss": 1850.0,
+                    "sequestration_lost": 125.0,
+                    "area_estimate_ha": 10.0,
+                    "forest_baseline": "Pine/Oak (Hazara)"
+                },
+                "spread_risk_index": 0.2,
+                "wind_speed_ms": 1.19,
+                "wind_deg": 0,
+                "lat": 34.5491,
+                "lon": 73.3508
+            },
+            "evidence": {}
+        },
+        {
+            "timestamp": "2026-03-29T20:55:04.804342",
+            "cluster_id": "GL-E58280",
+            "action": "VERIFIED",
+            "reasoning": "",
+            "meta": {
+                "strategic_narrative": "\ud83c\udfaf Intelligence Hot-Zone: 3 signals from 1 independent sensors. MONO-VECTOR DENSITY: High localized concentration of anomalies.",
+                "cluster_id": "GL-E58280",
+                "cluster_size": 3,
+                "sensor_diversity": 1,
+                "lineage": "NASA-FIRMS",
+                "cluster_events": [
+                    "GL-4926CEB7E398",
+                    "GL-218D0DEBBE05",
+                    "GL-8E677FC3B382"
+                ],
+                "confidence_score": 0.51,
+                "system_recall_est": 0.3,
+                "systemic_visibility": 0.73,
+                "carbon_risk": {
+                    "total_mtco2_risk": 2962.5,
+                    "biomass_loss": 2775.0,
+                    "sequestration_lost": 187.5,
+                    "area_estimate_ha": 15.0,
+                    "forest_baseline": "Pine/Oak (Hazara)"
+                },
+                "spread_risk_index": 0.2,
+                "wind_speed_ms": 1.19,
+                "wind_deg": 0,
+                "lat": 35.21,
+                "lon": 73.35
+            },
+            "evidence": {}
+        },
+        {
+            "timestamp": "2026-03-29T21:02:03.425950",
+            "cluster_id": "GL-2FCCE1",
+            "action": "VERIFIED",
+            "reasoning": "",
+            "meta": {
+                "strategic_narrative": "\ud83c\udfaf Intelligence Hot-Zone: 2 signals from 1 independent sensors. MONO-VECTOR DENSITY: High localized concentration of anomalies.",
+                "cluster_id": "GL-2FCCE1",
+                "cluster_size": 2,
+                "sensor_diversity": 1,
+                "lineage": "NASA-FIRMS",
+                "cluster_events": [
+                    "GL-8BC73A74F1D2",
+                    "GL-7C499227C22A"
+                ],
+                "confidence_score": 0.49,
+                "system_recall_est": 0.2,
+                "systemic_visibility": 0.73,
+                "carbon_risk": {
+                    "total_mtco2_risk": 1975.0,
+                    "biomass_loss": 1850.0,
+                    "sequestration_lost": 125.0,
+                    "area_estimate_ha": 10.0,
+                    "forest_baseline": "Pine/Oak (Hazara)"
+                },
+                "spread_risk_index": 0.2,
+                "wind_speed_ms": 1.19,
+                "wind_deg": 0,
+                "lat": 34.1689,
+                "lon": 73.2215
+            },
+            "evidence": {}
+        },
+        {
+            "timestamp": "2026-03-29T21:04:08.148257",
+            "cluster_id": "GL-9CF8F4",
+            "action": "VERIFIED",
+            "reasoning": "",
+            "meta": {
+                "strategic_narrative": "\ud83c\udfaf Intelligence Hot-Zone: 2 signals from 1 independent sensors. MONO-VECTOR DENSITY: High localized concentration of anomalies.",
+                "cluster_id": "GL-9CF8F4",
+                "cluster_size": 2,
+                "sensor_diversity": 1,
+                "lineage": "NASA-FIRMS",
+                "cluster_events": [
+                    "GL-324C28D9ADDB",
+                    "GL-539F39D9FBA2"
+                ],
+                "confidence_score": 0.49,
+                "system_recall_est": 0.3,
+                "systemic_visibility": 0.73,
+                "carbon_risk": {
+                    "total_mtco2_risk": 1975.0,
+                    "biomass_loss": 1850.0,
+                    "sequestration_lost": 125.0,
+                    "area_estimate_ha": 10.0,
+                    "forest_baseline": "Pine/Oak (Hazara)"
+                },
+                "spread_risk_index": 0.2,
+                "wind_speed_ms": 1.19,
+                "wind_deg": 0,
+                "lat": 34.3308,
+                "lon": 73.1968
+            },
+            "evidence": {}
+        },
+        {
+            "timestamp": "2026-03-29T21:06:12.754366",
+            "cluster_id": "GL-E5531F",
+            "action": "VERIFIED",
+            "reasoning": "",
+            "meta": {
+                "strategic_narrative": "\ud83c\udfaf Intelligence Hot-Zone: 2 signals from 1 independent sensors. MONO-VECTOR DENSITY: High localized concentration of anomalies.",
+                "cluster_id": "GL-E5531F",
+                "cluster_size": 2,
+                "sensor_diversity": 1,
+                "lineage": "NASA-FIRMS",
+                "cluster_events": [
+                    "GL-3D279F6F28F5",
+                    "GL-1B2E77FEF89E"
+                ],
+                "confidence_score": 0.49,
+                "system_recall_est": 0.3,
+                "systemic_visibility": 0.73,
+                "carbon_risk": {
+                    "total_mtco2_risk": 1975.0,
+                    "biomass_loss": 1850.0,
+                    "sequestration_lost": 125.0,
+                    "area_estimate_ha": 10.0,
+                    "forest_baseline": "Pine/Oak (Hazara)"
+                },
+                "spread_risk_index": 0.2,
+                "wind_speed_ms": 1.19,
+                "wind_deg": 0,
+                "lat": 34.0753,
+                "lon": 73.3916
+            },
+            "evidence": {}
+        },
+        {
+            "timestamp": "2026-03-29T21:14:36.482248",
+            "cluster_id": "GL-C69794",
+            "action": "VERIFIED",
+            "reasoning": "",
+            "meta": {
+                "strategic_narrative": "\ud83c\udfaf Intelligence Hot-Zone: 2 signals from 1 independent sensors. MONO-VECTOR DENSITY: High localized concentration of anomalies.",
+                "cluster_id": "GL-C69794",
+                "cluster_size": 2,
+                "sensor_diversity": 1,
+                "lineage": "GFW-SIMULATED",
+                "cluster_events": [
+                    "GL-B4DC9630FB08",
+                    "GL-6719E5547985"
+                ],
+                "confidence_score": 0.49,
+                "system_recall_est": 0.1,
+                "systemic_visibility": 0.73,
+                "carbon_risk": {
+                    "total_mtco2_risk": 1975.0,
+                    "biomass_loss": 1850.0,
+                    "sequestration_lost": 125.0,
+                    "area_estimate_ha": 10.0,
+                    "forest_baseline": "Pine/Oak (Hazara)"
+                },
+                "lat": 34.5491,
+                "lon": 73.3508
+            },
+            "evidence": {}
+        },
+        {
+            "timestamp": "2026-03-29T21:15:15.601279",
+            "cluster_id": "GL-D336FA",
+            "action": "VERIFIED",
+            "reasoning": "",
+            "meta": {
+                "strategic_narrative": "\ud83c\udfaf Intelligence Hot-Zone: 2 signals from 1 independent sensors. MONO-VECTOR DENSITY: High localized concentration of anomalies.",
+                "cluster_id": "GL-D336FA",
+                "cluster_size": 2,
+                "sensor_diversity": 1,
+                "lineage": "GFW-SIMULATED",
+                "cluster_events": [
+                    "GL-5B806B6F706F",
+                    "GL-832D90BE701F"
+                ],
+                "confidence_score": 0.49,
+                "system_recall_est": 0.1,
+                "systemic_visibility": 0.73,
+                "carbon_risk": {
+                    "total_mtco2_risk": 1975.0,
+                    "biomass_loss": 1850.0,
+                    "sequestration_lost": 125.0,
+                    "area_estimate_ha": 10.0,
+                    "forest_baseline": "Pine/Oak (Hazara)"
+                },
+                "lat": 35.21,
+                "lon": 73.35
+            },
+            "evidence": {}
+        },
+        {
+            "timestamp": "2026-03-29T21:15:47.011236",
+            "cluster_id": "GL-BAACFF",
+            "action": "VERIFIED",
+            "reasoning": "",
+            "meta": {
+                "strategic_narrative": "\ud83c\udfaf Intelligence Hot-Zone: 2 signals from 1 independent sensors. MONO-VECTOR DENSITY: High localized concentration of anomalies.",
+                "cluster_id": "GL-BAACFF",
+                "cluster_size": 2,
+                "sensor_diversity": 1,
+                "lineage": "GFW-SIMULATED",
+                "cluster_events": [
+                    "GL-B3A3BC243FA2",
+                    "GL-5DC40F112C9E"
+                ],
+                "confidence_score": 0.49,
+                "system_recall_est": 0.3,
+                "systemic_visibility": 0.73,
+                "carbon_risk": {
+                    "total_mtco2_risk": 1975.0,
+                    "biomass_loss": 1850.0,
+                    "sequestration_lost": 125.0,
+                    "area_estimate_ha": 10.0,
+                    "forest_baseline": "Pine/Oak (Hazara)"
+                },
+                "lat": 34.1689,
+                "lon": 73.2215
+            },
+            "evidence": {}
+        },
+        {
+            "timestamp": "2026-03-29T21:16:32.386891",
+            "cluster_id": "GL-BD5146",
+            "action": "VERIFIED",
+            "reasoning": "",
+            "meta": {
+                "strategic_narrative": "\ud83c\udfaf Intelligence Hot-Zone: 4 signals from 1 independent sensors. MONO-VECTOR DENSITY: High localized concentration of anomalies.",
+                "cluster_id": "GL-BD5146",
+                "cluster_size": 4,
+                "sensor_diversity": 1,
+                "lineage": "NASA-FIRMS",
+                "cluster_events": [
+                    "GL-08002078EA1F",
+                    "GL-BED51005CAEC",
+                    "GL-65AC878CB7A5",
+                    "GL-3912F7575DC1"
+                ],
+                "confidence_score": 0.53,
+                "system_recall_est": 0.4,
+                "systemic_visibility": 0.73,
+                "carbon_risk": {
+                    "total_mtco2_risk": 3950.0,
+                    "biomass_loss": 3700.0,
+                    "sequestration_lost": 250.0,
+                    "area_estimate_ha": 20.0,
+                    "forest_baseline": "Pine/Oak (Hazara)"
+                },
+                "spread_risk_index": 0.2,
+                "wind_speed_ms": 1.19,
+                "wind_deg": 0,
+                "lat": 34.3308,
+                "lon": 73.1968
+            },
+            "evidence": {}
+        },
+        {
+            "timestamp": "2026-03-29T21:22:45.761088",
+            "cluster_id": "GL-A52971",
+            "action": "VERIFIED",
+            "reasoning": "",
+            "meta": {
+                "strategic_narrative": "\ud83c\udfaf Intelligence Hot-Zone: 2 signals from 1 independent sensors. MONO-VECTOR DENSITY: High localized concentration of anomalies.",
+                "cluster_id": "GL-A52971",
+                "cluster_size": 2,
+                "sensor_diversity": 1,
+                "lineage": "GFW-SIMULATED",
+                "cluster_events": [
+                    "GL-51C48908518B",
+                    "GL-6DA84AB484F9"
+                ],
+                "confidence_score": 0.49,
+                "system_recall_est": 0.2,
+                "systemic_visibility": 0.73,
+                "carbon_risk": {
+                    "total_mtco2_risk": 1975.0,
+                    "biomass_loss": 1850.0,
+                    "sequestration_lost": 125.0,
+                    "area_estimate_ha": 10.0,
+                    "forest_baseline": "Pine/Oak (Hazara)"
+                },
+                "lat": 34.0753,
+                "lon": 73.3916
+            },
+            "evidence": {}
+        },
+        {
+            "timestamp": "2026-03-29T21:23:09.004442",
+            "cluster_id": "GL-0FCE1B",
+            "action": "VERIFIED",
+            "reasoning": "",
+            "meta": {
+                "strategic_narrative": "\ud83c\udfaf Intelligence Hot-Zone: 2 signals from 1 independent sensors. MONO-VECTOR DENSITY: High localized concentration of anomalies.",
+                "cluster_id": "GL-0FCE1B",
+                "cluster_size": 2,
+                "sensor_diversity": 1,
+                "lineage": "GFW-SIMULATED",
+                "cluster_events": [
+                    "GL-F57A7630E50A",
+                    "GL-1028223A18A5"
+                ],
+                "confidence_score": 0.49,
+                "system_recall_est": 0.2,
+                "systemic_visibility": 0.73,
+                "carbon_risk": {
+                    "total_mtco2_risk": 1975.0,
+                    "biomass_loss": 1850.0,
+                    "sequestration_lost": 125.0,
+                    "area_estimate_ha": 10.0,
+                    "forest_baseline": "Pine/Oak (Hazara)"
+                },
+                "lat": 34.5491,
+                "lon": 73.3508
+            },
+            "evidence": {}
+        },
+        {
+            "timestamp": "2026-03-29T21:33:34.512252",
+            "cluster_id": "GL-83BFC8",
+            "action": "VERIFIED",
+            "reasoning": "",
+            "meta": {
+                "strategic_narrative": "\ud83c\udfaf Intelligence Hot-Zone: 2 signals from 1 independent sensors. MONO-VECTOR DENSITY: High localized concentration of anomalies.",
+                "cluster_id": "GL-83BFC8",
+                "cluster_size": 2,
+                "sensor_diversity": 1,
+                "lineage": "GFW-SIMULATED",
+                "cluster_events": [
+                    "GL-01D3D3FCF074",
+                    "GL-02D2CC87F2CB"
+                ],
+                "confidence_score": 0.49,
+                "system_recall_est": 0.1,
+                "systemic_visibility": 0.73,
+                "carbon_risk": {
+                    "total_mtco2_risk": 1975.0,
+                    "biomass_loss": 1850.0,
+                    "sequestration_lost": 125.0,
+                    "area_estimate_ha": 10.0,
+                    "forest_baseline": "Pine/Oak (Hazara)"
+                },
+                "lat": 35.21,
+                "lon": 73.35
+            },
+            "evidence": {}
+        },
+        {
+            "timestamp": "2026-03-29T21:34:09.093086",
+            "cluster_id": "GL-51C010",
+            "action": "VERIFIED",
+            "reasoning": "",
+            "meta": {
+                "strategic_narrative": "\ud83c\udfaf Intelligence Hot-Zone: 2 signals from 1 independent sensors. MONO-VECTOR DENSITY: High localized concentration of anomalies.",
+                "cluster_id": "GL-51C010",
+                "cluster_size": 2,
+                "sensor_diversity": 1,
+                "lineage": "GFW-SIMULATED",
+                "cluster_events": [
+                    "GL-8A6C651CE897",
+                    "GL-3BEC35855761"
+                ],
+                "confidence_score": 0.49,
+                "system_recall_est": 0.1,
+                "systemic_visibility": 0.73,
+                "carbon_risk": {
+                    "total_mtco2_risk": 1975.0,
+                    "biomass_loss": 1850.0,
+                    "sequestration_lost": 125.0,
+                    "area_estimate_ha": 10.0,
+                    "forest_baseline": "Pine/Oak (Hazara)"
+                },
+                "lat": 34.1689,
+                "lon": 73.2215
+            },
+            "evidence": {}
+        },
+        {
+            "timestamp": "2026-03-29T21:35:48.404834",
+            "cluster_id": "GL-06037D",
+            "action": "VERIFIED",
+            "reasoning": "",
+            "meta": {
+                "strategic_narrative": "\ud83c\udfaf Intelligence Hot-Zone: 2 signals from 1 independent sensors. MONO-VECTOR DENSITY: High localized concentration of anomalies.",
+                "cluster_id": "GL-06037D",
+                "cluster_size": 2,
+                "sensor_diversity": 1,
+                "lineage": "GFW-SIMULATED",
+                "cluster_events": [
+                    "GL-9CD6231BF077",
+                    "GL-B24851ED009E"
+                ],
+                "confidence_score": 0.49,
+                "system_recall_est": 0.2,
+                "systemic_visibility": 0.73,
+                "carbon_risk": {
+                    "total_mtco2_risk": 1975.0,
+                    "biomass_loss": 1850.0,
+                    "sequestration_lost": 125.0,
+                    "area_estimate_ha": 10.0,
+                    "forest_baseline": "Pine/Oak (Hazara)"
+                },
+                "lat": 34.3308,
+                "lon": 73.1968
+            },
+            "evidence": {}
+        },
+        {
+            "timestamp": "2026-03-29T21:37:16.036904",
+            "cluster_id": "GL-BB0030",
+            "action": "VERIFIED",
+            "reasoning": "",
+            "meta": {
+                "strategic_narrative": "\ud83c\udfaf Intelligence Hot-Zone: 2 signals from 1 independent sensors. MONO-VECTOR DENSITY: High localized concentration of anomalies.",
+                "cluster_id": "GL-BB0030",
+                "cluster_size": 2,
+                "sensor_diversity": 1,
+                "lineage": "GFW-SIMULATED",
+                "cluster_events": [
+                    "GL-608AF096458B",
+                    "GL-A76C4CB0F351"
+                ],
+                "confidence_score": 0.49,
+                "system_recall_est": 0.2,
+                "systemic_visibility": 0.73,
+                "carbon_risk": {
+                    "total_mtco2_risk": 1975.0,
+                    "biomass_loss": 1850.0,
+                    "sequestration_lost": 125.0,
+                    "area_estimate_ha": 10.0,
+                    "forest_baseline": "Pine/Oak (Hazara)"
+                },
+                "lat": 34.0753,
+                "lon": 73.3916
+            },
+            "evidence": {}
+        },
+        {
+            "timestamp": "2026-03-29T21:47:01.704913",
+            "cluster_id": "GL-AF93C1",
+            "action": "VERIFIED",
+            "reasoning": "",
+            "meta": {
+                "strategic_narrative": "\ud83c\udfaf Intelligence Hot-Zone: 2 signals from 1 independent sensors. MONO-VECTOR DENSITY: High localized concentration of anomalies.",
+                "cluster_id": "GL-AF93C1",
+                "cluster_size": 2,
+                "sensor_diversity": 1,
+                "lineage": "GFW-SIMULATED",
+                "cluster_events": [
+                    "GL-EAD56E097952",
+                    "GL-B32C1C6CFE01"
+                ],
+                "confidence_score": 0.49,
+                "system_recall_est": 0.3,
+                "systemic_visibility": 0.73,
+                "carbon_risk": {
+                    "total_mtco2_risk": 1975.0,
+                    "biomass_loss": 1850.0,
+                    "sequestration_lost": 125.0,
+                    "area_estimate_ha": 10.0,
+                    "forest_baseline": "Pine/Oak (Hazara)"
+                },
+                "lat": 34.5491,
+                "lon": 73.3508
+            },
+            "evidence": {}
+        },
+        {
+            "timestamp": "2026-03-29T21:47:28.431969",
+            "cluster_id": "GL-C62DAD",
+            "action": "VERIFIED",
+            "reasoning": "",
+            "meta": {
+                "strategic_narrative": "\ud83c\udfaf Intelligence Hot-Zone: 2 signals from 1 independent sensors. MONO-VECTOR DENSITY: High localized concentration of anomalies.",
+                "cluster_id": "GL-C62DAD",
+                "cluster_size": 2,
+                "sensor_diversity": 1,
+                "lineage": "GFW-SIMULATED",
+                "cluster_events": [
+                    "GL-4692246A1CDB",
+                    "GL-56CD0F1AFB4C"
+                ],
+                "confidence_score": 0.49,
+                "system_recall_est": 0.3,
+                "systemic_visibility": 0.73,
+                "carbon_risk": {
+                    "total_mtco2_risk": 1975.0,
+                    "biomass_loss": 1850.0,
+                    "sequestration_lost": 125.0,
+                    "area_estimate_ha": 10.0,
+                    "forest_baseline": "Pine/Oak (Hazara)"
+                },
+                "lat": 35.21,
+                "lon": 73.35
+            },
+            "evidence": {}
+        },
+        {
+            "timestamp": "2026-03-29T21:48:26.671894",
+            "cluster_id": "GL-32A181",
+            "action": "VERIFIED",
+            "reasoning": "",
+            "meta": {
+                "strategic_narrative": "\ud83c\udfaf Intelligence Hot-Zone: 3 signals from 1 independent sensors. MONO-VECTOR DENSITY: High localized concentration of anomalies.",
+                "cluster_id": "GL-32A181",
+                "cluster_size": 3,
+                "sensor_diversity": 1,
+                "lineage": "GFW-SIMULATED",
+                "cluster_events": [
+                    "GL-31853579FF18",
+                    "GL-930A7A2A72B4",
+                    "GL-F17064D179E5"
+                ],
+                "confidence_score": 0.51,
+                "system_recall_est": 0.2,
+                "systemic_visibility": 0.73,
+                "carbon_risk": {
+                    "total_mtco2_risk": 2962.5,
+                    "biomass_loss": 2775.0,
+                    "sequestration_lost": 187.5,
+                    "area_estimate_ha": 15.0,
+                    "forest_baseline": "Pine/Oak (Hazara)"
+                },
+                "lat": 34.1689,
+                "lon": 73.2215
+            },
+            "evidence": {}
+        },
+        {
+            "timestamp": "2026-03-29T21:49:36.335913",
+            "cluster_id": "GL-776ED4",
+            "action": "VERIFIED",
+            "reasoning": "",
+            "meta": {
+                "strategic_narrative": "\ud83c\udfaf Intelligence Hot-Zone: 2 signals from 1 independent sensors. MONO-VECTOR DENSITY: High localized concentration of anomalies.",
+                "cluster_id": "GL-776ED4",
+                "cluster_size": 2,
+                "sensor_diversity": 1,
+                "lineage": "GFW-SIMULATED",
+                "cluster_events": [
+                    "GL-C351F65E17D2",
+                    "GL-7288E23C236F"
+                ],
+                "confidence_score": 0.49,
+                "system_recall_est": 0.1,
+                "systemic_visibility": 0.73,
+                "carbon_risk": {
+                    "total_mtco2_risk": 1975.0,
+                    "biomass_loss": 1850.0,
+                    "sequestration_lost": 125.0,
+                    "area_estimate_ha": 10.0,
+                    "forest_baseline": "Pine/Oak (Hazara)"
+                },
+                "lat": 34.3308,
+                "lon": 73.1968
+            },
+            "evidence": {}
+        },
+        {
+            "timestamp": "2026-03-29T22:07:14.222920",
+            "cluster_id": "GL-022849",
+            "action": "VERIFIED",
+            "reasoning": "",
+            "meta": {
+                "strategic_narrative": "\ud83c\udfaf Intelligence Hot-Zone: 3 signals from 1 independent sensors. MONO-VECTOR DENSITY: High localized concentration of anomalies.",
+                "cluster_id": "GL-022849",
+                "cluster_size": 3,
+                "sensor_diversity": 1,
+                "lineage": "NASA-FIRMS",
+                "cluster_events": [
+                    "GL-F287C073CF19",
+                    "GL-6F9E96A5DCE8",
+                    "GL-D3ECB519892D"
+                ],
+                "confidence_score": 0.51,
+                "system_recall_est": 0.2,
+                "systemic_visibility": 0.73,
+                "carbon_risk": {
+                    "total_mtco2_risk": 2962.5,
+                    "biomass_loss": 2775.0,
+                    "sequestration_lost": 187.5,
+                    "area_estimate_ha": 15.0,
+                    "forest_baseline": "Pine/Oak (Hazara)"
+                },
+                "spread_risk_index": 0.21,
+                "wind_speed_ms": 1.84,
+                "wind_deg": 0,
+                "lat": 34.0753,
+                "lon": 73.3916
+            },
+            "evidence": {}
+        },
+        {
+            "timestamp": "2026-03-29T22:07:34.271479",
+            "cluster_id": "GL-388A7F",
+            "action": "VERIFIED",
+            "reasoning": "",
+            "meta": {
+                "strategic_narrative": "\ud83c\udfaf Intelligence Hot-Zone: 2 signals from 1 independent sensors. MONO-VECTOR DENSITY: High localized concentration of anomalies.",
+                "cluster_id": "GL-388A7F",
+                "cluster_size": 2,
+                "sensor_diversity": 1,
+                "lineage": "GFW-SIMULATED",
+                "cluster_events": [
+                    "GL-58F1EF0C75B6",
+                    "GL-A22992054A52"
+                ],
+                "confidence_score": 0.49,
+                "system_recall_est": 0.2,
+                "systemic_visibility": 0.73,
+                "carbon_risk": {
+                    "total_mtco2_risk": 1975.0,
+                    "biomass_loss": 1850.0,
+                    "sequestration_lost": 125.0,
+                    "area_estimate_ha": 10.0,
+                    "forest_baseline": "Pine/Oak (Hazara)"
+                },
+                "lat": 34.5491,
+                "lon": 73.3508
+            },
+            "evidence": {}
+        },
+        {
+            "timestamp": "2026-03-29T22:08:23.687972",
+            "cluster_id": "GL-0D7A7A",
+            "action": "VERIFIED",
+            "reasoning": "",
+            "meta": {
+                "strategic_narrative": "\ud83c\udfaf Intelligence Hot-Zone: 3 signals from 1 independent sensors. MONO-VECTOR DENSITY: High localized concentration of anomalies.",
+                "cluster_id": "GL-0D7A7A",
+                "cluster_size": 3,
+                "sensor_diversity": 1,
+                "lineage": "GFW-SIMULATED",
+                "cluster_events": [
+                    "GL-95F550860941",
+                    "GL-97B38416B7F2",
+                    "GL-12A466C71F9C"
+                ],
+                "confidence_score": 0.51,
+                "system_recall_est": 0.1,
+                "systemic_visibility": 0.73,
+                "carbon_risk": {
+                    "total_mtco2_risk": 2962.5,
+                    "biomass_loss": 2775.0,
+                    "sequestration_lost": 187.5,
+                    "area_estimate_ha": 15.0,
+                    "forest_baseline": "Pine/Oak (Hazara)"
+                },
+                "lat": 35.21,
+                "lon": 73.35
+            },
+            "evidence": {}
+        },
+        {
+            "timestamp": "2026-03-29T22:09:46.989480",
+            "cluster_id": "GL-AA6787",
+            "action": "VERIFIED",
+            "reasoning": "",
+            "meta": {
+                "strategic_narrative": "\ud83c\udfaf Intelligence Hot-Zone: 2 signals from 1 independent sensors. MONO-VECTOR DENSITY: High localized concentration of anomalies.",
+                "cluster_id": "GL-AA6787",
+                "cluster_size": 2,
+                "sensor_diversity": 1,
+                "lineage": "GFW-SIMULATED",
+                "cluster_events": [
+                    "GL-2E94865A501F",
+                    "GL-DFB79D4F64F3"
+                ],
+                "confidence_score": 0.49,
+                "system_recall_est": 0.2,
+                "systemic_visibility": 0.73,
+                "carbon_risk": {
+                    "total_mtco2_risk": 1975.0,
+                    "biomass_loss": 1850.0,
+                    "sequestration_lost": 125.0,
+                    "area_estimate_ha": 10.0,
+                    "forest_baseline": "Pine/Oak (Hazara)"
+                },
+                "lat": 34.1689,
+                "lon": 73.2215
+            },
+            "evidence": {}
+        },
+        {
+            "timestamp": "2026-03-29T22:10:07.471205",
+            "cluster_id": "GL-064A69",
+            "action": "VERIFIED",
+            "reasoning": "",
+            "meta": {
+                "strategic_narrative": "\ud83c\udfaf Intelligence Hot-Zone: 4 signals from 1 independent sensors. MONO-VECTOR DENSITY: High localized concentration of anomalies.",
+                "cluster_id": "GL-064A69",
+                "cluster_size": 4,
+                "sensor_diversity": 1,
+                "lineage": "NASA-FIRMS",
+                "cluster_events": [
+                    "GL-9F01B416D4C0",
+                    "GL-96C5488543BC",
+                    "GL-561F5CA3BA60",
+                    "GL-7A063DB9ABDC"
+                ],
+                "confidence_score": 0.53,
+                "system_recall_est": 0.2,
+                "systemic_visibility": 0.73,
+                "carbon_risk": {
+                    "total_mtco2_risk": 3950.0,
+                    "biomass_loss": 3700.0,
+                    "sequestration_lost": 250.0,
+                    "area_estimate_ha": 20.0,
+                    "forest_baseline": "Pine/Oak (Hazara)"
+                },
+                "spread_risk_index": 0.21,
+                "wind_speed_ms": 1.84,
+                "wind_deg": 0,
+                "lat": 34.3308,
+                "lon": 73.1968
+            },
+            "evidence": {}
+        },
+        {
+            "timestamp": "2026-03-29T22:11:27.039458",
+            "cluster_id": "GL-16F8A8",
+            "action": "DISMISSED",
+            "reasoning": "",
+            "meta": {
+                "strategic_narrative": "\ud83c\udfaf Intelligence Hot-Zone: 2 signals from 1 independent sensors. MONO-VECTOR DENSITY: High localized concentration of anomalies.",
+                "cluster_id": "GL-16F8A8",
+                "cluster_size": 2,
+                "sensor_diversity": 1,
+                "lineage": "GFW-SIMULATED",
+                "cluster_events": [
+                    "GL-3E4C7CD4FCE6",
+                    "GL-36F32600F71F"
+                ],
+                "confidence_score": 0.49,
+                "system_recall_est": 0.1,
+                "systemic_visibility": 0.73,
+                "carbon_risk": {
+                    "total_mtco2_risk": 1975.0,
+                    "biomass_loss": 1850.0,
+                    "sequestration_lost": 125.0,
+                    "area_estimate_ha": 10.0,
+                    "forest_baseline": "Pine/Oak (Hazara)"
+                }
+            },
+            "evidence": {}
+        },
+        {
+            "timestamp": "2026-03-29T22:27:46.732963",
+            "cluster_id": "GL-4555B9",
+            "action": "VERIFIED",
+            "reasoning": "",
+            "meta": {
+                "strategic_narrative": "\ud83c\udfaf Intelligence Hot-Zone: 2 signals from 1 independent sensors. MONO-VECTOR DENSITY: High localized concentration of anomalies.",
+                "cluster_id": "GL-4555B9",
+                "cluster_size": 2,
+                "sensor_diversity": 1,
+                "lineage": "GFW-SIMULATED",
+                "cluster_events": [
+                    "GL-2086C58DD6C6",
+                    "GL-7329314B76A7"
+                ],
+                "confidence_score": 0.49,
+                "system_recall_est": 0.3,
+                "systemic_visibility": 0.73,
+                "carbon_risk": {
+                    "total_mtco2_risk": 1975.0,
+                    "biomass_loss": 1850.0,
+                    "sequestration_lost": 125.0,
+                    "area_estimate_ha": 10.0,
+                    "forest_baseline": "Pine/Oak (Hazara)"
+                },
+                "lat": 34.0753,
+                "lon": 73.3916
+            },
+            "evidence": {}
+        },
+        {
+            "timestamp": "2026-03-29T22:36:37.304411",
+            "cluster_id": "GL-C3FBB1BA520C",
+            "action": "EVIDENCE_GENERATED",
+            "reasoning": "Manual Export for Legal Evidence",
+            "meta": {
+                "id": "F11B7E61",
+                "lat": 33.90276,
+                "lon": 71.91612,
+                "date": "2026-03-27",
+                "time": 2116,
+                "source": "NASA-FIRMS",
+                "confidence": "NOMINAL",
+                "brightness": 299.7,
+                "system_recall_est": 0.2,
+                "systemic_visibility": 0.73,
+                "confidence_score": 0.34,
+                "confidence_formula": "0.85 [Base] \u00d7 0.4 [Freshness] \u00d7 1 [Overlap] = 0.34"
+            },
+            "evidence": {
+                "filepath": "E:\\GL_AI\\data\\evidence_bundles\\GL_Evidence_GL-C3FBB1BA520C_20260329_223633.pdf",
+                "filename": "GL_Evidence_GL-C3FBB1BA520C_20260329_223633.pdf",
+                "hash": "8fc2425281ef84e1721464793b79d7e4e074d2a6806aa6f2aca5cc21468316a6",
+                "timestamp": "20260329_223633"
+            }
+        },
+        {
+            "timestamp": "2026-03-29T23:52:57.562442",
+            "cluster_id": "GL-F9D16C",
+            "action": "VERIFIED",
+            "reasoning": "",
+            "meta": {
+                "strategic_narrative": "\ud83c\udfaf Intelligence Hot-Zone: 2 signals from 1 independent sensors. MONO-VECTOR DENSITY: High localized concentration of anomalies.",
+                "cluster_id": "GL-F9D16C",
+                "cluster_size": 2,
+                "sensor_diversity": 1,
+                "lineage": "GFW-SIMULATED",
+                "cluster_events": [
+                    "GL-38B83ADBC68E",
+                    "GL-D5EC202568DC"
+                ],
+                "confidence_score": 0.49,
+                "system_recall_est": 0.4,
+                "systemic_visibility": 0.73,
+                "carbon_risk": {
+                    "total_mtco2_risk": 1975.0,
+                    "biomass_loss": 1850.0,
+                    "sequestration_lost": 125.0,
+                    "area_estimate_ha": 10.0,
+                    "forest_baseline": "Pine/Oak (Hazara)"
+                },
+                "lat": 34.5491,
+                "lon": 73.3508
+            },
+            "evidence": {}
+        },
+        {
+            "timestamp": "2026-03-30T12:28:31.386717",
+            "cluster_id": "GL-BEC172",
+            "action": "VERIFIED",
+            "reasoning": "",
+            "meta": {
+                "strategic_narrative": "\ud83d\udce1 Tactical signal grouping identified near WESTERN BASIN. Fusing 2 distinct signals from 1 sensors. INDIVIDUAL INCURSION: Singular sensor array tracking localized anomaly.",
+                "member_feed": [
+                    {
+                        "id": "2ED4F530",
+                        "source": "NASA-FIRMS",
+                        "type": "fire",
+                        "conf": "TACTICAL"
+                    },
+                    {
+                        "id": "2ED4F530",
+                        "source": "NASA-FIRMS",
+                        "type": "fire",
+                        "conf": "TACTICAL"
+                    }
+                ],
+                "cluster_size": 2,
+                "sensor_diversity": 1,
+                "confidence_score": 0.61,
+                "carbon_risk": {
+                    "total_mtco2_risk": 1975.0,
+                    "biomass_loss": 1850.0,
+                    "sequestration_lost": 125.0,
+                    "area_estimate_ha": 10.0,
+                    "forest_baseline": "Pine/Oak (Hazara)"
+                },
+                "wind_aware": true,
+                "spread_risk_index": 0.24,
+                "wind_deg": 0,
+                "lat": 35.21,
+                "lon": 73.35
+            },
+            "evidence": {}
+        },
+        {
+            "timestamp": "2026-03-30T12:29:01.837375",
+            "cluster_id": "GL-CB94EA",
+            "action": "VERIFIED",
+            "reasoning": "",
+            "meta": {
+                "strategic_narrative": "\ud83d\udef0\ufe0f Multispectral anomaly confirmed within SOUTH DIVISION BUFFER. Synchronizing 2 tactical data-feeds via 1 validated sensors. MONO-VECTOR DENSITY: High localized concentration suggests point-source event.",
+                "member_feed": [
+                    {
+                        "id": "A6B3C17A",
+                        "source": "NASA-FIRMS",
+                        "type": "fire",
+                        "conf": "TACTICAL"
+                    },
+                    {
+                        "id": "A6B3C17A",
+                        "source": "NASA-FIRMS",
+                        "type": "fire",
+                        "conf": "TACTICAL"
+                    }
+                ],
+                "cluster_size": 2,
+                "sensor_diversity": 1,
+                "confidence_score": 0.62,
+                "carbon_risk": {
+                    "total_mtco2_risk": 1975.0,
+                    "biomass_loss": 1850.0,
+                    "sequestration_lost": 125.0,
+                    "area_estimate_ha": 10.0,
+                    "forest_baseline": "Pine/Oak (Hazara)"
+                },
+                "wind_aware": true,
+                "spread_risk_index": 0.24,
+                "wind_deg": 0,
+                "lat": 34.1689,
+                "lon": 73.2215
+            },
+            "evidence": {}
+        },
+        {
+            "timestamp": "2026-03-30T12:29:28.587429",
+            "cluster_id": "GL-E01BC6",
+            "action": "VERIFIED",
+            "reasoning": "",
+            "meta": {
+                "strategic_narrative": "\ud83d\udce1 Tactical signal grouping identified near SOUTH DIVISION BUFFER. Synchronizing 5 tactical data-feeds via 1 validated sensors. MONO-VECTOR DENSITY: High localized concentration suggests point-source event.",
+                "member_feed": [
+                    {
+                        "id": "BF96CF23",
+                        "source": "NASA-FIRMS",
+                        "type": "fire",
+                        "conf": "TACTICAL"
+                    },
+                    {
+                        "id": "BF96CF23",
+                        "source": "NASA-FIRMS",
+                        "type": "fire",
+                        "conf": "TACTICAL"
+                    },
+                    {
+                        "id": "46A37FF6",
+                        "source": "NASA-FIRMS",
+                        "type": "fire",
+                        "conf": "TACTICAL"
+                    },
+                    {
+                        "id": "7A7D32B1",
+                        "source": "NASA-FIRMS",
+                        "type": "fire",
+                        "conf": "TACTICAL"
+                    },
+                    {
+                        "id": "52535781",
+                        "source": "NASA-FIRMS",
+                        "type": "fire",
+                        "conf": "TACTICAL"
+                    }
+                ],
+                "cluster_size": 5,
+                "sensor_diversity": 1,
+                "confidence_score": 0.56,
+                "carbon_risk": {
+                    "total_mtco2_risk": 4937.5,
+                    "biomass_loss": 4625.0,
+                    "sequestration_lost": 312.5,
+                    "area_estimate_ha": 25.0,
+                    "forest_baseline": "Pine/Oak (Hazara)"
+                },
+                "wind_aware": true,
+                "spread_risk_index": 0.24,
+                "wind_deg": 0,
+                "lat": 34.3308,
+                "lon": 73.1968
+            },
+            "evidence": {}
+        },
+        {
+            "timestamp": "2026-03-30T14:01:56.091567",
+            "cluster_id": "GL-2F18FF",
+            "action": "VERIFIED",
+            "reasoning": "",
+            "meta": {
+                "strategic_narrative": "\ud83d\udccd Intelligence Hot-Zone detected in SOUTH DIVISION BUFFER. Synchronizing 2 tactical data-feeds via 1 validated sensors. PRELIMINARY CLUSTER: Initial grouping requiring ground-truth verification.",
+                "member_feed": [
+                    {
+                        "id": "0697E3CC",
+                        "source": "NASA-FIRMS",
+                        "type": "fire",
+                        "conf": "TACTICAL"
+                    },
+                    {
+                        "id": "0697E3CC",
+                        "source": "NASA-FIRMS",
+                        "type": "fire",
+                        "conf": "TACTICAL"
+                    }
+                ],
+                "cluster_size": 2,
+                "sensor_diversity": 1,
+                "confidence_score": 0.61,
+                "carbon_risk": {
+                    "total_mtco2_risk": 1975.0,
+                    "biomass_loss": 1850.0,
+                    "sequestration_lost": 125.0,
+                    "area_estimate_ha": 10.0,
+                    "forest_baseline": "Pine/Oak (Hazara)"
+                },
+                "wind_aware": true,
+                "spread_risk_index": 0.18,
+                "wind_deg": 0,
+                "lat": 34.0753,
+                "lon": 73.3916
+            },
+            "evidence": {}
+        },
+        {
+            "timestamp": "2026-03-30T14:02:23.531826",
+            "cluster_id": "GL-BA6CB0",
+            "action": "VERIFIED",
+            "reasoning": "",
+            "meta": {
+                "strategic_narrative": "\ud83d\udef0\ufe0f Multispectral anomaly confirmed within SOUTH DIVISION BUFFER. Correlating 2 active data-points across 1 independent arrays. INDIVIDUAL INCURSION: Singular sensor array tracking localized anomaly.",
+                "member_feed": [
+                    {
+                        "id": "5C77DABF",
+                        "source": "NASA-FIRMS",
+                        "type": "fire",
+                        "conf": "TACTICAL"
+                    },
+                    {
+                        "id": "5C77DABF",
+                        "source": "NASA-FIRMS",
+                        "type": "fire",
+                        "conf": "TACTICAL"
+                    }
+                ],
+                "cluster_size": 2,
+                "sensor_diversity": 1,
+                "confidence_score": 0.59,
+                "carbon_risk": {
+                    "total_mtco2_risk": 1975.0,
+                    "biomass_loss": 1850.0,
+                    "sequestration_lost": 125.0,
+                    "area_estimate_ha": 10.0,
+                    "forest_baseline": "Pine/Oak (Hazara)"
+                },
+                "wind_aware": true,
+                "spread_risk_index": 0.18,
+                "wind_deg": 0,
+                "lat": 34.5491,
+                "lon": 73.3508
+            },
+            "evidence": {}
+        },
+        {
+            "timestamp": "2026-03-30T14:03:03.279563",
+            "cluster_id": "GL-856E18",
+            "action": "VERIFIED",
+            "reasoning": "",
+            "meta": {
+                "strategic_narrative": "\ud83d\udef0\ufe0f Multispectral anomaly confirmed within SOUTH DIVISION BUFFER. Fusing 2 distinct signals from 1 sensors. INDIVIDUAL INCURSION: Singular sensor array tracking localized anomaly.",
+                "member_feed": [
+                    {
+                        "id": "F7159D20",
+                        "source": "NASA-FIRMS",
+                        "type": "fire",
+                        "conf": "TACTICAL"
+                    },
+                    {
+                        "id": "F7159D20",
+                        "source": "NASA-FIRMS",
+                        "type": "fire",
+                        "conf": "TACTICAL"
+                    }
+                ],
+                "cluster_size": 2,
+                "sensor_diversity": 1,
+                "confidence_score": 0.62,
+                "carbon_risk": {
+                    "total_mtco2_risk": 1975.0,
+                    "biomass_loss": 1850.0,
+                    "sequestration_lost": 125.0,
+                    "area_estimate_ha": 10.0,
+                    "forest_baseline": "Pine/Oak (Hazara)"
+                },
+                "wind_aware": true,
+                "spread_risk_index": 0.18,
+                "wind_deg": 0,
+                "lat": 35.21,
+                "lon": 73.35
+            },
+            "evidence": {}
+        },
+        {
+            "timestamp": "2026-03-30T14:03:23.434947",
+            "cluster_id": "GL-B62A45",
+            "action": "VERIFIED",
+            "reasoning": "",
+            "meta": {
+                "strategic_narrative": "\ud83d\udef0\ufe0f Multispectral anomaly confirmed within SOUTH DIVISION BUFFER. Fusing 5 distinct signals from 1 sensors. INDIVIDUAL INCURSION: Singular sensor array tracking localized anomaly.",
+                "member_feed": [
+                    {
+                        "id": "A9155BF1",
+                        "source": "NASA-FIRMS",
+                        "type": "fire",
+                        "conf": "TACTICAL"
+                    },
+                    {
+                        "id": "A9155BF1",
+                        "source": "NASA-FIRMS",
+                        "type": "fire",
+                        "conf": "TACTICAL"
+                    },
+                    {
+                        "id": "CAB3206D",
+                        "source": "NASA-FIRMS",
+                        "type": "fire",
+                        "conf": "TACTICAL"
+                    },
+                    {
+                        "id": "D8F9FCA5",
+                        "source": "NASA-FIRMS",
+                        "type": "fire",
+                        "conf": "TACTICAL"
+                    },
+                    {
+                        "id": "14D91C0E",
+                        "source": "NASA-FIRMS",
+                        "type": "fire",
+                        "conf": "TACTICAL"
+                    }
+                ],
+                "cluster_size": 5,
+                "sensor_diversity": 1,
+                "confidence_score": 0.54,
+                "carbon_risk": {
+                    "total_mtco2_risk": 4937.5,
+                    "biomass_loss": 4625.0,
+                    "sequestration_lost": 312.5,
+                    "area_estimate_ha": 25.0,
+                    "forest_baseline": "Pine/Oak (Hazara)"
+                },
+                "wind_aware": true,
+                "spread_risk_index": 0.18,
+                "wind_deg": 0,
+                "lat": 34.1689,
+                "lon": 73.2215
+            },
+            "evidence": {}
+        },
+        {
+            "timestamp": "2026-03-30T14:04:01.336544",
+            "cluster_id": "GL-33F5E6",
+            "action": "VERIFIED",
+            "reasoning": "",
+            "meta": {
+                "strategic_narrative": "\ud83d\udce1 Tactical signal grouping identified near SOUTH DIVISION BUFFER. Synchronizing 2 tactical data-feeds via 1 validated sensors. MONO-VECTOR DENSITY: High localized concentration suggests point-source event.",
+                "member_feed": [
+                    {
+                        "id": "A70CE13F",
+                        "source": "NASA-FIRMS",
+                        "type": "fire",
+                        "conf": "TACTICAL"
+                    },
+                    {
+                        "id": "A70CE13F",
+                        "source": "NASA-FIRMS",
+                        "type": "fire",
+                        "conf": "TACTICAL"
+                    }
+                ],
+                "cluster_size": 2,
+                "sensor_diversity": 1,
+                "confidence_score": 0.6,
+                "carbon_risk": {
+                    "total_mtco2_risk": 1975.0,
+                    "biomass_loss": 1850.0,
+                    "sequestration_lost": 125.0,
+                    "area_estimate_ha": 10.0,
+                    "forest_baseline": "Pine/Oak (Hazara)"
+                },
+                "wind_aware": true,
+                "spread_risk_index": 0.18,
+                "wind_deg": 0,
+                "lat": 34.3308,
+                "lon": 73.1968
+            },
+            "evidence": {}
+        },
+        {
+            "timestamp": "2026-03-30T14:05:57.852982",
+            "cluster_id": "GL-D8C443",
+            "action": "VERIFIED",
+            "reasoning": "",
+            "meta": {
+                "strategic_narrative": "\ud83d\udef0\ufe0f Multispectral anomaly confirmed within SOUTH DIVISION BUFFER. Synchronizing 2 tactical data-feeds via 1 validated sensors. INDIVIDUAL INCURSION: Singular sensor array tracking localized anomaly.",
+                "member_feed": [
+                    {
+                        "id": "682E62FB",
+                        "source": "NASA-FIRMS",
+                        "type": "fire",
+                        "conf": "TACTICAL"
+                    },
+                    {
+                        "id": "682E62FB",
+                        "source": "NASA-FIRMS",
+                        "type": "fire",
+                        "conf": "TACTICAL"
+                    }
+                ],
+                "cluster_size": 2,
+                "sensor_diversity": 1,
+                "confidence_score": 0.55,
+                "carbon_risk": {
+                    "total_mtco2_risk": 1975.0,
+                    "biomass_loss": 1850.0,
+                    "sequestration_lost": 125.0,
+                    "area_estimate_ha": 10.0,
+                    "forest_baseline": "Pine/Oak (Hazara)"
+                },
+                "wind_aware": true,
+                "spread_risk_index": 0.18,
+                "wind_deg": 0,
+                "lat": 34.0753,
+                "lon": 73.3916
+            },
+            "evidence": {}
+        },
+        {
+            "timestamp": "2026-03-30T14:06:28.881016",
+            "cluster_id": "GL-32702B",
+            "action": "VERIFIED",
+            "reasoning": "",
+            "meta": {
+                "strategic_narrative": "\ud83d\udce1 Tactical signal grouping identified near EASTERN RIDGE CORRIDOR. Correlating 4 active data-points across 2 independent arrays. CRITICAL INCURSION: Thermal-deforestation synergy detected.",
+                "member_feed": [
+                    {
+                        "id": "704AFD49",
+                        "source": "NASA-FIRMS",
+                        "type": "fire",
+                        "conf": "TACTICAL"
+                    },
+                    {
+                        "id": "704AFD49",
+                        "source": "NASA-FIRMS",
+                        "type": "fire",
+                        "conf": "TACTICAL"
+                    },
+                    {
+                        "id": "GFW-Man8",
+                        "source": "GFW-Integrated",
+                        "type": "deforestation",
+                        "conf": "TACTICAL"
+                    },
+                    {
+                        "id": "GFW-Man3",
+                        "source": "GFW-Integrated",
+                        "type": "deforestation",
+                        "conf": "TACTICAL"
+                    }
+                ],
+                "cluster_size": 4,
+                "sensor_diversity": 2,
+                "confidence_score": 0.69,
+                "carbon_risk": {
+                    "total_mtco2_risk": 3950.0,
+                    "biomass_loss": 3700.0,
+                    "sequestration_lost": 250.0,
+                    "area_estimate_ha": 20.0,
+                    "forest_baseline": "Pine/Oak (Hazara)"
+                },
+                "wind_aware": true,
+                "spread_risk_index": 0.18,
+                "wind_deg": 0,
+                "lat": 34.5491,
+                "lon": 73.3508
+            },
+            "evidence": {}
+        },
+        {
+            "timestamp": "2026-03-30T14:11:10.259473",
+            "cluster_id": "GL-6D116D",
+            "action": "VERIFIED",
+            "reasoning": "",
+            "meta": {
+                "strategic_narrative": "\ud83d\udccd Intelligence Hot-Zone detected in NORTH HAZARA SECTOR. Synchronizing 2 tactical data-feeds via 1 validated sensors. PRELIMINARY CLUSTER: Initial grouping requiring ground-truth verification.",
+                "member_feed": [
+                    {
+                        "id": "5CFE979B",
+                        "source": "NASA-FIRMS",
+                        "type": "fire",
+                        "conf": "TACTICAL"
+                    },
+                    {
+                        "id": "5CFE979B",
+                        "source": "NASA-FIRMS",
+                        "type": "fire",
+                        "conf": "TACTICAL"
+                    }
+                ],
+                "cluster_size": 2,
+                "sensor_diversity": 1,
+                "confidence_score": 0.57,
+                "carbon_risk": {
+                    "total_mtco2_risk": 1975.0,
+                    "biomass_loss": 1850.0,
+                    "sequestration_lost": 125.0,
+                    "area_estimate_ha": 10.0,
+                    "forest_baseline": "Pine/Oak (Hazara)"
+                },
+                "wind_aware": true,
+                "spread_risk_index": 0.18,
+                "wind_deg": 0,
+                "lat": 35.21,
+                "lon": 73.35
+            },
+            "evidence": {}
+        },
+        {
+            "timestamp": "2026-03-30T14:11:36.575441",
+            "cluster_id": "GL-387EC1",
+            "action": "VERIFIED",
+            "reasoning": "",
+            "meta": {
+                "strategic_narrative": "\ud83d\udce1 Tactical signal grouping identified near EASTERN RIDGE CORRIDOR. Fusing 2 distinct signals from 1 sensors. PRELIMINARY CLUSTER: Initial grouping requiring ground-truth verification.",
+                "member_feed": [
+                    {
+                        "id": "704AFD49",
+                        "source": "NASA-FIRMS",
+                        "type": "fire",
+                        "conf": "TACTICAL"
+                    },
+                    {
+                        "id": "704AFD49",
+                        "source": "NASA-FIRMS",
+                        "type": "fire",
+                        "conf": "TACTICAL"
+                    }
+                ],
+                "cluster_size": 2,
+                "sensor_diversity": 1,
+                "confidence_score": 0.57,
+                "carbon_risk": {
+                    "total_mtco2_risk": 1975.0,
+                    "biomass_loss": 1850.0,
+                    "sequestration_lost": 125.0,
+                    "area_estimate_ha": 10.0,
+                    "forest_baseline": "Pine/Oak (Hazara)"
+                },
+                "wind_aware": true,
+                "spread_risk_index": 0.18,
+                "wind_deg": 0,
+                "lat": 34.1689,
+                "lon": 73.2215
+            },
+            "evidence": {}
+        },
+        {
+            "timestamp": "2026-03-30T14:12:22.496105",
+            "cluster_id": "GL-93742A",
+            "action": "VERIFIED",
+            "reasoning": "",
+            "meta": {
+                "strategic_narrative": "\ud83d\udccd Intelligence Hot-Zone detected in NORTH HAZARA SECTOR. Fusing 2 distinct signals from 1 sensors. PRELIMINARY CLUSTER: Initial grouping requiring ground-truth verification.",
+                "member_feed": [
+                    {
+                        "id": "GFW-Dir6",
+                        "source": "GFW-Integrated",
+                        "type": "deforestation",
+                        "conf": "TACTICAL"
+                    },
+                    {
+                        "id": "GFW-Dir6",
+                        "source": "GFW-Integrated",
+                        "type": "deforestation",
+                        "conf": "TACTICAL"
+                    }
+                ],
+                "cluster_size": 2,
+                "sensor_diversity": 1,
+                "confidence_score": 0.37,
+                "carbon_risk": {
+                    "total_mtco2_risk": 1975.0,
+                    "biomass_loss": 1850.0,
+                    "sequestration_lost": 125.0,
+                    "area_estimate_ha": 10.0,
+                    "forest_baseline": "Pine/Oak (Hazara)"
+                },
+                "wind_aware": false,
+                "lat": 34.3308,
+                "lon": 73.1968
+            },
+            "evidence": {}
+        },
+        {
+            "timestamp": "2026-03-30T14:18:42.373037",
+            "cluster_id": "GL-2FBF18",
+            "action": "VERIFIED",
+            "reasoning": "",
+            "meta": {
+                "strategic_narrative": "\ud83d\udccd Intelligence Hot-Zone detected in SOUTH DIVISION BUFFER. Correlating 2 active data-points across 1 independent arrays. PRELIMINARY CLUSTER: Initial grouping requiring ground-truth verification.",
+                "member_feed": [
+                    {
+                        "id": "7D3E1CBD",
+                        "source": "NASA-FIRMS",
+                        "type": "fire",
+                        "conf": "TACTICAL"
+                    },
+                    {
+                        "id": "7D3E1CBD",
+                        "source": "NASA-FIRMS",
+                        "type": "fire",
+                        "conf": "TACTICAL"
+                    }
+                ],
+                "cluster_size": 2,
+                "sensor_diversity": 1,
+                "confidence_score": 0.5,
+                "carbon_risk": {
+                    "total_mtco2_risk": 1975.0,
+                    "biomass_loss": 1850.0,
+                    "sequestration_lost": 125.0,
+                    "area_estimate_ha": 10.0,
+                    "forest_baseline": "Pine/Oak (Hazara)"
+                },
+                "wind_aware": true,
+                "spread_risk_index": 0.18,
+                "wind_deg": 0,
+                "lat": 34.0753,
+                "lon": 73.3916
+            },
+            "evidence": {}
+        },
+        {
+            "timestamp": "2026-03-30T14:20:32.372415",
+            "cluster_id": "GL-377245",
+            "action": "VERIFIED",
+            "reasoning": "",
+            "meta": {
+                "strategic_narrative": "\ud83d\udef0\ufe0f Multispectral anomaly confirmed within SOUTH DIVISION BUFFER. Synchronizing 2 tactical data-feeds via 1 validated sensors. PRELIMINARY CLUSTER: Initial grouping requiring ground-truth verification.",
+                "member_feed": [
+                    {
+                        "id": "A6CE3260",
+                        "source": "NASA-FIRMS",
+                        "type": "fire",
+                        "conf": "TACTICAL"
+                    },
+                    {
+                        "id": "A6CE3260",
+                        "source": "NASA-FIRMS",
+                        "type": "fire",
+                        "conf": "TACTICAL"
+                    }
+                ],
+                "cluster_size": 2,
+                "sensor_diversity": 1,
+                "confidence_score": 0.55,
+                "carbon_risk": {
+                    "total_mtco2_risk": 1975.0,
+                    "biomass_loss": 1850.0,
+                    "sequestration_lost": 125.0,
+                    "area_estimate_ha": 10.0,
+                    "forest_baseline": "Pine/Oak (Hazara)"
+                },
+                "wind_aware": true,
+                "spread_risk_index": 0.18,
+                "wind_deg": 0,
+                "lat": 34.5491,
+                "lon": 73.3508
+            },
+            "evidence": {}
+        },
+        {
+            "timestamp": "2026-03-30T14:22:12.429272",
+            "cluster_id": "GL-421E08",
+            "action": "DISMISSED",
+            "reasoning": "",
+            "meta": {
+                "strategic_narrative": "\ud83d\udce1 Tactical signal grouping identified near SOUTH DIVISION BUFFER. Correlating 2 active data-points across 1 independent arrays. MONO-VECTOR DENSITY: High localized concentration suggests point-source event.",
+                "member_feed": [
+                    {
+                        "id": "AD97DCFE",
+                        "source": "NASA-FIRMS",
+                        "type": "fire",
+                        "conf": "TACTICAL"
+                    },
+                    {
+                        "id": "AD97DCFE",
+                        "source": "NASA-FIRMS",
+                        "type": "fire",
+                        "conf": "TACTICAL"
+                    }
+                ],
+                "cluster_size": 2,
+                "sensor_diversity": 1,
+                "confidence_score": 0.57,
+                "carbon_risk": {
+                    "total_mtco2_risk": 1975.0,
+                    "biomass_loss": 1850.0,
+                    "sequestration_lost": 125.0,
+                    "area_estimate_ha": 10.0,
+                    "forest_baseline": "Pine/Oak (Hazara)"
+                },
+                "wind_aware": true,
+                "spread_risk_index": 0.18,
+                "wind_deg": 0
+            },
+            "evidence": {}
+        },
+        {
+            "timestamp": "2026-03-30T14:22:35.073077",
+            "cluster_id": "GL-C47AE6",
+            "action": "VERIFIED",
+            "reasoning": "",
+            "meta": {
+                "strategic_narrative": "\ud83d\udce1 Tactical signal grouping identified near SOUTH DIVISION BUFFER. Synchronizing 2 tactical data-feeds via 1 validated sensors. MONO-VECTOR DENSITY: High localized concentration suggests point-source event.",
+                "member_feed": [
+                    {
+                        "id": "CD44317F",
+                        "source": "NASA-FIRMS",
+                        "type": "fire",
+                        "conf": "TACTICAL"
+                    },
+                    {
+                        "id": "CD44317F",
+                        "source": "NASA-FIRMS",
+                        "type": "fire",
+                        "conf": "TACTICAL"
+                    }
+                ],
+                "cluster_size": 2,
+                "sensor_diversity": 1,
+                "confidence_score": 0.54,
+                "carbon_risk": {
+                    "total_mtco2_risk": 1975.0,
+                    "biomass_loss": 1850.0,
+                    "sequestration_lost": 125.0,
+                    "area_estimate_ha": 10.0,
+                    "forest_baseline": "Pine/Oak (Hazara)"
+                },
+                "wind_aware": true,
+                "spread_risk_index": 0.18,
+                "wind_deg": 0,
+                "lat": 35.21,
+                "lon": 73.35
+            },
+            "evidence": {}
+        },
+        {
+            "timestamp": "2026-03-30T14:56:01.819224",
+            "cluster_id": "GL-21DDB7",
+            "action": "VERIFIED",
+            "reasoning": "",
+            "meta": {
+                "strategic_narrative": "\ud83d\udccd Intelligence Hot-Zone detected in SOUTH DIVISION BUFFER. Fusing 2 distinct signals from 1 sensors. PRELIMINARY CLUSTER: Initial grouping requiring ground-truth verification.",
+                "member_feed": [
+                    {
+                        "id": "D5538EF7",
+                        "source": "NASA-FIRMS",
+                        "type": "fire",
+                        "conf": "TACTICAL"
+                    },
+                    {
+                        "id": "D5538EF7",
+                        "source": "NASA-FIRMS",
+                        "type": "fire",
+                        "conf": "TACTICAL"
+                    }
+                ],
+                "cluster_size": 2,
+                "sensor_diversity": 1,
+                "confidence_score": 0.48,
+                "carbon_risk": {
+                    "total_mtco2_risk": 1975.0,
+                    "biomass_loss": 1850.0,
+                    "sequestration_lost": 125.0,
+                    "area_estimate_ha": 10.0,
+                    "forest_baseline": "Pine/Oak (Hazara)"
+                },
+                "wind_aware": true,
+                "spread_risk_index": 0.21,
+                "wind_deg": 0,
+                "lat": 34.1689,
+                "lon": 73.2215
+            },
+            "evidence": {}
+        },
+        {
+            "timestamp": "2026-04-02T12:58:09.973549",
+            "cluster_id": "GL-E5531F",
+            "action": "DISPATCHED",
+            "reasoning": "Autonomous Trigger (Severity/Verification)",
+            "meta": {
+                "strategic_narrative": "\ud83d\udee1\ufe0f VERIFIED INCIDENT: Ground-truth confirmed. Enforcement Active. | \ud83d\udce1 Localized incursion identified within Buner (135.9km). Correlating 1 active data-points across 1 independent arrays. MONO-VECTOR DENSITY: High localized concentration suggests point-source event.",
+                "member_feed": [
+                    {
+                        "id": "BACD1A53",
+                        "source": "NASA-FIRMS",
+                        "type": "fire",
+                        "conf": "TACTICAL"
+                    }
+                ],
+                "cluster_size": 1,
+                "sensor_diversity": 1,
+                "confidence_score": 1.0,
+                "carbon_risk": {
+                    "total_mtco2_risk": 987.5,
+                    "biomass_loss": 925.0,
+                    "sequestration_lost": 62.5,
+                    "area_estimate_ha": 5.0,
+                    "forest_baseline": "Pine/Oak (Hazara)"
+                },
+                "wind_aware": true,
+                "spread_risk_index": 0.28,
+                "wind_deg": 0
+            },
+            "evidence": {}
+        },
+        {
+            "timestamp": "2026-04-02T12:58:56.633121",
+            "cluster_id": "GL-AC9A24",
+            "action": "VERIFIED",
+            "reasoning": "",
+            "meta": {
+                "strategic_narrative": "\ud83d\udef0\ufe0f Signal concentration confirmed in Haripur (161.7km). Correlating 2 active data-points across 1 independent arrays. PRELIMINARY CLUSTER in Haripur (161.7km): Initial grouping requiring ground-truth verification.",
+                "member_feed": [
+                    {
+                        "id": "5C93A64D",
+                        "source": "NASA-FIRMS",
+                        "type": "fire",
+                        "conf": "TACTICAL"
+                    },
+                    {
+                        "id": "3640B4E0",
+                        "source": "NASA-FIRMS",
+                        "type": "fire",
+                        "conf": "TACTICAL"
+                    }
+                ],
+                "cluster_size": 2,
+                "sensor_diversity": 1,
+                "confidence_score": 0.5,
+                "carbon_risk": {
+                    "total_mtco2_risk": 1975.0,
+                    "biomass_loss": 1850.0,
+                    "sequestration_lost": 125.0,
+                    "area_estimate_ha": 10.0,
+                    "forest_baseline": "Pine/Oak (Hazara)"
+                },
+                "wind_aware": true,
+                "spread_risk_index": 0.28,
+                "wind_deg": 0,
+                "lat": 32.573615000000004,
+                "lon": 72.5628
+            },
+            "evidence": {}
+        },
+        {
+            "timestamp": "2026-04-02T12:59:21.548394",
+            "cluster_id": "GL-AC9A24",
+            "action": "DISPATCHED",
+            "reasoning": "Autonomous Trigger (Severity/Verification)",
+            "meta": {
+                "strategic_narrative": "\ud83d\udee1\ufe0f VERIFIED INCIDENT: Ground-truth confirmed. Enforcement Active. | \ud83d\udef0\ufe0f Signal concentration confirmed in Haripur (161.7km). Correlating 2 active data-points across 1 independent arrays. PRELIMINARY CLUSTER in Haripur (161.7km): Initial grouping requiring ground-truth verification.",
+                "member_feed": [
+                    {
+                        "id": "5C93A64D",
+                        "source": "NASA-FIRMS",
+                        "type": "fire",
+                        "conf": "TACTICAL"
+                    },
+                    {
+                        "id": "3640B4E0",
+                        "source": "NASA-FIRMS",
+                        "type": "fire",
+                        "conf": "TACTICAL"
+                    }
+                ],
+                "cluster_size": 2,
+                "sensor_diversity": 1,
+                "confidence_score": 1.0,
+                "carbon_risk": {
+                    "total_mtco2_risk": 1975.0,
+                    "biomass_loss": 1850.0,
+                    "sequestration_lost": 125.0,
+                    "area_estimate_ha": 10.0,
+                    "forest_baseline": "Pine/Oak (Hazara)"
+                },
+                "wind_aware": true,
+                "spread_risk_index": 0.28,
+                "wind_deg": 0
+            },
+            "evidence": {},
+            "field_reality": {
+                "rating": "CORRECT",
+                "notes": "",
+                "updated_at": "2026-05-30T22:43:41.161675"
+            }
+        },
+        {
+            "timestamp": "2026-04-02T13:05:55.938503",
+            "cluster_id": "GL-6D116D",
+            "action": "DISPATCHED",
+            "reasoning": "Autonomous Trigger (Severity/Verification)",
+            "meta": {
+                "strategic_narrative": "\ud83d\udee1\ufe0f VERIFIED INCIDENT: Ground-truth confirmed. Enforcement Active. | \ud83d\udef0\ufe0f Signal concentration confirmed in Shangla (37.6km). Correlating 2 active data-points across 1 independent arrays. MONO-VECTOR DENSITY: High localized concentration suggests point-source event.",
+                "member_feed": [
+                    {
+                        "id": "GFW-Swa1",
+                        "source": "GFW-Integrated",
+                        "type": "deforestation",
+                        "conf": "TACTICAL"
+                    },
+                    {
+                        "id": "GFW-Swa18",
+                        "source": "GFW-Integrated",
+                        "type": "deforestation",
+                        "conf": "TACTICAL"
+                    }
+                ],
+                "cluster_size": 2,
+                "sensor_diversity": 1,
+                "confidence_score": 1.0,
+                "carbon_risk": {
+                    "total_mtco2_risk": 1975.0,
+                    "biomass_loss": 1850.0,
+                    "sequestration_lost": 125.0,
+                    "area_estimate_ha": 10.0,
+                    "forest_baseline": "Pine/Oak (Hazara)"
+                },
+                "wind_aware": false
+            },
+            "evidence": {}
+        },
+        {
+            "timestamp": "2026-04-02T19:23:35.056943",
+            "cluster_id": "GL-6D8835",
+            "action": "VERIFIED",
+            "reasoning": "",
+            "meta": {
+                "strategic_narrative": "\ud83d\udce1 Localized incursion identified within Haripur (170.4km). Fusing 2 distinct signals from 1 sensors. PRELIMINARY CLUSTER in Haripur (170.4km): Initial grouping requiring ground-truth verification.",
+                "member_feed": [
+                    {
+                        "id": "519BD557",
+                        "source": "NASA-FIRMS",
+                        "type": "fire",
+                        "conf": "TACTICAL"
+                    },
+                    {
+                        "id": "EA83740A",
+                        "source": "NASA-FIRMS",
+                        "type": "fire",
+                        "conf": "TACTICAL"
+                    }
+                ],
+                "cluster_size": 2,
+                "sensor_diversity": 1,
+                "confidence_score": 0.56,
+                "carbon_risk": {
+                    "total_mtco2_risk": 1975.0,
+                    "biomass_loss": 1850.0,
+                    "sequestration_lost": 125.0,
+                    "area_estimate_ha": 10.0,
+                    "forest_baseline": "Pine/Oak (Hazara)"
+                },
+                "wind_aware": true,
+                "spread_risk_index": 0.2,
+                "wind_deg": 0,
+                "lat": 33.26831,
+                "lon": 71.31162499999999
+            },
+            "evidence": {}
+        },
+        {
+            "timestamp": "2026-04-02T19:23:51.384271",
+            "cluster_id": "GL-6D8835",
+            "action": "DISPATCHED",
+            "reasoning": "Autonomous Trigger (Severity/Verification)",
+            "meta": {
+                "strategic_narrative": "\ud83d\udee1\ufe0f VERIFIED INCIDENT: Ground-truth confirmed. Enforcement Active. | \ud83d\udce1 Localized incursion identified within Haripur (170.4km). Fusing 2 distinct signals from 1 sensors. PRELIMINARY CLUSTER in Haripur (170.4km): Initial grouping requiring ground-truth verification.",
+                "member_feed": [
+                    {
+                        "id": "519BD557",
+                        "source": "NASA-FIRMS",
+                        "type": "fire",
+                        "conf": "TACTICAL"
+                    },
+                    {
+                        "id": "EA83740A",
+                        "source": "NASA-FIRMS",
+                        "type": "fire",
+                        "conf": "TACTICAL"
+                    }
+                ],
+                "cluster_size": 2,
+                "sensor_diversity": 1,
+                "confidence_score": 1.0,
+                "carbon_risk": {
+                    "total_mtco2_risk": 1975.0,
+                    "biomass_loss": 1850.0,
+                    "sequestration_lost": 125.0,
+                    "area_estimate_ha": 10.0,
+                    "forest_baseline": "Pine/Oak (Hazara)"
+                },
+                "wind_aware": true,
+                "spread_risk_index": 0.2,
+                "wind_deg": 0
+            },
+            "evidence": {}
+        },
+        {
+            "timestamp": "2026-04-08T23:02:50.299014",
+            "cluster_id": "test_feedback_123",
+            "action": "DISPATCHED",
+            "reasoning": "Test dispatch for feedback loop verification",
+            "meta": {
+                "lat": 34.1,
+                "lon": 73.1
+            },
+            "evidence": {},
+            "field_reality": {
+                "rating": "CORRECT",
+                "notes": "Ground team confirmed illegal logging at coordinates.",
+                "updated_at": "2026-04-08T23:02:50.766826"
+            }
+        },
+        {
+            "timestamp": "2026-04-08T23:03:22.094444",
+            "cluster_id": "test_feedback_123",
+            "action": "DISPATCHED",
+            "reasoning": "Test dispatch for feedback loop verification",
+            "meta": {
+                "lat": 34.1,
+                "lon": 73.1
+            },
+            "evidence": {},
+            "field_reality": {
+                "rating": "CORRECT",
+                "notes": "Ground team confirmed illegal logging at coordinates.",
+                "updated_at": "2026-04-08T23:03:22.175834"
+            }
+        },
+        {
+            "timestamp": "2026-04-08T23:06:05.840088",
+            "cluster_id": "test_feedback_123",
+            "action": "DISPATCHED",
+            "reasoning": "Test dispatch for feedback loop verification",
+            "meta": {
+                "lat": 34.1,
+                "lon": 73.1
+            },
+            "evidence": {},
+            "field_reality": {
+                "rating": "CORRECT",
+                "notes": "Ground team confirmed illegal logging at coordinates.",
+                "updated_at": "2026-04-08T23:06:05.913637"
+            }
+        },
+        {
+            "timestamp": "2026-04-12T21:28:17.387274",
+            "cluster_id": "PROP-GL-78EFAA",
+            "action": "EVIDENCE_GENERATED",
+            "reasoning": "Manual Export for Legal Evidence",
+            "meta": {
+                "strategic_narrative": "\ud83d\udd2e 30-DAY FORECAST: High propensity for deforestation expansion modeled via wind vectors (203\u00b0) and terrain bleed.",
+                "confidence_score": 0.85,
+                "target_horizon": "30 Days",
+                "origin_cluster": "GL-78EFAA",
+                "vulnerability_score": 50.0
+            },
+            "evidence": {
+                "filepath": "E:\\GL_AI\\src\\ui\\data\\legal_exports\\evidence_PROP-GL-78EFAA.md",
+                "filename": "evidence_PROP-GL-78EFAA.md",
+                "hash": "b83451ba5ee24618e16eea9b4be0d25c"
+            }
+        },
+        {
+            "timestamp": "2026-06-06T20:37:57.994253",
+            "cluster_id": "PROP-GL-FF498C",
+            "action": "EVIDENCE_GENERATED",
+            "reasoning": "Manual Export for Legal Evidence",
+            "meta": {
+                "strategic_narrative": "\ud83d\udd2e 30-DAY FORECAST: High propensity for fire expansion modeled via wind vectors (101\u00b0) and terrain bleed.",
+                "confidence_score": 0.85,
+                "target_horizon": "30 Days",
+                "origin_cluster": "GL-FF498C",
+                "vulnerability_score": 35.0
+            },
+            "evidence": {
+                "filepath": "E:\\GL_AI\\data\\legal_exports\\evidence_PROP-GL-FF498C.md",
+                "filename": "evidence_PROP-GL-FF498C.md",
+                "hash": "8a215d23319efe2da1fe9ab6f6b8d721"
+            }
+        }
+    ],
+    "version": "1.0"
+}

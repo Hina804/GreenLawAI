@@ -1,0 +1,147 @@
+/* GreenLawAI Light Theme - Premium Styles */
+
+/* Main Background - Clean White */
+.stApp {
+    background-color: #ffffff;
+    color: #1f2937;
+}
+
+/* Sidebar - Light Gray */
+[data-testid="stSidebar"] {
+    background-color: #f9fafb;
+    border-right: 1px solid #e5e7eb;
+}
+
+/* Input Fields */
+.stTextInput>div>div>input {
+    background-color: #ffffff !important;
+    color: #1f2937 !important;
+    border: 3px solid #10b981 !important;
+    border-radius: 12px !important;
+    padding: 16px !important;
+    font-size: 18px !important;
+    font-weight: 500 !important;
+    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.2) !important;
+}
+
+.stTextInput>div>div>input:focus {
+    border-color: #059669 !important;
+    box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.2) !important;
+    outline: none !important;
+}
+
+/* Chat Input */
+.stChatInput>div>div>textarea {
+    background-color: #ffffff !important;
+    color: #1f2937 !important;
+    border: 3px solid #10b981 !important;
+    border-radius: 12px !important;
+    padding: 16px !important;
+    font-size: 18px !important;
+}
+
+.stChatInput>div>div>textarea:focus {
+    border-color: #059669 !important;
+    box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.2) !important;
+}
+
+/* Chat Messages */
+.stChatMessage {
+    background-color: transparent;
+    border: none;
+}
+
+[data-testid="stChatMessageContent"] {
+    background-color: #f3f4f6;
+    border-radius: 12px;
+    padding: 12px;
+}
+
+/* Headers */
+h1,
+h2,
+h3 {
+    font-family: 'Inter', sans-serif;
+    color: #10b981 !important;
+}
+
+/* Buttons */
+.stButton>button {
+    background-color: #10b981 !important;
+    color: white !important;
+    border: none !important;
+    border-radius: 10px !important;
+    font-weight: 700 !important;
+    padding: 14px 32px !important;
+    font-size: 16px !important;
+    transition: all 0.3s ease !important;
+    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3) !important;
+}
+
+.stButton>button:hover {
+    background-color: #059669 !important;
+    box-shadow: 0 6px 16px rgba(16, 185, 129, 0.4) !important;
+    transform: translateY(-2px) !important;
+}
+
+.stButton>button:active {
+    transform: translateY(0) !important;
+}
+
+/* Expanders */
+.streamlit-expanderHeader {
+    background-color: #f3f4f6;
+    color: #1f2937;
+    border-radius: 8px;
+    border: 1px solid #e5e7eb;
+}
+
+/* Code Blocks */
+code {
+    color: #10b981;
+    background-color: #f3f4f6;
+    padding: 3px 6px;
+    border-radius: 4px;
+    font-family: 'Courier New', monospace;
+}
+
+/* Scrollbars */
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f9fafb;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #d1d5db;
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #10b981;
+}
+
+/* Alerts */
+.stSuccess {
+    background-color: #d1fae5;
+    color: #065f46;
+}
+
+.stWarning {
+    background-color: #fef3c7;
+    color: #92400e;
+}
+
+/* Spinner */
+.stSpinner>div {
+    border-color: #10b981 !important;
+}
+
+/* Layout Control */
+.main .block-container {
+    max-height: calc(100vh - 100px);
+    padding-bottom: 20px;
+}

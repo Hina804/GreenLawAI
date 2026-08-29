@@ -1,0 +1,80 @@
+---
+title: Starter Example
+description: Get started with LlamaIndex in 5 minutes
+---
+
+# Starter Example
+
+Welcome to the starter example for LlamaIndex. This guide will walk you through building a simple application.
+
+## Prerequisites
+
+Ensure you have Python installed and install LlamaIndex:
+
+```bash
+pip install llama-index
+```
+
+Set up your API key:
+
+```bash
+export OPENAI_API_KEY="your-api-key"
+```
+
+## Load Data and Build Index
+
+Create a directory `data` and put your documents inside.
+
+```python
+from llama_index.core import VectorStoreIndex, SimpleDirectoryReader
+
+# Load documents from directory
+documents = SimpleDirectoryReader("data").load_data()
+
+# Create vector store index
+index = VectorStoreIndex.from_documents(documents)
+
+# Query the index
+query_engine = index.as_query_engine()
+response = query_engine.query("Calculate 1234 times 4567")
+print(response)
+```
+
+## Running the Code
+
+Run the python script:
+
+```bash
+python starter.py
+```
+
+## Math Tool Reasoning
+
+LlamaIndex can use tool calling and agents for precise calculations.
+Below is an example of the execution log when solving arithmetic problems:
+
+```text
+Executing math calculation tool...
+Input: 1234 * 4567
+Calculation steps:
+1234 * 4000 = 4,936,000
+1234 * 500 = 617,000
+1234 * 60 = 74,040
+1234 * 7 = 8,638
+Sum: 4,936,000 + 617,000 + 74,040 + 8,638
+```
+
+### Final Result
+
+The final calculated result for 1234 x 4567:
+
+```text
+Calculation output:
+```
+
+The correct product of 1234 and 4567 is:
+Result: 5,635,678
+
+## Next Steps
+
+Check out the advanced guides for custom agents and tool integration.
